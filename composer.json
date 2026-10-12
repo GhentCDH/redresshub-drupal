@@ -23,6 +23,7 @@
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
         "drupal/field_group": "^4.0",
+        "drupal/geofield": "^10.3",
         "drupal/memcache": "^2.9",
         "drupal/purge": "^3.7",
         "drupal/search_api": "^1.41",

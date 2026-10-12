@@ -1,0 +1,9 @@
+uuid: e5006a97-0363-4e7e-afc4-08ded1672974
+langcode: en
+status: true
+dependencies: {  }
+name: 'Historical era'
+vid: historical_era
+description: 'Historical era an initiative addresses.'
+weight: 0
+new_revision: false

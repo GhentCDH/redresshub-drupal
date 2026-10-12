@@ -1,0 +1,25 @@
+uuid: 76f31c16-4039-401c-8962-a740bf099efc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_injustice_type
+    - node.type.initiative
+    - taxonomy.vocabulary.injustice_type
+id: node.initiative.field_injustice_type
+field_name: field_injustice_type
+entity_type: node
+bundle: initiative
+label: 'Type of injustice'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      injustice_type: injustice_type
+    auto_create: false
+field_type: entity_reference

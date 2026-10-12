@@ -1,0 +1,9 @@
+uuid: abb0ed92-6555-4bde-a04e-e111b63d27b6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Type of injustice'
+vid: injustice_type
+description: 'Type of injustice an initiative addresses.'
+weight: 0
+new_revision: false

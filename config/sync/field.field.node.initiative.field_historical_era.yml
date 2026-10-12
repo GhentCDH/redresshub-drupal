@@ -1,0 +1,25 @@
+uuid: 500049ee-1bcd-41e5-826c-87610a89ac47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_historical_era
+    - node.type.initiative
+    - taxonomy.vocabulary.historical_era
+id: node.initiative.field_historical_era
+field_name: field_historical_era
+entity_type: node
+bundle: initiative
+label: 'Historical era'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      historical_era: historical_era
+    auto_create: false
+field_type: entity_reference

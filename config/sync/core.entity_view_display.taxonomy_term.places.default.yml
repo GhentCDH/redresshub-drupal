@@ -1,0 +1,32 @@
+uuid: 3de9782f-5fc4-49c0-93b4-4f0f6c87c0d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.places.field_coordinates
+    - taxonomy.vocabulary.places
+  module:
+    - geofield
+    - text
+id: taxonomy_term.places.default
+targetEntityType: taxonomy_term
+bundle: places
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_coordinates:
+    type: geofield_latlon
+    label: above
+    settings:
+      output_format: decimal
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

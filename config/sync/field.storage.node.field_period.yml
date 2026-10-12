@@ -1,0 +1,20 @@
+uuid: 82b7d055-3249-4f6b-9ead-0bb91798a2e7
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime_range
+    - node
+id: node.field_period
+field_name: field_period
+entity_type: node
+type: daterange
+settings:
+  datetime_type: date
+module: datetime_range
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

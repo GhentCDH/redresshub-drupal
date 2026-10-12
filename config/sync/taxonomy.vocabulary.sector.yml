@@ -1,0 +1,9 @@
+uuid: 2306915b-3b32-4bc9-b952-cd2c6d9e7ba2
+langcode: en
+status: true
+dependencies: {  }
+name: Sector
+vid: sector
+description: 'Sector of an organisation (called "Organisation type" in Nodegoat).'
+weight: 0
+new_revision: false

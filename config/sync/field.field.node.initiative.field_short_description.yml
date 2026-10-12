@@ -1,0 +1,22 @@
+uuid: 085b9af3-e196-4a36-b087-727cb4121f5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_description
+    - node.type.initiative
+  module:
+    - text
+id: node.initiative.field_short_description
+field_name: field_short_description
+entity_type: node
+bundle: initiative
+label: 'Short description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

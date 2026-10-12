@@ -1,0 +1,25 @@
+uuid: 200a6a0c-6080-4965-9c48-e19355ee8e90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sector
+    - node.type.organisation
+    - taxonomy.vocabulary.sector
+id: node.organisation.field_sector
+field_name: field_sector
+entity_type: node
+bundle: organisation
+label: Sector
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sector: sector
+    auto_create: false
+field_type: entity_reference

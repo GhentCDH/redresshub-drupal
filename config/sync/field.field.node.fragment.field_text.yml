@@ -1,0 +1,22 @@
+uuid: 2f95aed7-570d-4a9e-b18c-b4bcd797915a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text
+    - node.type.fragment
+  module:
+    - text
+id: node.fragment.field_text
+field_name: field_text
+entity_type: node
+bundle: fragment
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,11 @@
+uuid: e23c6002-b72e-4f03-bc1a-fcef494f08b3
+langcode: en
+status: true
+dependencies: {  }
+name: Initiative
+type: initiative
+description: 'A redress initiative, shown on the map.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

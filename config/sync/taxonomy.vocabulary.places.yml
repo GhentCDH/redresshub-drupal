@@ -1,0 +1,9 @@
+uuid: cdcc0845-9432-43cf-a043-e35c346eac30
+langcode: en
+status: true
+dependencies: {  }
+name: Places
+vid: places
+description: 'Countries with their cities below them.'
+weight: 0
+new_revision: false

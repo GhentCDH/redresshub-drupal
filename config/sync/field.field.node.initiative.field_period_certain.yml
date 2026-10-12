@@ -1,0 +1,23 @@
+uuid: 9ae1f5fa-ea9f-4a2a-8795-eee285a88e62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_period_certain
+    - node.type.initiative
+id: node.initiative.field_period_certain
+field_name: field_period_certain
+entity_type: node
+bundle: initiative
+label: 'Period is certain'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Certain
+  off_label: Uncertain
+field_type: boolean

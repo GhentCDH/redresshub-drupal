@@ -1,0 +1,30 @@
+uuid: 29f500da-b253-4386-9e64-7f3269ff8345
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media
+    - media.type.audio
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.fragment
+id: node.fragment.field_media
+field_name: field_media
+entity_type: node
+bundle: fragment
+label: Media
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      audio: audio
+      video: video
+      remote_video: remote_video
+field_type: entity_reference

@@ -1,0 +1,11 @@
+uuid: 42aa2b25-3a0f-4e56-b0b0-31f08ff1b653
+langcode: en
+status: true
+dependencies: {  }
+name: Organisation
+type: organisation
+description: 'An organisation linked to initiatives.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

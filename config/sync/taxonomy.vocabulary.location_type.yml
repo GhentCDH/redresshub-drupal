@@ -1,0 +1,9 @@
+uuid: 861f35d2-9b0a-476e-aaf0-60883f465d3e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Location type'
+vid: location_type
+description: 'What a location represents (e.g. office, monument).'
+weight: 0
+new_revision: false

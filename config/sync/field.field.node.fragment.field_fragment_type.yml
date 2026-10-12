@@ -1,0 +1,21 @@
+uuid: e22a7474-4ce6-4c8d-a26a-fda6928322ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fragment_type
+    - node.type.fragment
+  module:
+    - options
+id: node.fragment.field_fragment_type
+field_name: field_fragment_type
+entity_type: node
+bundle: fragment
+label: 'Fragment type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

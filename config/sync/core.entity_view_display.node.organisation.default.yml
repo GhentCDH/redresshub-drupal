@@ -1,0 +1,85 @@
+uuid: 3e559106-954c-48c2-9814-42dafda0a6a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.organisation.field_general_contact
+    - field.field.node.organisation.field_locations
+    - field.field.node.organisation.field_organisation_status
+    - field.field.node.organisation.field_period
+    - field.field.node.organisation.field_predecessor
+    - field.field.node.organisation.field_sector
+    - field.field.node.organisation.field_website
+    - node.type.organisation
+  module:
+    - datetime_range
+    - link
+    - user
+id: node.organisation.default
+targetEntityType: node
+bundle: organisation
+mode: default
+content:
+  field_locations:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_organisation_status:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_period:
+    type: daterange_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+      from_to: both
+      separator: –
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_predecessor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_sector:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_website:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_general_contact: true
+  search_api_excerpt: true

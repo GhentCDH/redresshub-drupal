@@ -1,0 +1,25 @@
+uuid: c777e919-24d4-419a-b013-d0e0e2878815
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_initiative_type
+    - node.type.initiative
+    - taxonomy.vocabulary.initiative_type
+id: node.initiative.field_initiative_type
+field_name: field_initiative_type
+entity_type: node
+bundle: initiative
+label: 'Type of initiative'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      initiative_type: initiative_type
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: 9b12e9be-bcc1-4206-92f6-bebd8e9c7efc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_resources
+    - node.type.initiative
+  module:
+    - link
+id: node.initiative.field_resources
+field_name: field_resources
+entity_type: node
+bundle: initiative
+label: Resources
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

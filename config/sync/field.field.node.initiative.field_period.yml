@@ -1,0 +1,21 @@
+uuid: 7397f678-d3f2-46f6-8c9f-1cfce5b180a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_period
+    - node.type.initiative
+  module:
+    - datetime_range
+id: node.initiative.field_period
+field_name: field_period
+entity_type: node
+bundle: initiative
+label: Period
+description: 'Leave the end date empty when it is still ongoing.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

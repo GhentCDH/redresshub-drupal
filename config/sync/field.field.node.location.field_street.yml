@@ -1,0 +1,19 @@
+uuid: be164f64-d911-4d5b-8906-09a0f9b5a6af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_street
+    - node.type.location
+id: node.location.field_street
+field_name: field_street
+entity_type: node
+bundle: location
+label: 'Street and number'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

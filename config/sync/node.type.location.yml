@@ -1,0 +1,11 @@
+uuid: bebb9dfc-357a-46a4-b395-5a81159d85a5
+langcode: en
+status: true
+dependencies: {  }
+name: Location
+type: location
+description: 'An address with coordinates, referenced by initiatives and organisations. Has no public page of its own.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,9 @@
+uuid: c7ae1e7e-466c-456e-9fd6-69c95c62dfcb
+langcode: en
+status: true
+dependencies: {  }
+name: 'Initiative type'
+vid: initiative_type
+description: 'Type of initiative (14 categories in Nodegoat).'
+weight: 0
+new_revision: false

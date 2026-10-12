@@ -1,0 +1,11 @@
+uuid: 44033a74-82ff-424a-861a-2b2514e599b3
+langcode: en
+status: true
+dependencies: {  }
+name: Fragment
+type: fragment
+description: 'A text, image, audio or video fragment for the Uncharted page.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

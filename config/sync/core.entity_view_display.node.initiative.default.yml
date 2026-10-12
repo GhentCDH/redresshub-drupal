@@ -1,0 +1,132 @@
+uuid: 876feb46-90e0-424e-9751-96ea20917eaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.initiative.field_historical_era
+    - field.field.node.initiative.field_initiative_type
+    - field.field.node.initiative.field_injustice_type
+    - field.field.node.initiative.field_keywords
+    - field.field.node.initiative.field_organisations
+    - field.field.node.initiative.field_period
+    - field.field.node.initiative.field_period_certain
+    - field.field.node.initiative.field_place
+    - field.field.node.initiative.field_place_certain
+    - field.field.node.initiative.field_predecessor
+    - field.field.node.initiative.field_resources
+    - field.field.node.initiative.field_short_description
+    - field.field.node.initiative.field_un_category
+    - node.type.initiative
+  module:
+    - datetime_range
+    - link
+    - text
+    - user
+id: node.initiative.default
+targetEntityType: node
+bundle: initiative
+mode: default
+content:
+  field_historical_era:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_initiative_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_injustice_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_keywords:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_organisations:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_period:
+    type: daterange_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+      from_to: both
+      separator: –
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_place:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_predecessor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_resources:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_short_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_un_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_period_certain: true
+  field_place_certain: true
+  search_api_excerpt: true

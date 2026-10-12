@@ -1,0 +1,24 @@
+uuid: 7de895a2-2e63-40e0-807e-284cc90626a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_predecessor
+    - node.type.organisation
+id: node.organisation.field_predecessor
+field_name: field_predecessor
+entity_type: node
+bundle: organisation
+label: Predecessor
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      organisation: organisation
+    auto_create: false
+field_type: entity_reference

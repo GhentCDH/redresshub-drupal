@@ -1,0 +1,9 @@
+uuid: 8bb717f7-b488-45db-a2b2-577afd732d6d
+langcode: en
+status: true
+dependencies: {  }
+name: Keywords
+vid: keywords
+description: 'Initiative keywords; the keyword network is built from these.'
+weight: 0
+new_revision: false

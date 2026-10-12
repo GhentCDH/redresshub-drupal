@@ -1,0 +1,23 @@
+uuid: f1b39e1e-a235-4c2e-bc0b-8a751e85c722
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_place_certain
+    - node.type.initiative
+id: node.initiative.field_place_certain
+field_name: field_place_certain
+entity_type: node
+bundle: initiative
+label: 'Place is certain'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Certain
+  off_label: Uncertain
+field_type: boolean

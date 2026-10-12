@@ -1,0 +1,58 @@
+uuid: 809cef4e-a028-4117-af4a-1daaf5bfeb84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.location.field_city
+    - field.field.node.location.field_coordinates
+    - field.field.node.location.field_location_type
+    - field.field.node.location.field_street
+    - node.type.location
+  module:
+    - geofield
+    - user
+id: node.location.default
+targetEntityType: node
+bundle: location
+mode: default
+content:
+  field_city:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_coordinates:
+    type: geofield_latlon
+    label: above
+    settings:
+      output_format: decimal
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_location_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_street:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,9 @@
+uuid: 3ce03b69-4498-40a9-a850-30000d9ceeea
+langcode: en
+status: true
+dependencies: {  }
+name: 'Organisation status'
+vid: organisation_status
+description: 'Status of an organisation.'
+weight: 0
+new_revision: false
