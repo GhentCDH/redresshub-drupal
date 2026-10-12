@@ -1,0 +1,20 @@
+uuid: efdf6d76-ffc1-4caf-b0af-67f218a3fa7b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - redresshub
+_core:
+  default_config_hash: I4TGhfuvN0xE8ZhUOP5VBnyp6hg6BfRAxBAzfx7iFSY
+id: redresshub_page_title
+theme: redresshub
+region: content
+weight: -10
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

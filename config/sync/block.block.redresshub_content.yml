@@ -1,0 +1,22 @@
+uuid: 0ff5bd0c-99b6-4f20-921f-b17e557edad7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - redresshub
+_core:
+  default_config_hash: B1ztkafp4XtyS0M5caZWfxLxJHCZNxOa14770JbU9Dk
+id: redresshub_content
+theme: redresshub
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

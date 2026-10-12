@@ -1,0 +1,22 @@
+uuid: 71445060-4249-49f2-911c-70d22cdb6c23
+langcode: en
+status: true
+dependencies:
+  theme:
+    - redresshub
+_core:
+  default_config_hash: jaoEjobJi4HDZjyihpCF2iGB47lABq_rLZavbu-xt0M
+id: redresshub_local_tasks
+theme: redresshub
+region: content
+weight: -9
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

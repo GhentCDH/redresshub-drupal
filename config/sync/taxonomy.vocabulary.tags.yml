@@ -1,0 +1,11 @@
+uuid: bd243e1a-dac1-45e5-aa94-e7eb36d153ef
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PWTsHiwkIfp5TW-iTBc9AhBtvbYY6wrp3MopazQ-95o
+name: Tags
+vid: tags
+description: 'Use tags to group content on similar topics into categories.'
+weight: 0
+new_revision: false

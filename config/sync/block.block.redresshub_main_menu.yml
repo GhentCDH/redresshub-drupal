@@ -1,0 +1,27 @@
+uuid: 650929d0-abca-4e37-9415-170d8efef2bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - redresshub
+_core:
+  default_config_hash: ovXHSFROfE0m0YB_m4GXPkVcjOB10hhnR-bJzakj4fk
+id: redresshub_main_menu
+theme: redresshub
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

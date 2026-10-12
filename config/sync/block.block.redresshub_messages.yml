@@ -1,0 +1,22 @@
+uuid: 8f8b974a-25d0-4370-ae40-c482ef44a5c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - redresshub
+_core:
+  default_config_hash: zzFrpDLGd4wqRujhsPuTD9p-okC6BFTxJbS-f6mhHDY
+id: redresshub_messages
+theme: redresshub
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

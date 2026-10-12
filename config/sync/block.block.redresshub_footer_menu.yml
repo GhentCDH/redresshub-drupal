@@ -1,0 +1,27 @@
+uuid: 7ac42716-551a-4fd6-b744-f6ebdcaed5a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - redresshub
+_core:
+  default_config_hash: AGRHeOV7gCp2g0kj2RZMOk3pCL_cbx1yUBEPxlCxHEI
+id: redresshub_footer_menu
+theme: redresshub
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }
