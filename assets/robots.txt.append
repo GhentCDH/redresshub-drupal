@@ -1,0 +1,3 @@
+
+# Project specific rules, appended to Drupal's default robots.txt by the
+# composer scaffold plugin (see extra.drupal-scaffold in composer.json).

@@ -1,0 +1,83 @@
+name: redresshub
+
+services:
+  drupal:
+    container_name: redresshub-drupal
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      args:
+        PHP_VERSION: 8.3
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    volumes:
+      - ./config:/app/config
+      - ./initial-content:/app/initial-content:ro
+      - ./scripts:/app/scripts:ro
+      - ./assets:/app/assets:ro
+      - ./composer.json:/app/composer.json
+      - ./composer.lock:/app/composer.lock
+      - ./web/modules/custom:/app/web/modules/custom
+      - ./web/themes/custom:/app/web/themes/custom
+      - ./web/sites/default:/app/web/sites/default
+      - drupal-vendor:/app/vendor
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+      memcache:
+        condition: service_started
+
+  db:
+    container_name: redresshub-db
+    image: mysql:8.4
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - db:/var/lib/mysql
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 20s
+
+  memcache:
+    container_name: redresshub-memcache
+    image: memcached:1.6
+
+  adminer:
+    container_name: redresshub-adminer
+    image: adminer:5
+    ports:
+      - "${ADMINER_PORT:-8081}:8080"
+    environment:
+      - ADMINER_DEFAULT_SERVER=db
+    depends_on:
+      - db
+
+  # cache in front of Drupal; Drupal itself stays reachable on WEB_PORT
+  varnish:
+    container_name: redresshub-varnish
+    image: varnish:9.0
+    ports:
+      - "${VARNISH_PORT:-8088}:80"
+    volumes:
+      - ./varnish/default.vcl:/etc/varnish/default.vcl:ro
+    environment:
+      - VARNISH_SIZE=256M
+      - VARNISH_PURGE_KEY=${VARNISH_PURGE_KEY}
+    depends_on:
+      - drupal
+
+volumes:
+  db:
+  drupal-vendor:
