@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Menu blocks: a nav element with a hidden label.
+ */
+#}
+{% set heading_id = attributes.id ~ '-menu'|clean_id %}
+<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.removeAttribute('id') }}>
+  <h2{{ title_attributes.addClass('visually-hidden').setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
+  {{ content }}
+</nav>

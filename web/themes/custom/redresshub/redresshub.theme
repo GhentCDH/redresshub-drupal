@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Preprocess functions for the RedressHub theme.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Component\Utility\Html;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ *
+ * Adds a "page--<alias>" class, so pages like /foundations can get their own
+ * layout (width, background) from CSS.
+ */
+function redresshub_preprocess_html(array &$variables): void {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $slug = trim($alias, '/');
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $slug = 'front';
+  }
+  if ($slug !== '' && !str_contains($slug, '/')) {
+    $variables['attributes']['class'][] = 'page--' . Html::getClass($slug);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function redresshub_preprocess_page(array &$variables): void {
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $variables['contact_email'] = theme_get_setting('contact_email');
+  $variables['map_url'] = theme_get_setting('map_url');
+  $variables['map_updated'] = theme_get_setting('map_updated');
+  $variables['hero_image'] = '/' . \Drupal::service('extension.list.theme')->getPath('redresshub') . '/images/hero.jpg';
+
+  if ($variables['is_front']) {
+    $variables['#attached']['library'][] = 'redresshub/front';
+  }
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    $variables['#attached']['library'][] = 'redresshub/pages';
+  }
+  $variables['#cache']['tags'][] = 'config:redresshub.settings';
+  $variables['#cache']['tags'][] = 'config:system.site';
+}

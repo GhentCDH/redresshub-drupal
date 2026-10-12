@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Footer links.
+ */
+#}
+{% if items %}
+  <ul class="footer-menu">
+    {% for item in items %}
+      <li>{{ link(item.title, item.url) }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}

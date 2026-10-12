@@ -1,0 +1,94 @@
+/**
+ * @file
+ * Front page: hero, "Explore the map" divider, map and sidebar cards.
+ */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 18rem;
+  padding: 3rem var(--gutter);
+  background:
+    linear-gradient(rgba(58, 54, 51, 0.45), rgba(58, 54, 51, 0.45)),
+    var(--hero-image) center / cover no-repeat;
+  color: var(--white);
+  text-align: center;
+}
+
+.hero__title {
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.hero__text {
+  font-size: clamp(1.05rem, 2.5vw, 1.125rem);
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+.divider-heading {
+  padding-block: 2rem;
+}
+
+.divider-heading__title {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: var(--crimson);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.divider-heading__title::before,
+.divider-heading__title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--crimson);
+}
+
+.map-layout {
+  display: grid;
+  gap: 2.5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 64rem) {
+  .map-layout {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+.map-frame {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
+.map-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 560px;
+  border: 0;
+}
+
+.map-layout__note {
+  margin-top: 1.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.map-layout__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

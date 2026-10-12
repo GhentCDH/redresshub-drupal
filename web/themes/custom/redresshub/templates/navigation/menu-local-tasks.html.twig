@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Local tasks (View, Edit, Delete, …) shown to editors.
+ */
+#}
+{% if primary %}
+  <nav class="local-tasks" aria-label="{{ 'Primary tabs'|t }}">
+    <ul class="local-tasks__list">{{ primary }}</ul>
+  </nav>
+{% endif %}
+{% if secondary %}
+  <nav class="local-tasks local-tasks--secondary" aria-label="{{ 'Secondary tabs'|t }}">
+    <ul class="local-tasks__list">{{ secondary }}</ul>
+  </nav>
+{% endif %}

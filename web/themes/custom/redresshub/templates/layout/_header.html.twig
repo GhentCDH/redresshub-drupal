@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Sticky site header: branding, main navigation, language switcher and the
+ * mobile menu toggle. Included by the page templates.
+ */
+#}
+<header class="site-header" role="banner">
+  <div class="site-header__inner container">
+    {{ page.header }}
+
+    {% if page.primary_menu %}
+      <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+        <span class="icon icon--menu" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ 'Menu'|t }}</span>
+      </button>
+    {% endif %}
+
+    <div class="site-header__nav" id="site-navigation">
+      {{ page.primary_menu }}
+      {{ page.language_switcher }}
+    </div>
+  </div>
+</header>

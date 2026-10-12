@@ -1,0 +1,108 @@
+/**
+ * @file
+ * Sticky site header with the main navigation.
+ *
+ * The seven menu links need about 1000px, so the mobile menu is used up to
+ * 64rem instead of the mockup's 48rem.
+ */
+
+.site-header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+/* Stay below the admin toolbar. */
+body.toolbar-fixed .site-header {
+  top: var(--drupal-displace-offset-top, 0);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.5rem;
+}
+
+.site-branding {
+  color: var(--charcoal);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.site-branding:hover {
+  color: var(--charcoal);
+}
+
+.main-menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-menu__link {
+  color: var(--charcoal);
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+}
+
+.main-menu__link:hover,
+.main-menu__link.is-active {
+  color: var(--crimson);
+}
+
+.site-header__toggle {
+  display: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--charcoal);
+  cursor: pointer;
+  --icon-size: 1.5rem;
+}
+
+.site-header__toggle[aria-expanded="true"] .icon {
+  --icon: url("../images/icons/x.svg");
+}
+
+@media (min-width: 64rem) {
+  .site-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .main-menu {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 63.999rem) {
+  .js .site-header__toggle {
+    display: block;
+  }
+
+  .site-header__nav {
+    flex-basis: 100%;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .js .site-header__nav:not(.is-open) {
+    display: none;
+  }
+
+  .main-menu {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}

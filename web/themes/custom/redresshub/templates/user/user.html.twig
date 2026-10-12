@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ */
+#}
+<article{{ attributes.addClass('user-profile') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</article>

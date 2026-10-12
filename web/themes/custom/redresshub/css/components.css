@@ -1,0 +1,105 @@
+/**
+ * @file
+ * Components shared by several pages.
+ */
+
+/* Page title and the lead paragraph below it. */
+.page-title {
+  margin-bottom: 1.25rem;
+}
+
+.page--about .page-title,
+.page--examples .page-title {
+  margin-bottom: 3rem;
+}
+
+.lead {
+  margin-bottom: 4rem;
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+/* Buttons. */
+.button {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  border: 2px solid var(--crimson);
+  border-radius: var(--radius);
+  background: var(--crimson);
+  color: var(--white);
+  font: inherit;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.button:hover {
+  border-color: var(--crimson-dark);
+  background: var(--crimson-dark);
+  color: var(--white);
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--crimson);
+}
+
+.button--outline:hover {
+  border-color: var(--crimson);
+  background: var(--crimson);
+}
+
+.button--small {
+  padding: 0.625rem 1.25rem;
+  border-width: 1px;
+  font-size: 0.875rem;
+}
+
+/* White card with a border. */
+.card,
+.link-card {
+  display: block;
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover,
+.link-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.card__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  --icon-size: 1.5rem;
+}
+
+.card__title::before {
+  color: var(--crimson);
+}
+
+.link-card {
+  padding: 1.75rem;
+}
+
+.link-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1rem;
+  color: var(--crimson);
+  font-weight: 400;
+}
+
+.link-card__text {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}

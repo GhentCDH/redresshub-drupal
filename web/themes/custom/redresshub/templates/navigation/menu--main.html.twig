@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Main navigation, a flat list (the block only renders one level).
+ */
+#}
+{% if items %}
+  <ul class="main-menu">
+    {% for item in items %}
+      <li class="main-menu__item">
+        {{ link(item.title, item.url, item.attributes.addClass('main-menu__link', item.in_active_trail ? 'is-active-trail')) }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

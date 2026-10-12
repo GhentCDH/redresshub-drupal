@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ *
+ * The width and background of the main area depend on the "page--<alias>"
+ * class that redresshub_preprocess_html() adds to the body.
+ *
+ * @see template_preprocess_page()
+ */
+#}
+<div class="layout-container">
+  {% include '@redresshub/layout/_header.html.twig' %}
+
+  <main class="site-main" role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <div class="site-main__inner container">
+      {{ page.highlighted }}
+      {{ page.help }}
+      {{ page.content }}
+    </div>
+  </main>
+
+  {% include '@redresshub/layout/_footer.html.twig' %}
+</div>

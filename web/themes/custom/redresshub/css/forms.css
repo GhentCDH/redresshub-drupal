@@ -1,0 +1,271 @@
+/**
+ * @file
+ * Form elements: text fields, selects, checkboxes, buttons, fieldsets.
+ */
+
+:root {
+  /* Darker than --border, so fields have enough contrast (WCAG 1.4.11). */
+  --input-border: #9c938a;
+}
+
+.form-item {
+  margin-block: 1.5rem;
+}
+
+.form-item label,
+.form-item .fieldset-legend {
+  display: block;
+  margin-bottom: 0.375rem;
+  color: var(--charcoal);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.form-required::after {
+  content: "*";
+  margin-left: 0.25rem;
+  color: var(--crimson);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  width: 100%;
+  max-width: 32rem;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--charcoal);
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+textarea {
+  max-width: none;
+  min-height: 8rem;
+  resize: vertical;
+}
+
+select {
+  padding-right: 2.5rem;
+  appearance: none;
+  background: var(--white) url("../images/icons/chevron-down.svg") right 0.75rem center / 1rem no-repeat;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--crimson);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  accent-color: var(--crimson);
+}
+
+/* Checkboxes and radios: input and label on one line. */
+.form-type-checkbox,
+.form-type-radio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block: 0.5rem;
+}
+
+.form-type-checkbox label.option,
+.form-type-radio label.option {
+  margin: 0;
+  font-weight: 400;
+}
+
+.form-type-checkbox .description,
+.form-type-radio .description {
+  flex-basis: 100%;
+  padding-left: 1.625rem;
+}
+
+.description {
+  max-width: 40rem;
+  margin-top: 0.375rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+/* Errors. */
+.form-item--error input,
+.form-item--error select,
+.form-item--error textarea,
+input.error,
+select.error,
+textarea.error {
+  border-color: var(--crimson-dark);
+  border-width: 2px;
+}
+
+.form-item--error-message {
+  margin-top: 0.375rem;
+  color: var(--crimson-dark);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Buttons. Drupal gives submit buttons the "button" class; the main action
+   also gets "button--primary". */
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button.button,
+a.button {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border: 2px solid var(--crimson);
+  border-radius: var(--radius);
+  background: var(--crimson);
+  color: var(--white);
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+button.button:hover {
+  border-color: var(--crimson-dark);
+  background: var(--crimson-dark);
+}
+
+input[type="submit"]:disabled,
+button.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary actions: the second and further buttons, and Cancel links. */
+.form-actions > .button:not(.button--primary) ~ .button,
+.form-actions .button--primary ~ .button:not(.button--danger),
+a.button.dialog-cancel,
+.form-actions a#edit-cancel {
+  background: transparent;
+  color: var(--crimson);
+}
+
+.form-actions > .button:not(.button--primary) ~ .button:hover,
+.form-actions .button--primary ~ .button:not(.button--danger):hover,
+a.button.dialog-cancel:hover,
+.form-actions a#edit-cancel:hover {
+  background: var(--crimson);
+  color: var(--white);
+}
+
+.button--danger {
+  border-color: var(--crimson-dark);
+  background: var(--crimson-dark);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* Fieldsets and details. */
+fieldset {
+  min-width: 0;
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.5rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
+fieldset legend {
+  padding-inline: 0.5rem;
+}
+
+fieldset .fieldset-legend {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+details {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
+details > summary {
+  padding: 1rem 1.5rem;
+  font-family: var(--font-serif);
+  cursor: pointer;
+}
+
+details[open] > summary {
+  border-bottom: 1px solid var(--border);
+}
+
+details > :not(summary) {
+  margin-inline: 1.5rem;
+}
+
+/* Login, register and password reset: a narrow form. */
+.user-login-form,
+.user-pass,
+.user-register-form {
+  max-width: 28rem;
+}
+
+/* Password strength and confirmation (user module). */
+.password-strength__meter {
+  overflow: hidden;
+  max-width: 32rem;
+  height: 0.375rem;
+  margin-top: 0.5rem;
+  border-radius: 9999px;
+  background: var(--soft-beige);
+}
+
+.password-strength__indicator {
+  height: 100%;
+  background: var(--crimson);
+}
+
+.password-strength__title,
+.password-confirm,
+.password-suggestions {
+  margin-top: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+}
+
+.password-suggestions ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+}

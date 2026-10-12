@@ -1,0 +1,128 @@
+/**
+ * @file
+ * Lucide icons (ISC license, see images/icons/LICENSE.txt) as CSS masks, so
+ * they take the current text color.
+ *
+ * Use <span class="icon icon--mail" aria-hidden="true"></span>, or add
+ * "has-icon icon--mail" to an element to get the icon before its text (this
+ * also works in the WYSIWYG editor, which drops empty spans). Use
+ * "has-icon-after" for an icon after the text.
+ */
+
+.icon,
+.has-icon::before {
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--icon-size, 1.25rem);
+  height: var(--icon-size, 1.25rem);
+  background-color: currentColor;
+  vertical-align: -0.2em;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+
+.has-icon::before {
+  content: "";
+  margin-right: 0.75rem;
+}
+
+/* Icon after the text, e.g. an external link arrow. */
+.has-icon-after::after {
+  content: "";
+  display: inline-block;
+  width: var(--icon-size, 0.875rem);
+  height: var(--icon-size, 0.875rem);
+  margin-left: 0.375rem;
+  background-color: currentColor;
+  vertical-align: -0.1em;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+
+.icon--calendar {
+  --icon: url("../images/icons/calendar.svg");
+}
+
+.icon--chevron-down {
+  --icon: url("../images/icons/chevron-down.svg");
+}
+
+.icon--circle-alert {
+  --icon: url("../images/icons/circle-alert.svg");
+}
+
+.icon--database {
+  --icon: url("../images/icons/database.svg");
+}
+
+.icon--external-link {
+  --icon: url("../images/icons/external-link.svg");
+}
+
+.icon--eye {
+  --icon: url("../images/icons/eye.svg");
+}
+
+.icon--globe {
+  --icon: url("../images/icons/globe.svg");
+}
+
+.icon--info {
+  --icon: url("../images/icons/info.svg");
+}
+
+.icon--mail {
+  --icon: url("../images/icons/mail.svg");
+}
+
+.icon--map-pin {
+  --icon: url("../images/icons/map-pin.svg");
+}
+
+.icon--menu {
+  --icon: url("../images/icons/menu.svg");
+}
+
+.icon--plus {
+  --icon: url("../images/icons/plus.svg");
+}
+
+.icon--rotate-ccw {
+  --icon: url("../images/icons/rotate-ccw.svg");
+}
+
+.icon--scale {
+  --icon: url("../images/icons/scale.svg");
+}
+
+.icon--search {
+  --icon: url("../images/icons/search.svg");
+}
+
+.icon--send {
+  --icon: url("../images/icons/send.svg");
+}
+
+.icon--sliders-horizontal {
+  --icon: url("../images/icons/sliders-horizontal.svg");
+}
+
+.icon--sparkles {
+  --icon: url("../images/icons/sparkles.svg");
+}
+
+.icon--users {
+  --icon: url("../images/icons/users.svg");
+}
+
+.icon--venn {
+  --icon: url("../images/icons/venn.svg");
+}
+
+.icon--volume-2 {
+  --icon: url("../images/icons/volume-2.svg");
+}
+
+.icon--x {
+  --icon: url("../images/icons/x.svg");
+}

@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Front page: hero banner, the embedded NodeGoat map and the sidebar cards.
+ *
+ * The map URL and the note below the map are theme settings
+ * (Appearance > Settings > RedressHub).
+ */
+#}
+<div class="layout-container">
+  {% include '@redresshub/layout/_header.html.twig' %}
+
+  <main class="site-main" role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <section class="hero" style="--hero-image: url('{{ hero_image }}');">
+      <div class="hero__content">
+        <h1 class="hero__title">{{ 'Mapping Redress Across Belgium'|t }}</h1>
+        <p class="hero__text">{{ 'An interactive database of initiatives addressing colonial harms and legacies.'|t }}</p>
+      </div>
+    </section>
+
+    <div class="divider-heading">
+      <div class="container">
+        <h2 class="divider-heading__title">{{ 'Explore the map'|t }}</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      {{ page.highlighted }}
+      {{ page.help }}
+      {# Local tasks for editors; the body of the front page node is not shown. #}
+      {{ page.content|without('redresshub_content', 'redresshub_page_title') }}
+
+      <div class="map-layout">
+        <div class="map-layout__main">
+          {% if map_url %}
+            <div class="map-frame" id="map-section">
+              <iframe src="{{ map_url }}" title="{{ 'Interactive map'|t }}" allowfullscreen></iframe>
+            </div>
+          {% endif %}
+          {% if map_updated %}
+            <p class="map-layout__note">{{ map_updated }}</p>
+          {% endif %}
+        </div>
+
+        <aside class="map-layout__sidebar" aria-label="{{ 'About the map'|t }}">
+          <a class="link-card" href="{{ base_path }}contact#feedback-corrections">
+            <h3 class="link-card__title"><span class="icon icon--plus" aria-hidden="true"></span>{{ 'Add an initiative'|t }}</h3>
+            <p class="link-card__text">{{ 'Missing something? Found an error? Submit via our contact form.'|t }}</p>
+          </a>
+          <a class="link-card" href="{{ base_path }}about#guidelines">
+            <h3 class="link-card__title"><span class="icon icon--info" aria-hidden="true"></span>{{ 'How to use the map'|t }}</h3>
+            <p class="link-card__text">{{ 'Geotags, timeslider, filters and search features explained.'|t }}</p>
+          </a>
+          <a class="link-card" href="{{ base_path }}examples#get-inspired">
+            <h3 class="link-card__title"><span class="icon icon--sparkles" aria-hidden="true"></span>{{ 'Get inspired'|t }}</h3>
+            <p class="link-card__text">{{ 'Discover several use cases to see how others have put this map into practice.'|t }}</p>
+          </a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  {% include '@redresshub/layout/_footer.html.twig' %}
+</div>

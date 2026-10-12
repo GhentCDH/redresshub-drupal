@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Three column site footer. Included by the page templates.
+ */
+#}
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner container">
+    <div class="site-footer__col">
+      <div class="site-footer__name">{{ site_name }}</div>
+      <div class="site-footer__credits">
+        <div>{{ 'ERC Proof of Concept project'|t }}</div>
+        <div>{{ 'Justice Visions'|t }}</div>
+      </div>
+    </div>
+    <div class="site-footer__col">
+      {{ page.footer }}
+    </div>
+    <div class="site-footer__col">
+      {% if contact_email %}
+        <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+      {% endif %}
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,56 @@
+/**
+ * @file
+ * Page layout. The main area's width and background depend on the
+ * "page--<alias>" body class added in redresshub_preprocess_html().
+ */
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.site-main {
+  flex: 1;
+}
+
+.site-main__inner {
+  max-width: var(--container-narrow);
+  padding-block: 5rem;
+}
+
+/* About and Examples: wide, with extra space on the left. */
+.page--about .site-main__inner,
+.page--examples .site-main__inner {
+  max-width: var(--container-wide);
+}
+
+@media (min-width: 48rem) {
+  .page--about .site-main__inner,
+  .page--examples .site-main__inner {
+    padding-left: 6rem;
+  }
+}
+
+/* Foundations and Uncharted: editorial pages on parchment. */
+.page--foundations .site-main,
+.page--uncharted .site-main {
+  background: var(--parchment);
+}
+
+.page--uncharted .site-main__inner {
+  max-width: var(--container-medium);
+}
+
+.page--foundations .page-title,
+.page--uncharted .page-title {
+  font-size: 3.5rem;
+  text-align: center;
+}

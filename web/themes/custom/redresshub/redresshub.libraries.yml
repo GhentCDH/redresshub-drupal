@@ -1,0 +1,38 @@
+global:
+  version: VERSION
+  css:
+    base:
+      css/fonts.css: {}
+      css/tokens.css: {}
+      css/base.css: {}
+    layout:
+      css/layout.css: {}
+    component:
+      css/icons.css: {}
+      css/header.css: {}
+      css/footer.css: {}
+      css/components.css: {}
+      css/forms.css: {}
+      css/editor-ui.css: {}
+  js:
+    js/navigation.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+front:
+  version: VERSION
+  css:
+    component:
+      css/front.css: {}
+
+pages:
+  version: VERSION
+  css:
+    component:
+      css/pages.css: {}
+  js:
+    js/tabs.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

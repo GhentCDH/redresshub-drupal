@@ -1,0 +1,16 @@
+name: RedressHub
+type: theme
+description: 'Theme for the RedressHub website, built from the RedressHub Figma Make mockup.'
+core_version_requirement: ^11
+base theme: stable9
+logo: false
+libraries:
+  - redresshub/global
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  language_switcher: 'Language switcher'
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  footer: 'Footer links'

@@ -1,0 +1,43 @@
+/**
+ * @file
+ * Design tokens, taken from the RedressHub Figma Make mockup (theme.css).
+ */
+
+:root {
+  --font-serif: "Libre Baskerville", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --crimson: #914853;
+  --crimson-dark: #7a3d45;
+  --terracotta: #c89b8c;
+  --sage: #a8b5a1;
+  --warm-cream: #f9f7f4;
+  --soft-beige: #ede8e3;
+  --warm-gray: #b8aea4;
+  --charcoal: #3a3633;
+  --parchment: #faf8f5;
+  --blush: #f5e6e0;
+  --white: #fff;
+
+  --background: var(--warm-cream);
+  --foreground: var(--charcoal);
+  --muted-foreground: #8a8279;
+  --border: rgba(184, 126, 114, 0.15);
+  --ring: rgba(184, 126, 114, 0.3);
+
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+
+  --container-wide: 80rem;
+  --container-medium: 72rem;
+  --container-narrow: 56rem;
+  --gutter: 2rem;
+}
+
+@media (max-width: 40rem) {
+  :root {
+    --gutter: 1rem;
+  }
+}

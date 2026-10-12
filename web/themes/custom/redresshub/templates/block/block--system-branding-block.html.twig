@@ -1,0 +1,9 @@
+{#
+/**
+ * @file
+ * Site branding: the site name in the serif font.
+ */
+#}
+{% if site_name %}
+  <a class="site-branding" href="{{ path('<front>') }}" rel="home">{{ site_name }}</a>
+{% endif %}
