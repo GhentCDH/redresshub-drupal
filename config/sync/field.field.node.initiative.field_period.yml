@@ -14,7 +14,7 @@ bundle: initiative
 label: Period
 description: 'Leave the end date empty when it is still ongoing.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

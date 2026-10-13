@@ -1,0 +1,16 @@
+uuid: 22eced41-5fac-4674-95e9-47c9ca2eec8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.injustice_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.injustice_type
+target_entity_type_id: taxonomy_term
+target_bundle: injustice_type
+default_langcode: site_default
+language_alterable: true

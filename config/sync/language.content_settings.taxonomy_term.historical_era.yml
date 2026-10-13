@@ -1,0 +1,16 @@
+uuid: eb678778-afef-4ee8-8e29-71df8ace758c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.historical_era
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.historical_era
+target_entity_type_id: taxonomy_term
+target_bundle: historical_era
+default_langcode: site_default
+language_alterable: true

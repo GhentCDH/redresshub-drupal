@@ -1,0 +1,95 @@
+id: nodegoat_initiative
+label: 'Nodegoat: initiatives'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1595
+process:
+  title: name
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_short_description/value:
+    plugin: nodegoat_text
+    source: d5920/0
+    links:
+      1595: nodegoat_initiative
+  field_short_description/format:
+    plugin: default_value
+    default_value: basic_html
+  field_initiative_type:
+    - plugin: skip_on_empty
+      method: process
+      source: r5919
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_initiative_type
+      no_stub: true
+  field_un_category:
+    - plugin: skip_on_empty
+      method: process
+      source: r5918
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_un_category
+      no_stub: true
+  field_keywords:
+    - plugin: skip_on_empty
+      method: process
+      source: r5922
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_keywords
+      no_stub: true
+  field_organisations:
+    - plugin: skip_on_empty
+      method: process
+      source: r5921
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_organisation
+      no_stub: true
+  field_resources:
+    - plugin: skip_on_empty
+      method: process
+      source: d5923
+    - plugin: nodegoat_multiple
+    - plugin: nodegoat_url
+  field_period/value:
+    plugin: nodegoat_date
+    source: s1707/0/date_start
+    part: start
+  field_period/end_value:
+    plugin: nodegoat_date
+    source: s1707/0/date_end
+    part: end
+  field_period_certain:
+    plugin: default_value
+    source: certain_1707
+    default_value: true
+    strict: true
+  field_place:
+    plugin: sub_process
+    source: s1705
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: nodegoat_location
+        source: location_ref
+        no_stub: true
+  field_place_certain:
+    plugin: default_value
+    source: certain_1705
+    default_value: true
+    strict: true
+destination:
+  plugin: 'entity:node'
+  default_bundle: initiative
+migration_dependencies:
+  required:
+    - nodegoat_initiative_type
+    - nodegoat_un_category
+    - nodegoat_keywords
+    - nodegoat_organisation
+    - nodegoat_location

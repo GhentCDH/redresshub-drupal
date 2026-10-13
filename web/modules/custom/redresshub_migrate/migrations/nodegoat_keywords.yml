@@ -1,0 +1,12 @@
+id: nodegoat_keywords
+label: 'Nodegoat: Initiative keywords'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1602
+process:
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: keywords

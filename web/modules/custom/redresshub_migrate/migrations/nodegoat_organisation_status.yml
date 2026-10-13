@@ -1,0 +1,12 @@
+id: nodegoat_organisation_status
+label: 'Nodegoat: Organisation statuses'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1600
+process:
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: organisation_status

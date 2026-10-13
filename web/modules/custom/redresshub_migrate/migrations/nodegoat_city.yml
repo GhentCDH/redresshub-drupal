@@ -1,0 +1,25 @@
+id: nodegoat_city
+label: 'Nodegoat: cities (from the addresses)'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1596
+  distinct_reference:
+    description_id: 5954
+    part: city
+process:
+  name: name
+  parent:
+    - plugin: skip_on_empty
+      method: process
+      source: country
+    - plugin: migration_lookup
+      migration: nodegoat_country
+      no_stub: true
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: places
+migration_dependencies:
+  required:
+    - nodegoat_country

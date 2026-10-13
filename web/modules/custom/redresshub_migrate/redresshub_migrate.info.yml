@@ -1,0 +1,11 @@
+name: 'RedressHub Nodegoat migration'
+type: module
+description: 'Imports the RedressHub data from the Nodegoat API (nodegoat.ugent.be).'
+package: RedressHub
+core_version_requirement: ^11
+dependencies:
+  - drupal:migrate
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:content_translation
+  - geofield:geofield

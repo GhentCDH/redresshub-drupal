@@ -14,7 +14,7 @@ bundle: publication
 label: Status
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: published

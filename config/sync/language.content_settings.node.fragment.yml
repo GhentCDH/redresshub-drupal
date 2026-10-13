@@ -1,0 +1,16 @@
+uuid: 57b25b62-0f5d-4600-a602-48ff86892b3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.fragment
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.fragment
+target_entity_type_id: node
+target_bundle: fragment
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,16 @@
+redresshub_migrate.settings:
+  type: config_object
+  label: 'RedressHub Nodegoat migration settings'
+  mapping:
+    project_id:
+      type: integer
+      label: 'Nodegoat project ID'
+    snapshot_dir:
+      type: string
+      label: 'Directory for the JSON snapshots, relative to the Drupal root'
+    type_ids:
+      type: sequence
+      label: 'Nodegoat type IDs to download'
+      sequence:
+        type: integer
+        label: 'Type ID'

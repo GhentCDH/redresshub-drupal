@@ -129,4 +129,5 @@ content:
 hidden:
   field_period_certain: true
   field_place_certain: true
+  langcode: true
   search_api_excerpt: true

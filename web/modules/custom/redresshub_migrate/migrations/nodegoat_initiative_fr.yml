@@ -1,0 +1,36 @@
+id: nodegoat_initiative_fr
+label: 'Nodegoat: French translations of the initiatives'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1595
+  language: fr
+process:
+  nid:
+    plugin: migration_lookup
+    migration: nodegoat_initiative
+    source: id
+    no_stub: true
+  langcode:
+    plugin: default_value
+    default_value: fr
+  content_translation_source:
+    plugin: default_value
+    default_value: en
+  title: name
+  field_short_description/value:
+    plugin: nodegoat_text
+    source: d5920/0
+    links:
+      1595: nodegoat_initiative
+  field_short_description/format:
+    plugin: default_value
+    default_value: basic_html
+destination:
+  plugin: 'entity:node'
+  default_bundle: initiative
+  translations: true
+migration_dependencies:
+  required:
+    - nodegoat_initiative

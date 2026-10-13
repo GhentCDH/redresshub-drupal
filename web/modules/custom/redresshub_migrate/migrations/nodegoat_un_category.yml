@@ -1,0 +1,12 @@
+id: nodegoat_un_category
+label: 'Nodegoat: UN categories'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1597
+process:
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: un_category

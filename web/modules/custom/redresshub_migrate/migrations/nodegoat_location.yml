@@ -1,0 +1,39 @@
+id: nodegoat_location
+label: 'Nodegoat: addresses'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1596
+process:
+  title: name
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_street: d5953/0
+  field_city:
+    - plugin: skip_on_empty
+      method: process
+      source: r5954
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_city
+      no_stub: true
+  field_location_type:
+    - plugin: skip_on_empty
+      method: process
+      source: r5955
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_location_type
+      no_stub: true
+  field_coordinates:
+    plugin: nodegoat_geometry
+    source: s1706/0/geometry
+destination:
+  plugin: 'entity:node'
+  default_bundle: location
+migration_dependencies:
+  required:
+    - nodegoat_city
+    - nodegoat_location_type

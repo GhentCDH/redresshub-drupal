@@ -1,0 +1,74 @@
+id: nodegoat_organisation
+label: 'Nodegoat: organisations'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1601
+process:
+  title: name
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_sector:
+    - plugin: skip_on_empty
+      method: process
+      source: r5926
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_sector
+      no_stub: true
+  field_organisation_status:
+    - plugin: skip_on_empty
+      method: process
+      source: r5927
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_organisation_status
+      no_stub: true
+  # Predecessor can also be an initiative in Nodegoat; the Drupal field only
+  # takes organisations.
+  field_predecessor:
+    - plugin: skip_on_empty
+      method: process
+      source: r5928_t1601
+    - plugin: nodegoat_multiple
+    - plugin: migration_lookup
+      migration: nodegoat_organisation
+  field_website:
+    - plugin: skip_on_empty
+      method: process
+      source: d5933
+    - plugin: nodegoat_multiple
+    - plugin: nodegoat_url
+  field_general_contact/value:
+    plugin: nodegoat_text
+    source: d5932/0
+  field_general_contact/format:
+    plugin: default_value
+    default_value: basic_html
+  field_period/value:
+    plugin: nodegoat_date
+    source: s1708/0/date_start
+    part: start
+  field_period/end_value:
+    plugin: nodegoat_date
+    source: s1708/0/date_end
+    part: end
+  field_locations:
+    plugin: sub_process
+    source: s1709
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: nodegoat_location
+        source: location_ref
+        no_stub: true
+destination:
+  plugin: 'entity:node'
+  default_bundle: organisation
+migration_dependencies:
+  required:
+    - nodegoat_sector
+    - nodegoat_organisation_status
+    - nodegoat_location

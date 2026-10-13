@@ -1,0 +1,16 @@
+uuid: 8e04470b-2eb9-4b80-9ed1-0051ec2e5409
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sector
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.sector
+target_entity_type_id: taxonomy_term
+target_bundle: sector
+default_langcode: site_default
+language_alterable: true

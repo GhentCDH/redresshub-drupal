@@ -1,0 +1,15 @@
+id: nodegoat_country
+label: 'Nodegoat: countries (from the cities of the addresses)'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1596
+  distinct_reference:
+    description_id: 5954
+    part: country
+process:
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: places

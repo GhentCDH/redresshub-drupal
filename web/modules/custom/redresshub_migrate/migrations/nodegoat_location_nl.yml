@@ -1,0 +1,28 @@
+id: nodegoat_location_nl
+label: 'Nodegoat: Dutch translations of the addresses'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1596
+  language: nl
+process:
+  nid:
+    plugin: migration_lookup
+    migration: nodegoat_location
+    source: id
+    no_stub: true
+  langcode:
+    plugin: default_value
+    default_value: nl
+  content_translation_source:
+    plugin: default_value
+    default_value: en
+  title: name
+destination:
+  plugin: 'entity:node'
+  default_bundle: location
+  translations: true
+migration_dependencies:
+  required:
+    - nodegoat_location

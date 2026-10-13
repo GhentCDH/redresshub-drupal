@@ -1,0 +1,12 @@
+id: nodegoat_sector
+label: 'Nodegoat: Sectors (organisation types)'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1599
+process:
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: sector

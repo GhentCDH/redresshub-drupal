@@ -1,0 +1,12 @@
+id: nodegoat_initiative_type
+label: 'Nodegoat: Initiative types'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1598
+process:
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: initiative_type

@@ -1,0 +1,12 @@
+id: nodegoat_location_type
+label: 'Nodegoat: Location types'
+migration_tags:
+  - Nodegoat
+source:
+  plugin: nodegoat_objects
+  type_id: 1603
+process:
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: location_type
