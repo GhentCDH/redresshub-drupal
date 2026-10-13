@@ -15,6 +15,9 @@ process:
   langcode:
     plugin: default_value
     default_value: nl
+  uid:
+    plugin: default_value
+    default_value: 1
   content_translation_source:
     plugin: default_value
     default_value: en
