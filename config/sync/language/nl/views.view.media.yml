@@ -15,6 +15,7 @@ display:
           label: Auteur
           separator: ', '
         status:
+          label: Status
           settings:
             format_custom_false: 'Niet gepubliceerd'
             format_custom_true: Gepubliceerd
@@ -33,7 +34,7 @@ display:
       exposed_form:
         options:
           submit_button: Filter
-          reset_button_label: 'Opnieuw instellen'
+          reset_button_label: Wissen
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend

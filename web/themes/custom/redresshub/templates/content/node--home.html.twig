@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * The Home node: hero, the explorer (map, list, network) and the cards.
+ *
+ * Variables from redresshub_preprocess_node(): hero_image_url, explorer
+ * (data_url, tiles, attribution).
+ */
+#}
+<article{{ attributes.addClass('home') }}>
+  <section class="hero" style="--hero-image: url('{{ hero_image_url }}');">
+    <div class="hero__content">
+      <h1 class="hero__title">{{ label }}</h1>
+      {% if node.field_hero_text.value %}
+        <p class="hero__text">{{ node.field_hero_text.value }}</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <div class="divider-heading">
+    <div class="container">
+      <h2 class="divider-heading__title">{{ 'Explore the map'|t }}</h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="map-layout">
+      <div class="map-layout__main">
+        {% include '@redresshub/content/_explorer.html.twig' with explorer only %}
+      </div>
+      {% if node.field_cards.value %}
+        <aside class="map-layout__sidebar" aria-label="{{ 'More about the map'|t }}">
+          {{ content.field_cards }}
+        </aside>
+      {% endif %}
+    </div>
+  </div>
+</article>

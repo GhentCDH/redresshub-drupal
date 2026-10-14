@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
     - field.storage.node.field_city
     - field.storage.node.field_credit
     - field.storage.node.field_event_date
@@ -36,14 +35,6 @@ name: 'All content'
 description: ''
 read_only: false
 field_settings:
-  body_ft:
-    label: body_ft
-    datasource_id: 'entity:node'
-    property_path: body
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.body
   content_type_s:
     label: content_type_s
     datasource_id: 'entity:node'

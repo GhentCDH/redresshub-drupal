@@ -9,6 +9,7 @@ display:
         name:
           label: Auteur
         status:
+          label: Statut
           settings:
             format_custom_false: 'Non publié'
             format_custom_true: Publié
@@ -31,6 +32,8 @@ display:
           expose:
             label: Titre
         status:
+          expose:
+            label: Statut
           group_info:
             group_items:
               1:

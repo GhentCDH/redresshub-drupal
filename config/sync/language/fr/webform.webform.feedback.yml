@@ -1,0 +1,17 @@
+title: 'Retours & Corrections'
+elements: |
+  experience:
+    '#title': 'Partagez votre expérience avec la carte'
+    '#description': 'Comment avez-vous utilisé RedressHub? Nous aimerions savoir comment vous avez interagi avec la plateforme!'
+    '#placeholder': 'Parlez-nous de votre expérience...'
+  issue:
+    '#title': 'Signaler une erreur, modifier ou retirer des informations'
+    '#description': 'Si vous avez trouvé des informations incorrectes, des représentations inexactes, ou souhaitez retirer votre initiative de la base de données:'
+    '#placeholder': 'Partagez votre remarque...'
+  email:
+    '#title': 'Votre adresse e-mail'
+    '#description': 'Facultatif, si vous souhaitez une réponse.'
+  actions:
+    '#submit__label': 'Soumettre des commentaires'
+settings:
+  confirmation_message: 'Merci pour vos commentaires !'

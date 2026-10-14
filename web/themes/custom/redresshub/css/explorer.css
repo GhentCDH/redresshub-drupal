@@ -1,0 +1,576 @@
+/**
+ * @file
+ * The explorer on the front page: toolbar, filters, map, list, network and
+ * the side panel.
+ */
+
+.explorer {
+  --explorer-height: 560px;
+}
+
+/* Toolbar: filter toggle, map view, list view, network. */
+.explorer__bar {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: var(--white);
+}
+
+.explorer__bar > * + * {
+  border-left: 1px solid var(--border);
+}
+
+.explorer__bar-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 1rem 1.25rem;
+  border: 0;
+  background: none;
+  color: var(--charcoal);
+  font: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  --icon-size: 0.9375rem;
+}
+
+.explorer__bar-button:hover,
+.explorer__bar-button.is-active,
+.explorer__menu.is-active > .explorer__bar-button {
+  background: var(--warm-cream);
+}
+
+.explorer__bar-button .icon:first-child {
+  color: var(--crimson);
+}
+
+.explorer__bar-button .icon--chevron-down {
+  color: var(--muted-foreground);
+  --icon-size: 0.8125rem;
+}
+
+.explorer__menu.is-active > .explorer__bar-button,
+.explorer__bar-button.is-active {
+  color: var(--crimson);
+}
+
+.explorer__filter-toggle {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.explorer__filter-label {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+}
+
+.explorer__filter-toggle .explorer__chevron {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.explorer__filter-toggle[aria-expanded="true"] .explorer__chevron {
+  transform: rotate(180deg);
+}
+
+.explorer__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--crimson);
+  color: var(--white);
+  font-size: 0.7rem;
+}
+
+.explorer__menu {
+  position: relative;
+}
+
+.explorer__menu-list {
+  position: absolute;
+  z-index: 1000;
+  top: calc(100% + 0.25rem);
+  right: 0;
+  min-width: 12rem;
+  margin: 0;
+  padding: 0.25rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 4px 12px rgba(58, 54, 51, 0.12);
+  list-style: none;
+}
+
+.explorer__menu-list button {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border: 0;
+  background: none;
+  color: var(--charcoal);
+  font: inherit;
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.explorer__menu-list button:hover,
+.explorer__menu-list button.is-active {
+  background: var(--warm-cream);
+  color: var(--crimson);
+}
+
+/* Filters. */
+.explorer__filters {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-top: 0;
+  background: var(--white);
+}
+
+@media (min-width: 40rem) {
+  .explorer__filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .explorer__field--wide,
+  .explorer__actions,
+  .explorer__network-note {
+    grid-column: 1 / -1;
+  }
+}
+
+.explorer__filters[hidden] {
+  display: none;
+}
+
+.explorer__field label,
+.explorer__period-label {
+  display: block;
+  margin-bottom: 0.375rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.explorer__field input[type="search"],
+.explorer__field select {
+  max-width: none;
+  background-color: var(--warm-cream);
+  font-size: 0.875rem;
+}
+
+.explorer__field.is-disabled {
+  opacity: 0.25;
+  filter: blur(2px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.explorer__period-value {
+  margin-left: 0.5rem;
+  color: var(--charcoal);
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.explorer__period input[type="range"] {
+  display: block;
+  width: 100%;
+  accent-color: var(--crimson);
+}
+
+.explorer__network-note {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+}
+
+.explorer__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.explorer__reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  --icon-size: 0.8125rem;
+}
+
+.explorer__reset:hover {
+  color: var(--charcoal);
+}
+
+/* The stage: map, list or network, with the side panel over it. */
+.explorer__stage {
+  position: relative;
+  overflow: hidden;
+  min-height: var(--explorer-height);
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
+.explorer__map,
+.explorer__network {
+  height: var(--explorer-height);
+}
+
+.explorer__map[hidden],
+.explorer__list[hidden],
+.explorer__network[hidden] {
+  display: none;
+}
+
+.explorer__loading {
+  padding: 2rem;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.explorer__status {
+  position: absolute;
+  z-index: 500;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  max-width: calc(100% - 1.5rem);
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  pointer-events: none;
+}
+
+.explorer__status:empty {
+  display: none;
+}
+
+.explorer .leaflet-container {
+  background: var(--soft-beige);
+  font-family: var(--font-sans);
+}
+
+.explorer .leaflet-tooltip {
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(58, 54, 51, 0.15);
+  color: var(--charcoal);
+  font-size: 0.8125rem;
+}
+
+/* List view: tiles. */
+.explorer__list {
+  max-height: var(--explorer-height);
+  overflow-y: auto;
+}
+
+.explorer__list-count {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--warm-cream);
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.explorer__tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1.25rem;
+  list-style: none;
+}
+
+.explorer__tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.explorer__tile:hover,
+.explorer__tile:focus-visible {
+  border-color: var(--crimson);
+  box-shadow: var(--shadow-sm);
+}
+
+.explorer__tile-title {
+  color: var(--charcoal);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.explorer__tile-meta {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+/* Network. */
+.explorer__network svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.network__links line {
+  stroke: rgba(184, 126, 114, 0.35);
+  stroke-width: 1;
+}
+
+.network__node {
+  cursor: pointer;
+}
+
+.network__node--initiative circle {
+  fill: var(--crimson);
+  stroke: var(--white);
+  stroke-width: 1.5;
+}
+
+.network__node--keyword circle {
+  fill: var(--white);
+  stroke: var(--charcoal);
+  stroke-width: 1.5;
+}
+
+.network__node--keyword.is-selected circle {
+  fill: var(--crimson);
+  stroke: var(--crimson);
+}
+
+.network__node text {
+  fill: var(--charcoal);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 3px;
+  pointer-events: none;
+}
+
+.network__node:hover circle,
+.network__node:focus-visible circle {
+  stroke: var(--crimson);
+  stroke-width: 3;
+}
+
+.network__node:focus-visible {
+  outline: none;
+}
+
+/* Side panel. */
+.explorer__panel {
+  position: absolute;
+  z-index: 800;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  width: min(24rem, 100%);
+  padding: 1.75rem 1.5rem 1.5rem;
+  border-left: 1px solid var(--border);
+  background: var(--white);
+  box-shadow: -8px 0 24px rgba(58, 54, 51, 0.1);
+  font-size: 0.875rem;
+}
+
+.explorer__panel[hidden] {
+  display: none;
+}
+
+.explorer__panel-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.375rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--charcoal);
+  cursor: pointer;
+  --icon-size: 1.125rem;
+}
+
+.explorer__panel-close:hover {
+  background: var(--soft-beige);
+}
+
+.explorer__panel-kicker {
+  margin: 0 0 0.5rem;
+  color: var(--crimson);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.explorer__panel-title {
+  margin-bottom: 1.25rem;
+  padding-right: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.explorer__facts {
+  display: grid;
+  gap: 0.25rem 0;
+  margin: 0 0 1.25rem;
+}
+
+.explorer__facts dt {
+  margin-top: 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.explorer__facts dd {
+  margin: 0;
+}
+
+.explorer__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.explorer__tags li {
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  background: var(--soft-beige);
+  font-size: 0.8125rem;
+}
+
+.explorer__links,
+.explorer__panel-list {
+  margin: 0.25rem 0 0;
+  padding-left: 1.125rem;
+}
+
+.explorer__panel-list li + li,
+.explorer__links li + li {
+  margin-top: 0.25rem;
+}
+
+.explorer__uncertain {
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+.explorer__panel-text {
+  margin-bottom: 1.25rem;
+  color: rgba(58, 54, 51, 0.9);
+  line-height: 1.7;
+}
+
+.explorer__panel-text p + p {
+  margin-top: 0.75rem;
+}
+
+.explorer__panel h4 {
+  margin-bottom: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.explorer__panel .button {
+  margin-top: 1.25rem;
+}
+
+.explorer__updated {
+  margin-top: 1.25rem;
+}
+
+.explorer__count[hidden] {
+  display: none;
+}
+
+/* Small screens: the toolbar as a grid, the status at the top of the map. */
+@media (max-width: 47.999rem) {
+  .explorer__bar {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+
+  .explorer__bar > * + * {
+    border-left: 0;
+  }
+
+  .explorer__filter-toggle {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .explorer__bar > :nth-child(n + 3) {
+    border-left: 1px solid var(--border);
+  }
+
+  .explorer__bar-button {
+    justify-content: center;
+    padding: 0.875rem 0.5rem;
+  }
+
+  .explorer__status {
+    top: 0.75rem;
+    right: 0.75rem;
+    bottom: auto;
+    left: auto;
+    max-width: calc(100% - 4.5rem);
+  }
+
+  .explorer {
+    --explorer-height: 460px;
+  }
+}

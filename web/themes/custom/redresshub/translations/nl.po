@@ -1,0 +1,170 @@
+# Dutch translation of RedressHub
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2026-10-14 21:16+0000\n"
+"PO-Revision-Date: 2026-10-14 21:16+0000\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Reset"
+msgstr "Wissen"
+
+msgid "1 place"
+msgid_plural "@count places"
+msgstr[0] "1 plaats"
+msgstr[1] "@count plaatsen"
+
+msgid "Apply filters"
+msgstr "Filters toepassen"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Vol. @volume"
+msgstr "Vol. @volume"
+
+msgid "No. @issue"
+msgstr "Nr. @issue"
+
+msgid "View in Biblio"
+msgstr "Bekijk in Biblio"
+
+msgid "ERC Proof of Concept project"
+msgstr "ERC Proof of Concept project"
+
+msgid "Explore the map"
+msgstr "Verken de kaart"
+
+msgid "The data could not be loaded."
+msgstr "De gegevens konden niet geladen worden."
+
+msgid "Map data last updated @date."
+msgstr "Kaartgegevens laatst bijgewerkt op @date."
+
+msgid "No initiatives with keywords."
+msgstr "Geen initiatieven met trefwoorden."
+
+msgid "Network of initiatives and their keywords"
+msgstr "Netwerk van initiatieven en hun trefwoorden"
+
+msgid "Click a keyword to filter on it."
+msgstr "Klik op een trefwoord om erop te filteren."
+
+msgid "ongoing"
+msgstr "lopend"
+
+msgid "Sector"
+msgstr "Sector"
+
+msgid "Period"
+msgstr "Periode"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "Initiatives"
+msgstr "Initiatieven"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "uncertain"
+msgstr "onzeker"
+
+msgid "Type of initiative"
+msgstr "Type initiatief"
+
+msgid "UN category"
+msgstr "VN-categorie"
+
+msgid "Organisation(s)"
+msgstr "Organisatie(s)"
+
+msgid "Keywords"
+msgstr "Trefwoorden"
+
+msgid "Organisation"
+msgstr "Organisatie"
+
+msgid "Initiative"
+msgstr "Initiatief"
+
+msgid "Resources"
+msgstr "Bronnen"
+
+msgid "Open page"
+msgstr "Open de pagina"
+
+msgid "1 organisation"
+msgid_plural "@count organisations"
+msgstr[0] "1 organisatie"
+msgstr[1] "@count organisaties"
+
+msgid "1 initiative"
+msgid_plural "@count initiatives"
+msgstr[0] "1 initiatief"
+msgstr[1] "@count initiatieven"
+
+msgid "1 without a location"
+msgid_plural "@count without a location"
+msgstr[0] "1 zonder locatie"
+msgstr[1] "@count zonder locatie"
+
+msgid "1 keyword"
+msgid_plural "@count keywords"
+msgstr[0] "1 trefwoord"
+msgstr[1] "@count trefwoorden"
+
+msgid "Filter the map"
+msgstr "Filter de kaart"
+
+msgid "Map view"
+msgstr "Kaartweergave"
+
+msgid "Initiative-centred"
+msgstr "Volgens initiatief"
+
+msgid "Organisation-centred"
+msgstr "Volgens organisatie"
+
+msgid "List view"
+msgstr "Lijstweergave"
+
+msgid "Organisations"
+msgstr "Organisaties"
+
+msgid "Network"
+msgstr "Netwerk"
+
+msgid "Search on any word"
+msgstr "Zoek op een woord"
+
+msgid ""
+"The network shows how initiatives are linked by their keywords; only "
+"the keyword filter applies."
+msgstr ""
+"Het netwerk toont hoe initiatieven via hun trefwoorden verbonden zijn; "
+"enkel de trefwoordfilter is van toepassing."
+
+msgid "Map"
+msgstr "Kaart"
+
+msgid "Loading…"
+msgstr "Laden…"
+
+msgid "More about the map"
+msgstr "Meer over de kaart"
+
+msgid "Audio player"
+msgstr "Audiospeler"
+
+msgid "Learn more"
+msgstr "Meer informatie"
+
+

@@ -6,7 +6,7 @@ display:
       exposed_form:
         options:
           submit_button: Toepassen
-          reset_button_label: 'Opnieuw instellen'
+          reset_button_label: Wissen
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend

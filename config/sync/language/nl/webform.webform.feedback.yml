@@ -1,0 +1,17 @@
+title: 'Feedback & correcties'
+elements: |
+  experience:
+    '#title': 'Deel jouw ervaring met de kaart'
+    '#description': 'Hoe heb je RedressHub gebruikt? Vertel ons hoe jij met het platform aan de slag ging!'
+    '#placeholder': 'Vertel ons over jouw ervaring...'
+  issue:
+    '#title': 'Meld een fout, vraag om info te wijzigen of verwijderen'
+    '#description': 'Heb je onjuiste info gevonden, vragen bij de manier waarop iets wordt voorgesteld, of wil je je initiatief uit de database laten verwijderen:'
+    '#placeholder': 'Deel je opmerking...'
+  email:
+    '#title': 'Jouw e-mailadres'
+    '#description': 'Optioneel, als je een antwoord wil.'
+  actions:
+    '#submit__label': 'Feedback indienen'
+settings:
+  confirmation_message: 'Bedankt voor je feedback!'

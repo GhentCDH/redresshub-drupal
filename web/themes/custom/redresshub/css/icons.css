@@ -126,3 +126,16 @@
 .icon--x {
   --icon: url("../images/icons/x.svg");
 }
+
+
+.icon--list {
+  --icon: url("../images/icons/list.svg");
+}
+
+.icon--map {
+  --icon: url("../images/icons/map.svg");
+}
+
+.icon--network {
+  --icon: url("../images/icons/network.svg");
+}

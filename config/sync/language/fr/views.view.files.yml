@@ -4,6 +4,8 @@ display:
       fields:
         filename:
           separator: ', '
+        status:
+          label: Statut
         operations:
           label: Actions
       pager:
@@ -19,6 +21,10 @@ display:
           exposed_sorts_label: 'Trier par'
           sort_asc_label: Asc
           sort_desc_label: Desc
+      filters:
+        status:
+          expose:
+            label: Statut
   page_2:
     display_options:
       pager:

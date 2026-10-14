@@ -14,3 +14,6 @@ regions:
   help: Help
   content: Content
   footer: 'Footer links'
+# Interface translations of the theme, the explorer and the forms.
+'interface translation project': redresshub
+'interface translation server pattern': themes/custom/redresshub/translations/%language.po

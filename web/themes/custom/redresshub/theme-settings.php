@@ -18,17 +18,19 @@ function redresshub_form_system_theme_settings_alter(array &$form, FormStateInte
     '#title' => t('RedressHub'),
     '#open' => TRUE,
   ];
-  $form['redresshub']['map_url'] = [
-    '#type' => 'url',
-    '#title' => t('Map URL'),
-    '#description' => t('The NodeGoat viewer embedded on the front page.'),
-    '#default_value' => theme_get_setting('map_url'),
-  ];
-  $form['redresshub']['map_updated'] = [
+  $form['redresshub']['map_tiles'] = [
     '#type' => 'textfield',
-    '#title' => t('Map data note'),
-    '#description' => t('Shown below the map, e.g. "Map data last updated April 7, 2026."'),
-    '#default_value' => theme_get_setting('map_updated'),
+    '#title' => t('Map tiles'),
+    '#maxlength' => 512,
+    '#description' => t('URL template of the base map of the explorer, with {z}, {x} and {y}. Stadia Maps (the default) works on localhost; on a public domain, register the domain in a (free) Stadia account.'),
+    '#default_value' => theme_get_setting('map_tiles'),
+  ];
+  $form['redresshub']['map_attribution'] = [
+    '#type' => 'textfield',
+    '#title' => t('Map attribution'),
+    '#maxlength' => 512,
+    '#description' => t('Credits of the base map (HTML), shown in the corner of the map.'),
+    '#default_value' => theme_get_setting('map_attribution'),
   ];
   $form['redresshub']['contact_email'] = [
     '#type' => 'email',

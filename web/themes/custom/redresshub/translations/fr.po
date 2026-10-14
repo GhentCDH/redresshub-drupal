@@ -1,0 +1,170 @@
+# French translation of RedressHub
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2026-10-14 21:16+0000\n"
+"PO-Revision-Date: 2026-10-14 21:16+0000\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Reset"
+msgstr "Réinitialiser"
+
+msgid "1 place"
+msgid_plural "@count places"
+msgstr[0] "1 lieu"
+msgstr[1] "@count lieux"
+
+msgid "Apply filters"
+msgstr "Appliquer les filtres"
+
+msgid "Status"
+msgstr "Statut"
+
+msgid "Vol. @volume"
+msgstr "Vol. @volume"
+
+msgid "No. @issue"
+msgstr "N° @issue"
+
+msgid "View in Biblio"
+msgstr "Voir dans Biblio"
+
+msgid "ERC Proof of Concept project"
+msgstr "Projet ERC Proof of Concept"
+
+msgid "Explore the map"
+msgstr "Explorer la carte"
+
+msgid "The data could not be loaded."
+msgstr "Les données n'ont pas pu être chargées."
+
+msgid "Map data last updated @date."
+msgstr "Données cartographiques mises à jour le @date."
+
+msgid "No initiatives with keywords."
+msgstr "Aucune initiative avec des mots-clés."
+
+msgid "Network of initiatives and their keywords"
+msgstr "Réseau des initiatives et de leurs mots-clés"
+
+msgid "Click a keyword to filter on it."
+msgstr "Cliquez sur un mot-clé pour filtrer."
+
+msgid "ongoing"
+msgstr "en cours"
+
+msgid "Sector"
+msgstr "Secteur"
+
+msgid "Period"
+msgstr "Période"
+
+msgid "Location"
+msgstr "Lieu"
+
+msgid "Initiatives"
+msgstr "Initiatives"
+
+msgid "Website"
+msgstr "Site web"
+
+msgid "uncertain"
+msgstr "incertain"
+
+msgid "Type of initiative"
+msgstr "Type d'initiative"
+
+msgid "UN category"
+msgstr "Catégorie ONU"
+
+msgid "Organisation(s)"
+msgstr "Organisation(s)"
+
+msgid "Keywords"
+msgstr "Mots-clés"
+
+msgid "Organisation"
+msgstr "Organisation"
+
+msgid "Initiative"
+msgstr "Initiative"
+
+msgid "Resources"
+msgstr "Ressources"
+
+msgid "Open page"
+msgstr "Ouvrir la page"
+
+msgid "1 organisation"
+msgid_plural "@count organisations"
+msgstr[0] "1 organisation"
+msgstr[1] "@count organisations"
+
+msgid "1 initiative"
+msgid_plural "@count initiatives"
+msgstr[0] "1 initiative"
+msgstr[1] "@count initiatives"
+
+msgid "1 without a location"
+msgid_plural "@count without a location"
+msgstr[0] "1 sans localisation"
+msgstr[1] "@count sans localisation"
+
+msgid "1 keyword"
+msgid_plural "@count keywords"
+msgstr[0] "1 mot-clé"
+msgstr[1] "@count mots-clés"
+
+msgid "Filter the map"
+msgstr "Filtrer la carte"
+
+msgid "Map view"
+msgstr "Vue carte"
+
+msgid "Initiative-centred"
+msgstr "Par initiative"
+
+msgid "Organisation-centred"
+msgstr "Par organisation"
+
+msgid "List view"
+msgstr "Vue liste"
+
+msgid "Organisations"
+msgstr "Organisations"
+
+msgid "Network"
+msgstr "Réseau"
+
+msgid "Search on any word"
+msgstr "Rechercher un mot"
+
+msgid ""
+"The network shows how initiatives are linked by their keywords; only "
+"the keyword filter applies."
+msgstr ""
+"Le réseau montre comment les initiatives sont liées par leurs "
+"mots-clés ; seul le filtre des mots-clés s'applique."
+
+msgid "Map"
+msgstr "Carte"
+
+msgid "Loading…"
+msgstr "Chargement…"
+
+msgid "More about the map"
+msgstr "En savoir plus sur la carte"
+
+msgid "Audio player"
+msgstr "Lecteur audio"
+
+msgid "Learn more"
+msgstr "En savoir plus"
+
+

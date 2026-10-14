@@ -2,6 +2,8 @@ display:
   default:
     display_options:
       fields:
+        status:
+          label: Statut
         operations:
           label: Actions
         mail:
@@ -20,6 +22,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       filters:
+        status:
+          group_info:
+            label: Statut
         roles_target_id:
           expose:
             label: Rôle

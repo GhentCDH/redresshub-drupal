@@ -2,12 +2,12 @@ redresshub.settings:
   type: theme_settings
   label: 'RedressHub settings'
   mapping:
-    map_url:
-      type: uri
-      label: 'Map URL'
-    map_updated:
-      type: label
-      label: 'Map data note'
+    map_tiles:
+      type: string
+      label: 'Map tiles URL template'
+    map_attribution:
+      type: string
+      label: 'Map attribution'
     contact_email:
       type: email
       label: 'Contact email'

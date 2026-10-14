@@ -2,6 +2,8 @@ display:
   default:
     display_options:
       fields:
+        status:
+          label: Status
         operations:
           label: Bewerkingen
         mail:
@@ -15,11 +17,14 @@ display:
       exposed_form:
         options:
           submit_button: Filter
-          reset_button_label: 'Opnieuw instellen'
+          reset_button_label: Wissen
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
       filters:
+        status:
+          group_info:
+            label: Status
         roles_target_id:
           expose:
             label: Rol

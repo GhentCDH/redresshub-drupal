@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\TermInterface;
 
@@ -48,9 +49,6 @@ function redresshub_preprocess_html(array &$variables): void {
 function redresshub_preprocess_page(array &$variables): void {
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
   $variables['contact_email'] = theme_get_setting('contact_email');
-  $variables['map_url'] = theme_get_setting('map_url');
-  $variables['map_updated'] = theme_get_setting('map_updated');
-  $variables['hero_image'] = '/' . \Drupal::service('extension.list.theme')->getPath('redresshub') . '/images/hero.jpg';
 
   if ($variables['is_front']) {
     $variables['#attached']['library'][] = 'redresshub/front';
@@ -111,6 +109,20 @@ function redresshub_preprocess_node(array &$variables): void {
     $variables['fragment_type'] = $term instanceof TermInterface
       ? strtolower($term->getUntranslated()->label())
       : 'text';
+  }
+
+  if ($node->bundle() === 'home' && $variables['view_mode'] === 'full') {
+    $image = $node->get('field_hero_image')->entity?->get('field_media_image')->entity;
+    $variables['hero_image_url'] = $image
+      ? \Drupal::service('file_url_generator')->generateString($image->getFileUri())
+      : '/' . \Drupal::service('extension.list.theme')->getPath('redresshub') . '/images/hero.jpg';
+    $variables['explorer'] = [
+      'data_url' => Url::fromRoute('redresshub_site.explorer_data')->toString(),
+      'tiles' => theme_get_setting('map_tiles'),
+      'attribution' => theme_get_setting('map_attribution'),
+    ];
+    $variables['#attached']['library'][] = 'redresshub/explorer';
+    $variables['#cache']['tags'][] = 'config:redresshub.settings';
   }
 
   if ($node->bundle() === 'event') {
