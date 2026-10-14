@@ -1,0 +1,10 @@
+uuid: 4bafee05-5a63-40eb-935f-982bd964daf2
+langcode: en
+status: true
+dependencies: {  }
+id: icon_item
+label: 'Icon row item'
+icon_uuid: null
+icon_default: null
+description: 'An icon with a label, inside an icon row.'
+behavior_plugins: {  }

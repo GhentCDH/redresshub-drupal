@@ -1,0 +1,33 @@
+uuid: 1e7d04e7-89eb-4bb1-a07b-21ab2d37e6ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.publications.field_biblio_ids
+    - field.field.paragraph.publications.field_title
+    - paragraphs.paragraphs_type.publications
+  module:
+    - redresshub_site
+id: paragraph.publications.default
+targetEntityType: paragraph
+bundle: publications
+mode: default
+content:
+  field_biblio_ids:
+    type: redresshub_biblio_publication
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

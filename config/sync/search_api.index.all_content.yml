@@ -22,13 +22,11 @@ dependencies:
     - field.storage.node.field_place
     - field.storage.node.field_place_certain
     - field.storage.node.field_predecessor
-    - field.storage.node.field_publication_type
     - field.storage.node.field_sector
     - field.storage.node.field_short_description
     - field.storage.node.field_street
     - field.storage.node.field_text
     - field.storage.node.field_un_category
-    - field.storage.node.field_year
     - search_api.server.database_search
   module:
     - node
@@ -324,24 +322,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_predecessor
-  field_publication_type__name_ft:
-    label: field_publication_type__name_ft
-    datasource_id: 'entity:node'
-    property_path: 'field_publication_type:entity:name'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_publication_type
-      module:
-        - taxonomy
-  field_publication_type_i:
-    label: field_publication_type_i
-    datasource_id: 'entity:node'
-    property_path: field_publication_type
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_publication_type
   field_sector__name_ft:
     label: field_sector__name_ft
     datasource_id: 'entity:node'
@@ -402,14 +382,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_un_category
-  field_year_i:
-    label: field_year_i
-    datasource_id: 'entity:node'
-    property_path: field_year
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_year
   title_ft:
     label: title_ft
     datasource_id: 'entity:node'

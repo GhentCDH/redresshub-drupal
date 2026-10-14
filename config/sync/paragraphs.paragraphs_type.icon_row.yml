@@ -1,0 +1,10 @@
+uuid: 59fcfeba-5174-4cf3-8aa9-69a92b7b9059
+langcode: en
+status: true
+dependencies: {  }
+id: icon_row
+label: 'Icon row'
+icon_uuid: null
+icon_default: null
+description: 'A row of icons with a short label.'
+behavior_plugins: {  }

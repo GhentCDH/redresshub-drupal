@@ -2,10 +2,10 @@ uuid: 02a9dbd3-5954-44f7-94f9-112d5af8f3cd
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - redresshub
-_core:
-  default_config_hash: kP-MdfP_b6cRGkyhgmHxKBZ_UX_hZ-PII0kGBqP6R1o
 id: redresshub_local_actions
 theme: redresshub
 region: content

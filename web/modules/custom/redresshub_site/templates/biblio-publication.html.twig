@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * A publication from UGent Biblio.
+ *
+ * Available variables:
+ * - publication: title, authors, outlet, volume, issue, year, status, doi.
+ * - url: the publication in Biblio.
+ */
+#}
+{% set p = publication %}
+<article class="publication">
+  <div class="publication__body">
+    <p class="publication__meta">
+      {% if p.status and p.status != 'published' %}[{{ p.status|replace({'_': ' '}) }}]{% else %}{{ p.year }}{% endif %}
+    </p>
+    <h3 class="publication__title">{{ p.title }}</h3>
+    {% if p.authors %}
+      <p class="publication__authors">{{ p.authors|join(', ') }}</p>
+    {% endif %}
+    {% set details = [p.outlet, p.volume ? 'Vol. @volume'|t({'@volume': p.volume}), p.issue ? 'No. @issue'|t({'@issue': p.issue})]|filter(v => v) %}
+    {% if details %}
+      <p class="publication__source">{{ details|join(' • ') }}</p>
+    {% endif %}
+  </div>
+  <a class="button button--outline button--small" href="{{ url }}">{{ 'View in Biblio'|t }}</a>
+</article>

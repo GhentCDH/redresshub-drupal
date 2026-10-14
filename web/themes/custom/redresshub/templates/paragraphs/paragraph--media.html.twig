@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Media paragraph: an image, video or audio with a caption.
+ */
+#}
+<figure{{ attributes.addClass('paragraph', 'media-block') }}>
+  {{ content.field_media }}
+  {% if paragraph.field_caption.value %}
+    <figcaption>{{ paragraph.field_caption.value }}</figcaption>
+  {% endif %}
+</figure>

@@ -1,0 +1,25 @@
+uuid: cd027731-d457-4d54-9c46-ddb8a6a1b676
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.icon_item.field_icon
+    - field.field.paragraph.icon_item.field_label
+    - paragraphs.paragraphs_type.icon_item
+id: paragraph.icon_item.default
+targetEntityType: paragraph
+bundle: icon_item
+mode: default
+content:
+  field_label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_icon: true
+  search_api_excerpt: true

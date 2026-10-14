@@ -1,0 +1,7 @@
+{#
+/**
+ * @file
+ * An icon with a label, in an icon row.
+ */
+#}
+<li{{ attributes.addClass('values__item') }}{% if icon_url %} style="--icon: url('{{ icon_url }}');"{% endif %}>{{ paragraph.field_label.value }}</li>

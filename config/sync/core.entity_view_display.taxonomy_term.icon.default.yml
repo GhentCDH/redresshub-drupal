@@ -1,0 +1,32 @@
+uuid: ff8d9c1e-c1b8-4d63-8c03-8922a7d80b6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.icon.field_svg
+    - taxonomy.vocabulary.icon
+  module:
+    - file
+    - text
+id: taxonomy_term.icon.default
+targetEntityType: taxonomy_term
+bundle: icon
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_svg:
+    type: file_url_plain
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

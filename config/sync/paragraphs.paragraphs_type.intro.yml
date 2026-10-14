@@ -1,0 +1,10 @@
+uuid: 9c0b0ff3-2b7b-48f9-a223-b6f8c94d75d7
+langcode: en
+status: true
+dependencies: {  }
+id: intro
+label: 'Intro text'
+icon_uuid: null
+icon_default: null
+description: 'A larger introductory text.'
+behavior_plugins: {  }

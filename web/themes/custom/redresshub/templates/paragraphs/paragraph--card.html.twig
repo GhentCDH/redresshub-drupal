@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Card on the front page: burgundy, with an icon, title and text.
+ */
+#}
+<a{{ attributes.addClass('cta-card') }} href="{{ link_url }}">
+  <h3 class="cta-card__title"{% if icon_url %} style="--icon: url('{{ icon_url }}');"{% endif %}>
+    {% if icon_url %}<span class="icon" aria-hidden="true"></span>{% endif %}
+    {{- paragraph.field_title.value -}}
+  </h3>
+  <p class="cta-card__text">{{ paragraph.field_plain_text.value }}</p>
+</a>

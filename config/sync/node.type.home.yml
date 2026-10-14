@@ -1,0 +1,11 @@
+uuid: dba383bb-c3b4-434a-9955-7e5235e92190
+langcode: en
+status: true
+dependencies: {  }
+name: Home
+type: home
+description: 'The front page: hero, the map/list/network and the cards. Only one is needed.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

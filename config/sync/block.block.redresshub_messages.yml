@@ -6,8 +6,6 @@ dependencies:
     - system
   theme:
     - redresshub
-_core:
-  default_config_hash: zzFrpDLGd4wqRujhsPuTD9p-okC6BFTxJbS-f6mhHDY
 id: redresshub_messages
 theme: redresshub
 region: highlighted

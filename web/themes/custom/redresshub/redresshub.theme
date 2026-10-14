@@ -8,13 +8,17 @@
 declare(strict_types=1);
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\node\NodeInterface;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  *
- * Adds a "page--<alias>" class, so pages like /foundations can get their own
- * layout (width, background) from CSS.
+ * Adds classes for the layout of the page:
+ * - "page--<alias>", e.g. page--contact.
+ * - "page-title--center" when a basic page has a centered title.
+ * - "page--has-tabs" when a basic page has tabs: it gets the wide layout.
  */
 function redresshub_preprocess_html(array &$variables): void {
   $current_path = \Drupal::service('path.current')->getPath();
@@ -25,6 +29,16 @@ function redresshub_preprocess_html(array &$variables): void {
   }
   if ($slug !== '' && !str_contains($slug, '/')) {
     $variables['attributes']['class'][] = 'page--' . Html::getClass($slug);
+  }
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface && $node->bundle() === 'page' && \Drupal::routeMatch()->getRouteName() === 'entity.node.canonical') {
+    if ($node->get('field_title_alignment')->value === 'center') {
+      $variables['attributes']['class'][] = 'page-title--center';
+    }
+    if (!$node->get('field_tabs')->isEmpty()) {
+      $variables['attributes']['class'][] = 'page--has-tabs';
+    }
   }
 }
 
@@ -47,4 +61,82 @@ function redresshub_preprocess_page(array &$variables): void {
   }
   $variables['#cache']['tags'][] = 'config:redresshub.settings';
   $variables['#cache']['tags'][] = 'config:system.site';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for paragraph.html.twig.
+ */
+function redresshub_preprocess_paragraph(array &$variables): void {
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  $variables['icon_url'] = _redresshub_icon_url($paragraph);
+
+  // Anchor for links like /about#user-manual, from the English title so it
+  // is the same in every language.
+  if ($paragraph->hasField('field_title') && ($title = $paragraph->getUntranslated()->get('field_title')->value)) {
+    $variables['attributes']['id'] = trim(preg_replace('/[^a-z0-9]+/', '-', mb_strtolower($title)), '-');
+  }
+  foreach (['field_alignment' => 'alignment', 'field_button_style' => 'button_style', 'field_background' => 'background'] as $field => $variable) {
+    if ($paragraph->hasField($field)) {
+      $variables[$variable] = $paragraph->get($field)->value;
+    }
+  }
+
+  if ($paragraph->hasField('field_button') && !$paragraph->get('field_button')->isEmpty()) {
+    $link = $paragraph->get('field_button')->first();
+    $variables['button_url'] = $link->getUrl()->toString();
+    $variables['button_title'] = $link->title ?: $variables['button_url'];
+  }
+  if ($paragraph->hasField('field_link') && !$paragraph->get('field_link')->isEmpty()) {
+    $variables['link_url'] = $paragraph->get('field_link')->first()->getUrl()->toString();
+  }
+
+  // View paragraph: render the chosen view ("view_id:display_id").
+  if ($paragraph->bundle() === 'view' && ($value = $paragraph->get('field_view')->value)) {
+    [$view_id, $display_id] = explode(':', $value, 2) + [1 => 'default'];
+    $variables['view'] = views_embed_view($view_id, $display_id);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function redresshub_preprocess_node(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  if ($node->bundle() === 'fragment') {
+    $term = $node->get('field_fragment_type')->entity;
+    $variables['fragment_type'] = $term instanceof TermInterface
+      ? strtolower($term->getUntranslated()->label())
+      : 'text';
+  }
+
+  if ($node->bundle() === 'event') {
+    $date = $node->get('field_event_date')->first();
+    if ($date && $date->start_date) {
+      $formatter = \Drupal::service('date.formatter');
+      $format = 'F j, Y';
+      $start = $formatter->format($date->start_date->getTimestamp(), 'custom', $format);
+      $end = $date->end_date ? $formatter->format($date->end_date->getTimestamp(), 'custom', $format) : NULL;
+      $variables['event_date'] = $end && $end !== $start ? "$start – $end" : $start;
+    }
+    if (!$node->get('field_link')->isEmpty()) {
+      $link = $node->get('field_link')->first();
+      $variables['link_url'] = $link->getUrl()->toString();
+      $variables['link_title'] = $link->title;
+    }
+  }
+}
+
+/**
+ * Returns the URL of the SVG of the icon chosen in an entity, if any.
+ */
+function _redresshub_icon_url(ContentEntityInterface $entity): ?string {
+  if (!$entity->hasField('field_icon') || !($term = $entity->get('field_icon')->entity)) {
+    return NULL;
+  }
+  $file = $term->get('field_svg')->entity;
+  return $file ? \Drupal::service('file_url_generator')->generateString($file->getFileUri()) : NULL;
 }

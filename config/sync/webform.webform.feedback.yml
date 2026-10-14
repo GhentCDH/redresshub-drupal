@@ -1,0 +1,89 @@
+uuid: 0255c87a-658a-474a-b96e-ac62fd7753a5
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 0
+template: false
+archive: false
+id: feedback
+title: 'Feedback & corrections'
+description: null
+categories: {  }
+elements: |-
+  experience:
+    '#type': textarea
+    '#title': 'Share your experience with the map'
+    '#description': 'How have you used RedressHub? We''d love to know how you''re interacting with the platform!'
+    '#description_display': before
+    '#placeholder': 'Tell us about your experience...'
+  issue:
+    '#type': textarea
+    '#title': 'Report an error, ask to modify or withdraw information'
+    '#description': 'If you''ve found incorrect information, have concerns about how something is represented, or wish to withdraw your initiative from the database:'
+    '#description_display': before
+    '#placeholder': 'Describe the issue...'
+  email:
+    '#type': email
+    '#title': 'Your email address'
+    '#description': 'Optional, if you would like an answer.'
+  actions:
+    '#type': webform_actions
+    '#submit__label': 'Submit feedback'
+css: ''
+javascript: ''
+settings:
+  form_required: false
+  confirmation_type: inline
+  confirmation_message: 'Thank you for your feedback!'
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

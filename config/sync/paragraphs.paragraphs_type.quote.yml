@@ -1,0 +1,10 @@
+uuid: b7a53758-a201-4acf-ba10-599f576cdf4b
+langcode: en
+status: true
+dependencies: {  }
+id: quote
+label: Quote
+icon_uuid: null
+icon_default: null
+description: 'A large quote in italics.'
+behavior_plugins: {  }

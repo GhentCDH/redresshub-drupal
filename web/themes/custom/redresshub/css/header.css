@@ -106,3 +106,47 @@ body.toolbar-fixed .site-header {
     gap: 1.25rem;
   }
 }
+
+/* Language switcher: globe and EN · NL · FR. */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--charcoal);
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  --icon-size: 1.125rem;
+}
+
+.language-switcher__list {
+  display: flex;
+  gap: 0.125rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.language-switcher__link {
+  display: block;
+  padding: 0.25rem 0.375rem;
+  border-radius: var(--radius);
+  color: var(--charcoal);
+}
+
+.language-switcher__link:hover {
+  background: var(--soft-beige);
+  color: var(--charcoal);
+}
+
+.language-switcher__link.is-active {
+  color: var(--crimson);
+  font-weight: 500;
+}
+
+@media (max-width: 63.999rem) {
+  .language-switcher {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+}

@@ -1,0 +1,24 @@
+uuid: e6f68d52-8a0c-482e-9a00-e18162f9a27a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_image
+    - media.type.image
+    - node.type.home
+id: node.home.field_hero_image
+field_name: field_hero_image
+entity_type: node
+bundle: home
+label: 'Hero image'
+description: "Optional; without an image the theme's default image is used."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+field_type: entity_reference

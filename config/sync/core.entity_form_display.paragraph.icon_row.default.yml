@@ -1,0 +1,35 @@
+uuid: 1103f136-3ea5-4fd5-92df-2e330076d26c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.icon_row.field_items
+    - paragraphs.paragraphs_type.icon_row
+  module:
+    - paragraphs
+id: paragraph.icon_row.default
+targetEntityType: paragraph
+bundle: icon_row
+mode: default
+content:
+  field_items:
+    type: paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

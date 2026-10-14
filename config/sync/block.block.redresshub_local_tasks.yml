@@ -2,10 +2,10 @@ uuid: 71445060-4249-49f2-911c-70d22cdb6c23
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - redresshub
-_core:
-  default_config_hash: jaoEjobJi4HDZjyihpCF2iGB47lABq_rLZavbu-xt0M
 id: redresshub_local_tasks
 theme: redresshub
 region: content

@@ -1,0 +1,10 @@
+uuid: 9869cfbe-96f6-416f-bb12-757e39a6890d
+langcode: en
+status: true
+dependencies: {  }
+id: text
+label: Text
+icon_uuid: null
+icon_default: null
+description: 'A title (optionally with an icon), text and an optional button.'
+behavior_plugins: {  }

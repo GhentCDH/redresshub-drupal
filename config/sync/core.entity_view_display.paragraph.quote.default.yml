@@ -1,0 +1,33 @@
+uuid: 61110f0d-87af-475c-9e9e-f23b891a74a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote.field_alignment
+    - field.field.paragraph.quote.field_attribution
+    - field.field.paragraph.quote.field_plain_text
+    - paragraphs.paragraphs_type.quote
+id: paragraph.quote.default
+targetEntityType: paragraph
+bundle: quote
+mode: default
+content:
+  field_attribution:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_plain_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_alignment: true
+  search_api_excerpt: true

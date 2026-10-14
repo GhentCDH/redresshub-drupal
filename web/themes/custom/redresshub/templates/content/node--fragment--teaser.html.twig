@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * A fragment in the Uncharted masonry, styled by its type.
+ *
+ * fragment_type: text, quote, image, audio or video, from
+ * redresshub_preprocess_node().
+ */
+#}
+{% if fragment_type in ['image', 'video'] %}
+  <figure{{ attributes.addClass('tile-photo') }}>
+    {{ content.field_media }}
+    {% if node.field_caption.value %}
+      <figcaption>{{ node.field_caption.value }}</figcaption>
+    {% endif %}
+  </figure>
+{% elseif fragment_type == 'quote' %}
+  <div{{ attributes.addClass('tile-reflection') }}>
+    <blockquote>{{ content.field_text }}</blockquote>
+  </div>
+{% elseif fragment_type == 'audio' %}
+  <div{{ attributes.addClass('tile-audio') }}>
+    <h3 style="--icon: url('{{ '/' ~ directory }}/images/icons/volume-2.svg');"><span class="icon" aria-hidden="true"></span>{{ label }}</h3>
+    {{ content.field_text }}
+    {% if not node.field_media.isEmpty() %}
+      {{ content.field_media }}
+    {% else %}
+      <p class="placeholder-box">{{ 'Audio player'|t }}</p>
+    {% endif %}
+  </div>
+{% else %}
+  <div{{ attributes.addClass('tile-text') }}>
+    {{ content.field_text }}
+  </div>
+{% endif %}

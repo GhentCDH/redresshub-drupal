@@ -1,0 +1,30 @@
+display:
+  default:
+    display_options:
+      fields:
+        operations:
+          label: Bewerkingen
+        mail:
+          separator: ', '
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per pagina'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: 'Opnieuw instellen'
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      filters:
+        roles_target_id:
+          expose:
+            label: Rol
+  page_1:
+    display_title: Pagina
+    display_options:
+      menu:
+        title: Lijst

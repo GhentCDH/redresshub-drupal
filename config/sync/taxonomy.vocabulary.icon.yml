@@ -1,0 +1,9 @@
+uuid: f01516cb-d2c6-4bac-80e7-6fd0c23355a1
+langcode: en
+status: true
+dependencies: {  }
+name: Icon
+vid: icon
+description: 'Icons for paragraphs. Each term has an SVG (single colour, stroke "currentColor").'
+weight: 0
+new_revision: false

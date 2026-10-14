@@ -1,0 +1,25 @@
+uuid: 40d393f9-2081-47b1-b8d9-cbef8374ebe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.view.field_title
+    - field.field.paragraph.view.field_view
+    - paragraphs.paragraphs_type.view
+id: paragraph.view.default
+targetEntityType: paragraph
+bundle: view
+mode: default
+content:
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_view: true
+  search_api_excerpt: true

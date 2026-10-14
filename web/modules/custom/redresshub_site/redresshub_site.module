@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Site features of RedressHub.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\field\FieldStorageConfigInterface;
+use Drupal\views\Views;
+
+/**
+ * Allowed values of the "View" field of the View paragraph.
+ *
+ * Lists the block displays of the views tagged "paragraph", so editors can
+ * only pick views made for pages.
+ *
+ * @see callback_allowed_values_function()
+ */
+function redresshub_site_view_options(FieldStorageConfigInterface $definition, ?FieldableEntityInterface $entity = NULL, bool &$cacheable = TRUE): array {
+  $options = [];
+  foreach (Views::getEnabledViews() as $view) {
+    if (!in_array('paragraph', array_map('trim', explode(',', (string) $view->get('tag'))), TRUE)) {
+      continue;
+    }
+    foreach ($view->get('display') as $display_id => $display) {
+      if ($display['display_plugin'] === 'block') {
+        $options[$view->id() . ':' . $display_id] = $view->label() . ' – ' . ($display['display_title'] ?? $display_id);
+      }
+    }
+  }
+  asort($options);
+  return $options;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function redresshub_site_theme(): array {
+  return [
+    'biblio_publication' => [
+      'variables' => ['publication' => NULL, 'url' => NULL],
+    ],
+  ];
+}

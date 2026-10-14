@@ -1,9 +1,0 @@
-uuid: e326ac3b-aa25-4102-83c8-904feb4a9c12
-langcode: en
-status: true
-dependencies: {  }
-name: 'Publication type'
-vid: publication_type
-description: 'E.g. journal article, blog post, report.'
-weight: 0
-new_revision: false

@@ -8,8 +8,7 @@
   margin-bottom: 1.25rem;
 }
 
-.page--about .page-title,
-.page--examples .page-title {
+.page--has-tabs .page-title {
   margin-bottom: 3rem;
 }
 
@@ -40,12 +39,12 @@
   color: var(--white);
 }
 
-.button--outline {
+.button.button--outline {
   background: transparent;
   color: var(--crimson);
 }
 
-.button--outline:hover {
+.button.button--outline:hover {
   border-color: var(--crimson);
   background: var(--crimson);
 }

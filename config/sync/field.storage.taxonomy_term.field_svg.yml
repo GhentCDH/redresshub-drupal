@@ -1,0 +1,23 @@
+uuid: 2885895e-9066-4fa1-8b08-9683c6804638
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - taxonomy
+id: taxonomy_term.field_svg
+field_name: field_svg
+entity_type: taxonomy_term
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

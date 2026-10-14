@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Quote paragraph.
+ */
+#}
+<figure{{ attributes.addClass('paragraph', 'pull-quote', 'align--' ~ alignment) }}>
+  <blockquote>{{ paragraph.field_plain_text.value|nl2br }}</blockquote>
+  {% if paragraph.field_attribution.value %}
+    <figcaption>{{ paragraph.field_attribution.value }}</figcaption>
+  {% endif %}
+</figure>

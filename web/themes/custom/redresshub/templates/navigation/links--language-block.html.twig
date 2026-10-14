@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Language switcher: a globe and the language codes, the current one in red.
+ *
+ * The links are keyed by langcode.
+ */
+#}
+{% if links %}
+  <nav class="language-switcher" aria-label="{{ 'Language'|t }}">
+    <span class="icon icon--globe" aria-hidden="true"></span>
+    <ul class="language-switcher__list">
+      {% for langcode, item in links %}
+        <li>
+          {% if item.link %}
+            {{ item.link|merge({'#title': langcode|upper, '#options': item.link['#options']|merge({'attributes': {'lang': langcode, 'hreflang': langcode, 'title': item.text, 'class': ['language-switcher__link']}})}) }}
+          {% else %}
+            <span class="language-switcher__link" lang="{{ langcode }}">{{ langcode|upper }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

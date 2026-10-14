@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Text paragraph: title with an optional icon, text and an optional button.
+ *
+ * Variables from redresshub_preprocess_paragraph(): icon_url, button_url,
+ * button_title, button_style, background.
+ */
+#}
+<section{{ attributes.addClass('paragraph', 'text-block', background == 'white' ? 'card') }}>
+  {% if content.field_title|render|trim %}
+    <h2 class="text-block__title"{% if icon_url %} style="--icon: url('{{ icon_url }}');"{% endif %}>
+      {% if icon_url %}<span class="icon" aria-hidden="true"></span>{% endif %}
+      {{- paragraph.field_title.value -}}
+    </h2>
+  {% endif %}
+  {% if content.field_text|render|trim %}
+    <div class="text-block__text prose">{{ content.field_text }}</div>
+  {% endif %}
+  {% if button_url %}
+    <p class="text-block__button">
+      <a class="button{{ button_style == 'outline' ? ' button--outline' }}" href="{{ button_url }}">{{ button_title }}</a>
+    </p>
+  {% endif %}
+</section>

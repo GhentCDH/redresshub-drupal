@@ -1,0 +1,44 @@
+uuid: f5d5fa10-df9f-4a0c-a8d7-aab17b5810df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tab.field_content
+    - field.field.paragraph.tab.field_title
+    - paragraphs.paragraphs_type.tab
+  module:
+    - paragraphs
+id: paragraph.tab.default
+targetEntityType: paragraph
+bundle: tab
+mode: default
+content:
+  field_content:
+    type: paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

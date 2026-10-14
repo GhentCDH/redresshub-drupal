@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * View paragraph: a list from the website.
+ *
+ * view: the rendered view, from redresshub_preprocess_paragraph().
+ */
+#}
+<section{{ attributes.addClass('paragraph', 'view-block') }}>
+  {% if paragraph.field_title.value %}
+    <h2 class="view-block__title">{{ paragraph.field_title.value }}</h2>
+  {% endif %}
+  {{ view }}
+</section>

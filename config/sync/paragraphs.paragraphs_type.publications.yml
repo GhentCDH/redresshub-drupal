@@ -1,0 +1,10 @@
+uuid: 71fb421b-ac45-43c6-84a8-379ece568631
+langcode: en
+status: true
+dependencies: {  }
+id: publications
+label: Publications
+icon_uuid: null
+icon_default: null
+description: 'Publications from UGent Biblio.'
+behavior_plugins: {  }

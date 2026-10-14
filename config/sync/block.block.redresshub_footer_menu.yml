@@ -8,8 +8,6 @@ dependencies:
     - system
   theme:
     - redresshub
-_core:
-  default_config_hash: AGRHeOV7gCp2g0kj2RZMOk3pCL_cbx1yUBEPxlCxHEI
 id: redresshub_footer_menu
 theme: redresshub
 region: footer

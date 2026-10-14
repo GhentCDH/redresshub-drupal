@@ -1,0 +1,44 @@
+display:
+  default:
+    display_options:
+      fields:
+        title:
+          label: Titel
+        type:
+          separator: ', '
+        name:
+          label: Auteur
+        status:
+          settings:
+            format_custom_false: 'Niet gepubliceerd'
+            format_custom_true: Gepubliceerd
+        changed:
+          label: Bijgewerkt
+        langcode:
+          label: Taal
+          separator: ', '
+        operations:
+          label: Bewerkingen
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: 'Opnieuw instellen'
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      filters:
+        title:
+          expose:
+            label: Titel
+        status:
+          group_info:
+            group_items:
+              1:
+                title: Gepubliceerd
+              2:
+                title: 'Niet gepubliceerd'
+        langcode:
+          expose:
+            label: Taal
+  page_1:
+    display_title: Pagina

@@ -1,0 +1,16 @@
+uuid: 40cbd18a-1781-4b73-8a93-efe664dd7208
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.icon_row
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: paragraph.icon_row
+target_entity_type_id: paragraph
+target_bundle: icon_row
+default_langcode: site_default
+language_alterable: false

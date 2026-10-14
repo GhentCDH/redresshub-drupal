@@ -1,0 +1,21 @@
+uuid: 4cb6e54a-a0b4-422e-86cb-f58d5a967076
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_view
+field_name: field_view
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: redresshub_site_view_options
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

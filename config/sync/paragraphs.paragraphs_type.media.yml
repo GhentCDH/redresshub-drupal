@@ -1,0 +1,10 @@
+uuid: d2556947-2676-4b92-ace1-f2c18a49702b
+langcode: en
+status: true
+dependencies: {  }
+id: media
+label: Media
+icon_uuid: null
+icon_default: null
+description: 'An image, video or audio fragment with a caption.'
+behavior_plugins: {  }

@@ -1,0 +1,27 @@
+uuid: bf1427d2-4f0c-4e18-8c1a-14135ce64ce6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - paragraphs.paragraphs_type.text
+    - taxonomy.vocabulary.icon
+id: paragraph.text.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: text
+label: Icon
+description: 'Shown in front of the title.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: name
+      direction: asc
+field_type: entity_reference

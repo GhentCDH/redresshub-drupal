@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Form paragraph: a webform in a white card.
+ */
+#}
+<section{{ attributes.addClass('paragraph', 'form-block', 'card') }}>
+  {% if paragraph.field_title.value %}
+    <h2 class="text-block__title"{% if icon_url %} style="--icon: url('{{ icon_url }}');"{% endif %}>
+      {% if icon_url %}<span class="icon" aria-hidden="true"></span>{% endif %}
+      {{- paragraph.field_title.value -}}
+    </h2>
+  {% endif %}
+  {{ content.field_webform }}
+</section>

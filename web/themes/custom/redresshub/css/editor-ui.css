@@ -50,12 +50,6 @@
   color: var(--white);
 }
 
-/* On the centered editorial pages the toolbar is centered too. */
-.page--foundations .local-tasks,
-.page--uncharted .local-tasks {
-  text-align: center;
-}
-
 /* Status messages. */
 .messages {
   margin: 0 0 2rem;

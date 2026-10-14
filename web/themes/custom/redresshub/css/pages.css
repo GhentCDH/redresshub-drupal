@@ -161,16 +161,9 @@
 }
 
 /* Foundations: centered header, values, pull quote. */
-.page--foundations .lead,
-.page--uncharted .lead {
+.lead.align--center {
   margin-bottom: 5rem;
   text-align: center;
-}
-
-.page--uncharted .lead {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-style: italic;
 }
 
 .values {
@@ -220,11 +213,6 @@
   mask: var(--icon) center / contain no-repeat;
 }
 
-.values li.icon--venn::after {
-  top: 1.25rem;
-  width: 2.5rem;
-  height: 2.5rem;
-}
 
 .pull-quote {
   margin-block: 5rem;
@@ -238,11 +226,15 @@
   text-align: center;
 }
 
-.page--foundations .prose p {
-  line-height: 1.9;
-}
 
 /* Uncharted: masonry of photos, text, audio and reflections. */
+/* The masonry is wider than the text column of the page. */
+.view-block:has(.masonry) {
+  width: min(var(--container-medium), 100vw - 2 * var(--gutter));
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
 .masonry {
   column-gap: 28px;
   columns: 1;
@@ -263,6 +255,10 @@
 .masonry > * {
   margin: 0 0 1.75rem;
   break-inside: avoid;
+}
+
+.tile-photo {
+  margin: 0;
 }
 
 .tile-photo img {
@@ -304,6 +300,7 @@
 .tile-audio h3 {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
   margin-bottom: 1rem;
   --icon-size: 1.5rem;
 }
@@ -335,7 +332,8 @@
   background: var(--blush);
 }
 
-.tile-reflection blockquote {
+.tile-reflection blockquote,
+.tile-reflection blockquote p {
   color: var(--crimson);
   font-family: var(--font-serif);
   font-size: 1.25rem;
@@ -352,7 +350,6 @@
   gap: 2.5rem;
   margin: 0;
   padding: 0 0 0 3.5rem;
-  list-style: none;
 }
 
 .timeline::before {
@@ -485,4 +482,128 @@
 
 .publications__heading {
   margin-bottom: 2.5rem;
+}
+
+/* Paragraphs follow each other with some space. */
+.paragraph + .paragraph,
+.paragraph + .content-tabs {
+  margin-top: 2.5rem;
+}
+
+.align--center {
+  text-align: center;
+}
+
+/* Text paragraph. Consecutive text paragraphs (not cards) are separated by
+   a line, like the sections of About. */
+.text-block__title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 300;
+  --icon-size: 1.5rem;
+}
+
+.text-block__title .icon {
+  color: var(--crimson);
+}
+
+.card .text-block__title,
+.form-block .text-block__title {
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.text-block:not(.card) + .text-block:not(.card) {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.text-block__button {
+  margin-top: 1.5rem;
+}
+
+.card .prose p,
+.card .prose li {
+  line-height: 1.7;
+}
+
+.card .prose ul {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.card .prose li + li {
+  margin-top: 0.5rem;
+}
+
+/* Quote paragraph: the pull quote, also left aligned. */
+.pull-quote blockquote {
+  margin: 0;
+}
+
+.pull-quote.align--left {
+  text-align: left;
+}
+
+.pull-quote figcaption {
+  margin-top: 1rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-style: normal;
+}
+
+/* Media paragraph. */
+.media-block {
+  margin: 0;
+}
+
+.media-block img,
+.media-block video,
+.media-block iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+.media-block figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+/* Form paragraph. */
+.form-block form > .form-item:first-child {
+  margin-top: 0;
+}
+
+/* Publications from Biblio. */
+.publication__authors {
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+/* Views in a View paragraph. */
+.view-block__title {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+
+/* Tabs: the first content in a tab has no extra space above it. */
+.content-tabs__panel > .visually-hidden + .paragraph {
+  margin-top: 0;
+}
+
+/* A page that starts with a text block (no intro): space below the title. */
+.node--type-page > div > .text-block:first-child {
+  margin-top: 3rem;
 }

@@ -1,0 +1,122 @@
+label: Formulierinzendingen
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Toepassen
+          reset_button_label: 'Opnieuw instellen'
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+          expose:
+            items_per_page_label: 'Items per pagina'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Offset
+      fields:
+        sid:
+          separator: ', '
+        in_draft:
+          separator: ', '
+        created:
+          separator: ', '
+        remote_addr:
+          label: IP-adres
+          separator: ', '
+        view_webform_submission:
+          label: Bewerkingen
+      arguments:
+        in_draft:
+          exception:
+            title: Alle
+      title: Formulierinzendingen
+  embed_administer:
+    display_options:
+      fields:
+        webform_submission_bulk_form:
+          action_title: Actie
+        sid:
+          separator: ', '
+        in_draft:
+          separator: ', '
+        sticky:
+          separator: ', '
+        locked:
+          label: Vergrendeld
+          separator: ', '
+        created:
+          separator: ', '
+        completed:
+          label: Voltooid
+          separator: ', '
+        remote_addr:
+          label: IP-adres
+          separator: ', '
+        operations:
+          label: Bewerkingen
+      filters:
+        locked:
+          expose:
+            label: Vergrendeld
+  embed_manage:
+    display_options:
+      fields:
+        webform_submission_bulk_form:
+          action_title: Actie
+        sid:
+          separator: ', '
+        in_draft:
+          separator: ', '
+        sticky:
+          separator: ', '
+        locked:
+          label: Vergrendeld
+          separator: ', '
+        created:
+          separator: ', '
+        completed:
+          label: Voltooid
+          separator: ', '
+        remote_addr:
+          label: IP-adres
+          separator: ', '
+        view_webform_submission:
+          label: Bewerkingen
+        edit_webform_submission:
+          label: Bewerkingen
+      filters:
+        locked:
+          expose:
+            label: Vergrendeld
+  embed_review:
+    display_options:
+      fields:
+        sid:
+          separator: ', '
+        in_draft:
+          separator: ', '
+        sticky:
+          separator: ', '
+        locked:
+          label: Vergrendeld
+          separator: ', '
+        created:
+          separator: ', '
+        completed:
+          label: Voltooid
+          separator: ', '
+        remote_addr:
+          label: IP-adres
+          separator: ', '
+        view_webform_submission:
+          label: Bewerkingen
+      filters:
+        locked:
+          expose:
+            label: Vergrendeld

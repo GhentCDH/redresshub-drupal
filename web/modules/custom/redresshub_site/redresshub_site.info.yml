@@ -1,0 +1,9 @@
+name: 'RedressHub site'
+type: module
+description: 'Site features of RedressHub: views for page paragraphs, Biblio publications, the data for the map.'
+package: RedressHub
+core_version_requirement: ^11
+dependencies:
+  - drupal:views
+  - drupal:node
+  - drupal:taxonomy

@@ -1,0 +1,58 @@
+uuid: f8e18ae4-7c46-4b7d-aebd-17a15d87f70c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.fragment.field_caption
+    - field.field.node.fragment.field_credit
+    - field.field.node.fragment.field_fragment_type
+    - field.field.node.fragment.field_media
+    - field.field.node.fragment.field_text
+    - node.type.fragment
+  module:
+    - text
+id: node.fragment.teaser
+targetEntityType: node
+bundle: fragment
+mode: teaser
+content:
+  field_caption:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_credit:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_fragment_type: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

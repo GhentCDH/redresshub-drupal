@@ -1,0 +1,10 @@
+uuid: df423a4a-ef0a-4d7d-917c-0b0736f2860b
+langcode: en
+status: true
+dependencies: {  }
+id: card
+label: Card
+icon_uuid: null
+icon_default: null
+description: 'A coloured card with an icon, title, text and a link (front page).'
+behavior_plugins: {  }

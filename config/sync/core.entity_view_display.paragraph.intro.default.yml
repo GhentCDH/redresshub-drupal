@@ -1,0 +1,23 @@
+uuid: 8687fd87-c7e1-4df1-98ad-ac09b6efd2c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.intro.field_alignment
+    - field.field.paragraph.intro.field_plain_text
+    - paragraphs.paragraphs_type.intro
+id: paragraph.intro.default
+targetEntityType: paragraph
+bundle: intro
+mode: default
+content:
+  field_plain_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_alignment: true
+  search_api_excerpt: true

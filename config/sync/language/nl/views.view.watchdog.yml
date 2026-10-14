@@ -1,0 +1,35 @@
+display:
+  default:
+    display_options:
+      fields:
+        nothing:
+          admin_label: Pictogram
+        type:
+          label: Type
+        name:
+          label: Gebruiker
+          separator: ', '
+        link:
+          label: Bewerkingen
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page_label: 'Items per pagina'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: 'Opnieuw instellen'
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      filters:
+        type:
+          expose:
+            label: Type
+  page:
+    display_title: Pagina

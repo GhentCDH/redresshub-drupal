@@ -1,0 +1,10 @@
+uuid: 83957064-0a4e-46e6-b911-be89cad411b8
+langcode: en
+status: true
+dependencies: {  }
+id: view
+label: View
+icon_uuid: null
+icon_default: null
+description: 'A list from the website, e.g. the fragments or the events.'
+behavior_plugins: {  }

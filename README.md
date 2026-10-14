@@ -97,18 +97,3 @@ If you have [`just`](https://github.com/casey/just) installed, these are some us
 ## Template
 
 This repository was generated using [this cookiecutter template](https://github.com/ghentcdh/drupal_template)
-
-## Theme and initial content
-
-The `redresshub` theme (`web/themes/custom/redresshub`, a stable9 subtheme) is
-built from the RedressHub Figma Make mockup. The map URL, the note below the map
-and the footer email are theme settings (Appearance > Settings > RedressHub).
-
-The pages are created from `initial-content/pages/*.html`:
-
-```sh
-just drush php:script /app/scripts/create-content.php
-```
-
-This overwrites those pages and the main and footer menus, so only run it on a
-fresh site or when you want to reset them.

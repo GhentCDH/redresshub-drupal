@@ -6,8 +6,6 @@ dependencies:
     - help
   theme:
     - redresshub
-_core:
-  default_config_hash: Qf4qoHmx5HuYuu_PPxV_mK9FRVml96wSbDTJClFuLfc
 id: redresshub_help
 theme: redresshub
 region: help

@@ -1,0 +1,27 @@
+uuid: 48d838a5-5775-40f4-940a-ab8370183ce8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - paragraphs.paragraphs_type.form
+    - taxonomy.vocabulary.icon
+id: paragraph.form.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: form
+label: Icon
+description: Optional.
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: name
+      direction: asc
+field_type: entity_reference

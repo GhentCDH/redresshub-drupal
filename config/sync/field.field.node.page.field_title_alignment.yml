@@ -1,0 +1,23 @@
+uuid: 66a9a50a-f98f-4b6d-80f5-ff9e0e22a501
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title_alignment
+    - node.type.page
+  module:
+    - options
+id: node.page.field_title_alignment
+field_name: field_title_alignment
+entity_type: node
+bundle: page
+label: 'Title alignment'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

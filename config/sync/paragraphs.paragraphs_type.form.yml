@@ -1,0 +1,10 @@
+uuid: a0f2f5cb-98b7-4ebd-9d6e-e7675547365f
+langcode: en
+status: true
+dependencies: {  }
+id: form
+label: Form
+icon_uuid: null
+icon_default: null
+description: 'A form (made under Structure > Webforms).'
+behavior_plugins: {  }

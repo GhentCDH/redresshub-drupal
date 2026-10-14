@@ -1,0 +1,5 @@
+settings:
+  default_reset_button_label: 'Opnieuw instellen'
+  default_delete_button_label: Verwijderen
+  default_preview_next_button_label: Voorbeeldweergave
+  default_preview_label: Voorbeeldweergave

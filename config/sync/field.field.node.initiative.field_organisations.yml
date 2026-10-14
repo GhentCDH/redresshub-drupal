@@ -10,7 +10,7 @@ id: node.initiative.field_organisations
 field_name: field_organisations
 entity_type: node
 bundle: initiative
-label: 'Linked organisation(s)'
+label: Organisation(s)
 description: ''
 required: false
 translatable: false

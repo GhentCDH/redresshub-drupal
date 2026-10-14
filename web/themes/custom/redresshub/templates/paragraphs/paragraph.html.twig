@@ -1,0 +1,9 @@
+{#
+/**
+ * @file
+ * Default paragraph: its fields in a div.
+ */
+#}
+<div{{ attributes.addClass('paragraph', 'paragraph--' ~ paragraph.bundle|clean_class) }}>
+  {{ content }}
+</div>

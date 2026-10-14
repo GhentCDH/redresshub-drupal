@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * A tab: js/tabs.js turns the panels into tabs.
+ */
+#}
+<section{{ attributes.addClass('content-tabs__panel').setAttribute('data-tab-label', paragraph.field_title.value) }}>
+  <h2 class="visually-hidden">{{ paragraph.field_title.value }}</h2>
+  {{ content.field_content }}
+</section>

@@ -26,9 +26,11 @@
         "drupal/geofield": "^10.3",
         "drupal/memcache": "^2.9",
         "drupal/optional_end_date": "^2.0",
+        "drupal/paragraphs": "^1.19",
         "drupal/purge": "^3.7",
         "drupal/search_api": "^1.41",
         "drupal/varnish_purge": "^2.3",
+        "drupal/webform": "^6.3",
         "drush/drush": "^13"
     },
     "conflict": {

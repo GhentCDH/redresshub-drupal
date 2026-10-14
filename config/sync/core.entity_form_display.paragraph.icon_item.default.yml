@@ -1,0 +1,30 @@
+uuid: d52547c3-eb26-454f-9df9-c9066a9ae714
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.icon_item.field_icon
+    - field.field.paragraph.icon_item.field_label
+    - paragraphs.paragraphs_type.icon_item
+id: paragraph.icon_item.default
+targetEntityType: paragraph
+bundle: icon_item
+mode: default
+content:
+  field_icon:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_label:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
