@@ -41,10 +41,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_fragment_type:
-    type: options_buttons
-    weight: 1
+    type: entity_reference_autocomplete
+    weight: 121
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_media:
     type: media_library_widget

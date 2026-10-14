@@ -1,0 +1,445 @@
+uuid: 6f37c4d0-0f3c-44ef-b8a2-b0107d210643
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_city
+    - field.storage.node.field_credit
+    - field.storage.node.field_event_date
+    - field.storage.node.field_event_location
+    - field.storage.node.field_general_contact
+    - field.storage.node.field_historical_era
+    - field.storage.node.field_initiative_type
+    - field.storage.node.field_injustice_type
+    - field.storage.node.field_keywords
+    - field.storage.node.field_location_type
+    - field.storage.node.field_locations
+    - field.storage.node.field_organisation_status
+    - field.storage.node.field_organisations
+    - field.storage.node.field_period
+    - field.storage.node.field_period_certain
+    - field.storage.node.field_place
+    - field.storage.node.field_place_certain
+    - field.storage.node.field_predecessor
+    - field.storage.node.field_publication_type
+    - field.storage.node.field_sector
+    - field.storage.node.field_short_description
+    - field.storage.node.field_street
+    - field.storage.node.field_text
+    - field.storage.node.field_un_category
+    - field.storage.node.field_year
+    - search_api.server.database_search
+  module:
+    - node
+    - taxonomy
+id: all_content
+name: 'All content'
+description: ''
+read_only: false
+field_settings:
+  body_ft:
+    label: body_ft
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  content_type_s:
+    label: content_type_s
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  field_city__name_ft:
+    label: field_city__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_city:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_city
+      module:
+        - taxonomy
+  field_city_i:
+    label: field_city_i
+    datasource_id: 'entity:node'
+    property_path: field_city
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_city
+  field_credit_ft:
+    label: field_credit_ft
+    datasource_id: 'entity:node'
+    property_path: field_credit
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_credit
+  field_event_date_d:
+    label: field_event_date_d
+    datasource_id: 'entity:node'
+    property_path: field_event_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_event_date
+  field_event_date_end_d:
+    label: field_event_date_end_d
+    datasource_id: 'entity:node'
+    property_path: 'field_event_date:end_value'
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_event_date
+  field_event_location_ft:
+    label: field_event_location_ft
+    datasource_id: 'entity:node'
+    property_path: field_event_location
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_event_location
+  field_general_contact_ft:
+    label: field_general_contact_ft
+    datasource_id: 'entity:node'
+    property_path: field_general_contact
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_general_contact
+  field_historical_era__name_ft:
+    label: field_historical_era__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_historical_era:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_historical_era
+      module:
+        - taxonomy
+  field_historical_era_i:
+    label: field_historical_era_i
+    datasource_id: 'entity:node'
+    property_path: field_historical_era
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_historical_era
+  field_initiative__name_ft:
+    label: field_initiative__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_initiative_type:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_initiative_type
+      module:
+        - taxonomy
+  field_initiative_type_i:
+    label: field_initiative_type_i
+    datasource_id: 'entity:node'
+    property_path: field_initiative_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_initiative_type
+  field_injustice_type__name_ft:
+    label: field_injustice_type__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_injustice_type:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_injustice_type
+      module:
+        - taxonomy
+  field_injustice_type_i:
+    label: field_injustice_type_i
+    datasource_id: 'entity:node'
+    property_path: field_injustice_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_injustice_type
+  field_keywords__name_ft:
+    label: field_keywords__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_keywords:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_keywords
+      module:
+        - taxonomy
+  field_keywords_i:
+    label: field_keywords_i
+    datasource_id: 'entity:node'
+    property_path: field_keywords
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_keywords
+  field_location_type__name_ft:
+    label: field_location_type__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_location_type:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_location_type
+      module:
+        - taxonomy
+  field_location_type_i:
+    label: field_location_type_i
+    datasource_id: 'entity:node'
+    property_path: field_location_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_location_type
+  field_locations__title_ft:
+    label: field_locations__title_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_locations:entity:title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_locations
+      module:
+        - node
+  field_locations_i:
+    label: field_locations_i
+    datasource_id: 'entity:node'
+    property_path: field_locations
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_locations
+  field_organisation_status__name_ft:
+    label: field_organisation_status__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_organisation_status:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_organisation_status
+      module:
+        - taxonomy
+  field_organisation_status_i:
+    label: field_organisation_status_i
+    datasource_id: 'entity:node'
+    property_path: field_organisation_status
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_organisation_status
+  field_organisations__title_ft:
+    label: field_organisations__title_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_organisations:entity:title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_organisations
+      module:
+        - node
+  field_organisations_i:
+    label: field_organisations_i
+    datasource_id: 'entity:node'
+    property_path: field_organisations
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_organisations
+  field_period_certain_bool:
+    label: field_period_certain_bool
+    datasource_id: 'entity:node'
+    property_path: field_period_certain
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_period_certain
+  field_period_d:
+    label: field_period_d
+    datasource_id: 'entity:node'
+    property_path: field_period
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_period
+  field_period_end_d:
+    label: field_period_end_d
+    datasource_id: 'entity:node'
+    property_path: 'field_period:end_value'
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_period
+  field_place__name_ft:
+    label: field_place__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_place:entity:title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_place
+      module:
+        - node
+  field_place_certain_bool:
+    label: field_place_certain_bool
+    datasource_id: 'entity:node'
+    property_path: field_place_certain
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_place_certain
+  field_place_i:
+    label: field_place_i
+    datasource_id: 'entity:node'
+    property_path: field_place
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_place
+  field_predecessor__name_ft:
+    label: field_predecessor__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_predecessor:entity:title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_predecessor
+      module:
+        - node
+  field_predecessor_i:
+    label: field_predecessor_i
+    datasource_id: 'entity:node'
+    property_path: field_predecessor
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_predecessor
+  field_publication_type__name_ft:
+    label: field_publication_type__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_publication_type:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_publication_type
+      module:
+        - taxonomy
+  field_publication_type_i:
+    label: field_publication_type_i
+    datasource_id: 'entity:node'
+    property_path: field_publication_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_publication_type
+  field_sector__name_ft:
+    label: field_sector__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_sector:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_sector
+      module:
+        - taxonomy
+  field_sector_i:
+    label: field_sector_i
+    datasource_id: 'entity:node'
+    property_path: field_sector
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_sector
+  field_short_description_ft:
+    label: field_short_description_ft
+    datasource_id: 'entity:node'
+    property_path: field_short_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_short_description
+  field_street_ft:
+    label: field_street_ft
+    datasource_id: 'entity:node'
+    property_path: field_street
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_street
+  field_text_ft:
+    label: field_text_ft
+    datasource_id: 'entity:node'
+    property_path: field_text
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_text
+  field_un_category__name_ft:
+    label: field_un_category__name_ft
+    datasource_id: 'entity:node'
+    property_path: 'field_un_category:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_un_category
+      module:
+        - taxonomy
+  field_un_category_i:
+    label: field_un_category_i
+    datasource_id: 'entity:node'
+    property_path: field_un_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_un_category
+  field_year_i:
+    label: field_year_i
+    datasource_id: 'entity:node'
+    property_path: field_year
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_year
+  title_ft:
+    label: title_ft
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: 21.0
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: database_search

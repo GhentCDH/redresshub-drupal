@@ -1,0 +1,9 @@
+uuid: c4574670-18a7-4342-b9cc-7ca468aab8c3
+langcode: en
+status: true
+dependencies: {  }
+name: 'Fragment type'
+vid: fragment_type
+description: null
+weight: 0
+new_revision: false

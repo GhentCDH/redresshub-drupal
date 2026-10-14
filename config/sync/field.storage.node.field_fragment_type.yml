@@ -1,33 +1,17 @@
-uuid: 769b0e5a-3a3d-442b-892f-09f63407e52c
+uuid: d9ce5e81-5419-4386-afe8-666c567da3e3
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - options
+    - taxonomy
 id: node.field_fragment_type
 field_name: field_fragment_type
 entity_type: node
-type: list_string
+type: entity_reference
 settings:
-  allowed_values:
-    -
-      value: text
-      label: Text
-    -
-      value: quote
-      label: Quote
-    -
-      value: image
-      label: Image
-    -
-      value: audio
-      label: Audio
-    -
-      value: video
-      label: Video
-  allowed_values_function: ''
-module: options
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true

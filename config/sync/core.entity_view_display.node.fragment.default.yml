@@ -35,6 +35,14 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_fragment_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
   field_media:
     type: entity_reference_entity_view
     label: above
@@ -57,6 +65,5 @@ content:
     weight: 100
     region: content
 hidden:
-  field_fragment_type: true
   langcode: true
   search_api_excerpt: true

@@ -1,0 +1,16 @@
+uuid: fdcd2cb8-795e-4975-a992-0ea525fdfa20
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.fragment_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.fragment_type
+target_entity_type_id: taxonomy_term
+target_bundle: fragment_type
+default_langcode: site_default
+language_alterable: false

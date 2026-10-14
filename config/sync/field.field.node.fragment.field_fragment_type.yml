@@ -1,21 +1,29 @@
-uuid: e22a7474-4ce6-4c8d-a26a-fda6928322ef
+uuid: 6ecfed40-b1a2-44cf-b90d-a185f9bbe252
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_fragment_type
     - node.type.fragment
-  module:
-    - options
+    - taxonomy.vocabulary.fragment_type
 id: node.fragment.field_fragment_type
 field_name: field_fragment_type
 entity_type: node
 bundle: fragment
 label: 'Fragment type'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: list_string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      fragment_type: fragment_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
