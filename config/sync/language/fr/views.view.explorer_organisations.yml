@@ -1,0 +1,35 @@
+display:
+  default:
+    display_options:
+      filters:
+        q:
+          expose:
+            label: 'Rechercher un mot'
+        sector:
+          expose:
+            label: Secteur
+        org_status:
+          expose:
+            label: Statut
+        type:
+          expose:
+            label: "Type d'initiative"
+        keyword:
+          expose:
+            label: Mots-clés
+        from:
+          expose:
+            label: 'À partir de'
+        to:
+          expose:
+            label: "Jusqu'à"
+      exposed_form:
+        options:
+          submit_button: 'Appliquer les filtres'
+          reset_button_label: Réinitialiser
+      header:
+        result:
+          content: '@total organisations'
+      empty:
+        area_text_custom:
+          content: 'Aucun résultat pour ces filtres.'

@@ -9,7 +9,9 @@ declare(strict_types=1);
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\TermInterface;
 
@@ -116,13 +118,12 @@ function redresshub_preprocess_node(array &$variables): void {
     $variables['hero_image_url'] = $image
       ? \Drupal::service('file_url_generator')->generateString($image->getFileUri())
       : '/' . \Drupal::service('extension.list.theme')->getPath('redresshub') . '/images/hero.jpg';
-    $variables['explorer'] = [
-      'data_url' => Url::fromRoute('redresshub_site.explorer_data')->toString(),
-      'tiles' => theme_get_setting('map_tiles'),
-      'attribution' => theme_get_setting('map_attribution'),
-    ];
+    $variables['explorer'] = _redresshub_explorer();
     $variables['#attached']['library'][] = 'redresshub/explorer';
-    $variables['#cache']['tags'][] = 'config:redresshub.settings';
+  }
+
+  if (in_array($variables['view_mode'], ['panel', 'tile'], TRUE) && in_array($node->bundle(), ['initiative', 'organisation'], TRUE)) {
+    _redresshub_preprocess_explorer_item($variables);
   }
 
   if ($node->bundle() === 'event') {
@@ -151,4 +152,146 @@ function _redresshub_icon_url(ContentEntityInterface $entity): ?string {
   }
   $file = $term->get('field_svg')->entity;
   return $file ? \Drupal::service('file_url_generator')->generateString($file->getFileUri()) : NULL;
+}
+
+/**
+ * The views of the explorer: key => [view, display, kind].
+ */
+const REDRESSHUB_EXPLORER_VIEWS = [
+  'map-initiatives' => ['explorer_initiatives', 'map', 'initiatives'],
+  'map-organisations' => ['explorer_organisations', 'map', 'organisations'],
+  'list-initiatives' => ['explorer_initiatives', 'list', 'initiatives'],
+  'list-organisations' => ['explorer_organisations', 'list', 'organisations'],
+  'network' => ['explorer_network', 'list', 'network'],
+];
+
+/**
+ * The filters (URL parameters) of each kind of view.
+ */
+const REDRESSHUB_EXPLORER_FILTERS = [
+  'initiatives' => ['search', 'type', 'org', 'keyword', 'sector', 'from', 'to'],
+  'organisations' => ['search', 'sector', 'status', 'type', 'keyword', 'from', 'to'],
+  'network' => ['keyword'],
+];
+
+/**
+ * Returns the variables of the explorer on the Home node.
+ *
+ * The view is chosen with ?view=…; the toolbar links keep the filters that
+ * the other view also has.
+ */
+function _redresshub_explorer(): array {
+  $query = \Drupal::request()->query->all();
+  $current = isset($query['view'], REDRESSHUB_EXPLORER_VIEWS[$query['view']]) ? $query['view'] : 'map-initiatives';
+  [$view_id, $display_id, $kind] = REDRESSHUB_EXPLORER_VIEWS[$current];
+
+  $links = [];
+  foreach (REDRESSHUB_EXPLORER_VIEWS as $key => [, , $target_kind]) {
+    $params = array_filter(
+      array_intersect_key($query, array_flip(REDRESSHUB_EXPLORER_FILTERS[$target_kind])),
+      fn($value) => is_string($value) && $value !== '' && $value !== 'All',
+    );
+    if ($key !== 'map-initiatives') {
+      $params = ['view' => $key] + $params;
+    }
+    $links[$key] = Url::fromRoute('<front>', [], ['query' => $params])->toString();
+  }
+
+  $active = array_filter(
+    array_intersect_key($query, array_flip(REDRESSHUB_EXPLORER_FILTERS[$kind])),
+    fn($value) => is_string($value) && $value !== '' && $value !== 'All',
+  );
+
+  // The date of the last change to an initiative or organisation.
+  $nids = \Drupal::entityQuery('node')->accessCheck(TRUE)
+    ->condition('type', ['initiative', 'organisation'], 'IN')
+    ->sort('changed', 'DESC')->range(0, 1)->execute();
+  $last = $nids ? Node::load(reset($nids)) : NULL;
+
+  return [
+    'current' => $current,
+    'kind' => $kind,
+    'links' => $links,
+    'active_filters' => count($active),
+    'view' => views_embed_view($view_id, $display_id),
+    'updated' => $last ? \Drupal::service('date.formatter')->format($last->getChangedTime(), 'custom', 'F j, Y') : NULL,
+  ];
+}
+
+/**
+ * Prepares an initiative or organisation for the side panel or a tile.
+ *
+ * Sets facts (label => items, each with text and an optional URL), text,
+ * resources and, for tiles, a short meta line and the rendered panel.
+ */
+function _redresshub_preprocess_explorer_item(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $langcode = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+  $translate = fn($entity) => $entity && $entity->hasTranslation($langcode) ? $entity->getTranslation($langcode) : $entity;
+  $node = $translate($node);
+
+  $labels = fn(string $field) => array_map(
+    fn($entity) => ['text' => $translate($entity)->label()],
+    $node->get($field)->referencedEntities(),
+  );
+  $links = fn(array $entities) => array_map(
+    fn($entity) => ['text' => $translate($entity)->label(), 'url' => $translate($entity)->toUrl()->toString()],
+    $entities,
+  );
+
+  $period = $node->get('field_period')->first();
+  $start = $period?->value ? substr($period->value, 0, 4) : NULL;
+  $end = $period?->end_value ? substr($period->end_value, 0, 4) : NULL;
+  $period_text = $start ? ($end ? ($end === $start ? $start : "$start – $end") : t('@year – ongoing', ['@year' => $start])) : NULL;
+
+  $facts = [];
+  if ($node->bundle() === 'initiative') {
+    if ($period_text && !$node->get('field_period_certain')->value) {
+      $period_text .= ' (' . t('uncertain') . ')';
+    }
+    $facts[(string) t('Period')] = $period_text ? [['text' => $period_text]] : [];
+    $facts[(string) t('Type of initiative')] = $labels('field_initiative_type');
+    $facts[(string) t('UN category')] = $labels('field_un_category');
+    $facts[(string) t('Organisation(s)')] = $links($node->get('field_organisations')->referencedEntities());
+    $facts[(string) t('Location')] = $labels('field_place');
+    $facts[(string) t('Keywords')] = $labels('field_keywords');
+    $variables['text'] = $node->get('field_short_description')->processed;
+    $variables['resources'] = array_map(fn($item) => $item->getUrl()->toString(), iterator_to_array($node->get('field_resources')));
+    $meta = array_filter([implode(', ', array_column($labels('field_initiative_type'), 'text')), $start ? ($end ? ($end === $start ? $start : "$start–$end") : "$start–") : '']);
+  }
+  else {
+    $initiative_ids = \Drupal::entityQuery('node')->accessCheck(TRUE)
+      ->condition('type', 'initiative')->condition('status', 1)
+      ->condition('field_organisations', $node->id())->sort('title')->execute();
+    $facts[(string) t('Sector')] = $labels('field_sector');
+    $facts[(string) t('Status')] = $labels('field_organisation_status');
+    $facts[(string) t('Period')] = $period_text ? [['text' => $period_text]] : [];
+    $facts[(string) t('Location')] = $labels('field_locations');
+    $facts[(string) t('Initiatives')] = $links(Node::loadMultiple($initiative_ids));
+    $website = $node->get('field_website')->first();
+    $facts[(string) t('Website')] = $website ? [['text' => preg_replace('#^https?://(www\.)?#', '', rtrim($website->getUrl()->toString(), '/')), 'url' => $website->getUrl()->toString()]] : [];
+    $meta = [implode(', ', array_column($labels('field_sector'), 'text'))];
+  }
+  // Term labels are shown as tags.
+  $variables['tag_facts'] = [(string) t('Type of initiative'), (string) t('UN category'), (string) t('Keywords'), (string) t('Sector'), (string) t('Status')];
+  $variables['facts'] = array_filter($facts);
+  $variables['kicker'] = $node->bundle() === 'initiative' ? t('Initiative') : t('Organisation');
+  $variables['url'] = $node->toUrl()->toString();
+  $variables['meta'] = implode(' · ', array_filter($meta));
+
+  if ($variables['view_mode'] === 'tile') {
+    $variables['panel'] = \Drupal::entityTypeManager()->getViewBuilder('node')->view($node, 'panel');
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for views_view.
+ *
+ * One template for the explorer views: views-view--explorer.html.twig.
+ */
+function redresshub_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
+  if (str_starts_with($variables['view']->id(), 'explorer_')) {
+    $suggestions[] = 'views_view__explorer';
+  }
 }

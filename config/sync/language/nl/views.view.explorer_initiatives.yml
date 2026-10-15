@@ -1,0 +1,35 @@
+display:
+  default:
+    display_options:
+      filters:
+        q:
+          expose:
+            label: 'Zoek op een woord'
+        type:
+          expose:
+            label: 'Type initiatief'
+        org:
+          expose:
+            label: Organisatie(s)
+        keyword:
+          expose:
+            label: Trefwoorden
+        sector:
+          expose:
+            label: Sector
+        from:
+          expose:
+            label: 'Vanaf jaar'
+        to:
+          expose:
+            label: 'Tot jaar'
+      exposed_form:
+        options:
+          submit_button: 'Filters toepassen'
+          reset_button_label: Wissen
+      header:
+        result:
+          content: '@total initiatieven'
+      empty:
+        area_text_custom:
+          content: 'Niets gevonden voor deze filters.'

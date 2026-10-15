@@ -1,89 +1,48 @@
 {#
 /**
  * @file
- * The explorer: map, list and network of the initiatives and organisations,
- * with filters. js/explorer.js loads the data from data_url and does the rest.
+ * The explorer: a toolbar to switch between the views, and the chosen view
+ * (views-view--explorer.html.twig) with its filters.
  *
- * Variables: data_url, tiles, attribution.
+ * Variables: current, kind, links, active_filters, view, updated.
  */
 #}
-<div class="explorer" data-explorer data-url="{{ data_url }}" data-tiles="{{ tiles }}" data-attribution="{{ attribution }}">
+<div class="explorer" data-explorer data-view="{{ current }}">
   <div class="explorer__bar">
     <button type="button" class="explorer__bar-button explorer__filter-toggle" aria-expanded="false" aria-controls="explorer-filters">
       <span class="icon icon--sliders-horizontal" aria-hidden="true"></span>
       <span class="explorer__filter-label">{{ 'Filter the map'|t }}</span>
-      <span class="explorer__count" hidden></span>
+      {% if active_filters %}<span class="explorer__count">{{ active_filters }}</span>{% endif %}
       <span class="icon icon--chevron-down explorer__chevron" aria-hidden="true"></span>
     </button>
-    <div class="explorer__menu">
+    <div class="explorer__menu{{ current starts with 'map' ? ' is-active' }}">
       <button type="button" class="explorer__bar-button" aria-haspopup="true" aria-expanded="false">
         <span class="icon icon--map" aria-hidden="true"></span>{{ 'Map view'|t }}
         <span class="icon icon--chevron-down" aria-hidden="true"></span>
       </button>
       <ul class="explorer__menu-list" hidden>
-        <li><button type="button" data-view="map-initiatives">{{ 'Initiative-centred'|t }}</button></li>
-        <li><button type="button" data-view="map-organisations">{{ 'Organisation-centred'|t }}</button></li>
+        <li><a href="{{ links['map-initiatives'] }}"{{ current == 'map-initiatives' ? ' class="is-active" aria-current="true"' }}>{{ 'Initiative-centred'|t }}</a></li>
+        <li><a href="{{ links['map-organisations'] }}"{{ current == 'map-organisations' ? ' class="is-active" aria-current="true"' }}>{{ 'Organisation-centred'|t }}</a></li>
       </ul>
     </div>
-    <div class="explorer__menu">
+    <div class="explorer__menu{{ current starts with 'list' ? ' is-active' }}">
       <button type="button" class="explorer__bar-button" aria-haspopup="true" aria-expanded="false">
         <span class="icon icon--list" aria-hidden="true"></span>{{ 'List view'|t }}
         <span class="icon icon--chevron-down" aria-hidden="true"></span>
       </button>
       <ul class="explorer__menu-list" hidden>
-        <li><button type="button" data-view="list-initiatives">{{ 'Initiatives'|t }}</button></li>
-        <li><button type="button" data-view="list-organisations">{{ 'Organisations'|t }}</button></li>
+        <li><a href="{{ links['list-initiatives'] }}"{{ current == 'list-initiatives' ? ' class="is-active" aria-current="true"' }}>{{ 'Initiatives'|t }}</a></li>
+        <li><a href="{{ links['list-organisations'] }}"{{ current == 'list-organisations' ? ' class="is-active" aria-current="true"' }}>{{ 'Organisations'|t }}</a></li>
       </ul>
     </div>
-    <button type="button" class="explorer__bar-button" data-view="network">
+    <a class="explorer__bar-button{{ current == 'network' ? ' is-active' }}" href="{{ links['network'] }}"{{ current == 'network' ? ' aria-current="true"' }}>
       <span class="icon icon--network" aria-hidden="true"></span>{{ 'Network'|t }}
-    </button>
+    </a>
   </div>
 
-  <form class="explorer__filters" id="explorer-filters" hidden>
-    <div class="explorer__field explorer__field--wide" data-filter="q">
-      <label for="explorer-q">{{ 'Search on any word'|t }}</label>
-      <input type="search" id="explorer-q" name="q">
-    </div>
-    <div class="explorer__field" data-filter="type">
-      <label for="explorer-type">{{ 'Type of initiative'|t }}</label>
-      <select id="explorer-type" name="type"><option value="">{{ '- Any -'|t }}</option></select>
-    </div>
-    <div class="explorer__field" data-filter="org">
-      <label for="explorer-org">{{ 'Organisation(s)'|t }}</label>
-      <select id="explorer-org" name="org"><option value="">{{ '- Any -'|t }}</option></select>
-    </div>
-    <div class="explorer__field" data-filter="keyword">
-      <label for="explorer-keyword">{{ 'Keywords'|t }}</label>
-      <select id="explorer-keyword" name="keyword"><option value="">{{ '- Any -'|t }}</option></select>
-    </div>
-    <div class="explorer__field" data-filter="sector">
-      <label for="explorer-sector">{{ 'Sector'|t }}</label>
-      <select id="explorer-sector" name="sector"><option value="">{{ '- Any -'|t }}</option></select>
-    </div>
-    <div class="explorer__field explorer__field--wide explorer__period" data-filter="period">
-      <span class="explorer__period-label">{{ 'Period'|t }} <output class="explorer__period-value"></output></span>
-      <label class="visually-hidden" for="explorer-from">{{ 'From'|t }}</label>
-      <input type="range" id="explorer-from" name="from">
-      <label class="visually-hidden" for="explorer-to">{{ 'To'|t }}</label>
-      <input type="range" id="explorer-to" name="to">
-    </div>
-    <p class="explorer__network-note" hidden>{{ 'The network shows how initiatives are linked by their keywords; only the keyword filter applies.'|t }}</p>
-    <div class="explorer__actions">
-      <button type="reset" class="explorer__reset"><span class="icon icon--rotate-ccw" aria-hidden="true"></span>{{ 'Reset'|t }}</button>
-      <button type="submit" class="button button--small">{{ 'Apply filters'|t }}</button>
-    </div>
-  </form>
+  {{ view }}
 
-  <div class="explorer__stage">
-    <div class="explorer__map" aria-label="{{ 'Map'|t }}"></div>
-    <div class="explorer__list" hidden></div>
-    <div class="explorer__network" hidden></div>
-    <aside class="explorer__panel" hidden aria-live="polite">
-      <button type="button" class="explorer__panel-close" aria-label="{{ 'Close'|t }}"><span class="icon icon--x" aria-hidden="true"></span></button>
-      <div class="explorer__panel-body"></div>
-    </aside>
-    <p class="explorer__loading">{{ 'Loading…'|t }}</p>
-  </div>
-  <p class="map-layout__note explorer__updated" hidden></p>
+  {% if updated %}
+    <p class="map-layout__note explorer__updated">{{ 'Map data last updated @date.'|t({'@date': updated}) }}</p>
+  {% endif %}
 </div>

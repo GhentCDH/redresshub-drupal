@@ -1,0 +1,11 @@
+uuid: 074d8d81-5083-4063-9b12-ab387ac67141
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.tile
+label: 'Tile (explorer list)'
+description: null
+targetEntityType: node
+cache: true

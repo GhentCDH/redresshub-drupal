@@ -45,3 +45,132 @@ function redresshub_site_theme(): array {
     ],
   ];
 }
+
+/**
+ * Implements hook_leaflet_map_info().
+ *
+ * The base map of the explorer; the tiles are a theme setting.
+ */
+function redresshub_site_leaflet_map_info(): array {
+  $theme_settings = \Drupal::config('redresshub.settings');
+  return [
+    'redresshub' => [
+      'label' => 'RedressHub',
+      'description' => t('The warm base map of the RedressHub explorer.'),
+      'settings' => [
+        'dragging' => TRUE,
+        'touchZoom' => TRUE,
+        // Scroll the page, not the map; zoom with the buttons or a pinch.
+        'scrollWheelZoom' => FALSE,
+        'doubleClickZoom' => TRUE,
+        'zoomControl' => TRUE,
+        'zoomControlPosition' => 'topleft',
+        'attributionControl' => TRUE,
+        'trackResize' => TRUE,
+        'fadeAnimation' => TRUE,
+        'zoomAnimation' => TRUE,
+        'closePopupOnClick' => TRUE,
+        'minZoom' => 3,
+        'maxZoom' => 18,
+        'zoom' => 8,
+        'layerControl' => FALSE,
+      ],
+      'layers' => [
+        'RedressHub' => [
+          'urlTemplate' => $theme_settings->get('map_tiles') ?: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          'options' => [
+            'attribution' => $theme_settings->get('map_attribution') ?: '&copy; OpenStreetMap',
+            'maxZoom' => 18,
+          ],
+        ],
+      ],
+      'plugins' => [],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_views_data_alter().
+ *
+ * Adds the period filters ("from year", "to year") for date ranges, e.g. the
+ * period of initiatives and organisations. An empty end date means ongoing.
+ */
+function redresshub_site_views_data_alter(array &$data): void {
+  // Filter on organisations with a select list of their titles (core's
+  // entity reference filter) instead of a node ID.
+  if (isset($data['node__field_organisations']['field_organisations_target_id']['filter'])) {
+    $data['node__field_organisations']['field_organisations_target_id']['filter']['id'] = 'entity_reference';
+  }
+
+  // Terms of linked nodes, e.g. the sector of the organisations of an
+  // initiative (see RelatedTermFilter).
+  $related = [
+    'initiative_sector' => [t('Sector of the organisations (initiatives)'), 'entity_id', 'field_organisations_target_id', 'sector'],
+    'organisation_initiative_type' => [t('Type of the initiatives (organisations)'), 'field_organisations_target_id', 'entity_id', 'initiative_type'],
+    'organisation_keyword' => [t('Keyword of the initiatives (organisations)'), 'field_organisations_target_id', 'entity_id', 'keywords'],
+  ];
+  $columns = ['sector' => 'field_sector', 'initiative_type' => 'field_initiative_type', 'keywords' => 'field_keywords'];
+  foreach ($related as $key => [$title, $base_column, $other_column, $vid]) {
+    $data['node_field_data'][$key] = [
+      'title' => $title,
+      'help' => t('Filters on a term of the linked initiatives or organisations.'),
+      'filter' => [
+        'id' => 'redresshub_related_term',
+        'field' => 'nid',
+        'base_column' => $base_column,
+        'other_column' => $other_column,
+        'term_table' => 'node__' . $columns[$vid],
+        'term_column' => $columns[$vid] . '_target_id',
+      ],
+    ];
+  }
+
+  foreach (['field_period'] as $field) {
+    $table = "node__$field";
+    if (!isset($data[$table])) {
+      continue;
+    }
+    foreach (['from' => t('Period: from year'), 'to' => t('Period: to year')] as $boundary => $title) {
+      $data[$table]["{$field}_$boundary"] = [
+        'title' => $title,
+        'help' => t('Items whose period overlaps with the given year (an empty end date means ongoing).'),
+        'filter' => [
+          'id' => 'redresshub_period',
+          'boundary' => $boundary,
+          'start_column' => "{$field}_value",
+          'end_column' => "{$field}_end_value",
+        ],
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for views_exposed_form.
+ *
+ * Keeps the chosen view of the explorer (?view=…) when filtering.
+ */
+function redresshub_site_form_views_exposed_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state): void {
+  $view = $form_state->get('view');
+  if ($view && str_starts_with($view->id(), 'explorer_')) {
+    $current = \Drupal::request()->query->get('view');
+    if (is_string($current) && $current !== '') {
+      $form['view'] = ['#type' => 'hidden', '#value' => $current, '#name' => 'view'];
+    }
+    $form['#attributes']['class'][] = 'explorer__form';
+    // The explorer is on the front page; filter there (not on /node/…).
+    $form['#action'] = \Drupal\Core\Url::fromRoute('<front>')->toString();
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_build_defaults_alter() for node.
+ *
+ * The Home node shows the explorer, which depends on the URL (?view=…, the
+ * filters).
+ */
+function redresshub_site_node_build_defaults_alter(array &$build, \Drupal\Core\Entity\EntityInterface $node, string $view_mode): void {
+  if ($node->bundle() === 'home') {
+    $build['#cache']['contexts'][] = 'url.query_args';
+  }
+}

@@ -41,13 +41,10 @@ explorer:
   version: VERSION
   css:
     component:
-      vendor/leaflet/leaflet.css: {}
       css/explorer.css: {}
   js:
-    vendor/leaflet/leaflet.js: { minified: true }
-    vendor/d3/d3.min.js: { minified: true }
-    js/explorer.js: {}
+    js/explorer-ui.js: {}
   dependencies:
     - core/drupal
-    - core/drupalSettings
+    - core/jquery
     - core/once

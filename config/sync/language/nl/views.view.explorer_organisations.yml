@@ -1,0 +1,35 @@
+display:
+  default:
+    display_options:
+      filters:
+        q:
+          expose:
+            label: 'Zoek op een woord'
+        sector:
+          expose:
+            label: Sector
+        org_status:
+          expose:
+            label: Status
+        type:
+          expose:
+            label: 'Type initiatief'
+        keyword:
+          expose:
+            label: Trefwoorden
+        from:
+          expose:
+            label: 'Vanaf jaar'
+        to:
+          expose:
+            label: 'Tot jaar'
+      exposed_form:
+        options:
+          submit_button: 'Filters toepassen'
+          reset_button_label: Wissen
+      header:
+        result:
+          content: '@total organisaties'
+      empty:
+        area_text_custom:
+          content: 'Niets gevonden voor deze filters.'

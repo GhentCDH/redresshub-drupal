@@ -1,0 +1,42 @@
+uuid: 2dfa40a3-8b13-4d95-b013-9bd8fbecddf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.tile
+    - field.field.node.initiative.field_historical_era
+    - field.field.node.initiative.field_initiative_type
+    - field.field.node.initiative.field_injustice_type
+    - field.field.node.initiative.field_keywords
+    - field.field.node.initiative.field_organisations
+    - field.field.node.initiative.field_period
+    - field.field.node.initiative.field_period_certain
+    - field.field.node.initiative.field_place
+    - field.field.node.initiative.field_place_certain
+    - field.field.node.initiative.field_predecessor
+    - field.field.node.initiative.field_resources
+    - field.field.node.initiative.field_short_description
+    - field.field.node.initiative.field_un_category
+    - node.type.initiative
+id: node.initiative.tile
+targetEntityType: node
+bundle: initiative
+mode: tile
+content: {  }
+hidden:
+  field_historical_era: true
+  field_initiative_type: true
+  field_injustice_type: true
+  field_keywords: true
+  field_organisations: true
+  field_period: true
+  field_period_certain: true
+  field_place: true
+  field_place_certain: true
+  field_predecessor: true
+  field_resources: true
+  field_short_description: true
+  field_un_category: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

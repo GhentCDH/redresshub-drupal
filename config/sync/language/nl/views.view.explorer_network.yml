@@ -1,0 +1,17 @@
+display:
+  default:
+    display_options:
+      filters:
+        keyword:
+          expose:
+            label: Trefwoorden
+      exposed_form:
+        options:
+          submit_button: 'Filters toepassen'
+          reset_button_label: Wissen
+      header:
+        result:
+          content: '@total initiatieven'
+      empty:
+        area_text_custom:
+          content: 'Niets gevonden voor deze filters.'

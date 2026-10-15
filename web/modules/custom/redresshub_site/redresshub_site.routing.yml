@@ -1,6 +1,0 @@
-redresshub_site.explorer_data:
-  path: '/explorer/data'
-  defaults:
-    _controller: '\Drupal\redresshub_site\Controller\ExplorerDataController'
-  requirements:
-    _permission: 'access content'

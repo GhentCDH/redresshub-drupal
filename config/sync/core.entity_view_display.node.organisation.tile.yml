@@ -1,0 +1,30 @@
+uuid: 425115b7-43e3-4fd7-b010-df0db00a108d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.tile
+    - field.field.node.organisation.field_general_contact
+    - field.field.node.organisation.field_locations
+    - field.field.node.organisation.field_organisation_status
+    - field.field.node.organisation.field_period
+    - field.field.node.organisation.field_predecessor
+    - field.field.node.organisation.field_sector
+    - field.field.node.organisation.field_website
+    - node.type.organisation
+id: node.organisation.tile
+targetEntityType: node
+bundle: organisation
+mode: tile
+content: {  }
+hidden:
+  field_general_contact: true
+  field_locations: true
+  field_organisation_status: true
+  field_period: true
+  field_predecessor: true
+  field_sector: true
+  field_website: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

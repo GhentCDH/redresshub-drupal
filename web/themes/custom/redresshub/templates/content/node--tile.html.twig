@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * An initiative or organisation as a tile in the explorer list. The panel
+ * content is in a template element; js/explorer-ui.js opens it.
+ */
+#}
+<button type="button" class="explorer__tile" data-explorer-tile>
+  <span class="explorer__tile-title">{{ label }}</span>
+  {% if meta %}<span class="explorer__tile-meta">{{ meta }}</span>{% endif %}
+</button>
+<template class="explorer__tile-panel">{{ panel }}</template>

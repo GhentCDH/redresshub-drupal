@@ -1,0 +1,634 @@
+uuid: 10878da7-5e3a-43fb-86bc-d3571e2d4971
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.tile
+    - field.storage.node.field_coordinates
+    - node.type.organisation
+    - taxonomy.vocabulary.initiative_type
+    - taxonomy.vocabulary.keywords
+    - taxonomy.vocabulary.organisation_status
+    - taxonomy.vocabulary.sector
+  module:
+    - geofield
+    - leaflet_views
+    - node
+    - redresshub_site
+    - taxonomy
+    - user
+id: explorer_organisations
+label: 'Explorer: organisations'
+module: views
+description: 'Explorer on the front page (node--home.html.twig).'
+tag: explorer
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Explorer: organisations'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: true
+          settings:
+            link_to_entity: false
+        rendered_entity:
+          id: rendered_entity
+          table: node
+          field: rendered_entity
+          entity_type: node
+          plugin_id: rendered_entity
+          label: ''
+          view_mode: tile
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: basic
+        options:
+          submit_button: 'Apply filters'
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'Nothing found for these filters.'
+      sorts:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          plugin_id: standard
+          order: ASC
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+        bundle:
+          id: bundle
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            organisation: organisation
+        default_langcode:
+          id: default_langcode
+          table: node_field_data
+          field: default_langcode
+          entity_type: node
+          entity_field: default_langcode
+          plugin_id: boolean
+          value: '1'
+        q:
+          id: q
+          table: views
+          field: combine
+          plugin_id: combine
+          operator: contains
+          exposed: true
+          expose:
+            operator_id: search_op
+            label: 'Search on any word'
+            use_operator: false
+            identifier: search
+            required: false
+            remember: false
+          fields:
+            title: title
+        sector:
+          id: sector
+          table: node__field_sector
+          field: field_sector_target_id
+          relationship: none
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: sector_op
+            label: Sector
+            use_operator: false
+            identifier: sector
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+          vid: sector
+          type: select
+          hierarchy: false
+          limit: true
+        org_status:
+          id: org_status
+          table: node__field_organisation_status
+          field: field_organisation_status_target_id
+          relationship: none
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: status_op
+            label: Status
+            use_operator: false
+            identifier: status
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+          vid: organisation_status
+          type: select
+          hierarchy: false
+          limit: true
+        type:
+          id: type
+          table: node_field_data
+          field: organisation_initiative_type
+          relationship: none
+          entity_type: node
+          plugin_id: redresshub_related_term
+          operator: or
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Type of initiative'
+            use_operator: false
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+          vid: initiative_type
+          type: select
+          hierarchy: false
+          limit: true
+        keyword:
+          id: keyword
+          table: node_field_data
+          field: organisation_keyword
+          relationship: none
+          entity_type: node
+          plugin_id: redresshub_related_term
+          operator: or
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: keyword_op
+            label: Keywords
+            use_operator: false
+            identifier: keyword
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+          vid: keywords
+          type: select
+          hierarchy: false
+          limit: true
+        from:
+          id: from
+          table: node__field_period
+          field: field_period_from
+          plugin_id: redresshub_period
+          exposed: true
+          expose:
+            operator_id: from_op
+            label: 'From year'
+            use_operator: false
+            identifier: from
+            required: false
+            remember: false
+        to:
+          id: to
+          table: node__field_period
+          field: field_period_to
+          plugin_id: redresshub_period
+          exposed: true
+          expose:
+            operator_id: to_op
+            label: 'To year'
+            use_operator: false
+            identifier: to
+            required: false
+            remember: false
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: explorer__tile-row
+          default_row_class: false
+      row:
+        type: fields
+        options: {  }
+      query:
+        type: views_query
+        options:
+          distinct: true
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          plugin_id: result
+          empty: true
+          content: '@total organisations'
+      rendering_language: '***LANGUAGE_language_content***'
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  list:
+    id: list
+    display_title: List
+    display_plugin: block
+    position: 2
+    display_options:
+      display_extenders: {  }
+      block_description: 'Explorer: organisations: list'
+      block_hide_empty: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  map:
+    id: map
+    display_title: Map
+    display_plugin: block
+    position: 1
+    display_options:
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: true
+          settings:
+            link_to_entity: false
+        field_coordinates:
+          id: field_coordinates
+          table: node__field_coordinates
+          field: field_coordinates
+          relationship: location
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: geofield_default
+          settings:
+            output_format: wkt
+            output_escape: true
+      empty: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+        bundle:
+          id: bundle
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            organisation: organisation
+        default_langcode:
+          id: default_langcode
+          table: node_field_data
+          field: default_langcode
+          entity_type: node
+          entity_field: default_langcode
+          plugin_id: boolean
+          value: '1'
+        q:
+          id: q
+          table: views
+          field: combine
+          plugin_id: combine
+          operator: contains
+          exposed: true
+          expose:
+            operator_id: search_op
+            label: 'Search on any word'
+            use_operator: false
+            identifier: search
+            required: false
+            remember: false
+          fields:
+            title: title
+        sector:
+          id: sector
+          table: node__field_sector
+          field: field_sector_target_id
+          relationship: none
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: sector_op
+            label: Sector
+            use_operator: false
+            identifier: sector
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+          vid: sector
+          type: select
+          hierarchy: false
+          limit: true
+        org_status:
+          id: org_status
+          table: node__field_organisation_status
+          field: field_organisation_status_target_id
+          relationship: none
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: status_op
+            label: Status
+            use_operator: false
+            identifier: status
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+          vid: organisation_status
+          type: select
+          hierarchy: false
+          limit: true
+        type:
+          id: type
+          table: node_field_data
+          field: organisation_initiative_type
+          relationship: none
+          entity_type: node
+          plugin_id: redresshub_related_term
+          operator: or
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Type of initiative'
+            use_operator: false
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+          vid: initiative_type
+          type: select
+          hierarchy: false
+          limit: true
+        keyword:
+          id: keyword
+          table: node_field_data
+          field: organisation_keyword
+          relationship: none
+          entity_type: node
+          plugin_id: redresshub_related_term
+          operator: or
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: keyword_op
+            label: Keywords
+            use_operator: false
+            identifier: keyword
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+          vid: keywords
+          type: select
+          hierarchy: false
+          limit: true
+        from:
+          id: from
+          table: node__field_period
+          field: field_period_from
+          plugin_id: redresshub_period
+          exposed: true
+          expose:
+            operator_id: from_op
+            label: 'From year'
+            use_operator: false
+            identifier: from
+            required: false
+            remember: false
+        to:
+          id: to
+          table: node__field_period
+          field: field_period_to
+          plugin_id: redresshub_period
+          exposed: true
+          expose:
+            operator_id: to_op
+            label: 'To year'
+            use_operator: false
+            identifier: to
+            required: false
+            remember: false
+        location_langcode:
+          id: location_langcode
+          table: node_field_data
+          field: default_langcode
+          relationship: location
+          entity_type: node
+          entity_field: default_langcode
+          plugin_id: boolean
+          value: '1'
+          group: 1
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: leaflet_map
+        options:
+          data_source:
+            field_coordinates: field_coordinates
+          entity_source: __base_table
+          name_field: ''
+          leaflet_tooltip:
+            value: title
+            options: '{"permanent":false,"direction":"top","offset":[0,-6]}'
+          leaflet_popup:
+            value: '#rendered_entity'
+            view_mode: panel
+            options: '{"maxWidth":"360","minWidth":"240","autoPan":false}'
+            control: false
+            content: ''
+          leaflet_map: redresshub
+          height: '560'
+          height_unit: px
+          hide_empty_map: false
+          disable_wheel: true
+          gesture_handling: false
+          fitbounds_options: '{"padding":[40,40],"maxZoom":10}'
+          reset_map:
+            control: true
+            options: '{"position":"topleft","title":"Reset view"}'
+          map_scale:
+            control: false
+            options: '{"position":"bottomright","maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":false}'
+          locate:
+            control: false
+            options: '{"position": "topright", "setView": "untilPanOrZoom", "returnToPrevBounds":true, "keepCurrentZoomLevel": true, "strings": {"title": "Locate my position"}}'
+            automatic: false
+          map_position:
+            force: false
+            center:
+              lat: 50.6
+              lon: 4.6
+            zoomControlPosition: topleft
+            zoom: 8
+            minZoom: 3
+            maxZoom: 18
+            zoomFiner: 0
+          weight: '0'
+          icon:
+            iconType: circle_marker
+            iconUrl: ''
+            shadowUrl: ''
+            className: ''
+            iconSize:
+              x: null
+              'y': null
+            iconAnchor:
+              x: null
+              'y': null
+            shadowSize:
+              x: null
+              'y': null
+            shadowAnchor:
+              x: null
+              'y': null
+            popupAnchor:
+              x: null
+              'y': null
+            html: '<div></div>'
+            html_class: leaflet-map-divicon
+            circle_marker_options: '{"radius":7,"color":"#ffffff","weight":2,"fillColor":"#3a3633","fillOpacity":0.9}'
+          leaflet_markercluster:
+            control: true
+            excluded: ''
+            options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":false,"removeOutsideVisibleBounds":false,"maxClusterRadius":30}'
+            include_path: false
+          fullscreen:
+            control: false
+            options: '{"position":"topleft","pseudoFullscreen":false}'
+          path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+          feature_properties:
+            values: ''
+          geocoder:
+            control: false
+            settings:
+              popup: false
+              autocomplete:
+                placeholder: 'Search Address'
+                title: 'Search an Address on the Map'
+              position: topright
+              input_size: 20
+              providers: {  }
+              min_terms: 4
+              delay: 800
+              zoom: 16
+              options: ''
+              set_marker: false
+          map_lazy_load:
+            lazy_load: false
+          multiple_map: false
+          popup: false
+          popup_content: ''
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        empty: false
+        style: false
+        row: false
+        relationships: false
+        fields: false
+        filters: false
+        filter_groups: false
+        header: false
+      relationships:
+        location:
+          id: location
+          table: node__field_locations
+          field: field_locations
+          relationship: none
+          group_type: group
+          admin_label: Location
+          plugin_id: standard
+          required: true
+      header: {  }
+      display_extenders: {  }
+      block_description: 'Explorer: organisations: map'
+      block_hide_empty: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_coordinates'

@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * An explorer view (map, list or network): the filters in a panel that the
+ * toolbar opens, the result in the stage, and the side panel.
+ */
+#}
+<div{{ attributes.addClass('explorer__view') }}>
+  {% if exposed %}
+    <div class="explorer__filters" id="explorer-filters" hidden>
+      {% if view.id == 'explorer_network' %}
+        <p class="explorer__network-note">{{ 'The network shows how initiatives are linked by their keywords; only the keyword filter applies.'|t }}</p>
+      {% endif %}
+      {{ exposed }}
+    </div>
+  {% endif %}
+  <div class="explorer__stage">
+    {% if header %}
+      <div class="explorer__list-count">{{ header }}</div>
+    {% endif %}
+    <div class="explorer__result explorer__result--{{ view.current_display }}">
+      {{ rows }}
+      {{ empty }}
+    </div>
+    <aside class="explorer__panel" hidden aria-live="polite">
+      <button type="button" class="explorer__panel-close" aria-label="{{ 'Close'|t }}"><span class="icon icon--x" aria-hidden="true"></span></button>
+      <div class="explorer__panel-body"></div>
+    </aside>
+  </div>
+</div>

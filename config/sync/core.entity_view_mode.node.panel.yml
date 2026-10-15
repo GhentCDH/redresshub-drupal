@@ -1,0 +1,11 @@
+uuid: 0f592ca8-0a83-400f-a849-74f2947f6ec5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.panel
+label: 'Panel (explorer side panel)'
+description: null
+targetEntityType: node
+cache: true

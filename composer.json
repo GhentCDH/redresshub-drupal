@@ -24,6 +24,7 @@
         "drupal/core-recommended": "^11.4",
         "drupal/field_group": "^4.0",
         "drupal/geofield": "^10.3",
+        "drupal/leaflet": "^10.4",
         "drupal/memcache": "^2.9",
         "drupal/optional_end_date": "^2.0",
         "drupal/paragraphs": "^1.19",

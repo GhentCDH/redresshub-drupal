@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * An initiative or organisation in the side panel of the explorer.
+ *
+ * Variables from _redresshub_preprocess_explorer_item(): kicker, url, facts
+ * (label => items of text and url), tag_facts, text, resources.
+ */
+#}
+<article class="explorer-item">
+  <p class="explorer__panel-kicker">{{ kicker }}</p>
+  <h3 class="explorer__panel-title">{{ label }}</h3>
+  <dl class="explorer__facts">
+    {% for fact, items in facts %}
+      <dt>{{ fact }}</dt>
+      <dd>
+        {% if fact in tag_facts %}
+          <ul class="explorer__tags">{% for item in items %}<li>{{ item.text }}</li>{% endfor %}</ul>
+        {% elseif items|length > 1 or items|first.url %}
+          <ul class="explorer__links">
+            {% for item in items %}<li>{% if item.url %}<a href="{{ item.url }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}</li>{% endfor %}
+          </ul>
+        {% else %}
+          {{ items|first.text }}
+        {% endif %}
+      </dd>
+    {% endfor %}
+  </dl>
+  {% if text %}
+    <div class="explorer__panel-text">{{ text }}</div>
+  {% endif %}
+  {% if resources %}
+    <h4>{{ 'Resources'|t }}</h4>
+    <ul class="explorer__links">
+      {% for resource in resources %}
+        <li><a href="{{ resource }}" rel="noopener" target="_blank">{{ resource|replace({'https://': '', 'http://': '', 'www.': ''})|split('/')|first }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <p><a class="button button--small" href="{{ url }}">{{ 'Open page'|t }}</a></p>
+</article>

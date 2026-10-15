@@ -1,0 +1,17 @@
+display:
+  default:
+    display_options:
+      filters:
+        keyword:
+          expose:
+            label: Mots-clés
+      exposed_form:
+        options:
+          submit_button: 'Appliquer les filtres'
+          reset_button_label: Réinitialiser
+      header:
+        result:
+          content: '@total initiatives'
+      empty:
+        area_text_custom:
+          content: 'Aucun résultat pour ces filtres.'

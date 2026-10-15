@@ -1,0 +1,30 @@
+uuid: 2cff176e-cf18-40c3-85d0-456e773d2cbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.panel
+    - field.field.node.organisation.field_general_contact
+    - field.field.node.organisation.field_locations
+    - field.field.node.organisation.field_organisation_status
+    - field.field.node.organisation.field_period
+    - field.field.node.organisation.field_predecessor
+    - field.field.node.organisation.field_sector
+    - field.field.node.organisation.field_website
+    - node.type.organisation
+id: node.organisation.panel
+targetEntityType: node
+bundle: organisation
+mode: panel
+content: {  }
+hidden:
+  field_general_contact: true
+  field_locations: true
+  field_organisation_status: true
+  field_period: true
+  field_predecessor: true
+  field_sector: true
+  field_website: true
+  langcode: true
+  links: true
+  search_api_excerpt: true
