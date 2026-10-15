@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_city
+    - field.storage.node.field_coordinates
     - field.storage.node.field_credit
     - field.storage.node.field_event_date
     - field.storage.node.field_event_location
@@ -29,6 +30,7 @@ dependencies:
     - search_api.server.database_search
   module:
     - node
+    - redresshub_site
     - taxonomy
 id: all_content
 name: 'All content'
@@ -191,6 +193,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_location_type
+  field_locations__coordinates_s:
+    label: 'Coordinates of the locations'
+    datasource_id: 'entity:node'
+    property_path: 'field_locations:entity:field_coordinates'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_coordinates
+        - field.storage.node.field_locations
+      module:
+        - node
   field_locations__title_ft:
     label: field_locations__title_ft
     datasource_id: 'entity:node'
@@ -227,6 +240,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_organisation_status
+  field_organisations__sector_i:
+    label: 'Sector of the organisations'
+    datasource_id: 'entity:node'
+    property_path: 'field_organisations:entity:field_sector'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_organisations
+        - field.storage.node.field_sector
+      module:
+        - node
   field_organisations__title_ft:
     label: field_organisations__title_ft
     datasource_id: 'entity:node'
@@ -269,6 +293,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_period
+  field_place__coordinates_s:
+    label: 'Coordinates of the places'
+    datasource_id: 'entity:node'
+    property_path: 'field_place:entity:field_coordinates'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_coordinates
+        - field.storage.node.field_place
+      module:
+        - node
   field_place__name_ft:
     label: field_place__name_ft
     datasource_id: 'entity:node'
@@ -373,12 +408,39 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_un_category
+  language_with_fallback_s:
+    label: 'Language (with fallback)'
+    property_path: language_with_fallback
+    type: string
+  redresshub_initiative_keywords_i:
+    label: 'Keywords of the initiatives (organisations)'
+    datasource_id: 'entity:node'
+    property_path: redresshub_initiative_keywords
+    type: integer
+  redresshub_initiative_types_i:
+    label: 'Types of the initiatives (organisations)'
+    datasource_id: 'entity:node'
+    property_path: redresshub_initiative_types
+    type: integer
+  redresshub_translations_ft:
+    label: 'Text of all translations'
+    datasource_id: 'entity:node'
+    property_path: redresshub_translations
+    type: text
   title_ft:
     label: title_ft
     datasource_id: 'entity:node'
     property_path: title
     type: text
     boost: 21.0
+    dependencies:
+      module:
+        - node
+  title_s:
+    label: 'Title (sort)'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
     dependencies:
       module:
         - node
@@ -394,8 +456,42 @@ processor_settings:
   add_url: {  }
   aggregated_field: {  }
   custom_value: {  }
+  entity_status: {  }
   entity_type: {  }
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - content_type_s
+      - field_city__name_ft
+      - field_credit_ft
+      - field_event_location_ft
+      - field_general_contact_ft
+      - field_historical_era__name_ft
+      - field_initiative__name_ft
+      - field_injustice_type__name_ft
+      - field_keywords__name_ft
+      - field_location_type__name_ft
+      - field_locations__coordinates_s
+      - field_locations__title_ft
+      - field_organisation_status__name_ft
+      - field_organisations__title_ft
+      - field_place__coordinates_s
+      - field_place__name_ft
+      - field_predecessor__name_ft
+      - field_sector__name_ft
+      - field_short_description_ft
+      - field_street_ft
+      - field_text_ft
+      - field_un_category__name_ft
+      - language_with_fallback_s
+      - redresshub_translations_ft
+      - title_ft
+      - title_s
   language_with_fallback: {  }
+  redresshub_explorer_fields: {  }
   rendered_item: {  }
 tracker_settings:
   default:

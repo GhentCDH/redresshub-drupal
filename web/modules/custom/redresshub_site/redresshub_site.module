@@ -93,18 +93,18 @@ function redresshub_site_leaflet_map_info(): array {
  * Implements hook_views_data_alter().
  */
 function redresshub_site_views_data_alter(array &$data): void {
-  // The explorer index: Views cannot tell that these index fields hold term
-  // or node IDs, so give their filters a select list.
-  if (isset($data['search_api_index_explorer'])) {
-    $explorer = &$data['search_api_index_explorer'];
-    foreach (['initiative_types', 'initiative_keywords'] as $field) {
-      if (isset($explorer[$field]['filter'])) {
-        $explorer[$field]['filter']['id'] = 'search_api_term';
+  // The site index: Views cannot tell that these index fields hold term or
+  // node IDs, so give their filters a select list.
+  if (isset($data['search_api_index_all_content'])) {
+    $index = &$data['search_api_index_all_content'];
+    foreach (['redresshub_initiative_types_i', 'redresshub_initiative_keywords_i', 'field_organisations_sector_i'] as $field) {
+      if (isset($index[$field]['filter'])) {
+        $index[$field]['filter']['id'] = 'search_api_term';
       }
     }
-    if (isset($explorer['organisations']['filter'])) {
-      $explorer['organisations']['filter']['id'] = 'search_api_options';
-      $explorer['organisations']['filter']['options callback'] = '_redresshub_site_organisation_options';
+    if (isset($index['field_organisations_i']['filter'])) {
+      $index['field_organisations_i']['filter']['id'] = 'search_api_options';
+      $index['field_organisations_i']['filter']['options callback'] = '_redresshub_site_organisation_options';
     }
   }
 }
@@ -163,7 +163,7 @@ function redresshub_site_node_delete(\Drupal\node\NodeInterface $node): void {
 /**
  * Marks the organisations of an initiative for indexing.
  *
- * The explorer index has the types and keywords of the initiatives of an
+ * The site index has the types and keywords of the initiatives of an
  * organisation (see ExplorerFields), so they change with the initiative.
  */
 function _redresshub_site_reindex_organisations(\Drupal\node\NodeInterface $node): void {
@@ -174,13 +174,15 @@ function _redresshub_site_reindex_organisations(\Drupal\node\NodeInterface $node
   if (isset($node->original)) {
     $ids = array_merge($ids, array_column($node->original->get('field_organisations')->getValue(), 'target_id'));
   }
-  $index = \Drupal\search_api\Entity\Index::load('explorer');
+  $index = \Drupal\search_api\Entity\Index::load('all_content');
   if (!$ids || !$index) {
     return;
   }
   $items = [];
   foreach (\Drupal\node\Entity\Node::loadMultiple(array_unique($ids)) as $organisation) {
-    $items[] = $organisation->id() . ':' . $organisation->getUntranslated()->language()->getId();
+    foreach (\Drupal::languageManager()->getLanguages() as $langcode => $language) {
+      $items[] = $organisation->id() . ':' . $langcode;
+    }
   }
   $index->trackItemsUpdated('entity:node', $items);
 }

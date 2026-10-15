@@ -19,8 +19,7 @@ use Drupal\search_api\Processor\ProcessorProperty;
  *   organisation, the types and keywords of the initiatives that link to it
  *   (a reverse reference).
  * - redresshub_translations: the titles and texts of all translations, so
- *   the search finds Dutch and French words too. The index only has the
- *   original language of each item (one item per node).
+ *   a search finds an item by a word of another language too.
  *
  * @see redresshub_site_node_update()
  */
