@@ -1,0 +1,29 @@
+uuid: 9a2a9627-d3e6-4fd4-a645-96ce2c580d1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.events
+  module:
+    - system
+    - views
+  theme:
+    - redresshub
+id: redresshub_events
+theme: redresshub
+region: content
+weight: 20
+provider: null
+plugin: 'views_block:events-block'
+settings:
+  id: 'views_block:events-block'
+  label: 'Upcoming events'
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /moments-ahead

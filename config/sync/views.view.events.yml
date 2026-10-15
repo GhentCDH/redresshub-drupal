@@ -13,7 +13,7 @@ id: events
 label: 'Events (Moments ahead)'
 module: views
 description: 'Shown with the View paragraph.'
-tag: paragraph
+tag: ''
 base_table: node_field_data
 base_field: nid
 display:
@@ -117,11 +117,12 @@ display:
       tags: {  }
   block:
     id: block
-    display_title: Block
+    display_title: 'Upcoming events'
     display_plugin: block
     position: 1
     display_options:
       display_extenders: {  }
+      block_description: 'Upcoming events (timeline)'
       block_hide_empty: true
     cache_metadata:
       max-age: -1

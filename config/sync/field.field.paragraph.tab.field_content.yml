@@ -30,37 +30,37 @@ settings:
   handler_settings:
     target_bundles:
       text: text
-      media: media
       intro: intro
       quote: quote
+      media: media
       icon_row: icon_row
       view: view
-      form: form
       publications: publications
+      form: form
     negate: 0
     target_bundles_drag_drop:
       form:
-        weight: 0
+        weight: 7
         enabled: true
       icon_row:
-        weight: 0
+        weight: 4
         enabled: true
       intro:
-        weight: 0
+        weight: 1
         enabled: true
       media:
-        weight: 0
+        weight: 3
         enabled: true
       publications:
-        weight: 0
+        weight: 6
         enabled: true
       quote:
-        weight: 0
+        weight: 2
         enabled: true
       text:
         weight: 0
         enabled: true
       view:
-        weight: 0
+        weight: 5
         enabled: true
 field_type: entity_reference_revisions

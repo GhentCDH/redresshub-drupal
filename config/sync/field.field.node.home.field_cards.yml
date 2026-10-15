@@ -26,6 +26,6 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       card:
-        weight: 0
+        weight: 9
         enabled: true
 field_type: entity_reference_revisions
