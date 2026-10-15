@@ -2,7 +2,7 @@ display:
   default:
     display_options:
       filters:
-        q:
+        search:
           expose:
             label: 'Zoek op een woord'
         type:
@@ -17,12 +17,11 @@ display:
         sector:
           expose:
             label: Sector
-        from:
+        period:
           expose:
-            label: 'Vanaf jaar'
-        to:
-          expose:
-            label: 'Tot jaar'
+            label: Periode
+          from_label: Van
+          to_label: Tot
       exposed_form:
         options:
           submit_button: 'Filters toepassen'

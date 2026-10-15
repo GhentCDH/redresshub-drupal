@@ -58,6 +58,7 @@ module:
   redresshub_site: 0
   search_api: 0
   search_api_db: 0
+  search_api_range_filter: 0
   system: 0
   taxonomy: 0
   text: 0

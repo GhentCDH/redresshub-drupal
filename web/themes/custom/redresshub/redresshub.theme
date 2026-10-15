@@ -169,8 +169,8 @@ const REDRESSHUB_EXPLORER_VIEWS = [
  * The filters (URL parameters) of each kind of view.
  */
 const REDRESSHUB_EXPLORER_FILTERS = [
-  'initiatives' => ['search', 'type', 'org', 'keyword', 'sector', 'from', 'to'],
-  'organisations' => ['search', 'sector', 'status', 'type', 'keyword', 'from', 'to'],
+  'initiatives' => ['search', 'type', 'org', 'keyword', 'sector', 'period'],
+  'organisations' => ['search', 'sector', 'status', 'type', 'keyword', 'period'],
   'network' => ['keyword'],
 ];
 
@@ -189,7 +189,7 @@ function _redresshub_explorer(): array {
   foreach (REDRESSHUB_EXPLORER_VIEWS as $key => [, , $target_kind]) {
     $params = array_filter(
       array_intersect_key($query, array_flip(REDRESSHUB_EXPLORER_FILTERS[$target_kind])),
-      fn($value) => is_string($value) && $value !== '' && $value !== 'All',
+      '_redresshub_explorer_filter_is_set',
     );
     if ($key !== 'map-initiatives') {
       $params = ['view' => $key] + $params;
@@ -199,7 +199,7 @@ function _redresshub_explorer(): array {
 
   $active = array_filter(
     array_intersect_key($query, array_flip(REDRESSHUB_EXPLORER_FILTERS[$kind])),
-    fn($value) => is_string($value) && $value !== '' && $value !== 'All',
+    '_redresshub_explorer_filter_is_set',
   );
 
   // The date of the last change to an initiative or organisation.
@@ -216,6 +216,16 @@ function _redresshub_explorer(): array {
     'view' => views_embed_view($view_id, $display_id),
     'updated' => $last ? \Drupal::service('date.formatter')->format($last->getChangedTime(), 'custom', 'F j, Y') : NULL,
   ];
+}
+
+/**
+ * Whether a filter value in the URL is set (period is [from, to]).
+ */
+function _redresshub_explorer_filter_is_set(mixed $value): bool {
+  if (is_array($value)) {
+    return (bool) array_filter($value, '_redresshub_explorer_filter_is_set');
+  }
+  return is_string($value) && $value !== '' && $value !== 'All';
 }
 
 /**
@@ -258,7 +268,7 @@ function _redresshub_preprocess_explorer_item(array &$variables): void {
     $facts[(string) t('Keywords')] = $labels('field_keywords');
     $variables['text'] = $node->get('field_short_description')->processed;
     $variables['resources'] = array_map(fn($item) => $item->getUrl()->toString(), iterator_to_array($node->get('field_resources')));
-    $meta = array_filter([implode(', ', array_column($labels('field_initiative_type'), 'text')), $start ? ($end ? ($end === $start ? $start : "$start–$end") : "$start–") : '']);
+    $meta = array_filter([implode(', ', array_column($labels('field_initiative_type'), 'text')), $start ? ($end ? ($end === $start ? $start : "{$start}–{$end}") : "{$start}–") : '']);
   }
   else {
     $initiative_ids = \Drupal::entityQuery('node')->accessCheck(TRUE)

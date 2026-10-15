@@ -2,7 +2,7 @@ display:
   default:
     display_options:
       filters:
-        q:
+        search:
           expose:
             label: 'Rechercher un mot'
         type:
@@ -17,12 +17,11 @@ display:
         sector:
           expose:
             label: Secteur
-        from:
+        period:
           expose:
-            label: 'À partir de'
-        to:
-          expose:
-            label: "Jusqu'à"
+            label: Période
+          from_label: De
+          to_label: À
       exposed_form:
         options:
           submit_button: 'Appliquer les filtres'

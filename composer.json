@@ -10,6 +10,11 @@
     },
     "repositories": [
         {
+            "name": "search_api_range_filter",
+            "type": "vcs",
+            "url": "https://github.com/GhentCDH/search_api_range_filter"
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
@@ -30,6 +35,7 @@
         "drupal/paragraphs": "^1.19",
         "drupal/purge": "^3.7",
         "drupal/search_api": "^1.41",
+        "drupal/search_api_range_filter": "^1.0",
         "drupal/varnish_purge": "^2.3",
         "drupal/webform": "^6.3",
         "drush/drush": "^13"

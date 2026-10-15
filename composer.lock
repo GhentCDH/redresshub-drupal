@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "673c1b3a8db9151d93483fd50671b7fc",
+    "content-hash": "d433c9f8f3aa47fb6e697cccc4538aee",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2169,6 +2169,43 @@
                 "issues": "https://www.drupal.org/project/issues/search_api",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
             }
+        },
+        {
+            "name": "drupal/search_api_range_filter",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GhentCDH/search_api_range_filter.git",
+                "reference": "fc3f1d11226e9d1ca915692e1adbed04953f4213"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GhentCDH/search_api_range_filter/zipball/fc3f1d11226e9d1ca915692e1adbed04953f4213",
+                "reference": "fc3f1d11226e9d1ca915692e1adbed04953f4213",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/search_api": "^1.0"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Search API Views filter for range-overlap queries across two index fields.",
+            "keywords": [
+                "drupal",
+                "elasticsearch",
+                "filter",
+                "range",
+                "search-api",
+                "views"
+            ],
+            "support": {
+                "source": "https://github.com/GhentCDH/search_api_range_filter/tree/1.2.1",
+                "issues": "https://github.com/GhentCDH/search_api_range_filter/issues"
+            },
+            "time": "2026-10-02T09:59:47+00:00"
         },
         {
             "name": "drupal/varnish_purge",

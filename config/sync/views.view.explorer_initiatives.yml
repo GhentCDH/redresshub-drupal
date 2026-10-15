@@ -1,30 +1,26 @@
-uuid: 4447cb80-0016-40cb-9bb2-6c66f897bf7f
+uuid: 334c674f-8e71-4118-88c7-1435c843d5b2
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.tile
     - field.storage.node.field_coordinates
-    - field.storage.node.field_short_description
-    - node.type.initiative
+    - search_api.index.explorer
     - taxonomy.vocabulary.initiative_type
     - taxonomy.vocabulary.keywords
     - taxonomy.vocabulary.sector
   module:
     - geofield
     - leaflet_views
-    - node
-    - redresshub_site
-    - taxonomy
-    - text
+    - search_api
+    - search_api_range_filter
     - user
 id: explorer_initiatives
 label: 'Explorer: initiatives'
 module: views
-description: 'Explorer on the front page (node--home.html.twig).'
+description: 'Explorer on the front page (node--home.html.twig), on the explorer search index.'
 tag: explorer
-base_table: node_field_data
-base_field: nid
+base_table: search_api_index_explorer
+base_field: search_api_id
 display:
   default:
     id: default
@@ -34,32 +30,24 @@ display:
     display_options:
       title: 'Explorer: initiatives'
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          plugin_id: field
+        title_sort:
+          id: title_sort
+          table: search_api_index_explorer
+          field: title_sort
+          plugin_id: search_api_field
           label: ''
           exclude: true
-          settings:
-            link_to_entity: false
-        field_short_description:
-          id: field_short_description
-          table: node__field_short_description
-          field: field_short_description
-          plugin_id: field
+          link_to_item: false
+        rendered_item:
+          id: rendered_item
+          table: search_api_index_explorer
+          field: search_api_rendered_item
+          plugin_id: search_api_rendered_item
           label: ''
-          exclude: true
-        rendered_entity:
-          id: rendered_entity
-          table: node
-          field: rendered_entity
-          entity_type: node
-          plugin_id: rendered_entity
-          label: ''
-          view_mode: tile
+          view_modes:
+            'entity:node':
+              initiative: tile
+              organisation: tile
       pager:
         type: none
         options:
@@ -79,7 +67,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: search_api_tag
         options: {  }
       empty:
         area_text_custom:
@@ -90,44 +78,27 @@ display:
           empty: true
           content: 'Nothing found for these filters.'
       sorts:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          plugin_id: standard
+        title_sort:
+          id: title_sort
+          table: search_api_index_explorer
+          field: title_sort
+          plugin_id: search_api
           order: ASC
       filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
         bundle:
           id: bundle
-          table: node_field_data
+          table: search_api_index_explorer
           field: type
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
+          plugin_id: search_api_options
+          operator: or
           value:
             initiative: initiative
-        default_langcode:
-          id: default_langcode
-          table: node_field_data
-          field: default_langcode
-          entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
-          value: '1'
-        q:
-          id: q
-          table: views
-          field: combine
-          plugin_id: combine
-          operator: contains
+        search:
+          id: search
+          table: search_api_index_explorer
+          field: search_api_fulltext
+          plugin_id: search_api_fulltext
+          operator: and
           exposed: true
           expose:
             operator_id: search_op
@@ -136,15 +107,17 @@ display:
             identifier: search
             required: false
             remember: false
+          parse_mode: terms
+          min_length: 2
           fields:
-            title: title
-            field_short_description: field_short_description
+            - description
+            - title
+            - translations
         type:
           id: type
-          table: node__field_initiative_type
-          field: field_initiative_type_target_id
-          relationship: none
-          plugin_id: taxonomy_index_tid
+          table: search_api_index_explorer
+          field: initiative_type
+          plugin_id: search_api_term
           operator: or
           value: {  }
           exposed: true
@@ -163,9 +136,9 @@ display:
           limit: true
         org:
           id: org
-          table: node__field_organisations
-          field: field_organisations_target_id
-          plugin_id: entity_reference
+          table: search_api_index_explorer
+          field: organisations
+          plugin_id: search_api_options
           operator: or
           value: {  }
           exposed: true
@@ -178,20 +151,11 @@ display:
             remember: false
             multiple: false
             reduce: false
-          sub_handler: 'default:node'
-          widget: select
-          sub_handler_settings:
-            target_bundles:
-              organisation: organisation
-            sort:
-              field: title
-              direction: ASC
         keyword:
           id: keyword
-          table: node__field_keywords
-          field: field_keywords_target_id
-          relationship: none
-          plugin_id: taxonomy_index_tid
+          table: search_api_index_explorer
+          field: keywords
+          plugin_id: search_api_term
           operator: or
           value: {  }
           exposed: true
@@ -210,11 +174,9 @@ display:
           limit: true
         sector:
           id: sector
-          table: node_field_data
-          field: initiative_sector
-          relationship: none
-          entity_type: node
-          plugin_id: redresshub_related_term
+          table: search_api_index_explorer
+          field: organisation_sector
+          plugin_id: search_api_term
           operator: or
           value: {  }
           exposed: true
@@ -231,32 +193,33 @@ display:
           type: select
           hierarchy: false
           limit: true
-        from:
-          id: from
-          table: node__field_period
-          field: field_period_from
-          plugin_id: redresshub_period
+        period:
+          id: period
+          table: search_api_index_explorer
+          field: search_api_range_filter
+          plugin_id: search_api_range_filter
+          value:
+            from: ''
+            to: ''
           exposed: true
           expose:
-            operator_id: from_op
-            label: 'From year'
+            operator_id: period_op
+            label: Period
             use_operator: false
-            identifier: from
+            identifier: period
             required: false
             remember: false
-        to:
-          id: to
-          table: node__field_period
-          field: field_period_to
-          plugin_id: redresshub_period
-          exposed: true
-          expose:
-            operator_id: to_op
-            label: 'To year'
-            use_operator: false
-            identifier: to
-            required: false
-            remember: false
+          start_field: period_start
+          end_field: period_end
+          empty_end: open
+          widget: select_range
+          from_label: From
+          to_label: To
+          int_range:
+            min: 1900
+            max: 2030
+            min_source: index
+            max_source: current_year
       style:
         type: default
         options:
@@ -267,9 +230,11 @@ display:
         type: fields
         options: {  }
       query:
-        type: views_query
+        type: search_api_query
         options:
-          distinct: true
+          bypass_access: false
+          skip_access: false
+          preserve_facet_query_args: false
       header:
         result:
           id: result
@@ -283,12 +248,14 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_short_description'
+        - 'config:search_api.index.explorer'
+        - 'search_api_list:explorer'
   list:
     id: list
     display_title: List
@@ -307,7 +274,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_short_description'
+        - 'config:search_api.index.explorer'
+        - 'search_api_list:explorer'
   map:
     id: map
     display_title: Map
@@ -315,69 +283,37 @@ display:
     position: 1
     display_options:
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          plugin_id: field
+        title_sort:
+          id: title_sort
+          table: search_api_index_explorer
+          field: title_sort
+          plugin_id: search_api_field
           label: ''
           exclude: true
-          settings:
-            link_to_entity: false
-        field_short_description:
-          id: field_short_description
-          table: node__field_short_description
-          field: field_short_description
-          plugin_id: field
+          link_to_item: false
+        place_coordinates:
+          id: place_coordinates
+          table: search_api_index_explorer
+          field: place_coordinates
+          plugin_id: search_api
           label: ''
           exclude: true
-        field_coordinates:
-          id: field_coordinates
-          table: node__field_coordinates
-          field: field_coordinates
-          relationship: location
-          plugin_id: field
-          label: ''
-          exclude: true
-          type: geofield_default
-          settings:
-            output_format: wkt
-            output_escape: true
       empty: {  }
       filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
         bundle:
           id: bundle
-          table: node_field_data
+          table: search_api_index_explorer
           field: type
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
+          plugin_id: search_api_options
+          operator: or
           value:
             initiative: initiative
-        default_langcode:
-          id: default_langcode
-          table: node_field_data
-          field: default_langcode
-          entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
-          value: '1'
-        q:
-          id: q
-          table: views
-          field: combine
-          plugin_id: combine
-          operator: contains
+        search:
+          id: search
+          table: search_api_index_explorer
+          field: search_api_fulltext
+          plugin_id: search_api_fulltext
+          operator: and
           exposed: true
           expose:
             operator_id: search_op
@@ -386,15 +322,17 @@ display:
             identifier: search
             required: false
             remember: false
+          parse_mode: terms
+          min_length: 2
           fields:
-            title: title
-            field_short_description: field_short_description
+            - description
+            - title
+            - translations
         type:
           id: type
-          table: node__field_initiative_type
-          field: field_initiative_type_target_id
-          relationship: none
-          plugin_id: taxonomy_index_tid
+          table: search_api_index_explorer
+          field: initiative_type
+          plugin_id: search_api_term
           operator: or
           value: {  }
           exposed: true
@@ -413,9 +351,9 @@ display:
           limit: true
         org:
           id: org
-          table: node__field_organisations
-          field: field_organisations_target_id
-          plugin_id: entity_reference
+          table: search_api_index_explorer
+          field: organisations
+          plugin_id: search_api_options
           operator: or
           value: {  }
           exposed: true
@@ -428,20 +366,11 @@ display:
             remember: false
             multiple: false
             reduce: false
-          sub_handler: 'default:node'
-          widget: select
-          sub_handler_settings:
-            target_bundles:
-              organisation: organisation
-            sort:
-              field: title
-              direction: ASC
         keyword:
           id: keyword
-          table: node__field_keywords
-          field: field_keywords_target_id
-          relationship: none
-          plugin_id: taxonomy_index_tid
+          table: search_api_index_explorer
+          field: keywords
+          plugin_id: search_api_term
           operator: or
           value: {  }
           exposed: true
@@ -460,11 +389,9 @@ display:
           limit: true
         sector:
           id: sector
-          table: node_field_data
-          field: initiative_sector
-          relationship: none
-          entity_type: node
-          plugin_id: redresshub_related_term
+          table: search_api_index_explorer
+          field: organisation_sector
+          plugin_id: search_api_term
           operator: or
           value: {  }
           exposed: true
@@ -481,41 +408,40 @@ display:
           type: select
           hierarchy: false
           limit: true
-        from:
-          id: from
-          table: node__field_period
-          field: field_period_from
-          plugin_id: redresshub_period
+        period:
+          id: period
+          table: search_api_index_explorer
+          field: search_api_range_filter
+          plugin_id: search_api_range_filter
+          value:
+            from: ''
+            to: ''
           exposed: true
           expose:
-            operator_id: from_op
-            label: 'From year'
+            operator_id: period_op
+            label: Period
             use_operator: false
-            identifier: from
+            identifier: period
             required: false
             remember: false
-        to:
-          id: to
-          table: node__field_period
-          field: field_period_to
-          plugin_id: redresshub_period
-          exposed: true
-          expose:
-            operator_id: to_op
-            label: 'To year'
-            use_operator: false
-            identifier: to
-            required: false
-            remember: false
-        location_langcode:
-          id: location_langcode
-          table: node_field_data
-          field: default_langcode
-          relationship: location
-          entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
-          value: '1'
+          start_field: period_start
+          end_field: period_end
+          empty_end: open
+          widget: select_range
+          from_label: From
+          to_label: To
+          int_range:
+            min: 1900
+            max: 2030
+            min_source: index
+            max_source: current_year
+        has_location:
+          id: has_location
+          table: search_api_index_explorer
+          field: place_coordinates
+          plugin_id: search_api_string
+          operator: 'not empty'
+          value: ''
           group: 1
       filter_groups:
         operator: AND
@@ -525,11 +451,11 @@ display:
         type: leaflet_map
         options:
           data_source:
-            field_coordinates: field_coordinates
+            place_coordinates: place_coordinates
           entity_source: __base_table
           name_field: ''
           leaflet_tooltip:
-            value: title
+            value: title_sort
             options: '{"permanent":false,"direction":"top","offset":[0,-6]}'
           leaflet_popup:
             value: '#rendered_entity'
@@ -626,21 +552,10 @@ display:
         empty: false
         style: false
         row: false
-        relationships: false
         fields: false
         filters: false
         filter_groups: false
         header: false
-      relationships:
-        location:
-          id: location
-          table: node__field_place
-          field: field_place
-          relationship: none
-          group_type: group
-          admin_label: Location
-          plugin_id: standard
-          required: true
       header: {  }
       display_extenders: {  }
       block_description: 'Explorer: initiatives: map'
@@ -655,4 +570,5 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_coordinates'
-        - 'config:field.storage.node.field_short_description'
+        - 'config:search_api.index.explorer'
+        - 'search_api_list:explorer'
