@@ -150,3 +150,10 @@ body.toolbar-fixed .site-header {
     border-top: 1px solid var(--border);
   }
 }
+
+/* A language this page is not available in (translation_coverage). */
+.language-switcher__link.translation-coverage--unavailable {
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+  text-decoration-color: var(--warm-gray);
+}

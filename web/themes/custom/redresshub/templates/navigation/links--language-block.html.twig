@@ -13,7 +13,10 @@
       {% for langcode, item in links %}
         <li>
           {% if item.link %}
-            {{ item.link|merge({'#title': langcode|upper, '#options': item.link['#options']|merge({'attributes': {'lang': langcode, 'hreflang': langcode, 'title': item.text, 'class': ['language-switcher__link']}})}) }}
+            {# Keep the attributes other modules add (e.g. translation_coverage marks
+               the languages a page is not available in). #}
+            {% set attributes = item.link['#options'].attributes ?? {} %}
+            {{ item.link|merge({'#title': langcode|upper, '#options': item.link['#options']|merge({'attributes': attributes|merge({'lang': langcode, 'hreflang': langcode, 'title': attributes.title ?? item.text, 'class': (attributes.class ?? [])|merge(['language-switcher__link'])})})}) }}
           {% else %}
             <span class="language-switcher__link" lang="{{ langcode }}">{{ langcode|upper }}</span>
           {% endif %}
