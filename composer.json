@@ -10,6 +10,21 @@
     },
     "repositories": [
         {
+            "name": "masquerade_toolbar",
+            "type": "vcs",
+            "url": "https://github.com/GhentCDH/masquerade_toolbar"
+        },
+        {
+            "name": "dashboard_extras",
+            "type": "vcs",
+            "url": "https://github.com/GhentCDH/dashboard_extras"
+        },
+        {
+            "name": "translation_availability",
+            "type": "vcs",
+            "url": "https://github.com/GhentCDH/translation_availability"
+        },
+        {
             "name": "search_api_range_filter",
             "type": "vcs",
             "url": "https://github.com/GhentCDH/search_api_range_filter"
@@ -22,20 +37,27 @@
     "require": {
         "composer/installers": "^2.3",
         "drupal/admin_toolbar": "^3.6",
+        "drupal/amswap": "^3.3",
         "drupal/better_exposed_filters": "^7.1",
         "drupal/core-composer-scaffold": "^11.4",
         "drupal/core-project-message": "^11.4",
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
+        "drupal/dashboard": "^2.2",
+        "drupal/dashboard_extras": "dev-main",
         "drupal/field_group": "^4.0",
         "drupal/geofield": "^10.3",
         "drupal/leaflet": "^10.4",
+        "drupal/masquerade": "^2.2",
+        "drupal/masquerade_toolbar": "dev-main",
         "drupal/memcache": "^2.9",
         "drupal/optional_end_date": "^2.0",
         "drupal/paragraphs": "^1.19",
         "drupal/purge": "^3.7",
+        "drupal/role_delegation": "^1.6",
         "drupal/search_api": "^1.41",
         "drupal/search_api_range_filter": "^1.0",
+        "drupal/translation_availability": "dev-main",
         "drupal/varnish_purge": "^2.3",
         "drupal/webform": "^6.3",
         "drush/drush": "^13"

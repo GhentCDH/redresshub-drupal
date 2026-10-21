@@ -1,7 +1,19 @@
 uuid: e23c6002-b72e-4f03-bc1a-fcef494f08b3
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - translation_availability
+third_party_settings:
+  translation_availability:
+    enabled: true
+    fields:
+      - field_short_description
+    override_thresholds: false
+    thresholds: {  }
+    missing: original
+    unpublished: unavailable_page
+    notice: true
 name: Initiative
 type: initiative
 description: 'A redress initiative, shown on the map.'

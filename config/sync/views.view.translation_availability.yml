@@ -1,0 +1,431 @@
+uuid: 38f90bda-b59b-42a7-9a66-abae74305a2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.admin
+  module:
+    - node
+    - translation_availability
+    - user
+_core:
+  default_config_hash: pnB2MpD7N1tT3qKt5wvuYwOaffrESYDnVkE16nalqiM
+id: translation_availability
+label: 'Translation availability'
+module: translation_availability
+description: 'Which translations are missing, unpublished or short.'
+tag: translation_availability
+base_table: translation_availability
+base_field: entity_id
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Translation availability'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: node
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: Title
+          settings:
+            link_to_entity: true
+        bundle:
+          id: bundle
+          table: translation_availability
+          field: bundle
+          plugin_id: standard
+          label: 'Content type'
+        langcode:
+          id: langcode
+          table: translation_availability
+          field: langcode
+          plugin_id: language
+          label: Language
+          settings:
+            link_to_entity: false
+            native_language: false
+        state:
+          id: state
+          table: translation_availability
+          field: state
+          plugin_id: standard
+          label: State
+        words:
+          id: words
+          table: translation_availability
+          field: words
+          plugin_id: numeric
+          label: Words
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+        operations:
+          id: operations
+          table: node
+          field: operations
+          relationship: node
+          entity_type: node
+          plugin_id: entity_operations
+          label: Operations
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 50
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Filter
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'view translation availability report'
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'Nothing found. Translation availability is enabled per content type; run drush translation-availability:refresh after enabling it.'
+      sorts:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: node
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          order: ASC
+      filters:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: node
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+          operator: contains
+          value: ''
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Title
+            use_operator: false
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        langcode:
+          id: langcode
+          table: translation_availability
+          field: langcode
+          plugin_id: language
+          operator: in
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: langcode_op
+            label: Language
+            use_operator: false
+            identifier: langcode
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        state:
+          id: state
+          table: translation_availability
+          field: state
+          plugin_id: in_operator
+          operator: in
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: state_op
+            label: State
+            use_operator: false
+            identifier: state
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        bundle:
+          id: bundle
+          table: translation_availability
+          field: bundle
+          plugin_id: in_operator
+          operator: in
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            use_operator: false
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            title: title
+            bundle: bundle
+            langcode: langcode
+            state: state
+            words: words
+            operations: operations
+          default: title
+          info:
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            bundle:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            langcode:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            state:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            words:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: true
+          summary: ''
+          empty_table: true
+      row:
+        type: fields
+        options: {  }
+      query:
+        type: views_query
+        options: {  }
+      relationships:
+        node:
+          id: node
+          table: translation_availability
+          field: entity_id
+          admin_label: Content
+          plugin_id: standard
+          required: true
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          plugin_id: result
+          empty: false
+          content: 'Displaying @start - @end of @total'
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }
+  page:
+    id: page
+    display_title: Report
+    display_plugin: page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: admin/reports/translation-availability
+      menu:
+        type: normal
+        title: 'Translation availability'
+        description: 'Which translations are missing, unpublished or short.'
+        weight: 0
+        menu_name: admin
+        parent: system.admin_reports
+        context: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }
+  research_data:
+    id: research_data
+    display_title: 'Research data'
+    display_plugin: page
+    position: 2
+    display_options:
+      filters:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: node
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+          operator: contains
+          value: ''
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Title
+            use_operator: false
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        langcode:
+          id: langcode
+          table: translation_availability
+          field: langcode
+          plugin_id: language
+          operator: in
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: langcode_op
+            label: Language
+            use_operator: false
+            identifier: langcode
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        state:
+          id: state
+          table: translation_availability
+          field: state
+          plugin_id: in_operator
+          operator: in
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: state_op
+            label: State
+            use_operator: false
+            identifier: state
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        bundle:
+          id: bundle
+          table: translation_availability
+          field: bundle
+          plugin_id: in_operator
+          operator: in
+          value:
+            initiative: initiative
+            organisation: organisation
+            location: location
+            fragment: fragment
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            use_operator: false
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            reduce: true
+        bundle_fixed:
+          id: bundle_fixed
+          table: translation_availability
+          field: bundle
+          plugin_id: in_operator
+          operator: in
+          value:
+            initiative: initiative
+            organisation: organisation
+            location: location
+            fragment: fragment
+          group: 1
+          exposed: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_extenders: {  }
+      path: admin/research-data/translation-availability
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }

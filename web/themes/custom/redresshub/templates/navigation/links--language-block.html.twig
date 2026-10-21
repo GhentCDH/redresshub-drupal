@@ -13,7 +13,7 @@
       {% for langcode, item in links %}
         <li>
           {% if item.link %}
-            {# Keep the attributes other modules add (e.g. translation_coverage marks
+            {# Keep the attributes other modules add (e.g. translation_availability marks
                the languages a page is not available in). #}
             {% set attributes = item.link['#options'].attributes ?? {} %}
             {{ item.link|merge({'#title': langcode|upper, '#options': item.link['#options']|merge({'attributes': attributes|merge({'lang': langcode, 'hreflang': langcode, 'title': attributes.title ?? item.text, 'class': (attributes.class ?? [])|merge(['language-switcher__link'])})})}) }}

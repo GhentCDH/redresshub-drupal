@@ -1,0 +1,8 @@
+uuid: 0c9de192-39b8-44cf-8fc1-ab1ccf33880f
+langcode: en
+status: true
+dependencies: {  }
+id: redactor
+label: Redactor
+description: 'The admin menu of the Redactor role: the toolbar and the cards on the dashboard.'
+locked: false

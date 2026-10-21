@@ -1,0 +1,13 @@
+_core:
+  default_config_hash: vaRIb4e_4378IzQXF4dy-aSEAZ4O3D9iC7LW89rHPSw
+role_menu_pairs:
+  -
+    role: redactor
+    menu: redactor
+    ignored_roles:
+      - administrator
+  -
+    role: site_manager
+    menu: site_manager
+    ignored_roles:
+      - administrator

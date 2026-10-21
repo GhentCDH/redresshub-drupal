@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: vtklIMuUS2MeGDl8yR0IVtS2EkBbdq1BnhX28O7U-34
+thresholds:
+  empty: 10
+  short: 200
+  full: 1000
+  ratio: 10
+mark_language_switcher: true

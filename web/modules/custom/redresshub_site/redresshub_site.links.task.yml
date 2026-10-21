@@ -1,0 +1,15 @@
+redresshub_site.research_data:
+  title: 'Content'
+  route_name: view.content.research_data
+  base_route: view.content.research_data
+  weight: 0
+redresshub_site.research_data_vocabularies:
+  title: 'Vocabularies'
+  route_name: redresshub_site.research_data_vocabularies
+  base_route: view.content.research_data
+  weight: 10
+redresshub_site.research_data_translation_availability:
+  title: 'Translation availability'
+  route_name: view.translation_availability.research_data
+  base_route: view.content.research_data
+  weight: 20

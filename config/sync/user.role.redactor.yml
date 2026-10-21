@@ -1,0 +1,180 @@
+uuid: 8043ee15-b100-4133-a6bf-0dacba96a9c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - dashboard.dashboard.redactor
+    - filter.format.basic_html
+    - node.type.event
+    - node.type.fragment
+    - node.type.home
+    - node.type.initiative
+    - node.type.location
+    - node.type.organisation
+    - node.type.page
+    - taxonomy.vocabulary.fragment_type
+    - taxonomy.vocabulary.historical_era
+    - taxonomy.vocabulary.initiative_type
+    - taxonomy.vocabulary.injustice_type
+    - taxonomy.vocabulary.keywords
+    - taxonomy.vocabulary.location_type
+    - taxonomy.vocabulary.organisation_status
+    - taxonomy.vocabulary.places
+    - taxonomy.vocabulary.sector
+    - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.un_category
+  module:
+    - content_translation
+    - contextual
+    - dashboard
+    - entity_reference_revisions
+    - file
+    - filter
+    - media
+    - node
+    - paragraphs
+    - path
+    - system
+    - taxonomy
+    - toolbar
+    - translation_availability
+id: redactor
+label: Redactor
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'administer nodes'
+  - 'create content translations'
+  - 'create event content'
+  - 'create fragment content'
+  - 'create initiative content'
+  - 'create location content'
+  - 'create media'
+  - 'create organisation content'
+  - 'create terms in fragment_type'
+  - 'create terms in historical_era'
+  - 'create terms in initiative_type'
+  - 'create terms in injustice_type'
+  - 'create terms in keywords'
+  - 'create terms in location_type'
+  - 'create terms in organisation_status'
+  - 'create terms in places'
+  - 'create terms in sector'
+  - 'create terms in tags'
+  - 'create terms in un_category'
+  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete any event content'
+  - 'delete any fragment content'
+  - 'delete any initiative content'
+  - 'delete any location content'
+  - 'delete any media'
+  - 'delete any organisation content'
+  - 'delete content translations'
+  - 'delete event revisions'
+  - 'delete fragment revisions'
+  - 'delete home revisions'
+  - 'delete initiative revisions'
+  - 'delete location revisions'
+  - 'delete organisation revisions'
+  - 'delete orphan revisions'
+  - 'delete own event content'
+  - 'delete own files'
+  - 'delete own fragment content'
+  - 'delete own initiative content'
+  - 'delete own location content'
+  - 'delete own organisation content'
+  - 'delete page revisions'
+  - 'delete terms in fragment_type'
+  - 'delete terms in historical_era'
+  - 'delete terms in initiative_type'
+  - 'delete terms in injustice_type'
+  - 'delete terms in keywords'
+  - 'delete terms in location_type'
+  - 'delete terms in organisation_status'
+  - 'delete terms in places'
+  - 'delete terms in sector'
+  - 'delete terms in tags'
+  - 'delete terms in un_category'
+  - 'edit any event content'
+  - 'edit any fragment content'
+  - 'edit any home content'
+  - 'edit any initiative content'
+  - 'edit any location content'
+  - 'edit any organisation content'
+  - 'edit any page content'
+  - 'edit own event content'
+  - 'edit own fragment content'
+  - 'edit own home content'
+  - 'edit own initiative content'
+  - 'edit own location content'
+  - 'edit own organisation content'
+  - 'edit own page content'
+  - 'edit terms in fragment_type'
+  - 'edit terms in historical_era'
+  - 'edit terms in initiative_type'
+  - 'edit terms in injustice_type'
+  - 'edit terms in keywords'
+  - 'edit terms in location_type'
+  - 'edit terms in organisation_status'
+  - 'edit terms in places'
+  - 'edit terms in sector'
+  - 'edit terms in tags'
+  - 'edit terms in un_category'
+  - 'revert all revisions'
+  - 'revert event revisions'
+  - 'revert fragment revisions'
+  - 'revert home revisions'
+  - 'revert initiative revisions'
+  - 'revert location revisions'
+  - 'revert organisation revisions'
+  - 'revert page revisions'
+  - 'revert term revisions in fragment_type'
+  - 'revert term revisions in historical_era'
+  - 'revert term revisions in initiative_type'
+  - 'revert term revisions in injustice_type'
+  - 'revert term revisions in keywords'
+  - 'revert term revisions in location_type'
+  - 'revert term revisions in organisation_status'
+  - 'revert term revisions in places'
+  - 'revert term revisions in sector'
+  - 'revert term revisions in tags'
+  - 'revert term revisions in un_category'
+  - 'translate editable entities'
+  - 'update any media'
+  - 'update content translations'
+  - 'use text format basic_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view event revisions'
+  - 'view fragment revisions'
+  - 'view home revisions'
+  - 'view initiative revisions'
+  - 'view location revisions'
+  - 'view organisation revisions'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view redactor dashboard'
+  - 'view term revisions in fragment_type'
+  - 'view term revisions in historical_era'
+  - 'view term revisions in initiative_type'
+  - 'view term revisions in injustice_type'
+  - 'view term revisions in keywords'
+  - 'view term revisions in location_type'
+  - 'view term revisions in organisation_status'
+  - 'view term revisions in places'
+  - 'view term revisions in sector'
+  - 'view term revisions in tags'
+  - 'view term revisions in un_category'
+  - 'view the administration theme'
+  - 'view translation availability report'
+  - 'view unpublished paragraphs'
+  - 'view vocabulary labels'

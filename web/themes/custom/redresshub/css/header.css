@@ -151,8 +151,8 @@ body.toolbar-fixed .site-header {
   }
 }
 
-/* A language this page is not available in (translation_coverage). */
-.language-switcher__link.translation-coverage--unavailable {
+/* A language this page is not available in (translation_availability). */
+.language-switcher__link.translation-availability--unavailable {
   color: var(--muted-foreground);
   text-decoration: line-through;
   text-decoration-color: var(--warm-gray);

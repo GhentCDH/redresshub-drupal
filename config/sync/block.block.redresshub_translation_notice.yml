@@ -1,0 +1,20 @@
+uuid: e53ffada-fdb9-4461-9292-97f3d3c9a679
+langcode: en
+status: true
+dependencies:
+  module:
+    - translation_availability
+  theme:
+    - redresshub
+id: redresshub_translation_notice
+theme: redresshub
+region: content
+weight: -8
+provider: null
+plugin: translation_availability_notice
+settings:
+  id: translation_availability_notice
+  label: 'Translation notice'
+  label_display: '0'
+  provider: translation_availability
+visibility: {  }

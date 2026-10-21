@@ -1,7 +1,22 @@
 uuid: 0aad400e-6ba3-4790-89c9-112f3fb6ebf1
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - translation_availability
+third_party_settings:
+  translation_availability:
+    enabled: true
+    fields:
+      - field_content.field_text
+      - field_content.field_plain_text
+      - field_tabs.field_content.field_text
+      - field_tabs.field_content.field_plain_text
+    override_thresholds: false
+    thresholds: {  }
+    missing: original
+    unpublished: unavailable_page
+    notice: true
 _core:
   default_config_hash: i0snV8Wj--OkRW12UdachUiYiz3FbeMwHu_pZYfzKLc
 name: 'Basic page'

@@ -1,0 +1,32 @@
+redresshub_site.research_data_add_initiative:
+  title: 'Add initiative'
+  route_name: node.add
+  route_parameters:
+    node_type: initiative
+  weight: 0
+  appears_on:
+    - view.content.research_data
+redresshub_site.research_data_add_organisation:
+  title: 'Add organisation'
+  route_name: node.add
+  route_parameters:
+    node_type: organisation
+  weight: 1
+  appears_on:
+    - view.content.research_data
+redresshub_site.research_data_add_location:
+  title: 'Add location'
+  route_name: node.add
+  route_parameters:
+    node_type: location
+  weight: 2
+  appears_on:
+    - view.content.research_data
+redresshub_site.research_data_add_fragment:
+  title: 'Add fragment'
+  route_name: node.add
+  route_parameters:
+    node_type: fragment
+  weight: 3
+  appears_on:
+    - view.content.research_data

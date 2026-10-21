@@ -1,0 +1,69 @@
+uuid: b9faeb25-fcd7-4020-ab15-431d50185e6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.site_manager
+    - views.view.dashboard_content
+  module:
+    - dashboard_extras
+    - layout_builder
+    - layout_discovery
+    - views
+id: site_manager
+label: 'Site manager'
+description: 'The dashboard of the Site manager role.'
+layout:
+  -
+    layout_id: layout_onecol
+    layout_settings:
+      label: Menu
+    components:
+      bb6591a8-585d-406f-8f05-18b1759fe155:
+        uuid: bb6591a8-585d-406f-8f05-18b1759fe155
+        region: content
+        configuration:
+          id: dashboard_extras_menu_cards
+          label: 'Site manager menu'
+          label_display: '0'
+          provider: dashboard_extras
+          context_mapping: {  }
+          menu: site_manager
+          show_descriptions: true
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
+    layout_id: layout_twocol_section
+    layout_settings:
+      label: Content
+      column_widths: 50-50
+    components:
+      1435b450-45b4-4fe7-b0ea-253cc3cb05dd:
+        uuid: 1435b450-45b4-4fe7-b0ea-253cc3cb05dd
+        region: first
+        configuration:
+          id: 'views_block:dashboard_content-block_own_recent_content'
+          label: ''
+          label_display: visible
+          provider: views
+          context_mapping: {  }
+          views_label: ''
+          items_per_page: 0
+        weight: 0
+        additional: {  }
+      de72b851-0766-42ff-a1ca-cfe177a22e1d:
+        uuid: de72b851-0766-42ff-a1ca-cfe177a22e1d
+        region: second
+        configuration:
+          id: 'views_block:dashboard_content-block_edited_content'
+          label: ''
+          label_display: visible
+          provider: views
+          context_mapping: {  }
+          views_label: ''
+          items_per_page: 0
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+weight: 1

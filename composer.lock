@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d433c9f8f3aa47fb6e697cccc4538aee",
+    "content-hash": "4eb25dc28f64167fb3e087b2e77d32ae",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1048,6 +1048,63 @@
             }
         },
         {
+            "name": "drupal/amswap",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/amswap.git",
+                "reference": "3.3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/amswap-3.3.0.zip",
+                "reference": "3.3.0",
+                "shasum": "c1c9790d166df76337824cb8afd7000d162e72df"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10 || ^11",
+                "drupal/toolbar": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.3.0",
+                    "datestamp": "1769619624",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "cedewey",
+                    "homepage": "https://www.drupal.org/user/38694"
+                },
+                {
+                    "name": "dieterholvoet",
+                    "homepage": "https://www.drupal.org/user/3567222"
+                },
+                {
+                    "name": "droces",
+                    "homepage": "https://www.drupal.org/user/2996575"
+                }
+            ],
+            "description": "Allows the administration menu to be customised per user role.",
+            "homepage": "https://www.drupal.org/project/amswap",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/amswap",
+                "issues": "https://www.drupal.org/project/issues/amswap"
+            }
+        },
+        {
             "name": "drupal/better_exposed_filters",
             "version": "7.2.0",
             "source": {
@@ -1537,6 +1594,134 @@
             "time": "2026-10-09T17:44:27+00:00"
         },
         {
+            "name": "drupal/dashboard",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/dashboard.git",
+                "reference": "2.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/dashboard-2.2.1.zip",
+                "reference": "2.2.1",
+                "shasum": "89f5b3587261c36e972a3569f2489bb5095552c8"
+            },
+            "require": {
+                "drupal/core": "^11.2"
+            },
+            "require-dev": {
+                "drupal/coffee": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.2.1",
+                    "datestamp": "1786974767",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/35094/maintainers"
+                },
+                {
+                    "name": "Anonymous",
+                    "homepage": "https://www.drupal.org/user/0"
+                },
+                {
+                    "name": "chrismiller627",
+                    "homepage": "https://www.drupal.org/user/274027"
+                },
+                {
+                    "name": "ckrina",
+                    "homepage": "https://www.drupal.org/user/1206650"
+                },
+                {
+                    "name": "dmitrig01",
+                    "homepage": "https://www.drupal.org/user/47566"
+                },
+                {
+                    "name": "jtsnow",
+                    "homepage": "https://www.drupal.org/user/171614"
+                },
+                {
+                    "name": "mtift",
+                    "homepage": "https://www.drupal.org/user/751908"
+                },
+                {
+                    "name": "penyaskito",
+                    "homepage": "https://www.drupal.org/user/959536"
+                },
+                {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                },
+                {
+                    "name": "pingers",
+                    "homepage": "https://www.drupal.org/user/56282"
+                },
+                {
+                    "name": "plopesc",
+                    "homepage": "https://www.drupal.org/user/282415"
+                },
+                {
+                    "name": "webchick",
+                    "homepage": "https://www.drupal.org/user/24967"
+                }
+            ],
+            "description": "Provides customizable dashboards.",
+            "homepage": "https://www.drupal.org/project/dashboard",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/dashboard",
+                "issues": "https://www.drupal.org/project/issues/dashboard"
+            }
+        },
+        {
+            "name": "drupal/dashboard_extras",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GhentCDH/dashboard_extras.git",
+                "reference": "e83d634176e89d95dbaece0de50212353946c363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GhentCDH/dashboard_extras/zipball/e83d634176e89d95dbaece0de50212353946c363",
+                "reference": "e83d634176e89d95dbaece0de50212353946c363",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/core": "^11.2",
+                "drupal/dashboard": "^2.2"
+            },
+            "suggest": {
+                "drupal/amswap": "Shows another admin toolbar menu per role."
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Admin dashboards and menus per role, on top of the Dashboard and Admin Menu Swap modules.",
+            "support": {
+                "source": "https://github.com/GhentCDH/dashboard_extras/tree/main",
+                "issues": "https://github.com/GhentCDH/dashboard_extras/issues"
+            },
+            "time": "2026-10-21T07:09:39+00:00"
+        },
+        {
             "name": "drupal/entity_reference_revisions",
             "version": "1.14.0",
             "source": {
@@ -1808,6 +1993,106 @@
                 "source": "https://git.drupalcode.org/project/leaflet",
                 "issues": "https://www.drupal.org/project/issues/leaflet"
             }
+        },
+        {
+            "name": "drupal/masquerade",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/masquerade.git",
+                "reference": "8.x-2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/masquerade-8.x-2.2.zip",
+                "reference": "8.x-2.2",
+                "shasum": "173b08ef4bcef647423252f7c0706045f44be650"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11.0 || ^12.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.2",
+                    "datestamp": "1777304860",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Postnikov (andypost)",
+                    "homepage": "https://www.drupal.org/u/andypost",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "David Norman (deekayen)",
+                    "homepage": "https://www.drupal.org/u/deekayen",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Mark Shropshire (shrop)",
+                    "homepage": "https://www.drupal.org/u/shrop",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Daniel Kudwien (sun)",
+                    "homepage": "https://www.drupal.org/u/sun",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Andrew Berry (deviantintegral)",
+                    "homepage": "https://www.drupal.org/u/deviantintegral",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "sun",
+                    "homepage": "https://www.drupal.org/user/54136"
+                }
+            ],
+            "description": "Allows privileged users to masquerade as another user.",
+            "homepage": "https://www.drupal.org/project/masquerade",
+            "support": {
+                "source": "https://git.drupal.org/project/masquerade.git",
+                "issues": "https://www.drupal.org/project/issues/masquerade",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/masquerade_toolbar",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GhentCDH/masquerade_toolbar.git",
+                "reference": "bddf877db48194b7ae7a0c4a3c3b0546d59fe7d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GhentCDH/masquerade_toolbar/zipball/bddf877db48194b7ae7a0c4a3c3b0546d59fe7d9",
+                "reference": "bddf877db48194b7ae7a0c4a3c3b0546d59fe7d9",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/masquerade": "^2.2"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Masquerade as a role with one click, from a dropdown in the toolbar.",
+            "support": {
+                "source": "https://github.com/GhentCDH/masquerade_toolbar/tree/main",
+                "issues": "https://github.com/GhentCDH/masquerade_toolbar/issues"
+            },
+            "time": "2026-10-21T07:09:39+00:00"
         },
         {
             "name": "drupal/memcache",
@@ -2100,6 +2385,64 @@
             }
         },
         {
+            "name": "drupal/role_delegation",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/role_delegation.git",
+                "reference": "8.x-1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/role_delegation-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "792971461a3b86cb8f6937d0eecd3745899bb7bf"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.6",
+                    "datestamp": "1769768673",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen Tubex",
+                    "homepage": "https://www.drupal.org/u/jeroent",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "benjy",
+                    "homepage": "https://www.drupal.org/user/1852732"
+                },
+                {
+                    "name": "dieterholvoet",
+                    "homepage": "https://www.drupal.org/user/3567222"
+                },
+                {
+                    "name": "jeroent",
+                    "homepage": "https://www.drupal.org/user/2228934"
+                }
+            ],
+            "description": "Allows site administrators to grant some roles the authority to assign selected roles to users.",
+            "homepage": "http://drupal.org/project/role_delegation",
+            "support": {
+                "source": "https://git.drupalcode.org/project/role_delegation",
+                "issues": "http://drupal.org/project/role_delegation"
+            }
+        },
+        {
             "name": "drupal/search_api",
             "version": "1.42.0",
             "source": {
@@ -2206,6 +2549,35 @@
                 "issues": "https://github.com/GhentCDH/search_api_range_filter/issues"
             },
             "time": "2026-10-02T09:59:47+00:00"
+        },
+        {
+            "name": "drupal/translation_availability",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GhentCDH/translation_availability.git",
+                "reference": "22d1c256025ca37f15299a31e6f792978f8515b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GhentCDH/translation_availability/zipball/22d1c256025ca37f15299a31e6f792978f8515b5",
+                "reference": "22d1c256025ca37f15299a31e6f792978f8515b5",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Shows which translations of content are available, missing, unpublished or much shorter than another language, and helps visitors to the languages that are.",
+            "support": {
+                "source": "https://github.com/GhentCDH/translation_availability/tree/main",
+                "issues": "https://github.com/GhentCDH/translation_availability/issues"
+            },
+            "time": "2026-10-21T07:09:39+00:00"
         },
         {
             "name": "drupal/varnish_purge",
@@ -8209,7 +8581,11 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "drupal/dashboard_extras": 20,
+        "drupal/masquerade_toolbar": 20,
+        "drupal/translation_availability": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},
