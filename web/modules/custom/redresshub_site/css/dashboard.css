@@ -79,3 +79,21 @@
   color: var(--color-gray-600, #5c5f66);
   font-size: 0.875rem;
 }
+
+/* Blocks next to each other are as tall as each other. */
+.dashboard .layout--twocol-section > .layout__region {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard .layout--twocol-section > .layout__region > .block {
+  flex: 1;
+}
+
+/* Empty lists ("No form submissions yet.") in a line, not a tall box. */
+.dashboard .block .view-empty,
+.dashboard .block td.views-empty {
+  height: auto;
+  min-height: 0;
+  padding: 1rem 1.5rem;
+}

@@ -1,4 +1,4 @@
-uuid: d9f79d6b-4c46-4b21-ae8a-78080a3ca0dd
+uuid: 14c76cfb-0040-4a73-ab30-6972167e6b04
 langcode: en
 status: true
 dependencies:
@@ -21,8 +21,8 @@ layout:
     layout_settings:
       label: Menu
     components:
-      56c4d0e0-9f20-4e84-bc44-497fd3b9a645:
-        uuid: 56c4d0e0-9f20-4e84-bc44-497fd3b9a645
+      dd54cbdc-3251-41e9-abbd-fec9ce839d99:
+        uuid: dd54cbdc-3251-41e9-abbd-fec9ce839d99
         region: content
         configuration:
           id: redresshub_menu_cards
@@ -36,11 +36,11 @@ layout:
   -
     layout_id: layout_twocol_section
     layout_settings:
-      label: 'To do and recent'
+      label: 'Row 1'
       column_widths: 50-50
     components:
-      09aeaf67-df4d-4415-85c5-ebbdddec2ddc:
-        uuid: 09aeaf67-df4d-4415-85c5-ebbdddec2ddc
+      7df1620a-7114-4aa5-8a72-d0162dbbe57f:
+        uuid: 7df1620a-7114-4aa5-8a72-d0162dbbe57f
         region: first
         configuration:
           id: 'views_block:redresshub_submissions-latest'
@@ -52,9 +52,9 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      205e3ef7-3540-4c8f-b97f-d3df09f65996:
-        uuid: 205e3ef7-3540-4c8f-b97f-d3df09f65996
-        region: first
+      1108ea4e-6846-49f5-815c-756f33174319:
+        uuid: 1108ea4e-6846-49f5-815c-756f33174319
+        region: second
         configuration:
           id: 'views_block:dashboard_content-block_own_drafts'
           label: ''
@@ -65,20 +65,16 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      7ae7256d-578c-4102-9abd-a88e469dbcf8:
-        uuid: 7ae7256d-578c-4102-9abd-a88e469dbcf8
+    third_party_settings: {  }
+  -
+    layout_id: layout_twocol_section
+    layout_settings:
+      label: 'Row 2'
+      column_widths: 50-50
+    components:
+      2265231d-960e-498b-9311-147d6ecc3bb9:
+        uuid: 2265231d-960e-498b-9311-147d6ecc3bb9
         region: first
-        configuration:
-          id: redresshub_research_data_checks
-          label: 'Empty fields in the research data'
-          label_display: visible
-          provider: redresshub_site
-          context_mapping: {  }
-        weight: 0
-        additional: {  }
-      8776df0f-9fad-4a29-a437-748d26df9b07:
-        uuid: 8776df0f-9fad-4a29-a437-748d26df9b07
-        region: second
         configuration:
           id: 'views_block:redresshub_dashboard-recent'
           label: 'Recent changes (everyone)'
@@ -89,16 +85,48 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      815eb107-b40d-4a62-ae33-7d2b89b044b8:
-        uuid: 815eb107-b40d-4a62-ae33-7d2b89b044b8
+      5edb193a-d3ff-433f-bc3e-d9a346c03b98:
+        uuid: 5edb193a-d3ff-433f-bc3e-d9a346c03b98
         region: second
         configuration:
           id: translation_availability_summary
-          label: 'Translations to do'
+          label: 'Pages: translations to do'
           label_display: visible
           provider: translation_availability
           context_mapping: {  }
-          bundles: {  }
+          bundles:
+            - page
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
+    layout_id: layout_twocol_section
+    layout_settings:
+      label: 'Row 3'
+      column_widths: 50-50
+    components:
+      0331c01f-2170-410e-9ec8-0c85e6e7798d:
+        uuid: 0331c01f-2170-410e-9ec8-0c85e6e7798d
+        region: first
+        configuration:
+          id: redresshub_research_data_checks
+          label: 'Research data: empty fields'
+          label_display: visible
+          provider: redresshub_site
+          context_mapping: {  }
+        weight: 0
+        additional: {  }
+      75ee8ac8-b4f4-40eb-9c2e-24c46db578b0:
+        uuid: 75ee8ac8-b4f4-40eb-9c2e-24c46db578b0
+        region: second
+        configuration:
+          id: translation_availability_summary
+          label: 'Research data: translations to do'
+          label_display: visible
+          provider: translation_availability
+          context_mapping: {  }
+          bundles:
+            - initiative
         weight: 0
         additional: {  }
     third_party_settings: {  }
