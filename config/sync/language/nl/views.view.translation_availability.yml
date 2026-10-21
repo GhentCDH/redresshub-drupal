@@ -13,8 +13,6 @@ display:
           label: Taal
         state:
           label: Status
-        operations:
-          label: Bewerkingen
       pager:
         options:
           expose:

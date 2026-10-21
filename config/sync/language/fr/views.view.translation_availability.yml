@@ -13,8 +13,6 @@ display:
           label: Langue
         state:
           label: État
-        operations:
-          label: Actions
       pager:
         options:
           tags:
