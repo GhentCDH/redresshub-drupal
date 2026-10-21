@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.basic
     - dashboard.dashboard.site_manager
     - filter.format.basic_html
     - node.type.event
@@ -25,7 +24,6 @@ dependencies:
     - taxonomy.vocabulary.tags
     - taxonomy.vocabulary.un_category
   module:
-    - block_content
     - config_translation
     - content_translation
     - contextual
@@ -35,6 +33,7 @@ dependencies:
     - filter
     - locale
     - media
+    - menu_admin_per_menu
     - node
     - paragraphs
     - path
@@ -50,7 +49,6 @@ weight: 3
 is_admin: false
 permissions:
   - 'access administration pages'
-  - 'access block library'
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
@@ -60,14 +58,13 @@ permissions:
   - 'access toolbar'
   - 'access user profiles'
   - 'access webform overview'
-  - 'administer menu'
+  - 'administer main menu items'
   - 'administer nodes'
   - 'administer site configuration'
   - 'administer url aliases'
   - 'administer users'
   - 'assign redactor role'
   - 'assign site_manager role'
-  - 'create basic block content'
   - 'create content translations'
   - 'create event content'
   - 'create fragment content'
@@ -89,7 +86,6 @@ permissions:
   - 'create terms in un_category'
   - 'create url aliases'
   - 'delete all revisions'
-  - 'delete any basic block content'
   - 'delete any event content'
   - 'delete any file'
   - 'delete any fragment content'
@@ -126,7 +122,6 @@ permissions:
   - 'delete terms in sector'
   - 'delete terms in tags'
   - 'delete terms in un_category'
-  - 'edit any basic block content'
   - 'edit any event content'
   - 'edit any fragment content'
   - 'edit any home content'
