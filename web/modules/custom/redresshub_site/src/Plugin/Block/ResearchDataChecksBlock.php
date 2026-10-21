@@ -15,12 +15,12 @@ use Drupal\redresshub_site\ResearchData;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Research data that misses something (ResearchData::CHECKS), with links to
- * edit it.
+ * Fields of the research data that are still empty (ResearchData::CHECKS),
+ * with links to fill them in. Not always known: an invitation, not an error.
  */
 #[Block(
   id: 'redresshub_research_data_checks',
-  admin_label: new TranslatableMarkup('Incomplete research data'),
+  admin_label: new TranslatableMarkup('Empty fields in the research data'),
   category: new TranslatableMarkup('RedressHub'),
 )]
 final class ResearchDataChecksBlock extends BlockBase implements ContainerFactoryPluginInterface {
@@ -44,7 +44,10 @@ final class ResearchDataChecksBlock extends BlockBase implements ContainerFactor
 
   public function build(): array {
     $storage = $this->entityTypeManager->getStorage('node');
-    $build = ['#cache' => ['tags' => ['node_list'], 'contexts' => ['user.permissions']]];
+    $build = [
+      '#cache' => ['tags' => ['node_list'], 'contexts' => ['user.permissions']],
+      'intro' => ['#markup' => '<p class="research-data-checks__intro">' . $this->t('Not always known: fill them in when the information is available.') . '</p>'],
+    ];
     foreach (ResearchData::CHECKS as [$bundle, $field, $label]) {
       $query = fn() => $storage->getQuery()->accessCheck(TRUE)->condition('type', $bundle)->notExists($field);
       $total = (int) $query()->count()->execute();
@@ -65,8 +68,8 @@ final class ResearchDataChecksBlock extends BlockBase implements ContainerFactor
         'items' => ['#theme' => 'item_list', '#items' => $items],
       ];
     }
-    if (count($build) === 1) {
-      $build['complete'] = ['#markup' => '<p>' . $this->t('Nothing is missing.') . '</p>'];
+    if (count($build) === 2) {
+      $build['intro'] = ['#markup' => '<p>' . $this->t('No empty fields.') . '</p>'];
     }
     return $build;
   }

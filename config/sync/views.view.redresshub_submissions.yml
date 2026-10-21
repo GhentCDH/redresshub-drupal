@@ -1,4 +1,4 @@
-uuid: f34a7e90-0963-4000-bc54-a60663a17643
+uuid: 547e09fd-2974-4ac7-9d22-3d32979f8969
 langcode: en
 status: true
 dependencies:
@@ -65,6 +65,14 @@ display:
       cache:
         type: tag
         options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'No form submissions yet.'
       sorts:
         created:
           id: created
@@ -113,7 +121,6 @@ display:
     display_options:
       display_extenders: {  }
       block_description: 'Latest form submissions'
-      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:

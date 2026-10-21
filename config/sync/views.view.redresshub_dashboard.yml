@@ -1,4 +1,4 @@
-uuid: a353fa32-cf0c-4907-9a1a-30643e0ba52d
+uuid: d3821c09-abda-4405-9b61-b85458cd1c65
 langcode: en
 status: true
 dependencies:
@@ -44,11 +44,11 @@ display:
       tags: {  }
   recent:
     id: recent
-    display_title: 'Recently edited'
+    display_title: 'Recent changes'
     display_plugin: block
     position: 1
     display_options:
-      title: 'Recently edited'
+      title: 'Recent changes (everyone)'
       fields:
         title:
           id: title
@@ -157,7 +157,7 @@ display:
         filters: false
         filter_groups: false
       display_extenders: {  }
-      block_description: 'Recently edited content'
+      block_description: 'Recent changes by everyone'
     cache_metadata:
       max-age: -1
       contexts:

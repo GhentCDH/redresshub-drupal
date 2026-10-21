@@ -73,3 +73,9 @@
   color: var(--color-gray-600, #5c5f66);
   font-size: 0.8125rem;
 }
+
+.research-data-checks__intro {
+  margin: 0 1.5rem 0.75rem;
+  color: var(--color-gray-600, #5c5f66);
+  font-size: 0.875rem;
+}

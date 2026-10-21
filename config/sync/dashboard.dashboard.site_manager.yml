@@ -1,4 +1,4 @@
-uuid: 6a479a36-8d1f-4486-b113-12132bdccf8c
+uuid: d9f79d6b-4c46-4b21-ae8a-78080a3ca0dd
 langcode: en
 status: true
 dependencies:
@@ -21,8 +21,8 @@ layout:
     layout_settings:
       label: Menu
     components:
-      fcf71466-6d53-44c4-af60-3d050588e9a2:
-        uuid: fcf71466-6d53-44c4-af60-3d050588e9a2
+      56c4d0e0-9f20-4e84-bc44-497fd3b9a645:
+        uuid: 56c4d0e0-9f20-4e84-bc44-497fd3b9a645
         region: content
         configuration:
           id: redresshub_menu_cards
@@ -34,13 +34,14 @@ layout:
         additional: {  }
     third_party_settings: {  }
   -
-    layout_id: layout_onecol
+    layout_id: layout_twocol_section
     layout_settings:
-      label: Messages
+      label: 'To do and recent'
+      column_widths: 50-50
     components:
-      1f3196b7-d7a6-4a2f-a1c2-36a29d67654c:
-        uuid: 1f3196b7-d7a6-4a2f-a1c2-36a29d67654c
-        region: content
+      09aeaf67-df4d-4415-85c5-ebbdddec2ddc:
+        uuid: 09aeaf67-df4d-4415-85c5-ebbdddec2ddc
+        region: first
         configuration:
           id: 'views_block:redresshub_submissions-latest'
           label: 'New form submissions'
@@ -51,15 +52,8 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-    third_party_settings: {  }
-  -
-    layout_id: layout_twocol_section
-    layout_settings:
-      label: 'To do and recent'
-      column_widths: 50-50
-    components:
-      8de78fe3-60e5-45ac-b8c3-23e1a602e6fd:
-        uuid: 8de78fe3-60e5-45ac-b8c3-23e1a602e6fd
+      205e3ef7-3540-4c8f-b97f-d3df09f65996:
+        uuid: 205e3ef7-3540-4c8f-b97f-d3df09f65996
         region: first
         configuration:
           id: 'views_block:dashboard_content-block_own_drafts'
@@ -71,32 +65,32 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      4655fbfb-f29e-4d4a-954b-46d3ec536738:
-        uuid: 4655fbfb-f29e-4d4a-954b-46d3ec536738
+      7ae7256d-578c-4102-9abd-a88e469dbcf8:
+        uuid: 7ae7256d-578c-4102-9abd-a88e469dbcf8
         region: first
         configuration:
           id: redresshub_research_data_checks
-          label: 'Incomplete research data'
+          label: 'Empty fields in the research data'
           label_display: visible
           provider: redresshub_site
           context_mapping: {  }
         weight: 0
         additional: {  }
-      084bdc5c-c266-4d23-af91-bf3bc4a62e64:
-        uuid: 084bdc5c-c266-4d23-af91-bf3bc4a62e64
+      8776df0f-9fad-4a29-a437-748d26df9b07:
+        uuid: 8776df0f-9fad-4a29-a437-748d26df9b07
         region: second
         configuration:
           id: 'views_block:redresshub_dashboard-recent'
-          label: 'Recently edited'
+          label: 'Recent changes (everyone)'
           label_display: visible
           provider: views
           context_mapping: {  }
-          views_label: 'Recently edited'
+          views_label: 'Recent changes (everyone)'
           items_per_page: 0
         weight: 0
         additional: {  }
-      b34c8b0f-1d27-4235-8e1a-e4d83b1fa150:
-        uuid: b34c8b0f-1d27-4235-8e1a-e4d83b1fa150
+      815eb107-b40d-4a62-ae33-7d2b89b044b8:
+        uuid: 815eb107-b40d-4a62-ae33-7d2b89b044b8
         region: second
         configuration:
           id: translation_availability_summary
