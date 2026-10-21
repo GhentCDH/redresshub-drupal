@@ -10,12 +10,81 @@ redresshub_site.editorial.dashboard:
   menu_name: editorial
   weight: -100
 
+redresshub_site.editorial.website:
+  title: 'Website'
+  description: 'Pages, events, the home page, media and form submissions.'
+  route_name: system.admin_content
+  menu_name: editorial
+  weight: -90
+
+redresshub_site.editorial.website.overview:
+  title: 'All content'
+  route_name: system.admin_content
+  menu_name: editorial
+  parent: redresshub_site.editorial.website
+  weight: 0
+
+redresshub_site.editorial.website.home:
+  title: 'Edit the home page'
+  route_name: redresshub_site.edit_home
+  menu_name: editorial
+  parent: redresshub_site.editorial.website
+  weight: 1
+
+redresshub_site.editorial.website.add:
+  title: 'Add'
+  route_name: node.add
+  route_parameters:
+    node_type: event
+  menu_name: editorial
+  parent: redresshub_site.editorial.website
+  weight: 2
+
+redresshub_site.editorial.website.add.event:
+  title: 'Event'
+  route_name: node.add
+  route_parameters:
+    node_type: event
+  menu_name: editorial
+  parent: redresshub_site.editorial.website.add
+  weight: 0
+
+redresshub_site.editorial.website.add.page:
+  title: 'Basic page'
+  route_name: node.add
+  route_parameters:
+    node_type: page
+  menu_name: editorial
+  parent: redresshub_site.editorial.website.add
+  weight: 1
+
+redresshub_site.editorial.website.media:
+  title: 'Media library'
+  route_name: entity.media.collection
+  menu_name: editorial
+  parent: redresshub_site.editorial.website
+  weight: 3
+
+redresshub_site.editorial.website.submissions:
+  title: 'Form submissions'
+  route_name: entity.webform_submission.collection
+  menu_name: editorial
+  parent: redresshub_site.editorial.website
+  weight: 4
+
+redresshub_site.editorial.website.translation_availability:
+  title: 'Translation availability'
+  route_name: view.translation_availability.website
+  menu_name: editorial
+  parent: redresshub_site.editorial.website
+  weight: 5
+
 redresshub_site.editorial.research_data:
   title: 'Research data'
   description: 'The database: initiatives, organisations, locations and fragments.'
   route_name: view.content.research_data
   menu_name: editorial
-  weight: -90
+  weight: -80
 
 redresshub_site.editorial.research_data.overview:
   title: 'All research data'
@@ -24,126 +93,179 @@ redresshub_site.editorial.research_data.overview:
   parent: redresshub_site.editorial.research_data
   weight: 0
 
+redresshub_site.editorial.research_data.add:
+  title: 'Add'
+  route_name: node.add
+  route_parameters:
+    node_type: initiative
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data
+  weight: 1
+
+redresshub_site.editorial.research_data.add.initiative:
+  title: 'Initiative'
+  route_name: node.add
+  route_parameters:
+    node_type: initiative
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.add
+  weight: 0
+
+redresshub_site.editorial.research_data.add.organisation:
+  title: 'Organisation'
+  route_name: node.add
+  route_parameters:
+    node_type: organisation
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.add
+  weight: 1
+
+redresshub_site.editorial.research_data.add.location:
+  title: 'Location'
+  route_name: node.add
+  route_parameters:
+    node_type: location
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.add
+  weight: 2
+
+redresshub_site.editorial.research_data.add.fragment:
+  title: 'Fragment'
+  route_name: node.add
+  route_parameters:
+    node_type: fragment
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.add
+  weight: 3
+
 redresshub_site.editorial.research_data.vocabularies:
   title: 'Vocabularies'
   route_name: redresshub_site.research_data_vocabularies
   menu_name: editorial
   parent: redresshub_site.editorial.research_data
+  weight: 2
+
+redresshub_site.editorial.research_data.vocabularies.initiative_type:
+  title: 'Initiative type'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: initiative_type
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 0
+
+redresshub_site.editorial.research_data.vocabularies.keywords:
+  title: 'Keywords'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: keywords
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
   weight: 1
+
+redresshub_site.editorial.research_data.vocabularies.un_category:
+  title: 'UN category'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: un_category
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 2
+
+redresshub_site.editorial.research_data.vocabularies.historical_era:
+  title: 'Historical era'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: historical_era
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 3
+
+redresshub_site.editorial.research_data.vocabularies.injustice_type:
+  title: 'Type of injustice'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: injustice_type
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 4
+
+redresshub_site.editorial.research_data.vocabularies.sector:
+  title: 'Sector'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: sector
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 5
+
+redresshub_site.editorial.research_data.vocabularies.organisation_status:
+  title: 'Organisation status'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: organisation_status
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 6
+
+redresshub_site.editorial.research_data.vocabularies.places:
+  title: 'Places'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: places
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 7
+
+redresshub_site.editorial.research_data.vocabularies.location_type:
+  title: 'Location type'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: location_type
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 8
+
+redresshub_site.editorial.research_data.vocabularies.fragment_type:
+  title: 'Fragment type'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: fragment_type
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data.vocabularies
+  weight: 9
 
 redresshub_site.editorial.research_data.translation_availability:
   title: 'Translation availability'
   route_name: view.translation_availability.research_data
   menu_name: editorial
   parent: redresshub_site.editorial.research_data
-  weight: 2
-
-redresshub_site.editorial.research_data.add_initiative:
-  title: 'Add initiative'
-  route_name: node.add
-  route_parameters:
-    node_type: initiative
-  menu_name: editorial
-  parent: redresshub_site.editorial.research_data
   weight: 3
 
-redresshub_site.editorial.research_data.add_organisation:
-  title: 'Add organisation'
-  route_name: node.add
-  route_parameters:
-    node_type: organisation
-  menu_name: editorial
-  parent: redresshub_site.editorial.research_data
-  weight: 4
-
-redresshub_site.editorial.research_data.add_location:
-  title: 'Add location'
-  route_name: node.add
-  route_parameters:
-    node_type: location
-  menu_name: editorial
-  parent: redresshub_site.editorial.research_data
-  weight: 5
-
-redresshub_site.editorial.research_data.add_fragment:
-  title: 'Add fragment'
-  route_name: node.add
-  route_parameters:
-    node_type: fragment
-  menu_name: editorial
-  parent: redresshub_site.editorial.research_data
-  weight: 6
-
-redresshub_site.editorial.content:
-  title: 'Content'
-  description: 'Pages, events and the home page.'
-  route_name: system.admin_content
-  menu_name: editorial
-  weight: -80
-
-redresshub_site.editorial.content.overview:
-  title: 'All content'
-  route_name: system.admin_content
-  menu_name: editorial
-  parent: redresshub_site.editorial.content
-  weight: 0
-
-redresshub_site.editorial.content.home:
-  title: 'Edit the home page'
-  route_name: redresshub_site.edit_home
-  menu_name: editorial
-  parent: redresshub_site.editorial.content
-  weight: 1
-
-redresshub_site.editorial.content.translation_availability:
-  title: 'Translation availability'
-  route_name: view.translation_availability.page
-  menu_name: editorial
-  parent: redresshub_site.editorial.content
-  weight: 2
-
-redresshub_site.editorial.content.add_event:
-  title: 'Add event'
-  route_name: node.add
-  route_parameters:
-    node_type: event
-  menu_name: editorial
-  parent: redresshub_site.editorial.content
-  weight: 3
-
-redresshub_site.editorial.content.add_page:
-  title: 'Add basic page'
-  route_name: node.add
-  route_parameters:
-    node_type: page
-  menu_name: editorial
-  parent: redresshub_site.editorial.content
-  weight: 4
-
-redresshub_site.editorial.media:
-  title: 'Media'
-  description: 'Images, documents and other files.'
-  route_name: entity.media.collection
+redresshub_site.editorial.users:
+  title: 'Users'
+  description: 'Accounts and their roles.'
+  route_name: entity.user.collection
   menu_name: editorial
   weight: -70
 
-redresshub_site.editorial.media.overview:
-  title: 'Media library'
-  route_name: entity.media.collection
+redresshub_site.editorial.users.overview:
+  title: 'All users'
+  route_name: entity.user.collection
   menu_name: editorial
-  parent: redresshub_site.editorial.media
+  parent: redresshub_site.editorial.users
   weight: 0
 
-redresshub_site.editorial.media.add:
-  title: 'Add media'
-  route_name: entity.media.add_page
+redresshub_site.editorial.users.add:
+  title: 'Add a user'
+  route_name: user.admin_create
   menu_name: editorial
-  parent: redresshub_site.editorial.media
+  parent: redresshub_site.editorial.users
   weight: 1
 
 redresshub_site.editorial.site:
   title: 'Site'
-  description: 'What visitors see around the content.'
+  description: 'The menu, texts and settings around the content.'
   route_name: entity.menu.edit_form
   route_parameters:
     menu: main
@@ -159,65 +281,37 @@ redresshub_site.editorial.site.main_menu:
   parent: redresshub_site.editorial.site
   weight: 0
 
-redresshub_site.editorial.site.submissions:
-  title: 'Form submissions'
-  route_name: entity.webform_submission.collection
-  menu_name: editorial
-  parent: redresshub_site.editorial.site
-  weight: 1
-
 redresshub_site.editorial.site.interface_translation:
   title: 'Interface translation'
   route_name: locale.translate_page
   menu_name: editorial
   parent: redresshub_site.editorial.site
-  weight: 2
+  weight: 1
 
 redresshub_site.editorial.site.information:
   title: 'Site information'
   route_name: system.site_information_settings
   menu_name: editorial
   parent: redresshub_site.editorial.site
-  weight: 3
+  weight: 2
 
-redresshub_site.editorial.people:
-  title: 'People'
-  description: 'Accounts and their roles.'
-  route_name: entity.user.collection
-  menu_name: editorial
-  weight: -50
-
-redresshub_site.editorial.people.overview:
-  title: 'All people'
-  route_name: entity.user.collection
-  menu_name: editorial
-  parent: redresshub_site.editorial.people
-  weight: 0
-
-redresshub_site.editorial.people.add:
-  title: 'Add a person'
-  route_name: user.admin_create
-  menu_name: editorial
-  parent: redresshub_site.editorial.people
-  weight: 1
-
-redresshub_site.editorial.maintenance:
+redresshub_site.editorial.site.maintenance:
   title: 'Maintenance'
-  description: 'Keep the site running.'
   route_name: system.performance_settings
   menu_name: editorial
-  weight: -40
+  parent: redresshub_site.editorial.site
+  weight: 3
 
-redresshub_site.editorial.maintenance.cache:
+redresshub_site.editorial.site.maintenance.cache:
   title: 'Clear the cache'
   route_name: system.performance_settings
   menu_name: editorial
-  parent: redresshub_site.editorial.maintenance
+  parent: redresshub_site.editorial.site.maintenance
   weight: 0
 
-redresshub_site.editorial.maintenance.mode:
+redresshub_site.editorial.site.maintenance.mode:
   title: 'Maintenance mode'
   route_name: system.site_maintenance_mode
   menu_name: editorial
-  parent: redresshub_site.editorial.maintenance
+  parent: redresshub_site.editorial.site.maintenance
   weight: 1

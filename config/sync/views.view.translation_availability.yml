@@ -427,3 +427,114 @@ display:
         - url.query_args
         - user.permissions
       tags: {  }
+  website:
+    id: website
+    display_title: Website
+    display_plugin: page
+    position: 3
+    display_options:
+      filters:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: node
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+          operator: contains
+          value: ''
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Title
+            use_operator: false
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        langcode:
+          id: langcode
+          table: translation_availability
+          field: langcode
+          plugin_id: in_operator
+          operator: in
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: langcode_op
+            label: Language
+            use_operator: false
+            identifier: langcode
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        state:
+          id: state
+          table: translation_availability
+          field: state
+          plugin_id: in_operator
+          operator: in
+          value: {  }
+          exposed: true
+          expose:
+            operator_id: state_op
+            label: State
+            use_operator: false
+            identifier: state
+            required: false
+            remember: false
+            multiple: false
+            reduce: false
+        bundle:
+          id: bundle
+          table: translation_availability
+          field: bundle
+          plugin_id: in_operator
+          operator: in
+          value:
+            event: event
+            home: home
+            page: page
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            use_operator: false
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            reduce: true
+        bundle_fixed:
+          id: bundle_fixed
+          table: translation_availability
+          field: bundle
+          plugin_id: in_operator
+          operator: in
+          value:
+            event: event
+            home: home
+            page: page
+          group: 1
+          exposed: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_extenders: {  }
+      path: admin/content/translation-availability
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }

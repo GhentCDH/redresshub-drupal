@@ -2,3 +2,8 @@ editorial_toolbar:
   css:
     theme:
       css/editorial-toolbar.css: {}
+
+dashboard:
+  css:
+    theme:
+      css/dashboard.css: {}

@@ -1,0 +1,35 @@
+/**
+ * @file
+ * The quick actions on the dashboard.
+ */
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.quick-actions__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quick-actions__group .quick-actions__label {
+  margin: 0 0.5rem 0 0;
+}
+
+.quick-actions__group .button {
+  margin: 0;
+}
+
+.dashboard .layout .block .quick-actions__label {
+  margin: 0 0.5rem 0 0;
+  padding: 0;
+  color: inherit;
+  background: none;
+  font-size: 0.875rem;
+  font-weight: bold;
+}

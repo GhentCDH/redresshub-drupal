@@ -1,0 +1,131 @@
+uuid: f89431b7-eb03-4911-928f-8d1d680f12cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+    - webform
+id: redresshub_submissions
+label: 'Dashboard: form submissions'
+module: views
+description: 'The latest form submissions, for the dashboard of site managers.'
+tag: ''
+base_table: webform_submission
+base_field: sid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'New form submissions'
+      fields:
+        created:
+          id: created
+          table: webform_submission
+          field: created
+          entity_type: webform_submission
+          entity_field: created
+          plugin_id: field
+          label: Received
+          type: timestamp_ago
+          settings:
+            future_format: '@interval'
+            past_format: '@interval ago'
+            granularity: 1
+        webform_id:
+          id: webform_id
+          table: webform_submission
+          field: webform_id
+          entity_type: webform_submission
+          entity_field: webform_id
+          plugin_id: field
+          label: Form
+          type: entity_reference_label
+          settings:
+            link: false
+        view_webform_submission:
+          id: view_webform_submission
+          table: webform_submission
+          field: view_webform_submission
+          entity_type: webform_submission
+          plugin_id: entity_link
+          label: ''
+          text: Read
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 5
+      access:
+        type: perm
+        options:
+          perm: 'view any webform submission'
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'No form submissions yet.'
+      sorts:
+        created:
+          id: created
+          table: webform_submission
+          field: created
+          entity_type: webform_submission
+          entity_field: created
+          plugin_id: date
+          order: DESC
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            created: created
+            webform_id: webform_id
+            view_webform_submission: view_webform_submission
+          default: ''
+          info: {  }
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+      row:
+        type: fields
+        options: {  }
+      query:
+        type: views_query
+        options: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
+        - user.permissions
+      tags: {  }
+  latest:
+    id: latest
+    display_title: 'Latest submissions'
+    display_plugin: block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      block_description: 'Latest form submissions'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
+        - user.permissions
+      tags: {  }

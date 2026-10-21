@@ -14,6 +14,18 @@ final class ResearchData {
 
   public const TYPES = ['initiative', 'organisation', 'location', 'fragment'];
 
+  /**
+   * What research data should have: content type, field and what is missing.
+   */
+  public const CHECKS = [
+    ['initiative', 'field_place', 'Initiatives without a place'],
+    ['initiative', 'field_organisations', 'Initiatives without an organisation'],
+    ['initiative', 'field_initiative_type', 'Initiatives without a type'],
+    ['initiative', 'field_short_description', 'Initiatives without a short description'],
+    ['organisation', 'field_sector', 'Organisations without a sector'],
+    ['location', 'field_coordinates', 'Locations without coordinates'],
+  ];
+
   public const VOCABULARIES = [
     'initiative_type',
     'injustice_type',

@@ -1,27 +1,49 @@
-uuid: ea6caac0-da5e-4d1c-a27d-1e4634cf3414
+uuid: 61ba4709-4c4d-4fa4-a097-d62c7b4c6b86
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.dashboard_content
+    - views.view.redresshub_dashboard
+    - views.view.redresshub_submissions
   module:
     - layout_builder
+    - layout_discovery
+    - redresshub_site
+    - translation_availability
     - views
 id: site_manager
 label: 'Site manager'
 description: 'The dashboard of the Site manager role.'
 layout:
   -
+    layout_id: layout_onecol
+    layout_settings:
+      label: 'Quick actions'
+    components:
+      fcf88159-266e-4c7e-bccc-572b364f147a:
+        uuid: fcf88159-266e-4c7e-bccc-572b364f147a
+        region: content
+        configuration:
+          id: redresshub_quick_actions
+          label: Add
+          label_display: '0'
+          provider: redresshub_site
+          context_mapping: {  }
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
     layout_id: layout_twocol_section
     layout_settings:
-      label: Content
+      label: 'To do and recent'
       column_widths: 50-50
     components:
-      a4d09578-fc52-4943-b463-811b9be5138a:
-        uuid: a4d09578-fc52-4943-b463-811b9be5138a
+      df694803-cdcf-4de1-96b0-d67a62339b34:
+        uuid: df694803-cdcf-4de1-96b0-d67a62339b34
         region: first
         configuration:
-          id: 'views_block:dashboard_content-block_own_recent_content'
+          id: 'views_block:dashboard_content-block_own_drafts'
           label: ''
           label_display: visible
           provider: views
@@ -30,16 +52,65 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      6a801601-38bc-4d11-b707-184e3903de69:
-        uuid: 6a801601-38bc-4d11-b707-184e3903de69
+      e909cedd-422e-4120-abed-fd2d9437b392:
+        uuid: e909cedd-422e-4120-abed-fd2d9437b392
+        region: first
+        configuration:
+          id: translation_availability_summary
+          label: 'Translations to do'
+          label_display: visible
+          provider: translation_availability
+          context_mapping: {  }
+          bundles: {  }
+        weight: 0
+        additional: {  }
+      7ccc4c56-c0b3-4f55-a48f-ff622eb49f0a:
+        uuid: 7ccc4c56-c0b3-4f55-a48f-ff622eb49f0a
+        region: first
+        configuration:
+          id: redresshub_research_data_checks
+          label: 'Incomplete research data'
+          label_display: visible
+          provider: redresshub_site
+          context_mapping: {  }
+        weight: 0
+        additional: {  }
+      bc8d54b2-dbf0-4bd0-b398-2c0f2ab9b12f:
+        uuid: bc8d54b2-dbf0-4bd0-b398-2c0f2ab9b12f
         region: second
         configuration:
-          id: 'views_block:dashboard_content-block_edited_content'
-          label: ''
+          id: 'views_block:redresshub_dashboard-recent'
+          label: 'Recently edited'
           label_display: visible
           provider: views
           context_mapping: {  }
-          views_label: ''
+          views_label: 'Recently edited'
+          items_per_page: 0
+        weight: 0
+        additional: {  }
+      1cd95654-65af-450d-a982-9b7c2cfcd35c:
+        uuid: 1cd95654-65af-450d-a982-9b7c2cfcd35c
+        region: second
+        configuration:
+          id: 'views_block:redresshub_dashboard-events'
+          label: 'Upcoming events'
+          label_display: visible
+          provider: views
+          context_mapping: {  }
+          views_label: 'Upcoming events'
+          items_per_page: 0
+        weight: 0
+        additional: {  }
+      942ff081-0973-48f6-9ac2-50a843416585:
+        uuid: 942ff081-0973-48f6-9ac2-50a843416585
+        region: second
+        configuration:
+          id: 'views_block:redresshub_submissions-latest'
+          label: 'New form submissions'
+          label_display: visible
+          provider: views
+          context_mapping: {  }
+          views_label: 'New form submissions'
           items_per_page: 0
         weight: 0
         additional: {  }
