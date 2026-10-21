@@ -104,11 +104,15 @@ display:
       query:
         type: views_query
         options: {  }
-      use_more: true
-      use_more_always: true
-      use_more_text: 'All form submissions'
-      link_display: custom_url
-      link_url: admin/structure/webform/submissions/manage
+      use_more: false
+      footer:
+        more:
+          id: more
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: '<div class="more-link"><a href="/admin/structure/webform/submissions/manage">All form submissions</a></div>'
       display_extenders: {  }
     cache_metadata:
       max-age: -1

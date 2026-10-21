@@ -80,22 +80,59 @@
   font-size: 0.875rem;
 }
 
-/* Blocks next to each other are as tall as each other. */
+/* Blocks next to each other are as tall as each other, with the link to
+   the full overview at the bottom right of each. */
 .dashboard .layout--twocol-section > .layout__region {
   display: flex;
   flex-direction: column;
 }
 
 .dashboard .layout--twocol-section > .layout__region > .block {
+  display: flex;
   flex: 1;
+  flex-direction: column;
 }
 
-/* Empty lists ("No form submissions yet.") in a line, not a tall box. */
-.dashboard .block .view-empty,
-.dashboard .block td.views-empty {
+.dashboard .layout--twocol-section .block > .contextual-region,
+.dashboard .layout--twocol-section .block > .contextual-region > .view {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.dashboard .layout--twocol-section .block .view-footer,
+.dashboard .layout--twocol-section .block > .more-link {
+  margin-top: auto;
+}
+
+/* The Dashboard module hides "more" links of empty lists; this one stays. */
+.dashboard .layout .block .more-link,
+.dashboard .layout .block:has(.view-empty) .view-footer .more-link {
+  display: block;
+  margin-inline: 0;
+  margin-block-end: 0;
+  padding: 0.75rem 1.5rem 1rem;
+  text-align: right;
+}
+
+/* Views are indented by the margin of their wrapper; blocks without one
+   (Translations to do, Empty fields) get it as padding. */
+.dashboard .layout .block > .more-link {
+  padding-inline-end: calc(1.5rem + var(--space-s, 0.75rem));
+}
+
+/* An empty list: one line, as the other texts in the blocks. */
+.dashboard .layout .block .view-empty {
   height: auto;
   min-height: 0;
   padding: 1rem 1.5rem;
+  text-align: left;
+  color: var(--color-gray-600, #5c5f66);
+  font-weight: normal;
+}
+
+.dashboard .layout .block .view-empty * {
+  font-weight: normal;
 }
 
 /* Headings above the rows (HeadingBlock): no frame, no card. */
