@@ -14,85 +14,57 @@ redresshub_site.editorial.dashboard:
 redresshub_site.editorial.website:
   title: 'Website'
   description: 'The pages of the website, and what goes with them.'
-  route_name: system.admin_content
-  options:
-    query:
-      type: page
+  route_name: view.content.pages
   menu_name: editorial
   weight: -90
 
-redresshub_site.editorial.website.pages:
-  title: 'All pages'
-  route_name: system.admin_content
-  options:
-    query:
-      type: page
+redresshub_site.editorial.website.home:
+  title: 'Home page'
+  route_name: redresshub_site.edit_home
   menu_name: editorial
   parent: redresshub_site.editorial.website
   weight: 0
 
-redresshub_site.editorial.website.home:
-  title: 'Edit the home page'
-  route_name: redresshub_site.edit_home
+redresshub_site.editorial.website.pages:
+  title: 'Static pages'
+  route_name: view.content.pages
   menu_name: editorial
   parent: redresshub_site.editorial.website
   weight: 1
 
-redresshub_site.editorial.website.add_page:
-  title: 'Add a page'
-  route_name: node.add
-  route_parameters:
-    node_type: page
-  menu_name: editorial
-  parent: redresshub_site.editorial.website
-  weight: 2
-
 redresshub_site.editorial.website.main_menu:
-  title: 'Main navigation'
+  title: 'Main menu'
   route_name: entity.menu.edit_form
   route_parameters:
     menu: main
   menu_name: editorial
   parent: redresshub_site.editorial.website
-  weight: 3
+  weight: 2
 
 redresshub_site.editorial.website.media:
   title: 'Media library'
   route_name: entity.media.collection
   menu_name: editorial
   parent: redresshub_site.editorial.website
-  weight: 4
+  weight: 3
 
-redresshub_site.editorial.website.submissions:
-  title: 'Form submissions'
+redresshub_site.editorial.website.messages:
+  title: 'Contact messages'
   route_name: entity.webform_submission.collection
   menu_name: editorial
   parent: redresshub_site.editorial.website
-  weight: 5
-
-redresshub_site.editorial.website.translation_availability:
-  title: 'Translation availability'
-  route_name: view.translation_availability.website
-  menu_name: editorial
-  parent: redresshub_site.editorial.website
-  weight: 6
+  weight: 4
 
 redresshub_site.editorial.events:
   title: 'Events'
   description: 'Moments ahead: activities, lectures and other events.'
-  route_name: system.admin_content
-  options:
-    query:
-      type: event
+  route_name: view.content.events
   menu_name: editorial
   weight: -85
 
 redresshub_site.editorial.events.overview:
   title: 'All events'
-  route_name: system.admin_content
-  options:
-    query:
-      type: event
+  route_name: view.content.events
   menu_name: editorial
   parent: redresshub_site.editorial.events
   weight: 0
@@ -109,19 +81,13 @@ redresshub_site.editorial.events.add:
 redresshub_site.editorial.publications:
   title: 'Publications'
   description: 'Publications from UGent Biblio: enter the ID, the rest comes from Biblio.'
-  route_name: system.admin_content
-  options:
-    query:
-      type: publication
+  route_name: view.content.publications
   menu_name: editorial
   weight: -82
 
 redresshub_site.editorial.publications.overview:
   title: 'All publications'
-  route_name: system.admin_content
-  options:
-    query:
-      type: publication
+  route_name: view.content.publications
   menu_name: editorial
   parent: redresshub_site.editorial.publications
   weight: 0
@@ -194,109 +160,102 @@ redresshub_site.editorial.research_data.add.fragment:
   parent: redresshub_site.editorial.research_data.add
   weight: 3
 
-redresshub_site.editorial.research_data.vocabularies:
-  title: 'Vocabularies'
+redresshub_site.editorial.research_data.choice_lists:
+  title: 'Choice lists'
   route_name: redresshub_site.research_data_vocabularies
   menu_name: editorial
   parent: redresshub_site.editorial.research_data
   weight: 2
 
-redresshub_site.editorial.research_data.vocabularies.initiative_type:
+redresshub_site.editorial.research_data.choice_lists.initiative_type:
   title: 'Initiative type'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: initiative_type
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 0
 
-redresshub_site.editorial.research_data.vocabularies.keywords:
+redresshub_site.editorial.research_data.choice_lists.keywords:
   title: 'Keywords'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: keywords
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 1
 
-redresshub_site.editorial.research_data.vocabularies.un_category:
+redresshub_site.editorial.research_data.choice_lists.un_category:
   title: 'UN category'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: un_category
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 2
 
-redresshub_site.editorial.research_data.vocabularies.historical_era:
+redresshub_site.editorial.research_data.choice_lists.historical_era:
   title: 'Historical era'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: historical_era
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 3
 
-redresshub_site.editorial.research_data.vocabularies.injustice_type:
+redresshub_site.editorial.research_data.choice_lists.injustice_type:
   title: 'Type of injustice'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: injustice_type
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 4
 
-redresshub_site.editorial.research_data.vocabularies.sector:
+redresshub_site.editorial.research_data.choice_lists.sector:
   title: 'Sector'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: sector
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 5
 
-redresshub_site.editorial.research_data.vocabularies.organisation_status:
+redresshub_site.editorial.research_data.choice_lists.organisation_status:
   title: 'Organisation status'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: organisation_status
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 6
 
-redresshub_site.editorial.research_data.vocabularies.places:
+redresshub_site.editorial.research_data.choice_lists.places:
   title: 'Places'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: places
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 7
 
-redresshub_site.editorial.research_data.vocabularies.location_type:
+redresshub_site.editorial.research_data.choice_lists.location_type:
   title: 'Location type'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: location_type
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 8
 
-redresshub_site.editorial.research_data.vocabularies.fragment_type:
+redresshub_site.editorial.research_data.choice_lists.fragment_type:
   title: 'Fragment type'
   route_name: entity.taxonomy_vocabulary.overview_form
   route_parameters:
     taxonomy_vocabulary: fragment_type
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.vocabularies
+  parent: redresshub_site.editorial.research_data.choice_lists
   weight: 9
-
-redresshub_site.editorial.research_data.translation_availability:
-  title: 'Translation availability'
-  route_name: view.translation_availability.research_data
-  menu_name: editorial
-  parent: redresshub_site.editorial.research_data
-  weight: 3
 
 redresshub_site.editorial.users:
   title: 'Users'

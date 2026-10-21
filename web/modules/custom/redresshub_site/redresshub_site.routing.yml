@@ -2,7 +2,7 @@ redresshub_site.research_data_vocabularies:
   path: '/admin/research-data/vocabularies'
   defaults:
     _controller: '\Drupal\redresshub_site\Controller\ResearchDataController::vocabularies'
-    _title: 'Vocabularies'
+    _title: 'Choice lists'
   requirements:
     _permission: 'access taxonomy overview'
   options:

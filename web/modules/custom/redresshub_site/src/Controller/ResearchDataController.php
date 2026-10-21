@@ -15,7 +15,7 @@ use Drupal\redresshub_site\ResearchData;
 final class ResearchDataController extends ControllerBase {
 
   /**
-   * The vocabularies of the research data, with links to their terms.
+   * The choice lists (vocabularies) of the research data, with their terms.
    */
   public function vocabularies(): array {
     $cacheability = (new CacheableMetadata())->addCacheContexts(['user.permissions'])->addCacheTags(['config:taxonomy_vocabulary_list']);
@@ -38,9 +38,9 @@ final class ResearchDataController extends ControllerBase {
     }
     $build = [
       '#type' => 'table',
-      '#header' => [$this->t('Vocabulary'), $this->t('Description'), $this->t('Operations')],
+      '#header' => [$this->t('Choice list'), $this->t('Description'), $this->t('Operations')],
       '#rows' => $rows,
-      '#empty' => $this->t('No vocabularies.'),
+      '#empty' => $this->t('No choice lists.'),
     ];
     $cacheability->applyTo($build);
     return $build;

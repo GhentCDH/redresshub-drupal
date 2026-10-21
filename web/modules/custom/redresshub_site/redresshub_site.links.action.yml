@@ -30,3 +30,24 @@ redresshub_site.research_data_add_fragment:
   weight: 3
   appears_on:
     - view.content.research_data
+redresshub_site.pages_add:
+  title: 'Add a page'
+  route_name: node.add
+  route_parameters:
+    node_type: page
+  appears_on:
+    - view.content.pages
+redresshub_site.events_add:
+  title: 'Add an event'
+  route_name: node.add
+  route_parameters:
+    node_type: event
+  appears_on:
+    - view.content.events
+redresshub_site.publications_add:
+  title: 'Add a publication'
+  route_name: node.add
+  route_parameters:
+    node_type: publication
+  appears_on:
+    - view.content.publications
