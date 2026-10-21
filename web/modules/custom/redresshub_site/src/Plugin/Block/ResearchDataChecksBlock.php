@@ -7,6 +7,7 @@ namespace Drupal\redresshub_site\Plugin\Block;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\Attribute\Block;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -31,12 +32,18 @@ final class ResearchDataChecksBlock extends BlockBase implements ContainerFactor
    */
   private const LIMIT = 10;
 
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, private readonly EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    private readonly EntityTypeManagerInterface $entityTypeManager,
+    private readonly EntityFieldManagerInterface $entityFieldManager,
+  ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
 
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
-    return new self($configuration, $plugin_id, $plugin_definition, $container->get('entity_type.manager'));
+    return new self($configuration, $plugin_id, $plugin_definition, $container->get('entity_type.manager'), $container->get('entity_field.manager'));
   }
 
   protected function blockAccess(AccountInterface $account): AccessResult {
@@ -46,10 +53,14 @@ final class ResearchDataChecksBlock extends BlockBase implements ContainerFactor
   public function build(): array {
     $storage = $this->entityTypeManager->getStorage('node');
     $build = [
-      '#cache' => ['tags' => ['node_list'], 'contexts' => ['user.permissions']],
+      '#cache' => ['tags' => ['node_list', 'entity_field_info'], 'contexts' => ['user.permissions']],
       'intro' => ['#markup' => '<p class="research-data-checks__intro">' . $this->t('Not always known: fill them in when the information is available.') . '</p>'],
     ];
     foreach (ResearchData::CHECKS as [$bundle, $field, $label]) {
+      // A check of a field that no longer exists is skipped, not an error.
+      if (!isset($this->entityFieldManager->getFieldDefinitions('node', $bundle)[$field])) {
+        continue;
+      }
       $query = fn() => $storage->getQuery()->accessCheck(TRUE)->condition('type', $bundle)->notExists($field);
       $total = (int) $query()->count()->execute();
       if (!$total) {

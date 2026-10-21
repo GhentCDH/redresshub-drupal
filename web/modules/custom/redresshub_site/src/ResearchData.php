@@ -16,6 +16,9 @@ final class ResearchData {
 
   /**
    * What research data should have: content type, field and what is missing.
+   *
+   * For the "Empty fields" block on the dashboard; a check of a field that
+   * does not exist (any more) is skipped.
    */
   public const CHECKS = [
     ['initiative', 'field_place', 'Initiatives without a place'],
