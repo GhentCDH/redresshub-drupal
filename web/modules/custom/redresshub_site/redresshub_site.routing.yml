@@ -17,3 +17,15 @@ redresshub_site.edit_home:
     _custom_access: '\Drupal\redresshub_site\Controller\HomeController::access'
   options:
     _admin_route: TRUE
+
+redresshub_site.explorer_panel:
+  path: '/explorer/panel/{node}'
+  defaults:
+    _controller: '\Drupal\redresshub_site\Controller\ExplorerPanelController::panel'
+  requirements:
+    _entity_access: 'node.view'
+    node: \d+
+  options:
+    parameters:
+      node:
+        type: entity:node

@@ -86,6 +86,24 @@
             event.target.closest('.explorer__panel').hidden = true;
           }
         });
+        // A node of the network (network_views) opens its content in the
+        // panel too; if that fails, its page.
+        explorer.addEventListener('networkviews:nodeclick', (event) => {
+          const nid = event.detail.id.replace(/^node:/, '');
+          const container = event.target.closest('.explorer__view');
+          if (!container || !/^\d+$/.test(nid)) {
+            return;
+          }
+          event.preventDefault();
+          fetch(Drupal.url(`explorer/panel/${nid}`))
+            .then((response) => (response.ok ? response.text() : Promise.reject(response.status)))
+            .then((html) => openPanel(container, html))
+            .catch(() => {
+              if (event.detail.url) {
+                window.location.href = event.detail.url;
+              }
+            });
+        });
         explorer.addEventListener('keydown', (event) => {
           if (event.key === 'Escape') {
             closeMenus();
