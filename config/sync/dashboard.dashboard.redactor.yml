@@ -1,4 +1,4 @@
-uuid: a765f66f-883a-41ec-bd59-453800a23974
+uuid: 5f0566e9-073b-487c-a06c-c2f0a4985bc0
 langcode: en
 status: true
 dependencies:
@@ -20,8 +20,8 @@ layout:
     layout_settings:
       label: Menu
     components:
-      57c9e192-c695-4e05-88e8-6097b0725023:
-        uuid: 57c9e192-c695-4e05-88e8-6097b0725023
+      d79b4f7e-eb4b-4b80-a9f7-94d49bb079f0:
+        uuid: d79b4f7e-eb4b-4b80-a9f7-94d49bb079f0
         region: content
         configuration:
           id: redresshub_menu_cards
@@ -38,8 +38,8 @@ layout:
       label: 'To do and recent'
       column_widths: 50-50
     components:
-      e7fe9192-4331-4b92-a032-2d1ba8135543:
-        uuid: e7fe9192-4331-4b92-a032-2d1ba8135543
+      06ad38e9-5104-4281-8636-0b89df63d455:
+        uuid: 06ad38e9-5104-4281-8636-0b89df63d455
         region: first
         configuration:
           id: 'views_block:dashboard_content-block_own_drafts'
@@ -51,20 +51,8 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      11431059-cad9-41d8-b586-fdbc2738542c:
-        uuid: 11431059-cad9-41d8-b586-fdbc2738542c
-        region: first
-        configuration:
-          id: translation_availability_summary
-          label: 'Translations to do'
-          label_display: visible
-          provider: translation_availability
-          context_mapping: {  }
-          bundles: {  }
-        weight: 0
-        additional: {  }
-      c55ba9f4-8316-43b5-89e1-22e7b70c6bf5:
-        uuid: c55ba9f4-8316-43b5-89e1-22e7b70c6bf5
+      90fc544f-4d3a-42b5-83cd-2bd37fc4f749:
+        uuid: 90fc544f-4d3a-42b5-83cd-2bd37fc4f749
         region: first
         configuration:
           id: redresshub_research_data_checks
@@ -74,8 +62,8 @@ layout:
           context_mapping: {  }
         weight: 0
         additional: {  }
-      618b1631-36d7-485a-853c-2ffd61f66fd5:
-        uuid: 618b1631-36d7-485a-853c-2ffd61f66fd5
+      394ff4b9-c3b1-4f09-968c-e9ce6e6009a1:
+        uuid: 394ff4b9-c3b1-4f09-968c-e9ce6e6009a1
         region: second
         configuration:
           id: 'views_block:redresshub_dashboard-recent'
@@ -87,17 +75,16 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      b7c351b5-076f-47fd-b50d-c37df226cea7:
-        uuid: b7c351b5-076f-47fd-b50d-c37df226cea7
+      5fb7a42e-8eea-4eab-9528-7a9f59c2eec9:
+        uuid: 5fb7a42e-8eea-4eab-9528-7a9f59c2eec9
         region: second
         configuration:
-          id: 'views_block:redresshub_dashboard-events'
-          label: 'Upcoming events'
+          id: translation_availability_summary
+          label: 'Translations to do'
           label_display: visible
-          provider: views
+          provider: translation_availability
           context_mapping: {  }
-          views_label: 'Upcoming events'
-          items_per_page: 0
+          bundles: {  }
         weight: 0
         additional: {  }
     third_party_settings: {  }

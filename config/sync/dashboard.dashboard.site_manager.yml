@@ -1,4 +1,4 @@
-uuid: 208493c1-271e-4422-a8d1-afb9a8c44c68
+uuid: 6a479a36-8d1f-4486-b113-12132bdccf8c
 langcode: en
 status: true
 dependencies:
@@ -21,8 +21,8 @@ layout:
     layout_settings:
       label: Menu
     components:
-      8a9113b9-1857-4918-8f5c-c0a8faa74500:
-        uuid: 8a9113b9-1857-4918-8f5c-c0a8faa74500
+      fcf71466-6d53-44c4-af60-3d050588e9a2:
+        uuid: fcf71466-6d53-44c4-af60-3d050588e9a2
         region: content
         configuration:
           id: redresshub_menu_cards
@@ -34,13 +34,32 @@ layout:
         additional: {  }
     third_party_settings: {  }
   -
+    layout_id: layout_onecol
+    layout_settings:
+      label: Messages
+    components:
+      1f3196b7-d7a6-4a2f-a1c2-36a29d67654c:
+        uuid: 1f3196b7-d7a6-4a2f-a1c2-36a29d67654c
+        region: content
+        configuration:
+          id: 'views_block:redresshub_submissions-latest'
+          label: 'New form submissions'
+          label_display: visible
+          provider: views
+          context_mapping: {  }
+          views_label: 'New form submissions'
+          items_per_page: 0
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
     layout_id: layout_twocol_section
     layout_settings:
       label: 'To do and recent'
       column_widths: 50-50
     components:
-      7fa09831-1b3f-4be0-b318-f95685a07dde:
-        uuid: 7fa09831-1b3f-4be0-b318-f95685a07dde
+      8de78fe3-60e5-45ac-b8c3-23e1a602e6fd:
+        uuid: 8de78fe3-60e5-45ac-b8c3-23e1a602e6fd
         region: first
         configuration:
           id: 'views_block:dashboard_content-block_own_drafts'
@@ -52,20 +71,8 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      eabdab08-5e5a-49fc-b928-33a3bdd368ab:
-        uuid: eabdab08-5e5a-49fc-b928-33a3bdd368ab
-        region: first
-        configuration:
-          id: translation_availability_summary
-          label: 'Translations to do'
-          label_display: visible
-          provider: translation_availability
-          context_mapping: {  }
-          bundles: {  }
-        weight: 0
-        additional: {  }
-      e6b6ac7d-8649-4eff-917b-17de662446d6:
-        uuid: e6b6ac7d-8649-4eff-917b-17de662446d6
+      4655fbfb-f29e-4d4a-954b-46d3ec536738:
+        uuid: 4655fbfb-f29e-4d4a-954b-46d3ec536738
         region: first
         configuration:
           id: redresshub_research_data_checks
@@ -75,8 +82,8 @@ layout:
           context_mapping: {  }
         weight: 0
         additional: {  }
-      170113d3-1b8a-4fa9-a104-5ab3aa6e40de:
-        uuid: 170113d3-1b8a-4fa9-a104-5ab3aa6e40de
+      084bdc5c-c266-4d23-af91-bf3bc4a62e64:
+        uuid: 084bdc5c-c266-4d23-af91-bf3bc4a62e64
         region: second
         configuration:
           id: 'views_block:redresshub_dashboard-recent'
@@ -88,30 +95,16 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      07fe81da-f51e-4b3d-ba82-e88a17bd4677:
-        uuid: 07fe81da-f51e-4b3d-ba82-e88a17bd4677
+      b34c8b0f-1d27-4235-8e1a-e4d83b1fa150:
+        uuid: b34c8b0f-1d27-4235-8e1a-e4d83b1fa150
         region: second
         configuration:
-          id: 'views_block:redresshub_dashboard-events'
-          label: 'Upcoming events'
+          id: translation_availability_summary
+          label: 'Translations to do'
           label_display: visible
-          provider: views
+          provider: translation_availability
           context_mapping: {  }
-          views_label: 'Upcoming events'
-          items_per_page: 0
-        weight: 0
-        additional: {  }
-      1fb814d5-f7bd-4e48-bfeb-8f483a621814:
-        uuid: 1fb814d5-f7bd-4e48-bfeb-8f483a621814
-        region: second
-        configuration:
-          id: 'views_block:redresshub_submissions-latest'
-          label: 'New form submissions'
-          label_display: visible
-          provider: views
-          context_mapping: {  }
-          views_label: 'New form submissions'
-          items_per_page: 0
+          bundles: {  }
         weight: 0
         additional: {  }
     third_party_settings: {  }

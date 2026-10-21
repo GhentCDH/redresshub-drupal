@@ -81,7 +81,7 @@ final class MenuCardsBlock extends BlockBase implements ContainerFactoryPluginIn
           $buttons[] = $this->button($child);
         }
         else {
-          $links[] = ['#type' => 'link', '#title' => $child->link->getTitle(), '#url' => $child->link->getUrlObject()];
+          $links[] = $this->link($child);
         }
       }
       $cards[$link->getPluginId()] = [
@@ -94,6 +94,20 @@ final class MenuCardsBlock extends BlockBase implements ContainerFactoryPluginIn
       ];
     }
     return $build;
+  }
+
+  /**
+   * Returns a link, with its hint ("card_hint" in the options of the menu
+   * link: edit, overview) after it.
+   */
+  private function link(MenuLinkTreeElement $element): array {
+    $link = ['#type' => 'link', '#title' => $element->link->getTitle(), '#url' => $element->link->getUrlObject()];
+    $hint = $element->link->getOptions()['card_hint'] ?? NULL;
+    $hints = ['edit' => $this->t('edit'), 'overview' => $this->t('overview')];
+    if (isset($hints[$hint])) {
+      $link = ['link' => $link, 'hint' => ['#markup' => ' <span class="menu-cards__hint">(' . $hints[$hint] . ')</span>']];
+    }
+    return $link;
   }
 
   /**

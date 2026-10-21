@@ -19,24 +19,33 @@ redresshub_site.editorial.website:
   weight: -90
 
 redresshub_site.editorial.website.home:
-  title: 'Edit the home page'
+  title: 'Home page'
   route_name: redresshub_site.edit_home
+  options:
+    # Shown after the link on the dashboard cards.
+    card_hint: edit
   menu_name: editorial
   parent: redresshub_site.editorial.website
   weight: 0
 
 redresshub_site.editorial.website.pages:
-  title: 'All static pages'
+  title: 'Static pages'
   route_name: view.content.pages
+  options:
+    # Shown after the link on the dashboard cards.
+    card_hint: overview
   menu_name: editorial
   parent: redresshub_site.editorial.website
   weight: 1
 
 redresshub_site.editorial.website.main_menu:
-  title: 'Edit the main menu'
+  title: 'Main menu'
   route_name: entity.menu.edit_form
   route_parameters:
     menu: main
+  options:
+    # Shown after the link on the dashboard cards.
+    card_hint: edit
   menu_name: editorial
   parent: redresshub_site.editorial.website
   weight: 2

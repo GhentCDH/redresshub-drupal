@@ -68,3 +68,8 @@
 .menu-cards ul.menu-cards__links li + li {
   margin-top: 0.35rem;
 }
+
+.menu-cards__hint {
+  color: var(--color-gray-600, #5c5f66);
+  font-size: 0.8125rem;
+}
