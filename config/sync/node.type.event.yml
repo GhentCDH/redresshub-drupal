@@ -1,7 +1,19 @@
 uuid: 5a2d2569-586a-4dc0-a247-068475ed1623
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - translation_availability
+third_party_settings:
+  translation_availability:
+    enabled: true
+    fields:
+      - field_short_description
+    override_thresholds: false
+    thresholds: {  }
+    missing: original
+    unpublished: unavailable_page
+    notice: true
 name: Event
 type: event
 description: 'An event or milestone for the Moments ahead page.'

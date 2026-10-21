@@ -1,4 +1,4 @@
-uuid: 89e07c97-927b-4d5a-b458-19f8ac8dece4
+uuid: 602fc899-f033-4932-b4cf-6336e7c92778
 langcode: en
 status: true
 dependencies:
@@ -20,8 +20,8 @@ layout:
     layout_settings:
       label: Menu
     components:
-      0615d462-3df5-4f4a-a769-0c61b132a665:
-        uuid: 0615d462-3df5-4f4a-a769-0c61b132a665
+      80cbdb5e-b0b6-4ac2-9bb1-fafe397cd977:
+        uuid: 80cbdb5e-b0b6-4ac2-9bb1-fafe397cd977
         region: content
         configuration:
           id: redresshub_menu_cards
@@ -33,13 +33,31 @@ layout:
         additional: {  }
     third_party_settings: {  }
   -
+    layout_id: layout_onecol
+    layout_settings:
+      label: 'To do'
+    components:
+      a9849d76-618f-4d0f-9564-d62fd086e048:
+        uuid: a9849d76-618f-4d0f-9564-d62fd086e048
+        region: content
+        configuration:
+          id: redresshub_heading
+          label: 'To do'
+          label_display: '0'
+          provider: redresshub_site
+          context_mapping: {  }
+          heading: 'To do'
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
     layout_id: layout_twocol_section
     layout_settings:
-      label: 'Row 1'
+      label: 'To do'
       column_widths: 50-50
     components:
-      f25842a2-ebb5-40b5-9eb4-f4be38e0e795:
-        uuid: f25842a2-ebb5-40b5-9eb4-f4be38e0e795
+      feb2e746-0c9f-48bf-b831-b8063c73e45e:
+        uuid: feb2e746-0c9f-48bf-b831-b8063c73e45e
         region: first
         configuration:
           id: 'views_block:dashboard_content-block_own_drafts'
@@ -51,68 +69,127 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      9824a580-8683-4fd9-91ba-0227575e2b6d:
-        uuid: 9824a580-8683-4fd9-91ba-0227575e2b6d
-        region: second
+    third_party_settings: {  }
+  -
+    layout_id: layout_onecol
+    layout_settings:
+      label: Website
+    components:
+      49369b6a-7974-45e6-a749-daace41f8cd8:
+        uuid: 49369b6a-7974-45e6-a749-daace41f8cd8
+        region: content
         configuration:
-          id: 'views_block:redresshub_dashboard-recent'
-          label: 'Recent changes (everyone)'
-          label_display: visible
-          provider: views
+          id: redresshub_heading
+          label: Website
+          label_display: '0'
+          provider: redresshub_site
           context_mapping: {  }
-          views_label: 'Recent changes (everyone)'
-          items_per_page: 0
+          heading: Website
         weight: 0
         additional: {  }
     third_party_settings: {  }
   -
     layout_id: layout_twocol_section
     layout_settings:
-      label: 'Row 2'
+      label: Website
       column_widths: 50-50
     components:
-      83d9cc77-5b3a-4435-8836-22b8106285d7:
-        uuid: 83d9cc77-5b3a-4435-8836-22b8106285d7
+      a4612d27-23e1-4771-bd21-5d20d9246664:
+        uuid: a4612d27-23e1-4771-bd21-5d20d9246664
         region: first
         configuration:
+          id: 'views_block:redresshub_dashboard-recent_website'
+          label: 'Recent changes'
+          label_display: visible
+          provider: views
+          context_mapping: {  }
+          views_label: 'Recent changes'
+          items_per_page: 0
+        weight: 0
+        additional: {  }
+      8d0348f5-d09f-4405-b95a-b5f999a3d516:
+        uuid: 8d0348f5-d09f-4405-b95a-b5f999a3d516
+        region: second
+        configuration:
           id: translation_availability_summary
-          label: 'Pages: translations to do'
+          label: 'Translations to do'
           label_display: visible
           provider: translation_availability
           context_mapping: {  }
           bundles:
+            - event
             - page
+          report: view.translation_availability.website
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
+    layout_id: layout_onecol
+    layout_settings:
+      label: 'Research data'
+    components:
+      64fa7901-dc4c-44be-ab73-43b272e83634:
+        uuid: 64fa7901-dc4c-44be-ab73-43b272e83634
+        region: content
+        configuration:
+          id: redresshub_heading
+          label: 'Research data'
+          label_display: '0'
+          provider: redresshub_site
+          context_mapping: {  }
+          heading: 'Research data'
         weight: 0
         additional: {  }
     third_party_settings: {  }
   -
     layout_id: layout_twocol_section
     layout_settings:
-      label: 'Row 3'
+      label: 'Research data'
       column_widths: 50-50
     components:
-      998de81b-82a2-4afd-8791-1e4177e60ebc:
-        uuid: 998de81b-82a2-4afd-8791-1e4177e60ebc
+      30069f9a-a166-4a35-b955-ae2d98a48823:
+        uuid: 30069f9a-a166-4a35-b955-ae2d98a48823
         region: first
         configuration:
-          id: redresshub_research_data_checks
-          label: 'Research data: empty fields'
+          id: 'views_block:redresshub_dashboard-recent_research'
+          label: 'Recent changes'
           label_display: visible
-          provider: redresshub_site
+          provider: views
           context_mapping: {  }
+          views_label: 'Recent changes'
+          items_per_page: 0
         weight: 0
         additional: {  }
-      688fbd4f-32aa-4bf7-9120-82fa5ad81bde:
-        uuid: 688fbd4f-32aa-4bf7-9120-82fa5ad81bde
+      8f643859-690e-4d2c-8121-407aa0a7e792:
+        uuid: 8f643859-690e-4d2c-8121-407aa0a7e792
         region: second
         configuration:
           id: translation_availability_summary
-          label: 'Research data: translations to do'
+          label: 'Translations to do'
           label_display: visible
           provider: translation_availability
           context_mapping: {  }
           bundles:
             - initiative
+          report: view.translation_availability.research_data
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
+    layout_id: layout_twocol_section
+    layout_settings:
+      label: 'Research data: empty fields'
+      column_widths: 50-50
+    components:
+      352824b0-d697-4a62-9a6b-c0458f26fda8:
+        uuid: 352824b0-d697-4a62-9a6b-c0458f26fda8
+        region: first
+        configuration:
+          id: redresshub_research_data_checks
+          label: 'Empty fields'
+          label_display: visible
+          provider: redresshub_site
+          context_mapping: {  }
         weight: 0
         additional: {  }
     third_party_settings: {  }

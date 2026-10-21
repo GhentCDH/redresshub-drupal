@@ -1,0 +1,7 @@
+block.settings.redresshub_heading:
+  type: block_settings
+  label: 'Heading block'
+  mapping:
+    heading:
+      type: label
+      label: 'Heading'

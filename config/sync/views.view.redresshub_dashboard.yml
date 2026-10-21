@@ -1,7 +1,16 @@
-uuid: f5e03bf2-4211-45ae-a124-be7403d56010
+uuid: 7c4476d0-e6d1-4e3a-9389-e0fbdcc2bc49
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.event
+    - node.type.fragment
+    - node.type.home
+    - node.type.initiative
+    - node.type.location
+    - node.type.organisation
+    - node.type.page
+    - node.type.publication
   module:
     - node
     - user
@@ -42,13 +51,13 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  recent:
-    id: recent
-    display_title: 'Recent changes'
+  recent_research:
+    id: recent_research
+    display_title: 'Recent changes: research data'
     display_plugin: block
-    position: 1
+    position: 2
     display_options:
-      title: 'Recent changes (everyone)'
+      title: 'Recent changes'
       fields:
         title:
           id: title
@@ -124,6 +133,20 @@ display:
           entity_field: changed
           plugin_id: date
           order: DESC
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            initiative: initiative
+            organisation: organisation
+            location: location
+            fragment: fragment
       style:
         type: table
         options:
@@ -157,7 +180,144 @@ display:
         filters: false
         filter_groups: false
       display_extenders: {  }
-      block_description: 'Recent changes by everyone'
+      block_description: 'Recent changes to the research data'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+      tags: {  }
+  recent_website:
+    id: recent_website
+    display_title: 'Recent changes: website'
+    display_plugin: block
+    position: 1
+    display_options:
+      title: 'Recent changes'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: Title
+          settings:
+            link_to_entity: true
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: field
+          label: Type
+          type: entity_reference_label
+          settings:
+            link: false
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          entity_type: node
+          entity_field: langcode
+          plugin_id: field_language
+          label: Language
+          settings:
+            link_to_entity: false
+            native_language: false
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
+          entity_type: node
+          entity_field: changed
+          plugin_id: field
+          label: Edited
+          type: timestamp_ago
+          settings:
+            future_format: '@interval'
+            past_format: '@interval ago'
+            granularity: 1
+        operations:
+          id: operations
+          table: node
+          field: operations
+          entity_type: node
+          plugin_id: entity_operations
+          label: ''
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 5
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'Nothing edited yet.'
+      sorts:
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
+          entity_type: node
+          entity_field: changed
+          plugin_id: date
+          order: DESC
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            event: event
+            home: home
+            page: page
+            publication: publication
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            title: title
+            type: type
+            langcode: langcode
+            changed: changed
+            operations: operations
+          default: ''
+          info: {  }
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          class: ''
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        empty: false
+        title: false
+        pager: false
+        style: false
+        row: false
+        fields: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      display_extenders: {  }
+      block_description: 'Recent changes to the website content'
     cache_metadata:
       max-age: -1
       contexts:

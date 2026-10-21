@@ -97,3 +97,20 @@
   min-height: 0;
   padding: 1rem 1.5rem;
 }
+
+/* Headings above the rows (HeadingBlock): no frame, no card. */
+.dashboard .layout .block:has(.dashboard-heading) {
+  margin-bottom: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.dashboard .layout .block .dashboard-heading {
+  margin: 1rem 0 0;
+  padding: 0;
+  color: inherit;
+  background: none;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
