@@ -6,6 +6,7 @@ dependencies:
     - search_api.index.all_content
     - taxonomy.vocabulary.keywords
   module:
+    - network_views
     - search_api
     - user
 id: explorer_network
@@ -117,11 +118,28 @@ display:
           hierarchy: false
           limit: true
       style:
-        type: default
+        type: network
         options:
-          grouping: {  }
-          row_class: explorer__tile-row
-          default_row_class: false
+          color_field: _bundle
+          edge_color_by: shared_item
+          edge_sources:
+            entity_reference_fields:
+              enabled: true
+              settings:
+                fields:
+                  - field_keywords
+                node_fields: {  }
+          shared_links:
+            -
+              edge_type: 'field:field_keywords'
+              mode: target
+              label: 'Same keyword'
+              max: 0
+          directed: false
+          hide_isolated: true
+          language: show
+          size: degree
+          height: 640px
       row:
         type: fields
         options: {  }

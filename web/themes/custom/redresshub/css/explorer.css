@@ -454,6 +454,11 @@
   display: flex;
 }
 
+/* Network: the graph (network_views) over the whole width of the stage. */
+.explorer__result--list > .network-views {
+  grid-column: 1 / -1;
+}
+
 /* Map: Leaflet, with the clusters in the colours of the site. */
 .explorer__result--map {
   height: var(--explorer-height);

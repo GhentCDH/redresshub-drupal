@@ -46,6 +46,7 @@ module:
   menu_ui: 0
   migrate: 0
   mysql: 0
+  network_views: 0
   node: 0
   optional_end_date: 0
   options: 0
