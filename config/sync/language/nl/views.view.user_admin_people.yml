@@ -1,9 +1,16 @@
 display:
   default:
+    display_title: Standaard
     display_options:
       fields:
+        user_bulk_form:
+          label: Bulk-update
+        name:
+          label: Gebruikersnaam
         status:
           label: Status
+        roles_target_id:
+          label: Rollen
         operations:
           label: Bewerkingen
         mail:

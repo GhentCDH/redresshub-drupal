@@ -1,5 +1,8 @@
+label: 'Terme de taxonomie'
+description: 'Contenu associé à un terme de taxonomie donné.'
 display:
   default:
+    display_title: 'Par défaut'
     display_options:
       pager:
         options:
@@ -21,5 +24,8 @@ display:
         tid:
           exception:
             title: Tout
+          title: '{{ arguments.tid }}'
+  feed_1:
+    display_title: Flux
   page_1:
     display_title: Page

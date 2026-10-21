@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: 'Par défaut'
     display_options:
       fields:
         title:
@@ -22,5 +23,7 @@ display:
           exposed_sorts_label: 'Trier par'
           sort_asc_label: Asc
           sort_desc_label: Desc
+  attachment_1:
+    display_title: 'Élément joint'
   page_1:
     display_title: Page

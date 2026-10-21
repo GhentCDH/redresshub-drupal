@@ -1,10 +1,15 @@
+label: 'Blocs de contenu'
 display:
   default:
+    display_title: 'Par défaut'
     display_options:
+      title: 'Blocs de contenu'
       fields:
         info:
+          label: 'Description du bloc'
           separator: ', '
         type:
+          label: 'Type de bloc'
           separator: ', '
         changed:
           label: 'Mis à jour'
@@ -12,6 +17,9 @@ display:
           label: Actions
       pager:
         options:
+          tags:
+            next: 'Suivant ›'
+            previous: '‹ Précédent'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -23,5 +31,15 @@ display:
           exposed_sorts_label: 'Trier par'
           sort_asc_label: Asc
           sort_desc_label: Desc
+      filters:
+        info:
+          expose:
+            label: 'Description du bloc'
+        type:
+          expose:
+            label: 'Type de bloc'
   page_1:
     display_title: Page
+    display_options:
+      menu:
+        title: Blocs

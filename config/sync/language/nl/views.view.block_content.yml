@@ -1,8 +1,10 @@
 display:
   default:
+    display_title: Standaard
     display_options:
       fields:
         info:
+          label: Blokbeschrijving
           separator: ', '
         type:
           separator: ', '
@@ -23,5 +25,12 @@ display:
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
+      filters:
+        info:
+          expose:
+            label: Blokbeschrijving
   page_1:
     display_title: Pagina
+    display_options:
+      menu:
+        title: Blokken

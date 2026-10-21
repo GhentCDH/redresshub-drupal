@@ -1,0 +1,61 @@
+display:
+  default:
+    display_title: 'Par défaut'
+    display_options:
+      fields:
+        title:
+          label: Titre
+          separator: ', '
+        type:
+          label: 'Type de contenu'
+          separator: ', '
+        changed:
+          separator: ', '
+      exposed_form:
+        options:
+          submit_button: Filtrer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      sorts:
+        changed:
+          expose:
+            label: Modifié
+      arguments:
+        uid:
+          exception:
+            title: Tout
+  block_edited_content:
+    display_options:
+      arguments:
+        revision_uid:
+          exception:
+            title: Tout
+        uid:
+          exception:
+            title: Tout
+  block_site_content:
+    display_options:
+      fields:
+        node_bulk_form:
+          action_title: Action
+        title:
+          label: Titre
+          separator: ', '
+        type:
+          label: 'Type de contenu'
+          separator: ', '
+        changed:
+          label: 'Mis à jour'
+          separator: ', '
+        name:
+          label: Auteur
+          separator: ', '
+      filters:
+        title:
+          expose:
+            label: Rechercher
+        type:
+          expose:
+            label: 'Type de contenu'

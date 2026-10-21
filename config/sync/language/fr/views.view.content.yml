@@ -1,17 +1,22 @@
+label: Contenu
+description: 'Trouver et gérer le contenu.'
 display:
   default:
+    display_title: 'Par défaut'
     display_options:
+      title: Contenu
       fields:
         title:
           label: Titre
         type:
+          label: 'Type de contenu'
           separator: ', '
         name:
           label: Auteur
         status:
           label: Statut
           settings:
-            format_custom_false: 'Non publié'
+            format_custom_false: 'Non publiée'
             format_custom_true: Publié
         changed:
           label: 'Mis à jour'
@@ -20,6 +25,13 @@ display:
           separator: ', '
         operations:
           label: Actions
+      pager:
+        options:
+          tags:
+            next: 'Suivant ›'
+            previous: '‹ Précédent'
+            first: '« Premier'
+            last: 'Dernier »'
       exposed_form:
         options:
           submit_button: Filtrer
@@ -31,17 +43,26 @@ display:
         title:
           expose:
             label: Titre
+        type:
+          expose:
+            label: 'Type de contenu'
         status:
           expose:
             label: Statut
           group_info:
+            label: 'Statut de publication'
             group_items:
               1:
                 title: Publié
               2:
-                title: 'Non publié'
+                title: 'Non publiée'
         langcode:
           expose:
             label: Langue
   page_1:
     display_title: Page
+    display_options:
+      menu:
+        title: Contenu
+      tab_options:
+        title: Contenu

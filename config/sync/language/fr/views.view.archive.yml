@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: 'Par défaut'
     display_options:
       pager:
         options:
@@ -17,5 +18,7 @@ display:
           exposed_sorts_label: 'Trier par'
           sort_asc_label: Asc
           sort_desc_label: Desc
+  block_1:
+    display_title: Bloc
   page_1:
     display_title: Page

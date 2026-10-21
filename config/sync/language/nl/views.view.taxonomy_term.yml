@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Standaard
     display_options:
       pager:
         options:

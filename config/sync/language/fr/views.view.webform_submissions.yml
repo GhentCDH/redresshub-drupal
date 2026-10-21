@@ -15,6 +15,8 @@ display:
           tags:
             previous: ‹‹
             next: ››
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -25,12 +27,17 @@ display:
         in_draft:
           separator: ', '
         created:
+          label: Créé
           separator: ', '
         remote_addr:
           label: 'Adresse IP'
           separator: ', '
         view_webform_submission:
           label: Actions
+          text: voir
+      header:
+        result:
+          content: 'Affichage de @start à @end sur @total'
       arguments:
         in_draft:
           exception:
@@ -51,6 +58,7 @@ display:
           label: Verrouillé
           separator: ', '
         created:
+          label: Créé
           separator: ', '
         completed:
           label: Terminé
@@ -79,6 +87,7 @@ display:
           label: Verrouillé
           separator: ', '
         created:
+          label: Créé
           separator: ', '
         completed:
           label: Terminé
@@ -88,8 +97,10 @@ display:
           separator: ', '
         view_webform_submission:
           label: Actions
+          text: voir
         edit_webform_submission:
           label: Actions
+          text: modifier
       filters:
         locked:
           expose:
@@ -107,6 +118,7 @@ display:
           label: Verrouillé
           separator: ', '
         created:
+          label: Créé
           separator: ', '
         completed:
           label: Terminé
@@ -116,6 +128,7 @@ display:
           separator: ', '
         view_webform_submission:
           label: Actions
+          text: voir
       filters:
         locked:
           expose:

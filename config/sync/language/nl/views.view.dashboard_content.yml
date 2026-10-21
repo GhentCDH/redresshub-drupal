@@ -1,0 +1,61 @@
+display:
+  default:
+    display_title: Standaard
+    display_options:
+      fields:
+        title:
+          label: Titel
+          separator: ', '
+        type:
+          label: Inhoudstype
+          separator: ', '
+        changed:
+          separator: ', '
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Wissen
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      sorts:
+        changed:
+          expose:
+            label: Gewijzigd
+      arguments:
+        uid:
+          exception:
+            title: Alle
+  block_edited_content:
+    display_options:
+      arguments:
+        revision_uid:
+          exception:
+            title: Alle
+        uid:
+          exception:
+            title: Alle
+  block_site_content:
+    display_options:
+      fields:
+        node_bulk_form:
+          action_title: Actie
+        title:
+          label: Titel
+          separator: ', '
+        type:
+          label: Inhoudstype
+          separator: ', '
+        changed:
+          label: Bijgewerkt
+          separator: ', '
+        name:
+          label: Auteur
+          separator: ', '
+      filters:
+        title:
+          expose:
+            label: Zoeken
+        type:
+          expose:
+            label: Inhoudstype

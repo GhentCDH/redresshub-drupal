@@ -25,12 +25,14 @@ display:
         in_draft:
           separator: ', '
         created:
+          label: Aangemaakt
           separator: ', '
         remote_addr:
           label: IP-adres
           separator: ', '
         view_webform_submission:
           label: Bewerkingen
+          text: weergeven
       arguments:
         in_draft:
           exception:
@@ -51,6 +53,7 @@ display:
           label: Vergrendeld
           separator: ', '
         created:
+          label: Aangemaakt
           separator: ', '
         completed:
           label: Voltooid
@@ -79,6 +82,7 @@ display:
           label: Vergrendeld
           separator: ', '
         created:
+          label: Aangemaakt
           separator: ', '
         completed:
           label: Voltooid
@@ -88,6 +92,7 @@ display:
           separator: ', '
         view_webform_submission:
           label: Bewerkingen
+          text: weergeven
         edit_webform_submission:
           label: Bewerkingen
       filters:
@@ -107,6 +112,7 @@ display:
           label: Vergrendeld
           separator: ', '
         created:
+          label: Aangemaakt
           separator: ', '
         completed:
           label: Voltooid
@@ -116,6 +122,7 @@ display:
           separator: ', '
         view_webform_submission:
           label: Bewerkingen
+          text: weergeven
       filters:
         locked:
           expose:

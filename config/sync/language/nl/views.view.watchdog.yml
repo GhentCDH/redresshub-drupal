@@ -1,11 +1,16 @@
 display:
   default:
+    display_title: Standaard
     display_options:
       fields:
         nothing:
           admin_label: Pictogram
         type:
           label: Type
+        timestamp:
+          label: Datum
+        message:
+          label: Bericht
         name:
           label: Gebruiker
           separator: ', '

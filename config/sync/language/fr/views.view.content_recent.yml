@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: 'Par défaut'
     display_options:
       fields:
         changed:
@@ -11,3 +12,6 @@ display:
           exposed_sorts_label: 'Trier par'
           sort_asc_label: Asc
           sort_desc_label: Desc
+      use_more_text: Plus
+  block_1:
+    display_title: Bloc

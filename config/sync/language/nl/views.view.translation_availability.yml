@@ -1,0 +1,47 @@
+label: 'Beschikbaarheid van vertalingen'
+display:
+  default:
+    display_title: Standaard
+    display_options:
+      title: 'Beschikbaarheid van vertalingen'
+      fields:
+        title:
+          label: Titel
+        bundle:
+          label: Inhoudstype
+        langcode:
+          label: Taal
+        state:
+          label: Status
+        operations:
+          label: Bewerkingen
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per pagina'
+            items_per_page_options_all_label: '- Alle -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Wissen
+          exposed_sorts_label: 'Sorteren op'
+          sort_asc_label: Oplopend
+          sort_desc_label: Aflopend
+      filters:
+        title:
+          expose:
+            label: Titel
+        langcode:
+          expose:
+            label: Taal
+        state:
+          expose:
+            label: Status
+        bundle:
+          expose:
+            label: Inhoudstype
+  page:
+    display_options:
+      menu:
+        title: 'Beschikbaarheid van vertalingen'

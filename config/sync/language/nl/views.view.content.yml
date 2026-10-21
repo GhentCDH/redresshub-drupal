@@ -1,10 +1,14 @@
+label: Inhoud
 display:
   default:
+    display_title: Standaard
     display_options:
+      title: Inhoud
       fields:
         title:
           label: Titel
         type:
+          label: Inhoudstype
           separator: ', '
         name:
           label: Auteur
@@ -31,6 +35,9 @@ display:
         title:
           expose:
             label: Titel
+        type:
+          expose:
+            label: Inhoudstype
         status:
           expose:
             label: Status
@@ -45,3 +52,8 @@ display:
             label: Taal
   page_1:
     display_title: Pagina
+    display_options:
+      menu:
+        title: Inhoud
+      tab_options:
+        title: Inhoud

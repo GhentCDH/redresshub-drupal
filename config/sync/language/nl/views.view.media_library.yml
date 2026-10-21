@@ -1,6 +1,9 @@
+label: Media-bibliotheek
 display:
   default:
+    display_title: Standaard
     display_options:
+      title: Media
       fields:
         media_bulk_form:
           action_title: Actie
@@ -29,6 +32,14 @@ display:
                 title: Gepubliceerd
               2:
                 title: 'Niet gepubliceerd'
+        name:
+          expose:
+            label: Naam
+        bundle:
+          expose:
+            label: Mediatype
+          group_info:
+            label: Mediatype
         langcode:
           expose:
             label: Taal
@@ -50,9 +61,15 @@ display:
         bundle:
           exception:
             title: Alle
+      filters:
+        name:
+          expose:
+            label: Naam
   widget_table:
     display_options:
       fields:
+        name:
+          label: Naam
         uid:
           label: Auteur
         changed:
@@ -61,3 +78,7 @@ display:
         bundle:
           exception:
             title: Alle
+      filters:
+        name:
+          expose:
+            label: Naam

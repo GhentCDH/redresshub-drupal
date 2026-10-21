@@ -1,0 +1,55 @@
+label: 'Disponibilité des traductions'
+display:
+  default:
+    display_title: 'Par défaut'
+    display_options:
+      title: 'Disponibilité des traductions'
+      fields:
+        title:
+          label: Titre
+        bundle:
+          label: 'Type de contenu'
+        langcode:
+          label: Langue
+        state:
+          label: État
+        operations:
+          label: Actions
+      pager:
+        options:
+          tags:
+            next: 'Suivant ›'
+            previous: '‹ Précédent'
+            first: '« Premier'
+            last: 'Dernier »'
+          expose:
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options_all_label: '- Tout -'
+            offset_label: Décalage
+      exposed_form:
+        options:
+          submit_button: Filtrer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      filters:
+        title:
+          expose:
+            label: Titre
+        langcode:
+          expose:
+            label: Langue
+        state:
+          expose:
+            label: État
+        bundle:
+          expose:
+            label: 'Type de contenu'
+      header:
+        result:
+          content: 'Affichage de @start à @end sur @total'
+  page:
+    display_options:
+      menu:
+        title: 'Disponibilité des traductions'

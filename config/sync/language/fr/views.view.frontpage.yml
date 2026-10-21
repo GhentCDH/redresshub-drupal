@@ -1,8 +1,16 @@
+label: "Page d'accueil"
+description: "Tout le contenu promu en page d'accueil."
 display:
   default:
+    display_title: 'Par défaut'
     display_options:
       pager:
         options:
+          tags:
+            next: 'Suivant ›'
+            previous: '‹ Précédent'
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -14,5 +22,7 @@ display:
           exposed_sorts_label: 'Trier par'
           sort_asc_label: Asc
           sort_desc_label: Desc
+  feed_1:
+    display_title: Flux
   page_1:
     display_title: Page

@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Standaard
     display_options:
       fields:
         changed:
@@ -11,3 +12,5 @@ display:
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
+  block_1:
+    display_title: Blok

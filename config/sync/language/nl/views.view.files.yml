@@ -1,9 +1,17 @@
+label: Bestanden
 display:
   default:
+    display_title: Standaard
     display_options:
+      title: Bestanden
       fields:
         filename:
+          label: Naam
           separator: ', '
+        filemime:
+          label: MIME-type
+        filesize:
+          label: Grootte
         status:
           label: Status
         operations:
@@ -22,11 +30,23 @@ display:
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
       filters:
+        filemime:
+          expose:
+            label: MIME-type
         status:
           expose:
             label: Status
+  page_1:
+    display_options:
+      menu:
+        title: Bestanden
   page_2:
     display_options:
+      fields:
+        entity_label:
+          label: Entiteit
+        type:
+          label: Entiteitstype
       pager:
         options:
           expose:
