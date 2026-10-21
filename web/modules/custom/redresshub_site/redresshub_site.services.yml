@@ -1,7 +1,8 @@
 services:
   redresshub_site.biblio:
     class: Drupal\redresshub_site\Biblio
-    arguments: ['@http_client', '@cache.data', '@keyvalue', '@logger.channel.redresshub_site']
+    arguments: ['@http_client', '@keyvalue', '@logger.channel.redresshub_site']
+  Drupal\redresshub_site\Biblio: '@redresshub_site.biblio'
   logger.channel.redresshub_site:
     parent: logger.channel_base
     arguments: ['redresshub_site']

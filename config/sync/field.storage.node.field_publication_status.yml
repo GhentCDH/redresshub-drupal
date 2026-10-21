@@ -1,0 +1,21 @@
+uuid: 5e03eb0a-f8f8-4bb8-badd-b9890026c44c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_publication_status
+field_name: field_publication_status
+entity_type: node
+type: string
+settings:
+  max_length: 64
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 13ea4a69-d049-41b5-9492-32bc8b36304e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_authors
+    - node.type.publication
+id: node.publication.field_authors
+field_name: field_authors
+entity_type: node
+bundle: publication
+label: Authors
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

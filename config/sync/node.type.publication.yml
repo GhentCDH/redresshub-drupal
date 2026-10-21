@@ -1,0 +1,11 @@
+uuid: a2e26d6d-38e2-46ae-b1a6-a5d0765a7238
+langcode: en
+status: true
+dependencies: {  }
+name: Publication
+type: publication
+description: 'A publication in UGent Biblio: enter its ID, the rest comes from Biblio.'
+help: null
+new_revision: false
+preview_mode: 0
+display_submitted: false

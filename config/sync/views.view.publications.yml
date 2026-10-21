@@ -1,0 +1,106 @@
+uuid: b305c852-dcca-4e9e-9af4-ea002d4e9314
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.publication
+  module:
+    - node
+    - user
+id: publications
+label: Publications
+module: views
+description: 'The publications from UGent Biblio, newest first.'
+tag: paragraph
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      pager:
+        type: none
+        options:
+          offset: 0
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      sorts:
+        field_year_value:
+          id: field_year_value
+          table: node__field_year
+          field: field_year_value
+          plugin_id: standard
+          order: DESC
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          order: ASC
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            publication: publication
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+      row:
+        type: 'entity:node'
+        options:
+          view_mode: default
+      query:
+        type: views_query
+        options: {  }
+      css_class: publications
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block:
+    id: block
+    display_title: 'All publications'
+    display_plugin: block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      block_description: Publications
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }

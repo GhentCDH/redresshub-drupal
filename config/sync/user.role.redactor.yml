@@ -12,6 +12,7 @@ dependencies:
     - node.type.location
     - node.type.organisation
     - node.type.page
+    - node.type.publication
     - taxonomy.vocabulary.fragment_type
     - taxonomy.vocabulary.historical_era
     - taxonomy.vocabulary.initiative_type
@@ -58,6 +59,7 @@ permissions:
   - 'create location content'
   - 'create media'
   - 'create organisation content'
+  - 'create publication content'
   - 'create terms in fragment_type'
   - 'create terms in historical_era'
   - 'create terms in initiative_type'
@@ -77,6 +79,7 @@ permissions:
   - 'delete any location content'
   - 'delete any media'
   - 'delete any organisation content'
+  - 'delete any publication content'
   - 'delete content translations'
   - 'delete event revisions'
   - 'delete fragment revisions'
@@ -91,6 +94,7 @@ permissions:
   - 'delete own initiative content'
   - 'delete own location content'
   - 'delete own organisation content'
+  - 'delete own publication content'
   - 'delete page revisions'
   - 'delete terms in fragment_type'
   - 'delete terms in historical_era'
@@ -110,6 +114,7 @@ permissions:
   - 'edit any location content'
   - 'edit any organisation content'
   - 'edit any page content'
+  - 'edit any publication content'
   - 'edit own event content'
   - 'edit own fragment content'
   - 'edit own home content'
@@ -117,6 +122,7 @@ permissions:
   - 'edit own location content'
   - 'edit own organisation content'
   - 'edit own page content'
+  - 'edit own publication content'
   - 'edit terms in fragment_type'
   - 'edit terms in historical_era'
   - 'edit terms in initiative_type'
@@ -136,6 +142,7 @@ permissions:
   - 'revert location revisions'
   - 'revert organisation revisions'
   - 'revert page revisions'
+  - 'revert publication revisions'
   - 'revert term revisions in fragment_type'
   - 'revert term revisions in historical_era'
   - 'revert term revisions in initiative_type'
@@ -162,6 +169,7 @@ permissions:
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view page revisions'
+  - 'view publication revisions'
   - 'view redactor dashboard'
   - 'view term revisions in fragment_type'
   - 'view term revisions in historical_era'

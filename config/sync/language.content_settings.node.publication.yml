@@ -1,0 +1,16 @@
+uuid: d24b398b-dc89-44aa-8880-d6f988bd6677
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.publication
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: node.publication
+target_entity_type_id: node
+target_bundle: publication
+default_langcode: site_default
+language_alterable: false

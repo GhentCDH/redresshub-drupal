@@ -1,0 +1,19 @@
+uuid: dc33e8fe-d82a-42f6-bbdb-f5f451e88301
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_biblio_checked
+    - node.type.publication
+id: node.publication.field_biblio_checked
+field_name: field_biblio_checked
+entity_type: node
+bundle: publication
+label: 'Fetched from Biblio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

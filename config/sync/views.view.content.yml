@@ -10,6 +10,7 @@ dependencies:
     - node.type.location
     - node.type.organisation
     - node.type.page
+    - node.type.publication
   module:
     - node
     - user
@@ -412,6 +413,7 @@ display:
             event: event
             home: home
             page: page
+            publication: publication
           group: 1
           exposed: true
           expose:
@@ -545,6 +547,7 @@ display:
             event: event
             home: home
             page: page
+            publication: publication
           group: 1
           exposed: false
       filter_groups:

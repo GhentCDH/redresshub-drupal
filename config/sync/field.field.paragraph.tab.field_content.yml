@@ -8,7 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.icon_row
     - paragraphs.paragraphs_type.intro
     - paragraphs.paragraphs_type.media
-    - paragraphs.paragraphs_type.publications
     - paragraphs.paragraphs_type.quote
     - paragraphs.paragraphs_type.tab
     - paragraphs.paragraphs_type.text
@@ -35,7 +34,6 @@ settings:
       media: media
       icon_row: icon_row
       view: view
-      publications: publications
       form: form
     negate: 0
     target_bundles_drag_drop:

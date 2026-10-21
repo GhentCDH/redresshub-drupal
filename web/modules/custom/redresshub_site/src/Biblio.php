@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\redresshub_site;
 
-use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use Psr\Log\LoggerInterface;
@@ -12,18 +11,15 @@ use Psr\Log\LoggerInterface;
 /**
  * Fetches publications from UGent Biblio (biblio.ugent.be).
  *
- * Records are cached for a day. The last record that could be fetched is
- * also kept permanently, so the page still shows it when Biblio is down.
+ * Each record that could be fetched is kept, so a publication can still be
+ * saved and shown when Biblio cannot be reached.
  */
 final class Biblio {
 
   private const BASE_URL = 'https://biblio.ugent.be/publication/';
 
-  private const CACHE_LIFETIME = 86400;
-
   public function __construct(
     private readonly ClientInterface $httpClient,
-    private readonly CacheBackendInterface $cache,
     private readonly KeyValueFactoryInterface $keyValue,
     private readonly LoggerInterface $logger,
   ) {}
@@ -36,32 +32,45 @@ final class Biblio {
   }
 
   /**
-   * Returns a publication, or NULL if it cannot be found.
-   *
-   * @return array{id: string, title: string, authors: string[], outlet: string, volume: string, issue: string, year: string, status: string, doi: string}|null
+   * Returns the Biblio ID in an ID or a Biblio URL, or NULL if there is none.
    */
-  public function get(string $id): ?array {
-    $id = trim($id);
-    if (!preg_match('/^[0-9A-Za-z]+$/', $id)) {
+  public static function idFrom(string $input): ?string {
+    $input = trim($input);
+    if (preg_match('#biblio\.ugent\.be/publication/([0-9A-Za-z]+)#', $input, $matches)) {
+      return $matches[1];
+    }
+    return preg_match('/^[0-9A-Za-z]+$/', $input) ? $input : NULL;
+  }
+
+  /**
+   * Fetches a publication from Biblio, and keeps a copy of it.
+   *
+   * @return array|null
+   *   The publication (see get()), or NULL if Biblio could not be reached
+   *   or does not know the ID.
+   */
+  public function fetch(string $id): ?array {
+    $id = (string) self::idFrom($id);
+    if ($id === '') {
       return NULL;
     }
-    $cid = "redresshub:biblio:$id";
-    if ($cached = $this->cache->get($cid)) {
-      return $cached->data;
-    }
-
-    $store = $this->keyValue->get('redresshub_site.biblio');
     try {
       $response = $this->httpClient->request('GET', self::url($id) . '.json', ['timeout' => 10]);
       $publication = $this->normalize($id, json_decode((string) $response->getBody(), TRUE, flags: JSON_THROW_ON_ERROR));
-      $store->set($id, $publication);
     }
     catch (\Throwable $e) {
       $this->logger->warning('Biblio publication @id could not be fetched: @message', ['@id' => $id, '@message' => $e->getMessage()]);
-      $publication = $store->get($id);
+      return NULL;
     }
-    $this->cache->set($cid, $publication, time() + self::CACHE_LIFETIME, ['redresshub_biblio']);
+    $this->keyValue->get('redresshub_site.biblio')->set($id, $publication);
     return $publication;
+  }
+
+  /**
+   * Returns the last copy of a publication that could be fetched, or NULL.
+   */
+  public function stored(string $id): ?array {
+    return $this->keyValue->get('redresshub_site.biblio')->get($id);
   }
 
   /**
@@ -83,6 +92,7 @@ final class Biblio {
       'year' => (string) ($data['year'] ?? ''),
       'status' => (string) ($data['publication_status'] ?? ''),
       'doi' => (string) ($data['doi'][0] ?? ''),
+      'type' => (string) ($data['type'] ?? ''),
     ];
   }
 

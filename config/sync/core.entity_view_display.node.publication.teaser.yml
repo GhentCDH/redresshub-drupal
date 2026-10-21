@@ -1,0 +1,36 @@
+uuid: 75b68ac2-ac10-4a96-a586-534594a67ab0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.publication.field_authors
+    - field.field.node.publication.field_biblio_checked
+    - field.field.node.publication.field_biblio_id
+    - field.field.node.publication.field_doi
+    - field.field.node.publication.field_issue
+    - field.field.node.publication.field_outlet
+    - field.field.node.publication.field_publication_status
+    - field.field.node.publication.field_publication_type
+    - field.field.node.publication.field_volume
+    - field.field.node.publication.field_year
+    - node.type.publication
+id: node.publication.teaser
+targetEntityType: node
+bundle: publication
+mode: teaser
+content: {  }
+hidden:
+  field_authors: true
+  field_biblio_checked: true
+  field_biblio_id: true
+  field_doi: true
+  field_issue: true
+  field_outlet: true
+  field_publication_status: true
+  field_publication_type: true
+  field_volume: true
+  field_year: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

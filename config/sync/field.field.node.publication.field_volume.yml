@@ -1,0 +1,19 @@
+uuid: 3cd08d7d-cb6d-4ce1-aea7-a92fb7a39c72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_volume
+    - node.type.publication
+id: node.publication.field_volume
+field_name: field_volume
+entity_type: node
+bundle: publication
+label: Volume
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
