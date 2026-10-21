@@ -3,11 +3,11 @@ _core:
 role_menu_pairs:
   -
     role: redactor
-    menu: redactor
+    menu: editorial
     ignored_roles:
       - administrator
   -
     role: site_manager
-    menu: site_manager
+    menu: editorial
     ignored_roles:
       - administrator

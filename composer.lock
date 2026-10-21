@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4eb25dc28f64167fb3e087b2e77d32ae",
+    "content-hash": "24dceb5c94d569a161eada96583af979",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1693,39 +1693,6 @@
             }
         },
         {
-            "name": "drupal/dashboard_extras",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GhentCDH/dashboard_extras.git",
-                "reference": "e83d634176e89d95dbaece0de50212353946c363"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GhentCDH/dashboard_extras/zipball/e83d634176e89d95dbaece0de50212353946c363",
-                "reference": "e83d634176e89d95dbaece0de50212353946c363",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/core": "^11.2",
-                "drupal/dashboard": "^2.2"
-            },
-            "suggest": {
-                "drupal/amswap": "Shows another admin toolbar menu per role."
-            },
-            "default-branch": true,
-            "type": "drupal-module",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Admin dashboards and menus per role, on top of the Dashboard and Admin Menu Swap modules.",
-            "support": {
-                "source": "https://github.com/GhentCDH/dashboard_extras/tree/main",
-                "issues": "https://github.com/GhentCDH/dashboard_extras/issues"
-            },
-            "time": "2026-10-21T07:09:39+00:00"
-        },
-        {
             "name": "drupal/entity_reference_revisions",
             "version": "1.14.0",
             "source": {
@@ -2075,12 +2042,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GhentCDH/masquerade_toolbar.git",
-                "reference": "1e0445be54528308dff663276b493e3e2445957b"
+                "reference": "f34f54fed1fa6ea1be27b999c3bac564169bc907"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GhentCDH/masquerade_toolbar/zipball/1e0445be54528308dff663276b493e3e2445957b",
-                "reference": "1e0445be54528308dff663276b493e3e2445957b",
+                "url": "https://api.github.com/repos/GhentCDH/masquerade_toolbar/zipball/f34f54fed1fa6ea1be27b999c3bac564169bc907",
+                "reference": "f34f54fed1fa6ea1be27b999c3bac564169bc907",
                 "shasum": ""
             },
             "require": {
@@ -2096,7 +2063,7 @@
                 "source": "https://github.com/GhentCDH/masquerade_toolbar/tree/main",
                 "issues": "https://github.com/GhentCDH/masquerade_toolbar/issues"
             },
-            "time": "2026-10-21T08:43:06+00:00"
+            "time": "2026-10-21T09:00:32+00:00"
         },
         {
             "name": "drupal/memcache",
@@ -8586,7 +8553,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "drupal/dashboard_extras": 20,
         "drupal/masquerade_toolbar": 20,
         "drupal/translation_availability": 20
     },

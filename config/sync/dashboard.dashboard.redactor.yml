@@ -1,46 +1,24 @@
-uuid: 5dbcaa5c-9579-4068-8ac4-fa5b6d002ea1
+uuid: 4e37d49e-1268-4829-aa52-b55281bd8e83
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.redactor
     - views.view.dashboard_content
   module:
-    - dashboard_extras
     - layout_builder
-    - layout_discovery
     - views
 id: redactor
 label: Redactor
 description: 'The dashboard of the Redactor role.'
 layout:
   -
-    layout_id: layout_onecol
-    layout_settings:
-      label: Menu
-    components:
-      7a493bf1-1a01-4dc8-8c55-984b47bbf136:
-        uuid: 7a493bf1-1a01-4dc8-8c55-984b47bbf136
-        region: content
-        configuration:
-          id: dashboard_extras_menu_cards
-          label: 'Redactor menu'
-          label_display: '0'
-          provider: dashboard_extras
-          context_mapping: {  }
-          menu: redactor
-          show_descriptions: true
-        weight: 0
-        additional: {  }
-    third_party_settings: {  }
-  -
     layout_id: layout_twocol_section
     layout_settings:
       label: Content
       column_widths: 50-50
     components:
-      b787d718-ddb9-4430-82bb-c112674a1d35:
-        uuid: b787d718-ddb9-4430-82bb-c112674a1d35
+      f0d0cc77-3044-4067-94fc-211f696400f9:
+        uuid: f0d0cc77-3044-4067-94fc-211f696400f9
         region: first
         configuration:
           id: 'views_block:dashboard_content-block_own_recent_content'
@@ -52,8 +30,8 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      7055351c-a66c-4dd0-a21b-271302826bd2:
-        uuid: 7055351c-a66c-4dd0-a21b-271302826bd2
+      9165ed6f-08ad-4e23-b13b-b6473c205dd7:
+        uuid: 9165ed6f-08ad-4e23-b13b-b6473c205dd7
         region: second
         configuration:
           id: 'views_block:dashboard_content-block_edited_content'

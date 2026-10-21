@@ -10,7 +10,6 @@ dependencies:
     - node.type.location
     - node.type.organisation
     - node.type.page
-    - system.menu.admin
   module:
     - node
     - user
@@ -906,13 +905,7 @@ display:
       display_extenders: {  }
       path: admin/research-data
       menu:
-        type: normal
-        title: 'Research data'
-        description: 'The database: initiatives, organisations, locations and fragments.'
-        weight: -9
-        menu_name: admin
-        parent: system.admin
-        context: ''
+        type: none
     cache_metadata:
       max-age: 0
       contexts:

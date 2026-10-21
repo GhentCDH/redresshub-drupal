@@ -7,3 +7,9 @@ definitions:
     weight: 0
     expanded: false
     enabled: false
+  system__dashboard:
+    menu_name: admin
+    parent: system.admin
+    weight: -20
+    expanded: false
+    enabled: false

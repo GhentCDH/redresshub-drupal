@@ -1,0 +1,4 @@
+editorial_toolbar:
+  css:
+    theme:
+      css/editorial-toolbar.css: {}

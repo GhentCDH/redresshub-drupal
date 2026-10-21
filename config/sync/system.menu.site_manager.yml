@@ -1,8 +1,0 @@
-uuid: 092c6b04-ee7c-464b-b279-96c29b1f99c8
-langcode: en
-status: true
-dependencies: {  }
-id: site_manager
-label: 'Site manager'
-description: 'The admin menu of the Site manager role: the toolbar and the cards on the dashboard.'
-locked: false

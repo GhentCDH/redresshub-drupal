@@ -1,0 +1,226 @@
+# The admin menu of redactors and site managers (paired with both roles by
+# Admin Menu Swap). Links someone may not open are left out, so one menu
+# serves both roles. In code, so the links have fixed IDs (for the icons in
+# css/editorial-toolbar.css) and are deployed with the site.
+
+redresshub_site.editorial.dashboard:
+  title: 'Dashboard'
+  description: 'Your dashboard.'
+  route_name: dashboard
+  menu_name: editorial
+  weight: -100
+
+redresshub_site.editorial.research_data:
+  title: 'Research data'
+  description: 'The database: initiatives, organisations, locations and fragments.'
+  route_name: view.content.research_data
+  menu_name: editorial
+  weight: -90
+
+redresshub_site.editorial.research_data.overview:
+  title: 'All research data'
+  route_name: view.content.research_data
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data
+  weight: 0
+
+redresshub_site.editorial.research_data.vocabularies:
+  title: 'Vocabularies'
+  route_name: redresshub_site.research_data_vocabularies
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data
+  weight: 1
+
+redresshub_site.editorial.research_data.translation_availability:
+  title: 'Translation availability'
+  route_name: view.translation_availability.research_data
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data
+  weight: 2
+
+redresshub_site.editorial.research_data.add_initiative:
+  title: 'Add initiative'
+  route_name: node.add
+  route_parameters:
+    node_type: initiative
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data
+  weight: 3
+
+redresshub_site.editorial.research_data.add_organisation:
+  title: 'Add organisation'
+  route_name: node.add
+  route_parameters:
+    node_type: organisation
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data
+  weight: 4
+
+redresshub_site.editorial.research_data.add_location:
+  title: 'Add location'
+  route_name: node.add
+  route_parameters:
+    node_type: location
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data
+  weight: 5
+
+redresshub_site.editorial.research_data.add_fragment:
+  title: 'Add fragment'
+  route_name: node.add
+  route_parameters:
+    node_type: fragment
+  menu_name: editorial
+  parent: redresshub_site.editorial.research_data
+  weight: 6
+
+redresshub_site.editorial.content:
+  title: 'Content'
+  description: 'Pages, events and the home page.'
+  route_name: system.admin_content
+  menu_name: editorial
+  weight: -80
+
+redresshub_site.editorial.content.overview:
+  title: 'All content'
+  route_name: system.admin_content
+  menu_name: editorial
+  parent: redresshub_site.editorial.content
+  weight: 0
+
+redresshub_site.editorial.content.home:
+  title: 'Edit the home page'
+  route_name: redresshub_site.edit_home
+  menu_name: editorial
+  parent: redresshub_site.editorial.content
+  weight: 1
+
+redresshub_site.editorial.content.translation_availability:
+  title: 'Translation availability'
+  route_name: view.translation_availability.page
+  menu_name: editorial
+  parent: redresshub_site.editorial.content
+  weight: 2
+
+redresshub_site.editorial.content.add_event:
+  title: 'Add event'
+  route_name: node.add
+  route_parameters:
+    node_type: event
+  menu_name: editorial
+  parent: redresshub_site.editorial.content
+  weight: 3
+
+redresshub_site.editorial.content.add_page:
+  title: 'Add basic page'
+  route_name: node.add
+  route_parameters:
+    node_type: page
+  menu_name: editorial
+  parent: redresshub_site.editorial.content
+  weight: 4
+
+redresshub_site.editorial.media:
+  title: 'Media'
+  description: 'Images, documents and other files.'
+  route_name: entity.media.collection
+  menu_name: editorial
+  weight: -70
+
+redresshub_site.editorial.media.overview:
+  title: 'Media library'
+  route_name: entity.media.collection
+  menu_name: editorial
+  parent: redresshub_site.editorial.media
+  weight: 0
+
+redresshub_site.editorial.media.add:
+  title: 'Add media'
+  route_name: entity.media.add_page
+  menu_name: editorial
+  parent: redresshub_site.editorial.media
+  weight: 1
+
+redresshub_site.editorial.site:
+  title: 'Site'
+  description: 'What visitors see around the content.'
+  route_name: entity.menu.collection
+  menu_name: editorial
+  weight: -60
+
+redresshub_site.editorial.site.menus:
+  title: 'Menus'
+  route_name: entity.menu.collection
+  menu_name: editorial
+  parent: redresshub_site.editorial.site
+  weight: 0
+
+redresshub_site.editorial.site.blocks:
+  title: 'Blocks'
+  route_name: entity.block_content.collection
+  menu_name: editorial
+  parent: redresshub_site.editorial.site
+  weight: 1
+
+redresshub_site.editorial.site.submissions:
+  title: 'Form submissions'
+  route_name: entity.webform_submission.collection
+  menu_name: editorial
+  parent: redresshub_site.editorial.site
+  weight: 2
+
+redresshub_site.editorial.site.interface_translation:
+  title: 'Interface translation'
+  route_name: locale.translate_page
+  menu_name: editorial
+  parent: redresshub_site.editorial.site
+  weight: 3
+
+redresshub_site.editorial.site.information:
+  title: 'Site information'
+  route_name: system.site_information_settings
+  menu_name: editorial
+  parent: redresshub_site.editorial.site
+  weight: 4
+
+redresshub_site.editorial.people:
+  title: 'People'
+  description: 'Accounts and their roles.'
+  route_name: entity.user.collection
+  menu_name: editorial
+  weight: -50
+
+redresshub_site.editorial.people.overview:
+  title: 'All people'
+  route_name: entity.user.collection
+  menu_name: editorial
+  parent: redresshub_site.editorial.people
+  weight: 0
+
+redresshub_site.editorial.people.add:
+  title: 'Add a person'
+  route_name: user.admin_create
+  menu_name: editorial
+  parent: redresshub_site.editorial.people
+  weight: 1
+
+redresshub_site.editorial.maintenance:
+  title: 'Maintenance'
+  description: 'Keep the site running.'
+  route_name: system.performance_settings
+  menu_name: editorial
+  weight: -40
+
+redresshub_site.editorial.maintenance.cache:
+  title: 'Clear the cache'
+  route_name: system.performance_settings
+  menu_name: editorial
+  parent: redresshub_site.editorial.maintenance
+  weight: 0
+
+redresshub_site.editorial.maintenance.mode:
+  title: 'Maintenance mode'
+  route_name: system.site_maintenance_mode
+  menu_name: editorial
+  parent: redresshub_site.editorial.maintenance
+  weight: 1

@@ -1,0 +1,8 @@
+uuid: 8ada0a4e-a62c-4b3d-ac75-2b335242e556
+langcode: en
+status: true
+dependencies: {  }
+id: editorial
+label: Editorial
+description: 'The admin menu of redactors and site managers. The links are in redresshub_site.links.menu.yml.'
+locked: false

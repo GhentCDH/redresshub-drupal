@@ -1,5 +1,0 @@
-_core:
-  default_config_hash: oTBA-02CauK1Bd2rDQti8M0lbJiz1jOO3k4dfZit9go
-redirect_admin: true
-login_redirect: front
-bypass_permission: 'administer modules'

@@ -1,46 +1,24 @@
-uuid: b9faeb25-fcd7-4020-ab15-431d50185e6a
+uuid: ea6caac0-da5e-4d1c-a27d-1e4634cf3414
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.site_manager
     - views.view.dashboard_content
   module:
-    - dashboard_extras
     - layout_builder
-    - layout_discovery
     - views
 id: site_manager
 label: 'Site manager'
 description: 'The dashboard of the Site manager role.'
 layout:
   -
-    layout_id: layout_onecol
-    layout_settings:
-      label: Menu
-    components:
-      bb6591a8-585d-406f-8f05-18b1759fe155:
-        uuid: bb6591a8-585d-406f-8f05-18b1759fe155
-        region: content
-        configuration:
-          id: dashboard_extras_menu_cards
-          label: 'Site manager menu'
-          label_display: '0'
-          provider: dashboard_extras
-          context_mapping: {  }
-          menu: site_manager
-          show_descriptions: true
-        weight: 0
-        additional: {  }
-    third_party_settings: {  }
-  -
     layout_id: layout_twocol_section
     layout_settings:
       label: Content
       column_widths: 50-50
     components:
-      1435b450-45b4-4fe7-b0ea-253cc3cb05dd:
-        uuid: 1435b450-45b4-4fe7-b0ea-253cc3cb05dd
+      a4d09578-fc52-4943-b463-811b9be5138a:
+        uuid: a4d09578-fc52-4943-b463-811b9be5138a
         region: first
         configuration:
           id: 'views_block:dashboard_content-block_own_recent_content'
@@ -52,8 +30,8 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      de72b851-0766-42ff-a1ca-cfe177a22e1d:
-        uuid: de72b851-0766-42ff-a1ca-cfe177a22e1d
+      6a801601-38bc-4d11-b707-184e3903de69:
+        uuid: 6a801601-38bc-4d11-b707-184e3903de69
         region: second
         configuration:
           id: 'views_block:dashboard_content-block_edited_content'

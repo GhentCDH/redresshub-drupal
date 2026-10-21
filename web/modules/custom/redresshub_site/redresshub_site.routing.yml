@@ -7,3 +7,13 @@ redresshub_site.research_data_vocabularies:
     _permission: 'access taxonomy overview'
   options:
     _admin_route: TRUE
+
+redresshub_site.edit_home:
+  path: '/admin/home-page'
+  defaults:
+    _controller: '\Drupal\redresshub_site\Controller\HomeController::edit'
+    _title: 'Edit the home page'
+  requirements:
+    _custom_access: '\Drupal\redresshub_site\Controller\HomeController::access'
+  options:
+    _admin_route: TRUE

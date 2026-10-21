@@ -13,3 +13,8 @@ redresshub_site.research_data_translation_availability:
   route_name: view.translation_availability.research_data
   base_route: view.content.research_data
   weight: 20
+redresshub_site.admin_content_research_data:
+  title: 'Research data'
+  route_name: view.content.research_data
+  base_route: system.admin_content
+  weight: 1

@@ -15,11 +15,6 @@
             "url": "https://github.com/GhentCDH/masquerade_toolbar"
         },
         {
-            "name": "dashboard_extras",
-            "type": "vcs",
-            "url": "https://github.com/GhentCDH/dashboard_extras"
-        },
-        {
             "name": "translation_availability",
             "type": "vcs",
             "url": "https://github.com/GhentCDH/translation_availability"
@@ -44,7 +39,6 @@
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
         "drupal/dashboard": "^2.2",
-        "drupal/dashboard_extras": "dev-main",
         "drupal/field_group": "^4.0",
         "drupal/geofield": "^10.3",
         "drupal/leaflet": "^10.4",
