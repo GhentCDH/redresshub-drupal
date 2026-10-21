@@ -6,9 +6,11 @@
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-dashboard::before,
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-website::before,
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-events::before,
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-publications::before,
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-research-data::before,
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-users::before,
-.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-site::before {
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-settings::before {
   mask-image: var(--icon);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -24,6 +26,14 @@
   --icon: url("../../../../core/modules/navigation/assets/icons/navigation-content.svg");
 }
 
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-events::before {
+  --icon: url("../../../../core/modules/navigation/assets/icons/announcements-feed-announcement.svg");
+}
+
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-publications::before {
+  --icon: url("../../../../core/modules/navigation/assets/icons/file.svg");
+}
+
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-research-data::before {
   --icon: url("../../../../core/modules/navigation/assets/icons/database.svg");
 }
@@ -32,6 +42,6 @@
   --icon: url("../../../../core/modules/navigation/assets/icons/entity-user-collection.svg");
 }
 
-.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-site::before {
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-settings::before {
   --icon: url("../../../../core/modules/navigation/assets/icons/system-admin-config.svg");
 }

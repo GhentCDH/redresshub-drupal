@@ -498,6 +498,7 @@ display:
             event: event
             home: home
             page: page
+            publication: publication
           exposed: true
           expose:
             operator_id: type_op
@@ -518,6 +519,7 @@ display:
             event: event
             home: home
             page: page
+            publication: publication
           group: 1
           exposed: false
       filter_groups:

@@ -1,7 +1,8 @@
 # The admin menu of redactors and site managers (paired with both roles by
-# Admin Menu Swap). Links someone may not open are left out, so one menu
-# serves both roles. In code, so the links have fixed IDs (for the icons in
-# css/editorial-toolbar.css) and are deployed with the site.
+# Admin Menu Swap), also the cards on their dashboards. Links someone may
+# not open are left out, so one menu serves both roles. In code, so the
+# links have fixed IDs (for the icons in css/editorial-toolbar.css) and are
+# deployed with the site.
 
 redresshub_site.editorial.dashboard:
   title: 'Dashboard'
@@ -12,14 +13,20 @@ redresshub_site.editorial.dashboard:
 
 redresshub_site.editorial.website:
   title: 'Website'
-  description: 'Pages, events, the home page, media and form submissions.'
+  description: 'The pages of the website, and what goes with them.'
   route_name: system.admin_content
+  options:
+    query:
+      type: page
   menu_name: editorial
   weight: -90
 
-redresshub_site.editorial.website.overview:
-  title: 'All content'
+redresshub_site.editorial.website.pages:
+  title: 'All pages'
   route_name: system.admin_content
+  options:
+    query:
+      type: page
   menu_name: editorial
   parent: redresshub_site.editorial.website
   weight: 0
@@ -31,53 +38,102 @@ redresshub_site.editorial.website.home:
   parent: redresshub_site.editorial.website
   weight: 1
 
-redresshub_site.editorial.website.add:
-  title: 'Add'
-  route_name: node.add
-  route_parameters:
-    node_type: event
-  menu_name: editorial
-  parent: redresshub_site.editorial.website
-  weight: 2
-
-redresshub_site.editorial.website.add.event:
-  title: 'Event'
-  route_name: node.add
-  route_parameters:
-    node_type: event
-  menu_name: editorial
-  parent: redresshub_site.editorial.website.add
-  weight: 0
-
-redresshub_site.editorial.website.add.page:
-  title: 'Basic page'
+redresshub_site.editorial.website.add_page:
+  title: 'Add a page'
   route_name: node.add
   route_parameters:
     node_type: page
   menu_name: editorial
-  parent: redresshub_site.editorial.website.add
-  weight: 1
+  parent: redresshub_site.editorial.website
+  weight: 2
+
+redresshub_site.editorial.website.main_menu:
+  title: 'Main navigation'
+  route_name: entity.menu.edit_form
+  route_parameters:
+    menu: main
+  menu_name: editorial
+  parent: redresshub_site.editorial.website
+  weight: 3
 
 redresshub_site.editorial.website.media:
   title: 'Media library'
   route_name: entity.media.collection
   menu_name: editorial
   parent: redresshub_site.editorial.website
-  weight: 3
+  weight: 4
 
 redresshub_site.editorial.website.submissions:
   title: 'Form submissions'
   route_name: entity.webform_submission.collection
   menu_name: editorial
   parent: redresshub_site.editorial.website
-  weight: 4
+  weight: 5
 
 redresshub_site.editorial.website.translation_availability:
   title: 'Translation availability'
   route_name: view.translation_availability.website
   menu_name: editorial
   parent: redresshub_site.editorial.website
-  weight: 5
+  weight: 6
+
+redresshub_site.editorial.events:
+  title: 'Events'
+  description: 'Moments ahead: activities, lectures and other events.'
+  route_name: system.admin_content
+  options:
+    query:
+      type: event
+  menu_name: editorial
+  weight: -85
+
+redresshub_site.editorial.events.overview:
+  title: 'All events'
+  route_name: system.admin_content
+  options:
+    query:
+      type: event
+  menu_name: editorial
+  parent: redresshub_site.editorial.events
+  weight: 0
+
+redresshub_site.editorial.events.add:
+  title: 'Add an event'
+  route_name: node.add
+  route_parameters:
+    node_type: event
+  menu_name: editorial
+  parent: redresshub_site.editorial.events
+  weight: 1
+
+redresshub_site.editorial.publications:
+  title: 'Publications'
+  description: 'Publications from UGent Biblio: enter the ID, the rest comes from Biblio.'
+  route_name: system.admin_content
+  options:
+    query:
+      type: publication
+  menu_name: editorial
+  weight: -82
+
+redresshub_site.editorial.publications.overview:
+  title: 'All publications'
+  route_name: system.admin_content
+  options:
+    query:
+      type: publication
+  menu_name: editorial
+  parent: redresshub_site.editorial.publications
+  weight: 0
+
+redresshub_site.editorial.publications.add:
+  title: 'Add a publication'
+  route_name: node.add
+  route_parameters:
+    node_type: publication
+  menu_name: editorial
+  parent: redresshub_site.editorial.publications
+  weight: 1
 
 redresshub_site.editorial.research_data:
   title: 'Research data'
@@ -263,55 +319,44 @@ redresshub_site.editorial.users.add:
   parent: redresshub_site.editorial.users
   weight: 1
 
-redresshub_site.editorial.site:
-  title: 'Site'
-  description: 'The menu, texts and settings around the content.'
-  route_name: entity.menu.edit_form
-  route_parameters:
-    menu: main
+redresshub_site.editorial.settings:
+  title: 'Settings'
+  description: 'Texts and settings of the site.'
+  route_name: system.site_information_settings
   menu_name: editorial
   weight: -60
 
-redresshub_site.editorial.site.main_menu:
-  title: 'Main navigation'
-  route_name: entity.menu.edit_form
-  route_parameters:
-    menu: main
-  menu_name: editorial
-  parent: redresshub_site.editorial.site
-  weight: 0
-
-redresshub_site.editorial.site.interface_translation:
+redresshub_site.editorial.settings.interface_translation:
   title: 'Interface translation'
   route_name: locale.translate_page
   menu_name: editorial
-  parent: redresshub_site.editorial.site
-  weight: 1
+  parent: redresshub_site.editorial.settings
+  weight: 0
 
-redresshub_site.editorial.site.information:
+redresshub_site.editorial.settings.information:
   title: 'Site information'
   route_name: system.site_information_settings
   menu_name: editorial
-  parent: redresshub_site.editorial.site
-  weight: 2
+  parent: redresshub_site.editorial.settings
+  weight: 1
 
-redresshub_site.editorial.site.maintenance:
+redresshub_site.editorial.settings.maintenance:
   title: 'Maintenance'
   route_name: system.performance_settings
   menu_name: editorial
-  parent: redresshub_site.editorial.site
-  weight: 3
+  parent: redresshub_site.editorial.settings
+  weight: 2
 
-redresshub_site.editorial.site.maintenance.cache:
+redresshub_site.editorial.settings.maintenance.cache:
   title: 'Clear the cache'
   route_name: system.performance_settings
   menu_name: editorial
-  parent: redresshub_site.editorial.site.maintenance
+  parent: redresshub_site.editorial.settings.maintenance
   weight: 0
 
-redresshub_site.editorial.site.maintenance.mode:
+redresshub_site.editorial.settings.maintenance.mode:
   title: 'Maintenance mode'
   route_name: system.site_maintenance_mode
   menu_name: editorial
-  parent: redresshub_site.editorial.site.maintenance
+  parent: redresshub_site.editorial.settings.maintenance
   weight: 1

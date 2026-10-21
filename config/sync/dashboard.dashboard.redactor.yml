@@ -1,4 +1,4 @@
-uuid: 81215190-cb8f-4f7a-93a7-df10f30c670e
+uuid: a765f66f-883a-41ec-bd59-453800a23974
 langcode: en
 status: true
 dependencies:
@@ -18,14 +18,14 @@ layout:
   -
     layout_id: layout_onecol
     layout_settings:
-      label: 'Quick actions'
+      label: Menu
     components:
-      708a24f6-25b8-4f02-98e8-c641aded5b9f:
-        uuid: 708a24f6-25b8-4f02-98e8-c641aded5b9f
+      57c9e192-c695-4e05-88e8-6097b0725023:
+        uuid: 57c9e192-c695-4e05-88e8-6097b0725023
         region: content
         configuration:
-          id: redresshub_quick_actions
-          label: Add
+          id: redresshub_menu_cards
+          label: Menu
           label_display: '0'
           provider: redresshub_site
           context_mapping: {  }
@@ -38,8 +38,8 @@ layout:
       label: 'To do and recent'
       column_widths: 50-50
     components:
-      6fab760f-74ff-45eb-8db8-109eac9ed103:
-        uuid: 6fab760f-74ff-45eb-8db8-109eac9ed103
+      e7fe9192-4331-4b92-a032-2d1ba8135543:
+        uuid: e7fe9192-4331-4b92-a032-2d1ba8135543
         region: first
         configuration:
           id: 'views_block:dashboard_content-block_own_drafts'
@@ -51,8 +51,8 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      def84911-1c0e-4777-83e3-33a4d49a0b8f:
-        uuid: def84911-1c0e-4777-83e3-33a4d49a0b8f
+      11431059-cad9-41d8-b586-fdbc2738542c:
+        uuid: 11431059-cad9-41d8-b586-fdbc2738542c
         region: first
         configuration:
           id: translation_availability_summary
@@ -63,8 +63,8 @@ layout:
           bundles: {  }
         weight: 0
         additional: {  }
-      c97ae5a1-3af4-4fbd-88e8-5de4fccc15b7:
-        uuid: c97ae5a1-3af4-4fbd-88e8-5de4fccc15b7
+      c55ba9f4-8316-43b5-89e1-22e7b70c6bf5:
+        uuid: c55ba9f4-8316-43b5-89e1-22e7b70c6bf5
         region: first
         configuration:
           id: redresshub_research_data_checks
@@ -74,8 +74,8 @@ layout:
           context_mapping: {  }
         weight: 0
         additional: {  }
-      6bf92938-290b-4651-be1e-8906bd54d144:
-        uuid: 6bf92938-290b-4651-be1e-8906bd54d144
+      618b1631-36d7-485a-853c-2ffd61f66fd5:
+        uuid: 618b1631-36d7-485a-853c-2ffd61f66fd5
         region: second
         configuration:
           id: 'views_block:redresshub_dashboard-recent'
@@ -87,8 +87,8 @@ layout:
           items_per_page: 0
         weight: 0
         additional: {  }
-      410b0728-c4e7-4e5b-a35a-49336413eaf6:
-        uuid: 410b0728-c4e7-4e5b-a35a-49336413eaf6
+      b7c351b5-076f-47fd-b50d-c37df226cea7:
+        uuid: b7c351b5-076f-47fd-b50d-c37df226cea7
         region: second
         configuration:
           id: 'views_block:redresshub_dashboard-events'
