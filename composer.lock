@@ -2203,16 +2203,16 @@
         },
         {
             "name": "drupal/network_views",
-            "version": "1.0.0-beta1",
+            "version": "1.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GhentCDH/network_views.git",
-                "reference": "09d6df03404ffbcb5bd292fe6d017b8e52e90f04"
+                "reference": "a0f1e47b210c131a6a563d4db527c328d812ed23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GhentCDH/network_views/zipball/09d6df03404ffbcb5bd292fe6d017b8e52e90f04",
-                "reference": "09d6df03404ffbcb5bd292fe6d017b8e52e90f04",
+                "url": "https://api.github.com/repos/GhentCDH/network_views/zipball/a0f1e47b210c131a6a563d4db527c328d812ed23",
+                "reference": "a0f1e47b210c131a6a563d4db527c328d812ed23",
                 "shasum": ""
             },
             "require": {
@@ -2243,10 +2243,10 @@
                 "visualization"
             ],
             "support": {
-                "source": "https://github.com/GhentCDH/network_views/tree/1.0.0-beta1",
+                "source": "https://github.com/GhentCDH/network_views/tree/1.0.0-beta2",
                 "issues": "https://github.com/GhentCDH/network_views/issues"
             },
-            "time": "2026-10-21T13:42:04+00:00"
+            "time": "2026-10-21T15:04:57+00:00"
         },
         {
             "name": "drupal/nouislider_js",
@@ -2634,12 +2634,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GhentCDH/translation_availability.git",
-                "reference": "22d1c256025ca37f15299a31e6f792978f8515b5"
+                "reference": "0882aa15f746f84ee1632114b028e615da6e69a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GhentCDH/translation_availability/zipball/22d1c256025ca37f15299a31e6f792978f8515b5",
-                "reference": "22d1c256025ca37f15299a31e6f792978f8515b5",
+                "url": "https://api.github.com/repos/GhentCDH/translation_availability/zipball/0882aa15f746f84ee1632114b028e615da6e69a0",
+                "reference": "0882aa15f746f84ee1632114b028e615da6e69a0",
                 "shasum": ""
             },
             "require": {
@@ -2655,7 +2655,7 @@
                 "source": "https://github.com/GhentCDH/translation_availability/tree/main",
                 "issues": "https://github.com/GhentCDH/translation_availability/issues"
             },
-            "time": "2026-10-21T07:09:39+00:00"
+            "time": "2026-10-21T16:21:39+00:00"
         },
         {
             "name": "drupal/varnish_purge",
