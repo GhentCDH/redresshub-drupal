@@ -2,6 +2,7 @@
  * @file
  * Icons of the editorial admin menu (redresshub_site.links.menu.yml), as the
  * Dashboard module does: core's icons as a mask, in the color of the link.
+ * The globe, calendar and book are in icons/ (core has none).
  */
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-dashboard::before,
@@ -23,15 +24,15 @@
 }
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-website::before {
-  --icon: url("../../../../core/modules/navigation/assets/icons/navigation-content.svg");
+  --icon: url("../icons/globe.svg");
 }
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-events::before {
-  --icon: url("../../../../core/modules/navigation/assets/icons/announcements-feed-announcement.svg");
+  --icon: url("../icons/calendar.svg");
 }
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-publications::before {
-  --icon: url("../../../../core/modules/navigation/assets/icons/file.svg");
+  --icon: url("../icons/book.svg");
 }
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-research-data::before {
