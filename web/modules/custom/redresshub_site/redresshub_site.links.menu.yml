@@ -19,21 +19,21 @@ redresshub_site.editorial.website:
   weight: -90
 
 redresshub_site.editorial.website.home:
-  title: 'Home page'
+  title: 'Edit the home page'
   route_name: redresshub_site.edit_home
   menu_name: editorial
   parent: redresshub_site.editorial.website
   weight: 0
 
 redresshub_site.editorial.website.pages:
-  title: 'Static pages'
+  title: 'All static pages'
   route_name: view.content.pages
   menu_name: editorial
   parent: redresshub_site.editorial.website
   weight: 1
 
 redresshub_site.editorial.website.main_menu:
-  title: 'Main menu'
+  title: 'Edit the main menu'
   route_name: entity.menu.edit_form
   route_parameters:
     menu: main
