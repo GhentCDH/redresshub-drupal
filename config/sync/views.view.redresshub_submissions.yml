@@ -104,6 +104,11 @@ display:
       query:
         type: views_query
         options: {  }
+      use_more: true
+      use_more_always: true
+      use_more_text: 'All form submissions'
+      link_display: custom_url
+      link_url: admin/structure/webform/submissions/manage
       display_extenders: {  }
     cache_metadata:
       max-age: -1

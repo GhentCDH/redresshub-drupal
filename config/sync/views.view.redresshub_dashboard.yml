@@ -173,12 +173,22 @@ display:
         empty: false
         title: false
         pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
         style: false
         row: false
         fields: false
         sorts: false
         filters: false
         filter_groups: false
+      use_more: true
+      use_more_always: true
+      use_more_text: 'All research data'
+      link_display: custom_url
+      link_url: admin/research-data
       display_extenders: {  }
       block_description: 'Recent changes to the research data'
     cache_metadata:
@@ -187,6 +197,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
+        - user.permissions
       tags: {  }
   recent_website:
     id: recent_website
@@ -310,12 +321,22 @@ display:
         empty: false
         title: false
         pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
         style: false
         row: false
         fields: false
         sorts: false
         filters: false
         filter_groups: false
+      use_more: true
+      use_more_always: true
+      use_more_text: 'All website content'
+      link_display: custom_url
+      link_url: admin/content
       display_extenders: {  }
       block_description: 'Recent changes to the website content'
     cache_metadata:
@@ -324,4 +345,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
+        - user.permissions
       tags: {  }

@@ -11,6 +11,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Url;
 use Drupal\redresshub_site\ResearchData;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -71,6 +72,13 @@ final class ResearchDataChecksBlock extends BlockBase implements ContainerFactor
     if (count($build) === 2) {
       $build['intro'] = ['#markup' => '<p>' . $this->t('No empty fields.') . '</p>'];
     }
+    $build['more'] = [
+      '#type' => 'link',
+      '#title' => $this->t('All research data'),
+      '#url' => Url::fromRoute('view.content.research_data'),
+      '#prefix' => '<div class="more-link">',
+      '#suffix' => '</div>',
+    ];
     return $build;
   }
 

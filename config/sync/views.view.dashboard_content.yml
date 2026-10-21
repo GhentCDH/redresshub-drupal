@@ -774,9 +774,19 @@ display:
       defaults:
         empty: false
         title: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
         filters: false
         filter_groups: false
       display_description: 'Drafts by the current user.'
+      use_more: true
+      use_more_always: true
+      use_more_text: 'All unpublished content'
+      link_display: custom_url
+      link_url: 'admin/content?status=2'
       display_comment: "Block of the current user's unpublished content, for being used in the dashboard."
       display_extenders: {  }
       block_description: "Current user's drafts"
