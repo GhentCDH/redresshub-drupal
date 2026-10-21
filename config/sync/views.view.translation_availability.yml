@@ -41,7 +41,7 @@ display:
           id: bundle
           table: translation_availability
           field: bundle
-          plugin_id: standard
+          plugin_id: machine_name
           label: 'Content type'
         langcode:
           id: langcode
@@ -56,7 +56,7 @@ display:
           id: state
           table: translation_availability
           field: state
-          plugin_id: standard
+          plugin_id: machine_name
           label: State
         words:
           id: words
@@ -69,14 +69,12 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-        operations:
-          id: operations
-          table: node
-          field: operations
-          relationship: node
-          entity_type: node
-          plugin_id: entity_operations
-          label: Operations
+        operation:
+          id: operation
+          table: translation_availability
+          field: operation
+          plugin_id: translation_availability_operation
+          label: ''
       pager:
         type: full
         options:
@@ -158,7 +156,7 @@ display:
           id: langcode
           table: translation_availability
           field: langcode
-          plugin_id: language
+          plugin_id: in_operator
           operator: in
           value: {  }
           exposed: true
@@ -217,7 +215,7 @@ display:
             langcode: langcode
             state: state
             words: words
-            operations: operations
+            operation: operation
           default: title
           info:
             title:
@@ -347,7 +345,7 @@ display:
           id: langcode
           table: translation_availability
           field: langcode
-          plugin_id: language
+          plugin_id: in_operator
           operator: in
           value: {  }
           exposed: true

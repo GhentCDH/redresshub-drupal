@@ -500,7 +500,10 @@ display:
           entity_field: langcode
           plugin_id: language
           operator: in
-          value: {  }
+          value:
+            en: en
+            nl: nl
+            fr: fr
           group: 1
           exposed: true
           expose:
@@ -517,7 +520,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -849,7 +852,10 @@ display:
           entity_field: langcode
           plugin_id: language
           operator: in
-          value: {  }
+          value:
+            en: en
+            nl: nl
+            fr: fr
           group: 1
           exposed: true
           expose:
@@ -866,7 +872,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
