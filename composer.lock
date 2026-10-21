@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c82784a8ef12509fead20e3c7a6b7a9b",
+    "content-hash": "02677ed2697d2a7d2c1168312b2fcce4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2200,6 +2200,53 @@
                 "source": "https://git.drupalcode.org/project/menu_admin_per_menu",
                 "issues": "https://drupal.org/project/issues/menu_admin_per_menu"
             }
+        },
+        {
+            "name": "drupal/network_views",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GhentCDH/network_views.git",
+                "reference": "09d6df03404ffbcb5bd292fe6d017b8e52e90f04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GhentCDH/network_views/zipball/09d6df03404ffbcb5bd292fe6d017b8e52e90f04",
+                "reference": "09d6df03404ffbcb5bd292fe6d017b8e52e90f04",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "require-dev": {
+                "drupal/search_api": "^1.35"
+            },
+            "suggest": {
+                "drupal/search_api": "Network views of a Search API index (one entity type per index)."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Views style that displays the result rows as a network graph (Cytoscape.js).",
+            "keywords": [
+                "cytoscape",
+                "drupal",
+                "graph",
+                "network",
+                "views",
+                "visualization"
+            ],
+            "support": {
+                "source": "https://github.com/GhentCDH/network_views/tree/1.0.0-beta1",
+                "issues": "https://github.com/GhentCDH/network_views/issues"
+            },
+            "time": "2026-10-21T13:42:04+00:00"
         },
         {
             "name": "drupal/nouislider_js",
@@ -8614,11 +8661,12 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "drupal/masquerade_toolbar": 20,
+        "drupal/network_views": 10,
         "drupal/translation_availability": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
 }

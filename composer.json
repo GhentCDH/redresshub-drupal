@@ -20,6 +20,11 @@
             "url": "https://github.com/GhentCDH/translation_availability"
         },
         {
+            "name": "network_views",
+            "type": "vcs",
+            "url": "https://github.com/GhentCDH/network_views"
+        },
+        {
             "name": "search_api_range_filter",
             "type": "vcs",
             "url": "https://github.com/GhentCDH/search_api_range_filter"
@@ -46,6 +51,7 @@
         "drupal/masquerade_toolbar": "dev-main",
         "drupal/memcache": "^2.9",
         "drupal/menu_admin_per_menu": "^1.7",
+        "drupal/network_views": "^1.0@beta",
         "drupal/optional_end_date": "^2.0",
         "drupal/paragraphs": "^1.19",
         "drupal/purge": "^3.7",
