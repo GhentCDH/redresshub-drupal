@@ -2,7 +2,7 @@
 /**
  * @file
  * Language switcher: a button with the current language, which opens a menu
- * with the languages.
+ * with the other language codes (the name is in the title of each link).
  *
  * The links are keyed by langcode; current_langcode is set in
  * redresshub_preprocess_links__language_block().
@@ -24,10 +24,10 @@
                the languages a page is not available in). #}
             {% set attributes = item.link['#options'].attributes ?? {} %}
             {% set classes = (attributes.class ?? [])|merge(['language-switcher__link'])|merge(langcode == current_langcode ? ['is-current'] : []) %}
-            {% set label = {'#type': 'inline_template', '#template': '<span class="language-switcher__code">{{ code }}</span> {{ name }}', '#context': {'code': langcode|upper, 'name': item.text}} %}
+            {% set label = langcode|upper %}
             {{ item.link|merge({'#title': label, '#options': item.link['#options']|merge({'attributes': attributes|merge({'lang': langcode, 'hreflang': langcode, 'title': attributes.title ?? item.text, 'class': classes})|merge(langcode == current_langcode ? {'aria-current': 'true'} : {})})}) }}
           {% else %}
-            <span class="language-switcher__link" lang="{{ langcode }}"><span class="language-switcher__code">{{ langcode|upper }}</span> {{ item.text }}</span>
+            <span class="language-switcher__link" lang="{{ langcode }}">{{ langcode|upper }}</span>
           {% endif %}
         </li>
       {% endfor %}
