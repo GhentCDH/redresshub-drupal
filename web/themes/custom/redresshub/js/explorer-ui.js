@@ -20,7 +20,23 @@
     panel.querySelector('.explorer__panel-body').innerHTML = html;
     panel.hidden = false;
     panel.scrollTop = 0;
+    // Next to a list or the network, a short result grows with the panel
+    // (no scrollbar in the panel); the map keeps its height.
+    const stage = panel.parentElement;
+    stage.style.minHeight = '';
+    if (stage.querySelector('.explorer__result--list')) {
+      // Plus the border of the stage.
+      stage.style.minHeight = `${panel.scrollHeight + stage.offsetHeight - stage.clientHeight}px`;
+    }
     panel.querySelector('.explorer__panel-close').focus({ preventScroll: true });
+  };
+
+  /**
+   * Closes the side panel, and gives the stage its own height again.
+   */
+  const closePanel = (panel) => {
+    panel.hidden = true;
+    panel.parentElement.style.minHeight = '';
   };
 
   // A popup of a map marker opens in the side panel instead.
@@ -105,7 +121,7 @@
             openPanel(tile.closest('.explorer__view'), template ? template.innerHTML : '');
           }
           if (event.target.closest('.explorer__panel-close')) {
-            event.target.closest('.explorer__panel').hidden = true;
+            closePanel(event.target.closest('.explorer__panel'));
           }
         });
         // A node of the network (network_views) opens its content in the
@@ -129,7 +145,7 @@
         explorer.addEventListener('keydown', (event) => {
           if (event.key === 'Escape') {
             closeMenus();
-            explorer.querySelectorAll('.explorer__panel').forEach((panel) => { panel.hidden = true; });
+            explorer.querySelectorAll('.explorer__panel').forEach(closePanel);
           }
         });
       });
