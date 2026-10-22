@@ -1,0 +1,13 @@
+paragraph_group:
+  admin_titles_boxes:
+    tab: '1'
+  details_widget_boxes:
+    nodehomefield_cards: '1'
+    nodepagefield_content: '1'
+    nodepagefield_tabs: '1'
+    paragraphicon_rowfield_items: '1'
+    paragraphtabfield_content: '1'
+  field_groups_boxes: {  }
+  theme_mods_boxes:
+    full_width_forms: '0'
+    sidebar_config: '0'

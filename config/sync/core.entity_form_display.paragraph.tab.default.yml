@@ -4,17 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.tab.field_content
-    - field.field.paragraph.tab.field_title
+    - field.field.paragraph.tab.paragroup_admin_title
     - paragraphs.paragraphs_type.tab
   module:
-    - paragraphs
+    - paragraph_group
 id: paragraph.tab.default
 targetEntityType: paragraph
 bundle: tab
 mode: default
 content:
   field_content:
-    type: paragraphs
+    type: paragraph_group_details_widget
     weight: 2
     region: content
     settings:
@@ -28,12 +28,13 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
       features:
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+        add_above: '0'
+        convert: '0'
+        duplicate: '0'
     third_party_settings: {  }
-  field_title:
+  paragroup_admin_title:
     type: string_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60

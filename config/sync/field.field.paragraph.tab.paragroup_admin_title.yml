@@ -1,16 +1,16 @@
-uuid: cd928461-e41e-4aa6-ac36-62ee4ec0dfbb
+uuid: 4ee5718c-09fe-41c7-9d20-e3df23877c52
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_title
+    - field.storage.paragraph.paragroup_admin_title
     - paragraphs.paragraphs_type.tab
-id: paragraph.tab.field_title
-field_name: field_title
+id: paragraph.tab.paragroup_admin_title
+field_name: paragroup_admin_title
 entity_type: paragraph
 bundle: tab
 label: 'Tab title'
-description: ''
+description: 'The label of the tab.'
 required: true
 translatable: true
 default_value: {  }

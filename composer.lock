@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02677ed2697d2a7d2c1168312b2fcce4",
+    "content-hash": "a4d364e91e118244df49c8d1c0daedab",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2319,6 +2319,60 @@
             "homepage": "https://www.drupal.org/project/optional_end_date",
             "support": {
                 "source": "https://git.drupalcode.org/project/optional_end_date"
+            }
+        },
+        {
+            "name": "drupal/paragraph_group",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/paragraph_group.git",
+                "reference": "4.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/paragraph_group-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "5f8200819e215add3680c7d1b05ebe1700176eae"
+            },
+            "require": {
+                "drupal/core": "^10.2 || ^11",
+                "drupal/field_group": "^3.2 || ^4.0",
+                "drupal/paragraphs": "^1.12"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0",
+                    "datestamp": "1774167833",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\paragraph_group\\": "src/"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Rosenkranz",
+                    "homepage": "https://drupal.org/project/paragraph_group",
+                    "email": "danny.paragraphgroup@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Adds field grouping and accordion functionality to Paragraphs module.",
+            "homepage": "https://drupal.org/project/paragraph_group",
+            "support": {
+                "source": "https://git.drupalcode.org/project/paragraph_group",
+                "issues": "https://drupal.org/project/issues/paragraph_group"
             }
         },
         {
@@ -8666,7 +8720,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }

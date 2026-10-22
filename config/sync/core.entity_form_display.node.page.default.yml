@@ -9,7 +9,7 @@ dependencies:
     - node.type.page
   module:
     - field_group
-    - paragraphs
+    - paragraph_group
     - path
 third_party_settings:
   field_group:
@@ -17,7 +17,7 @@ third_party_settings:
       children:
         - title
         - field_title_alignment
-      label: 'Key data'
+      label: Title
       region: content
       parent_name: group_tabs
       weight: 0
@@ -68,7 +68,6 @@ third_party_settings:
         - created
         - path
         - langcode
-        - translation
       label: Metadata
       region: content
       parent_name: group_tabs
@@ -114,7 +113,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_content:
-    type: paragraphs
+    type: paragraph_group_details_widget
     weight: 2
     region: content
     settings:
@@ -128,11 +127,12 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
       features:
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+        add_above: '0'
+        convert: '0'
+        duplicate: '0'
     third_party_settings: {  }
   field_tabs:
-    type: paragraphs
+    type: paragraph_group_details_widget
     weight: 3
     region: content
     settings:
@@ -144,10 +144,11 @@ content:
       closed_mode_threshold: 0
       add_mode: button
       form_display_mode: default
-      default_paragraph_type: _none
+      default_paragraph_type: tab
       features:
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+        add_above: '0'
+        convert: '0'
+        duplicate: '0'
     third_party_settings: {  }
   field_title_alignment:
     type: options_buttons

@@ -6,20 +6,20 @@ dependencies:
     - field.field.paragraph.icon_row.field_items
     - paragraphs.paragraphs_type.icon_row
   module:
-    - paragraphs
+    - paragraph_group
 id: paragraph.icon_row.default
 targetEntityType: paragraph
 bundle: icon_row
 mode: default
 content:
   field_items:
-    type: paragraphs
+    type: paragraph_group_details_widget
     weight: 1
     region: content
     settings:
       title: item
       title_plural: items
-      edit_mode: closed
+      edit_mode: open
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
