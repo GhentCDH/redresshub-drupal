@@ -44,9 +44,11 @@
   color: var(--crimson);
 }
 
-.button.button--outline:hover {
+.button.button--outline:hover,
+.button.button--outline:focus-visible {
   border-color: var(--crimson);
   background: var(--crimson);
+  color: var(--white);
 }
 
 .button--small {
