@@ -383,9 +383,6 @@ display:
           operator: in
           value:
             initiative: initiative
-            organisation: organisation
-            location: location
-            fragment: fragment
           exposed: true
           expose:
             operator_id: type_op
@@ -404,9 +401,6 @@ display:
           operator: in
           value:
             initiative: initiative
-            organisation: organisation
-            location: location
-            fragment: fragment
           group: 1
           exposed: false
       filter_groups:
@@ -496,6 +490,7 @@ display:
           operator: in
           value:
             event: event
+            fragment: fragment
             home: home
             page: page
             publication: publication
@@ -517,6 +512,7 @@ display:
           operator: in
           value:
             event: event
+            fragment: fragment
             home: home
             page: page
             publication: publication

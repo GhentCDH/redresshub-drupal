@@ -22,14 +22,13 @@ redresshub_site.research_data_add_location:
   weight: 2
   appears_on:
     - view.content.research_data
-redresshub_site.research_data_add_fragment:
-  title: 'Add fragment'
+redresshub_site.fragments_add:
+  title: 'Add a fragment'
   route_name: node.add
   route_parameters:
     node_type: fragment
-  weight: 3
   appears_on:
-    - view.content.research_data
+    - view.content.fragments
 redresshub_site.pages_add:
   title: 'Add a page'
   route_name: node.add

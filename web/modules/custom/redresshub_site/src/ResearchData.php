@@ -12,7 +12,7 @@ namespace Drupal\redresshub_site;
  */
 final class ResearchData {
 
-  public const TYPES = ['initiative', 'organisation', 'location', 'fragment'];
+  public const TYPES = ['initiative', 'organisation', 'location'];
 
   /**
    * What research data should have: content type, field and what is missing.
@@ -39,7 +39,6 @@ final class ResearchData {
     'places',
     'historical_era',
     'un_category',
-    'fragment_type',
   ];
 
 }

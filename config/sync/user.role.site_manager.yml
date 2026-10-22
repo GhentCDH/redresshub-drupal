@@ -59,6 +59,7 @@ permissions:
   - 'access toolbar'
   - 'access user profiles'
   - 'access webform overview'
+  - 'administer footer menu items'
   - 'administer main menu items'
   - 'administer nodes'
   - 'administer site configuration'

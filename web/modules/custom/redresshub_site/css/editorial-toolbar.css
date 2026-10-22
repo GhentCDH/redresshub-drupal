@@ -2,14 +2,13 @@
  * @file
  * Icons of the editorial admin menu (redresshub_site.links.menu.yml), as the
  * Dashboard module does: core's icons as a mask, in the color of the link.
- * The globe, calendar and book are in icons/ (core has none).
+ * The globe and the envelope are in icons/ (core has none).
  */
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-dashboard::before,
-.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-website::before,
-.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-events::before,
-.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-publications::before,
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-web-content::before,
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-research-data::before,
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-messages::before,
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-users::before,
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-settings::before {
   mask-image: var(--icon);
@@ -23,20 +22,16 @@
   --icon: url("../../../contrib/dashboard/icons/dashboard.svg");
 }
 
-.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-website::before {
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-web-content::before {
   --icon: url("../icons/globe.svg");
-}
-
-.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-events::before {
-  --icon: url("../icons/calendar.svg");
-}
-
-.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-publications::before {
-  --icon: url("../icons/book.svg");
 }
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-research-data::before {
   --icon: url("../../../../core/modules/navigation/assets/icons/database.svg");
+}
+
+.toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-messages::before {
+  --icon: url("../icons/mail.svg");
 }
 
 .toolbar .toolbar-icon.toolbar-icon-redresshub-site-editorial-users::before {

@@ -1,4 +1,4 @@
-uuid: 7ed938b6-836b-480d-815f-49c62791b151
+uuid: 13eaec3a-e1f1-4f47-8705-2a655bfea612
 langcode: en
 status: true
 dependencies:
@@ -146,7 +146,6 @@ display:
             initiative: initiative
             organisation: organisation
             location: location
-            fragment: fragment
       style:
         type: table
         options:
@@ -293,6 +292,7 @@ display:
           operator: in
           value:
             event: event
+            fragment: fragment
             home: home
             page: page
             publication: publication

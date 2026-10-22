@@ -11,108 +11,122 @@ redresshub_site.editorial.dashboard:
   menu_name: editorial
   weight: -100
 
-redresshub_site.editorial.website:
-  title: 'Website'
-  description: 'The pages of the website, and what goes with them.'
+redresshub_site.editorial.web_content:
+  title: 'Web content'
+  description: 'The content of the website: pages, events, publications, fragments and media.'
   route_name: view.content.pages
   menu_name: editorial
   weight: -90
 
-redresshub_site.editorial.website.home:
+redresshub_site.editorial.web_content.home:
   title: 'Home page'
   route_name: redresshub_site.edit_home
   options:
     # Shown after the link on the dashboard cards.
     card_hint: edit
   menu_name: editorial
-  parent: redresshub_site.editorial.website
+  parent: redresshub_site.editorial.web_content
   weight: 0
 
-redresshub_site.editorial.website.pages:
+redresshub_site.editorial.web_content.pages:
   title: 'Static pages'
   route_name: view.content.pages
-  options:
-    # Shown after the link on the dashboard cards.
-    card_hint: overview
   menu_name: editorial
-  parent: redresshub_site.editorial.website
+  parent: redresshub_site.editorial.web_content
   weight: 1
 
-redresshub_site.editorial.website.main_menu:
-  title: 'Main menu'
-  route_name: entity.menu.edit_form
-  route_parameters:
-    menu: main
-  options:
-    # Shown after the link on the dashboard cards.
-    card_hint: edit
+redresshub_site.editorial.web_content.events:
+  title: 'Events'
+  route_name: view.content.events
   menu_name: editorial
-  parent: redresshub_site.editorial.website
+  parent: redresshub_site.editorial.web_content
   weight: 2
 
-redresshub_site.editorial.website.media:
+redresshub_site.editorial.web_content.publications:
+  title: 'Publications'
+  route_name: view.content.publications
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content
+  weight: 3
+
+redresshub_site.editorial.web_content.fragments:
+  title: 'Fragments'
+  route_name: view.content.fragments
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content
+  weight: 4
+
+redresshub_site.editorial.web_content.fragments.overview:
+  title: 'All fragments'
+  route_name: view.content.fragments
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content.fragments
+  weight: 0
+
+redresshub_site.editorial.web_content.fragments.types:
+  title: 'Fragment types'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: fragment_type
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content.fragments
+  weight: 1
+
+redresshub_site.editorial.web_content.media:
   title: 'Media library'
   route_name: entity.media.collection
   menu_name: editorial
-  parent: redresshub_site.editorial.website
-  weight: 3
+  parent: redresshub_site.editorial.web_content
+  weight: 5
 
-redresshub_site.editorial.website.messages:
-  title: 'Contact messages'
-  route_name: entity.webform_submission.collection
-  menu_name: editorial
-  parent: redresshub_site.editorial.website
-  weight: 4
-
-redresshub_site.editorial.events:
-  title: 'Events'
-  description: 'Moments ahead: activities, lectures and other events.'
-  route_name: view.content.events
-  menu_name: editorial
-  weight: -85
-
-redresshub_site.editorial.events.overview:
-  title: 'All events'
-  route_name: view.content.events
-  menu_name: editorial
-  parent: redresshub_site.editorial.events
-  weight: 0
-
-redresshub_site.editorial.events.add:
-  title: 'Add an event'
+redresshub_site.editorial.web_content.add:
+  title: 'Add'
   route_name: node.add
   route_parameters:
     node_type: event
   menu_name: editorial
-  parent: redresshub_site.editorial.events
-  weight: 1
+  parent: redresshub_site.editorial.web_content
+  weight: 6
 
-redresshub_site.editorial.publications:
-  title: 'Publications'
-  description: 'Publications from UGent Biblio: enter the ID, the rest comes from Biblio.'
-  route_name: view.content.publications
+redresshub_site.editorial.web_content.add.page:
+  title: 'Page'
+  route_name: node.add
+  route_parameters:
+    node_type: page
   menu_name: editorial
-  weight: -82
-
-redresshub_site.editorial.publications.overview:
-  title: 'All publications'
-  route_name: view.content.publications
-  menu_name: editorial
-  parent: redresshub_site.editorial.publications
+  parent: redresshub_site.editorial.web_content.add
   weight: 0
 
-redresshub_site.editorial.publications.add:
-  title: 'Add a publication'
+redresshub_site.editorial.web_content.add.event:
+  title: 'Event'
+  route_name: node.add
+  route_parameters:
+    node_type: event
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content.add
+  weight: 1
+
+redresshub_site.editorial.web_content.add.publication:
+  title: 'Publication'
   route_name: node.add
   route_parameters:
     node_type: publication
   menu_name: editorial
-  parent: redresshub_site.editorial.publications
-  weight: 1
+  parent: redresshub_site.editorial.web_content.add
+  weight: 2
+
+redresshub_site.editorial.web_content.add.fragment:
+  title: 'Fragment'
+  route_name: node.add
+  route_parameters:
+    node_type: fragment
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content.add
+  weight: 3
 
 redresshub_site.editorial.research_data:
   title: 'Research data'
-  description: 'The database: initiatives, organisations, locations and fragments.'
+  description: 'The database: initiatives, organisations and locations.'
   route_name: view.content.research_data
   menu_name: editorial
   weight: -80
@@ -159,15 +173,6 @@ redresshub_site.editorial.research_data.add.location:
   menu_name: editorial
   parent: redresshub_site.editorial.research_data.add
   weight: 2
-
-redresshub_site.editorial.research_data.add.fragment:
-  title: 'Fragment'
-  route_name: node.add
-  route_parameters:
-    node_type: fragment
-  menu_name: editorial
-  parent: redresshub_site.editorial.research_data.add
-  weight: 3
 
 redresshub_site.editorial.research_data.choice_lists:
   title: 'Choice lists'
@@ -257,14 +262,19 @@ redresshub_site.editorial.research_data.choice_lists.location_type:
   parent: redresshub_site.editorial.research_data.choice_lists
   weight: 8
 
-redresshub_site.editorial.research_data.choice_lists.fragment_type:
-  title: 'Fragment type'
-  route_name: entity.taxonomy_vocabulary.overview_form
-  route_parameters:
-    taxonomy_vocabulary: fragment_type
+redresshub_site.editorial.messages:
+  title: 'Messages'
+  description: 'Messages from visitors, sent with the contact form.'
+  route_name: entity.webform_submission.collection
   menu_name: editorial
-  parent: redresshub_site.editorial.research_data.choice_lists
-  weight: 9
+  weight: -75
+
+redresshub_site.editorial.messages.contact:
+  title: 'Contact messages'
+  route_name: entity.webform_submission.collection
+  menu_name: editorial
+  parent: redresshub_site.editorial.messages
+  weight: 0
 
 redresshub_site.editorial.users:
   title: 'Users'
@@ -289,31 +299,55 @@ redresshub_site.editorial.users.add:
 
 redresshub_site.editorial.settings:
   title: 'Settings'
-  description: 'Texts and settings of the site.'
+  description: 'The menus, texts and settings of the site.'
   route_name: system.site_information_settings
   menu_name: editorial
   weight: -60
+
+redresshub_site.editorial.settings.main_menu:
+  title: 'Main menu'
+  route_name: entity.menu.edit_form
+  route_parameters:
+    menu: main
+  options:
+    # Shown after the link on the dashboard cards.
+    card_hint: edit
+  menu_name: editorial
+  parent: redresshub_site.editorial.settings
+  weight: 0
+
+redresshub_site.editorial.settings.footer_menu:
+  title: 'Footer menu'
+  route_name: entity.menu.edit_form
+  route_parameters:
+    menu: footer
+  options:
+    # Shown after the link on the dashboard cards.
+    card_hint: edit
+  menu_name: editorial
+  parent: redresshub_site.editorial.settings
+  weight: 1
 
 redresshub_site.editorial.settings.interface_translation:
   title: 'Interface translation'
   route_name: locale.translate_page
   menu_name: editorial
   parent: redresshub_site.editorial.settings
-  weight: 0
+  weight: 2
 
 redresshub_site.editorial.settings.information:
   title: 'Site information'
   route_name: system.site_information_settings
   menu_name: editorial
   parent: redresshub_site.editorial.settings
-  weight: 1
+  weight: 3
 
 redresshub_site.editorial.settings.maintenance:
   title: 'Maintenance'
   route_name: system.performance_settings
   menu_name: editorial
   parent: redresshub_site.editorial.settings
-  weight: 2
+  weight: 4
 
 redresshub_site.editorial.settings.maintenance.cache:
   title: 'Clear the cache'
