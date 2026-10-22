@@ -6,6 +6,7 @@ namespace Drupal\redresshub_site\Hook;
 
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Hook\Order\Order;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -31,11 +32,17 @@ final class AdminHooks {
   }
 
   /**
-   * Content forms: long lists of choices in columns.
+   * Content forms: long lists of choices in columns, and only real languages.
+   *
+   * Translatable content is always in one of the site languages: no "Not
+   * specified" or "Not applicable".
    */
   #[Hook('form_node_form_alter')]
   public function nodeFormAlter(array &$form): void {
     $form['#attached']['library'][] = 'redresshub_site/forms';
+    if (isset($form['langcode']['widget'][0]['value'])) {
+      $form['langcode']['widget'][0]['value']['#languages'] = LanguageInterface::STATE_CONFIGURABLE;
+    }
   }
 
   /**

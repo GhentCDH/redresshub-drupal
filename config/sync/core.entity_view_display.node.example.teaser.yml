@@ -1,0 +1,27 @@
+uuid: feee2bd4-6da8-4e2c-b437-430152b48bf0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.example.field_content
+    - field.field.node.example.field_title_alignment
+    - node.type.example
+  module:
+    - user
+_core:
+  default_config_hash: 8BgdRtLbtQ0F__o0FHSH0Mx5fvXOra9tfT1GmNKbRYw
+id: node.example.teaser
+targetEntityType: node
+bundle: example
+mode: teaser
+content:
+  links:
+    weight: 101
+    region: content
+hidden:
+  field_content: true
+  field_tabs: true
+  field_title_alignment: true
+  langcode: true
+  search_api_excerpt: true

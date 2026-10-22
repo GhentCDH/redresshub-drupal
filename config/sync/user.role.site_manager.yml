@@ -6,6 +6,7 @@ dependencies:
     - dashboard.dashboard.site_manager
     - filter.format.basic_html
     - node.type.event
+    - node.type.example
     - node.type.fragment
     - node.type.home
     - node.type.initiative
@@ -69,6 +70,7 @@ permissions:
   - 'assign site_manager role'
   - 'create content translations'
   - 'create event content'
+  - 'create example content'
   - 'create fragment content'
   - 'create initiative content'
   - 'create location content'
@@ -90,6 +92,7 @@ permissions:
   - 'create url aliases'
   - 'delete all revisions'
   - 'delete any event content'
+  - 'delete any example content'
   - 'delete any file'
   - 'delete any fragment content'
   - 'delete any initiative content'
@@ -101,6 +104,7 @@ permissions:
   - 'delete any webform submission'
   - 'delete content translations'
   - 'delete event revisions'
+  - 'delete example revisions'
   - 'delete fragment revisions'
   - 'delete home revisions'
   - 'delete initiative revisions'
@@ -108,6 +112,7 @@ permissions:
   - 'delete organisation revisions'
   - 'delete orphan revisions'
   - 'delete own event content'
+  - 'delete own example content'
   - 'delete own files'
   - 'delete own fragment content'
   - 'delete own initiative content'
@@ -128,6 +133,7 @@ permissions:
   - 'delete terms in tags'
   - 'delete terms in un_category'
   - 'edit any event content'
+  - 'edit any example content'
   - 'edit any fragment content'
   - 'edit any home content'
   - 'edit any initiative content'
@@ -137,6 +143,7 @@ permissions:
   - 'edit any publication content'
   - 'edit any webform submission'
   - 'edit own event content'
+  - 'edit own example content'
   - 'edit own fragment content'
   - 'edit own home content'
   - 'edit own initiative content'
@@ -157,6 +164,7 @@ permissions:
   - 'edit terms in un_category'
   - 'revert all revisions'
   - 'revert event revisions'
+  - 'revert example revisions'
   - 'revert fragment revisions'
   - 'revert home revisions'
   - 'revert initiative revisions'
@@ -185,6 +193,7 @@ permissions:
   - 'view all revisions'
   - 'view any webform submission'
   - 'view event revisions'
+  - 'view example revisions'
   - 'view fragment revisions'
   - 'view home revisions'
   - 'view initiative revisions'

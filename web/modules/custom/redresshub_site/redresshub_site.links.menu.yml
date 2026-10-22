@@ -13,10 +13,17 @@ redresshub_site.editorial.dashboard:
 
 redresshub_site.editorial.web_content:
   title: 'Web content'
-  description: 'The content of the website: pages, events, publications, fragments and media.'
-  route_name: view.content.pages
+  description: 'The content of the website: pages, events, publications, fragments and examples.'
+  route_name: view.content.web_content
   menu_name: editorial
   weight: -90
+
+redresshub_site.editorial.web_content.overview:
+  title: 'All web content'
+  route_name: view.content.web_content
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content
+  weight: 0
 
 redresshub_site.editorial.web_content.home:
   title: 'Home page'
@@ -26,58 +33,7 @@ redresshub_site.editorial.web_content.home:
     card_hint: edit
   menu_name: editorial
   parent: redresshub_site.editorial.web_content
-  weight: 0
-
-redresshub_site.editorial.web_content.pages:
-  title: 'Static pages'
-  route_name: view.content.pages
-  menu_name: editorial
-  parent: redresshub_site.editorial.web_content
   weight: 1
-
-redresshub_site.editorial.web_content.events:
-  title: 'Events'
-  route_name: view.content.events
-  menu_name: editorial
-  parent: redresshub_site.editorial.web_content
-  weight: 2
-
-redresshub_site.editorial.web_content.publications:
-  title: 'Publications'
-  route_name: view.content.publications
-  menu_name: editorial
-  parent: redresshub_site.editorial.web_content
-  weight: 3
-
-redresshub_site.editorial.web_content.fragments:
-  title: 'Fragments'
-  route_name: view.content.fragments
-  menu_name: editorial
-  parent: redresshub_site.editorial.web_content
-  weight: 4
-
-redresshub_site.editorial.web_content.fragments.overview:
-  title: 'All fragments'
-  route_name: view.content.fragments
-  menu_name: editorial
-  parent: redresshub_site.editorial.web_content.fragments
-  weight: 0
-
-redresshub_site.editorial.web_content.fragments.types:
-  title: 'Fragment types'
-  route_name: entity.taxonomy_vocabulary.overview_form
-  route_parameters:
-    taxonomy_vocabulary: fragment_type
-  menu_name: editorial
-  parent: redresshub_site.editorial.web_content.fragments
-  weight: 1
-
-redresshub_site.editorial.web_content.media:
-  title: 'Media library'
-  route_name: entity.media.collection
-  menu_name: editorial
-  parent: redresshub_site.editorial.web_content
-  weight: 5
 
 redresshub_site.editorial.web_content.add:
   title: 'Add'
@@ -86,7 +42,7 @@ redresshub_site.editorial.web_content.add:
     node_type: event
   menu_name: editorial
   parent: redresshub_site.editorial.web_content
-  weight: 6
+  weight: 2
 
 redresshub_site.editorial.web_content.add.page:
   title: 'Page'
@@ -123,6 +79,31 @@ redresshub_site.editorial.web_content.add.fragment:
   menu_name: editorial
   parent: redresshub_site.editorial.web_content.add
   weight: 3
+
+redresshub_site.editorial.web_content.add.example:
+  title: 'Example'
+  route_name: node.add
+  route_parameters:
+    node_type: example
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content.add
+  weight: 4
+
+redresshub_site.editorial.web_content.choice_lists:
+  title: 'Choice lists'
+  route_name: redresshub_site.web_content_choice_lists
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content
+  weight: 3
+
+redresshub_site.editorial.web_content.choice_lists.fragment_type:
+  title: 'Fragment type'
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: fragment_type
+  menu_name: editorial
+  parent: redresshub_site.editorial.web_content.choice_lists
+  weight: 0
 
 redresshub_site.editorial.research_data:
   title: 'Research data'

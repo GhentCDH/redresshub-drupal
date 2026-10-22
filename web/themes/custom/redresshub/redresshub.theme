@@ -35,11 +35,11 @@ function redresshub_preprocess_html(array &$variables): void {
   }
 
   $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node instanceof NodeInterface && $node->bundle() === 'page' && \Drupal::routeMatch()->getRouteName() === 'entity.node.canonical') {
+  if ($node instanceof NodeInterface && in_array($node->bundle(), ['page', 'example'], TRUE) && \Drupal::routeMatch()->getRouteName() === 'entity.node.canonical') {
     if ($node->get('field_title_alignment')->value === 'center') {
       $variables['attributes']['class'][] = 'page-title--center';
     }
-    if (!$node->get('field_tabs')->isEmpty()) {
+    if ($node->hasField('field_tabs') && !$node->get('field_tabs')->isEmpty()) {
       $variables['attributes']['class'][] = 'page--has-tabs';
     }
   }
@@ -73,9 +73,12 @@ function redresshub_preprocess_paragraph(array &$variables): void {
   $variables['icon_url'] = _redresshub_icon_url($paragraph);
 
   // Anchor for links like /about#user-manual, from the English title so it
-  // is the same in every language.
-  if ($paragraph->hasField('field_title') && ($title = $paragraph->getUntranslated()->get('field_title')->value)) {
-    $variables['attributes']['id'] = trim(preg_replace('/[^a-z0-9]+/', '-', mb_strtolower($title)), '-');
+  // is the same in every language (of a tab: its administrative title).
+  foreach (['field_title', 'paragroup_admin_title'] as $title_field) {
+    if ($paragraph->hasField($title_field) && ($title = $paragraph->getUntranslated()->get($title_field)->value)) {
+      $variables['attributes']['id'] = trim(preg_replace('/[^a-z0-9]+/', '-', mb_strtolower($title)), '-');
+      break;
+    }
   }
   foreach (['field_alignment' => 'alignment', 'field_button_style' => 'button_style', 'field_background' => 'background'] as $field => $variable) {
     if ($paragraph->hasField($field)) {

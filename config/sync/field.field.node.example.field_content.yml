@@ -1,0 +1,64 @@
+uuid: b97dfa1a-77b3-4137-b880-f89e20a60330
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.example
+    - paragraphs.paragraphs_type.form
+    - paragraphs.paragraphs_type.icon_row
+    - paragraphs.paragraphs_type.intro
+    - paragraphs.paragraphs_type.media
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.view
+  module:
+    - entity_reference_revisions
+id: node.example.field_content
+field_name: field_content
+entity_type: node
+bundle: example
+label: Content
+description: 'Shown below each other.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text: text
+      intro: intro
+      quote: quote
+      media: media
+      icon_row: icon_row
+      view: view
+      form: form
+    negate: 0
+    target_bundles_drag_drop:
+      form:
+        weight: 7
+        enabled: true
+      icon_row:
+        weight: 4
+        enabled: true
+      intro:
+        weight: 1
+        enabled: true
+      media:
+        weight: 3
+        enabled: true
+      publications:
+        weight: 6
+        enabled: true
+      quote:
+        weight: 2
+        enabled: true
+      text:
+        weight: 0
+        enabled: true
+      view:
+        weight: 5
+        enabled: true
+field_type: entity_reference_revisions

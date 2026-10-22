@@ -1,52 +1,71 @@
-redresshub_site.research_data_add_initiative:
-  title: 'Add initiative'
-  route_name: node.add
-  route_parameters:
-    node_type: initiative
-  weight: 0
-  appears_on:
-    - view.content.research_data
-redresshub_site.research_data_add_organisation:
-  title: 'Add organisation'
-  route_name: node.add
-  route_parameters:
-    node_type: organisation
-  weight: 1
-  appears_on:
-    - view.content.research_data
-redresshub_site.research_data_add_location:
-  title: 'Add location'
-  route_name: node.add
-  route_parameters:
-    node_type: location
-  weight: 2
-  appears_on:
-    - view.content.research_data
-redresshub_site.fragments_add:
-  title: 'Add a fragment'
-  route_name: node.add
-  route_parameters:
-    node_type: fragment
-  appears_on:
-    - view.content.fragments
-redresshub_site.pages_add:
+redresshub_site.web_content_add_page:
   title: 'Add a page'
   route_name: node.add
   route_parameters:
     node_type: page
+  weight: 0
   appears_on:
-    - view.content.pages
-redresshub_site.events_add:
+    - view.content.web_content
+
+redresshub_site.web_content_add_event:
   title: 'Add an event'
   route_name: node.add
   route_parameters:
     node_type: event
+  weight: 1
   appears_on:
-    - view.content.events
-redresshub_site.publications_add:
+    - view.content.web_content
+
+redresshub_site.web_content_add_publication:
   title: 'Add a publication'
   route_name: node.add
   route_parameters:
     node_type: publication
+  weight: 2
   appears_on:
-    - view.content.publications
+    - view.content.web_content
+
+redresshub_site.web_content_add_fragment:
+  title: 'Add a fragment'
+  route_name: node.add
+  route_parameters:
+    node_type: fragment
+  weight: 3
+  appears_on:
+    - view.content.web_content
+
+redresshub_site.web_content_add_example:
+  title: 'Add an example'
+  route_name: node.add
+  route_parameters:
+    node_type: example
+  weight: 4
+  appears_on:
+    - view.content.web_content
+
+redresshub_site.research_data_add_initiative:
+  title: 'Add an initiative'
+  route_name: node.add
+  route_parameters:
+    node_type: initiative
+  weight: 4
+  appears_on:
+    - view.content.research_data
+
+redresshub_site.research_data_add_organisation:
+  title: 'Add an organisation'
+  route_name: node.add
+  route_parameters:
+    node_type: organisation
+  weight: 5
+  appears_on:
+    - view.content.research_data
+
+redresshub_site.research_data_add_location:
+  title: 'Add a location'
+  route_name: node.add
+  route_parameters:
+    node_type: location
+  weight: 6
+  appears_on:
+    - view.content.research_data
