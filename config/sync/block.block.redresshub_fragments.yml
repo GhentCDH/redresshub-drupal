@@ -1,0 +1,29 @@
+uuid: 0ae34c40-7407-4f58-98ba-89f0b2adf1f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.fragments
+  module:
+    - system
+    - views
+  theme:
+    - redresshub
+id: redresshub_fragments
+theme: redresshub
+region: content
+weight: 20
+provider: null
+plugin: 'views_block:fragments-block'
+settings:
+  id: 'views_block:fragments-block'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /uncharted
