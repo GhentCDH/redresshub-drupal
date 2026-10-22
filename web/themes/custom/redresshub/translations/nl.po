@@ -121,6 +121,12 @@ msgid_plural "@count keywords"
 msgstr[0] "1 trefwoord"
 msgstr[1] "@count trefwoorden"
 
+msgid "Filter the list"
+msgstr "Filter de lijst"
+
+msgid "Filter the network"
+msgstr "Filter het netwerk"
+
 msgid "Filter the map"
 msgstr "Filter de kaart"
 

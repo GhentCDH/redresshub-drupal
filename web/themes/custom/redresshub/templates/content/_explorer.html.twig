@@ -11,7 +11,9 @@
   <div class="explorer__bar">
     <button type="button" class="explorer__bar-button explorer__filter-toggle" aria-expanded="false" aria-controls="explorer-filters">
       <span class="icon icon--sliders-horizontal" aria-hidden="true"></span>
-      <span class="explorer__filter-label">{{ 'Filter the map'|t }}</span>
+      <span class="explorer__filter-label">
+        {%- if current starts with 'list' %}{{ 'Filter the list'|t }}{% elseif current == 'network' %}{{ 'Filter the network'|t }}{% else %}{{ 'Filter the map'|t }}{% endif -%}
+      </span>
       {% if active_filters %}<span class="explorer__count">{{ active_filters }}</span>{% endif %}
       <span class="icon icon--chevron-down explorer__chevron" aria-hidden="true"></span>
     </button>
