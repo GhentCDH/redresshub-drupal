@@ -2042,12 +2042,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GhentCDH/masquerade_toolbar.git",
-                "reference": "d89cd5322b5d739f9b83bff75aa1c96a96a39158"
+                "reference": "081ad73dc5417a91d0defa73c8c4d8b13b94a1c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GhentCDH/masquerade_toolbar/zipball/d89cd5322b5d739f9b83bff75aa1c96a96a39158",
-                "reference": "d89cd5322b5d739f9b83bff75aa1c96a96a39158",
+                "url": "https://api.github.com/repos/GhentCDH/masquerade_toolbar/zipball/081ad73dc5417a91d0defa73c8c4d8b13b94a1c1",
+                "reference": "081ad73dc5417a91d0defa73c8c4d8b13b94a1c1",
                 "shasum": ""
             },
             "require": {
@@ -2063,7 +2063,7 @@
                 "source": "https://github.com/GhentCDH/masquerade_toolbar/tree/main",
                 "issues": "https://github.com/GhentCDH/masquerade_toolbar/issues"
             },
-            "time": "2026-10-21T09:16:10+00:00"
+            "time": "2026-10-22T16:25:31+00:00"
         },
         {
             "name": "drupal/memcache",
@@ -2688,12 +2688,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GhentCDH/translation_availability.git",
-                "reference": "0882aa15f746f84ee1632114b028e615da6e69a0"
+                "reference": "944a9b154abb4aa5fd01f07a119107d367bba121"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GhentCDH/translation_availability/zipball/0882aa15f746f84ee1632114b028e615da6e69a0",
-                "reference": "0882aa15f746f84ee1632114b028e615da6e69a0",
+                "url": "https://api.github.com/repos/GhentCDH/translation_availability/zipball/944a9b154abb4aa5fd01f07a119107d367bba121",
+                "reference": "944a9b154abb4aa5fd01f07a119107d367bba121",
                 "shasum": ""
             },
             "require": {
@@ -2709,7 +2709,7 @@
                 "source": "https://github.com/GhentCDH/translation_availability/tree/main",
                 "issues": "https://github.com/GhentCDH/translation_availability/issues"
             },
-            "time": "2026-10-21T16:21:39+00:00"
+            "time": "2026-10-21T22:54:58+00:00"
         },
         {
             "name": "drupal/varnish_purge",
