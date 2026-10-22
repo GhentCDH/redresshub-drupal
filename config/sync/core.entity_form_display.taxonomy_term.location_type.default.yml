@@ -1,0 +1,45 @@
+uuid: fee1f244-3282-4b3f-ad50-cba6ecaab200
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.location_type
+  module:
+    - text
+id: taxonomy_term.location_type.default
+targetEntityType: taxonomy_term
+bundle: location_type
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  path: true

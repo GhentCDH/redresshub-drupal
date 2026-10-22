@@ -7,3 +7,8 @@ dashboard:
   css:
     theme:
       css/dashboard.css: {}
+
+forms:
+  css:
+    theme:
+      css/forms.css: {}

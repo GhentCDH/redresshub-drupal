@@ -10,7 +10,7 @@ field_name: field_place_certain
 entity_type: node
 bundle: initiative
 label: 'Place is certain'
-description: ''
+description: 'Untick when the place is not certain.'
 required: false
 translatable: false
 default_value:

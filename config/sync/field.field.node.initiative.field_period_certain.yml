@@ -10,7 +10,7 @@ field_name: field_period_certain
 entity_type: node
 bundle: initiative
 label: 'Period is certain'
-description: ''
+description: 'Untick when the period is an estimate.'
 required: false
 translatable: false
 default_value:

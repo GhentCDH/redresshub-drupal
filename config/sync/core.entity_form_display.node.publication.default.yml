@@ -14,6 +14,58 @@ dependencies:
     - field.field.node.publication.field_volume
     - field.field.node.publication.field_year
     - node.type.publication
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_key:
+      children:
+        - field_biblio_id
+      label: 'Key data'
+      region: content
+      parent_name: group_tabs
+      weight: 0
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+        required_fields: true
+    group_metadata:
+      children:
+        - translation
+      label: Metadata
+      region: content
+      parent_name: group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_tabs:
+      children:
+        - group_key
+        - group_metadata
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: -100
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        direction: horizontal
+        width_breakpoint: 640
 id: node.publication.default
 targetEntityType: node
 bundle: publication

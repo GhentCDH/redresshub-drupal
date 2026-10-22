@@ -1,0 +1,18 @@
+/**
+ * @file
+ * Content forms: long lists of choices in columns.
+ */
+
+.field--name-field-keywords .form-checkboxes,
+.field--name-field-initiative-type .form-checkboxes,
+.field--name-field-sector .form-checkboxes {
+  columns: 3 14rem;
+  column-gap: 2rem;
+}
+
+.field--name-field-keywords .form-checkboxes .form-item,
+.field--name-field-initiative-type .form-checkboxes .form-item,
+.field--name-field-sector .form-checkboxes .form-item {
+  margin-block: 0 0.5rem;
+  break-inside: avoid;
+}

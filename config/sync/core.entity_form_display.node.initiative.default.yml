@@ -19,9 +19,138 @@ dependencies:
     - node.type.initiative
   module:
     - datetime_range
+    - field_group
     - link
     - path
     - text
+third_party_settings:
+  field_group:
+    group_when_and_where:
+      children:
+        - field_period
+        - field_period_certain
+        - field_place
+        - field_place_certain
+      label: 'When and where'
+      region: content
+      parent_name: group_key
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_classification:
+      children:
+        - field_initiative_type
+        - field_injustice_type
+        - field_un_category
+        - field_historical_era
+        - field_keywords
+      label: Classification
+      region: content
+      parent_name: group_key
+      weight: 11
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_related:
+      children:
+        - field_organisations
+        - field_predecessor
+      label: Related
+      region: content
+      parent_name: group_key
+      weight: 14
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_key:
+      children:
+        - title
+        - group_when_and_where
+        - group_classification
+        - group_related
+      label: 'Key data'
+      region: content
+      parent_name: group_tabs
+      weight: 0
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+        required_fields: true
+    group_content:
+      children:
+        - field_short_description
+        - field_resources
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_metadata:
+      children:
+        - uid
+        - created
+        - path
+        - langcode
+        - translation
+      label: Metadata
+      region: content
+      parent_name: group_tabs
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_tabs:
+      children:
+        - group_key
+        - group_content
+        - group_metadata
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: -100
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        direction: horizontal
+        width_breakpoint: 640
 id: node.initiative.default
 targetEntityType: node
 bundle: initiative
@@ -29,58 +158,35 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   field_historical_era:
     type: options_buttons
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_initiative_type:
     type: options_buttons
-    weight: 2
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_injustice_type:
     type: options_buttons
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_keywords:
     type: options_buttons
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_organisations:
-    type: entity_reference_autocomplete
-    weight: 5
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_period:
-    type: daterange_default
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_period_certain:
-    type: boolean_checkbox
-    weight: 11
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_place:
+  field_organisations:
     type: entity_reference_autocomplete
     weight: 12
     region: content
@@ -90,16 +196,39 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_period:
+    type: daterange_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_period_certain:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_place:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_place_certain:
     type: boolean_checkbox
-    weight: 13
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_predecessor:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -109,7 +238,7 @@ content:
     third_party_settings: {  }
   field_resources:
     type: link_default
-    weight: 6
+    weight: 16
     region: content
     settings:
       placeholder_url: ''
@@ -117,7 +246,7 @@ content:
     third_party_settings: {  }
   field_short_description:
     type: text_textarea
-    weight: 1
+    weight: 15
     region: content
     settings:
       rows: 5
@@ -125,20 +254,20 @@ content:
     third_party_settings: {  }
   field_un_category:
     type: options_buttons
-    weight: 3
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 20
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -151,7 +280,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -159,7 +288,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS

@@ -31,6 +31,14 @@ final class AdminHooks {
   }
 
   /**
+   * Content forms: long lists of choices in columns.
+   */
+  #[Hook('form_node_form_alter')]
+  public function nodeFormAlter(array &$form): void {
+    $form['#attached']['library'][] = 'redresshub_site/forms';
+  }
+
+  /**
    * After logging in, the front page (not the dashboard, as Dashboard does).
    *
    * Runs before Dashboard: it leaves a destination that is set already.

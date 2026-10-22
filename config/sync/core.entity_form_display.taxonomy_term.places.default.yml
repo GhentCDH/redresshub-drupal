@@ -6,8 +6,7 @@ dependencies:
     - field.field.taxonomy_term.places.field_coordinates
     - taxonomy.vocabulary.places
   module:
-    - geofield
-    - path
+    - leaflet
     - text
 id: taxonomy_term.places.default
 targetEntityType: taxonomy_term
@@ -23,11 +22,75 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_coordinates:
-    type: geofield_latlon
+    type: leaflet_widget_default
     weight: 1
     region: content
     settings:
-      html5_geolocation: false
+      geometry_validation: false
+      map:
+        leaflet_map: redresshub
+        height: 360
+        auto_center: 1
+        map_position:
+          force: false
+          center:
+            lat: 50.85
+            lon: 4.35
+          zoomControlPosition: topleft
+          zoom: 8
+          minZoom: 1
+          maxZoom: 18
+          zoomFiner: 0
+        scroll_zoom_enabled: 0
+      input:
+        show: false
+        readonly: false
+      toolbar:
+        position: topright
+        marker: defaultMarker
+        drawPolyline: false
+        drawRectangle: false
+        drawPolygon: false
+        drawCircle: false
+        drawText: false
+        editMode: false
+        dragMode: true
+        cutPolygon: false
+        removalMode: true
+        rotateMode: false
+      reset_map:
+        control: false
+        options: '{"position": "topleft", "title": "Reset View"}'
+      map_scale:
+        control: false
+        options: '{"position":"bottomright","maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":false}'
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      feature_properties:
+        values: ''
+      locate:
+        control: false
+        options: '{"position": "topright", "setView": "untilPanOrZoom", "returnToPrevBounds":true, "keepCurrentZoomLevel": true, "strings": {"title": "Locate my position"}}'
+        automatic: false
+      geocoder:
+        control: false
+        settings:
+          popup: false
+          position: topright
+          input_size: 20
+          providers: {  }
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          options: ''
+      geojson_overlays:
+        sources:
+          fields: {  }
+        zoom_to_geojson: true
+        path: '{"color":"#f71ed3","opacity":"0.7","stroke":true,"weight":2,"fillColor":"#ffddfe","fillOpacity":"0.1","radius":3,"dashArray":"5, 5"}'
+        snapping: true
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -44,12 +107,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 100
@@ -57,4 +114,5 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  path: true

@@ -10,9 +10,85 @@ dependencies:
     - field.field.node.fragment.field_text
     - node.type.fragment
   module:
+    - field_group
     - media_library
     - path
     - text
+third_party_settings:
+  field_group:
+    group_key:
+      children:
+        - title
+        - field_fragment_type
+        - field_media
+        - field_caption
+        - field_credit
+      label: 'Key data'
+      region: content
+      parent_name: group_tabs
+      weight: 0
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+        required_fields: true
+    group_content:
+      children:
+        - field_text
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_metadata:
+      children:
+        - uid
+        - created
+        - path
+        - langcode
+        - translation
+      label: Metadata
+      region: content
+      parent_name: group_tabs
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_tabs:
+      children:
+        - group_key
+        - group_content
+        - group_metadata
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: -100
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        direction: horizontal
+        width_breakpoint: 640
 id: node.fragment.default
 targetEntityType: node
 bundle: fragment
@@ -20,13 +96,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_caption:
     type: string_textfield
-    weight: 4
+    weight: 3
     region: content
     settings:
       size: 60
@@ -34,32 +110,28 @@ content:
     third_party_settings: {  }
   field_credit:
     type: string_textfield
-    weight: 5
+    weight: 4
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_fragment_type:
-    type: entity_reference_autocomplete
-    weight: 121
+    type: options_select
+    weight: 1
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_media:
     type: media_library_widget
-    weight: 3
+    weight: 2
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_text:
     type: text_textarea
-    weight: 2
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -67,14 +139,14 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 9
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -87,7 +159,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -95,7 +167,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS

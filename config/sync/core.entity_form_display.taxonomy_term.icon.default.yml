@@ -7,7 +7,6 @@ dependencies:
     - taxonomy.vocabulary.icon
   module:
     - file
-    - path
     - text
 id: taxonomy_term.icon.default
 targetEntityType: taxonomy_term
@@ -44,12 +43,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 100
@@ -57,4 +50,5 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  path: true
