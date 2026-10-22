@@ -140,6 +140,7 @@ display:
           language: show
           size: degree
           height: 640px
+          hide_empty_filter_options: true
       row:
         type: fields
         options: {  }

@@ -2203,16 +2203,16 @@
         },
         {
             "name": "drupal/network_views",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GhentCDH/network_views.git",
-                "reference": "a0f1e47b210c131a6a563d4db527c328d812ed23"
+                "reference": "504331a1476f83966866c9b0cdbc5cbebcbe3ca4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GhentCDH/network_views/zipball/a0f1e47b210c131a6a563d4db527c328d812ed23",
-                "reference": "a0f1e47b210c131a6a563d4db527c328d812ed23",
+                "url": "https://api.github.com/repos/GhentCDH/network_views/zipball/504331a1476f83966866c9b0cdbc5cbebcbe3ca4",
+                "reference": "504331a1476f83966866c9b0cdbc5cbebcbe3ca4",
                 "shasum": ""
             },
             "require": {
@@ -2243,10 +2243,10 @@
                 "visualization"
             ],
             "support": {
-                "source": "https://github.com/GhentCDH/network_views/tree/1.0.0-beta2",
+                "source": "https://github.com/GhentCDH/network_views/tree/1.0.0-beta3",
                 "issues": "https://github.com/GhentCDH/network_views/issues"
             },
-            "time": "2026-10-21T15:04:57+00:00"
+            "time": "2026-10-22T17:07:02+00:00"
         },
         {
             "name": "drupal/nouislider_js",

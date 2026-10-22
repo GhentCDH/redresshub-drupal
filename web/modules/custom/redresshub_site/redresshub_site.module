@@ -125,42 +125,6 @@ function redresshub_site_form_views_exposed_form_alter(array &$form, \Drupal\Cor
     // The explorer is on the front page; filter there (not on /node/…).
     $form['#action'] = \Drupal\Core\Url::fromRoute('<front>')->toString();
   }
-  // The network hides initiatives without a link (hide_isolated): a keyword
-  // of fewer than two initiatives would show nothing, so it is no choice.
-  if ($view && $view->id() === 'explorer_network' && isset($form['keyword']['#options'])) {
-    $shared = _redresshub_site_shared_keywords();
-    $form['keyword']['#options'] = array_filter(
-      $form['keyword']['#options'],
-      fn($tid) => $tid === 'All' || isset($shared[$tid]),
-      ARRAY_FILTER_USE_KEY,
-    );
-    $form['#cache']['tags'][] = 'node_list:initiative';
-  }
-}
-
-/**
- * Returns the keywords that at least two published initiatives have.
- *
- * @return array<int, int>
- *   The number of initiatives, keyed by term ID.
- */
-function _redresshub_site_shared_keywords(): array {
-  $rows = \Drupal::entityQueryAggregate('node')
-    ->accessCheck(TRUE)
-    ->condition('type', 'initiative')
-    ->condition('status', 1)
-    // One row per initiative, not per translation.
-    ->condition('default_langcode', 1)
-    ->groupBy('field_keywords.target_id')
-    ->aggregate('nid', 'COUNT')
-    ->execute();
-  $shared = [];
-  foreach ($rows as $row) {
-    if (!empty($row['field_keywords_target_id']) && $row['nid_count'] >= 2) {
-      $shared[(int) $row['field_keywords_target_id']] = (int) $row['nid_count'];
-    }
-  }
-  return $shared;
 }
 
 /**
