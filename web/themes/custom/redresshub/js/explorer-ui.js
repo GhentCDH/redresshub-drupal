@@ -41,6 +41,24 @@
       once('redresshub-explorer', '[data-explorer]', context).forEach((explorer) => {
         const toggle = explorer.querySelector('.explorer__filter-toggle');
         const filters = explorer.querySelector('#explorer-filters');
+        // Open or closed stays so while switching views and applying
+        // filters (each loads a new page), for this browser tab.
+        const remember = (open) => {
+          try {
+            sessionStorage.setItem('redresshub.explorer.filters', open ? 'open' : 'closed');
+          }
+          catch (e) {
+            // No storage (private mode): the panel starts closed.
+          }
+        };
+        const remembered = () => {
+          try {
+            return sessionStorage.getItem('redresshub.explorer.filters') === 'open';
+          }
+          catch (e) {
+            return false;
+          }
+        };
         const setFilters = (open) => {
           if (filters) {
             filters.hidden = !open;
@@ -48,7 +66,11 @@
           }
         };
         if (filters) {
-          toggle.addEventListener('click', () => setFilters(filters.hidden));
+          setFilters(remembered());
+          toggle.addEventListener('click', () => {
+            setFilters(filters.hidden);
+            remember(!filters.hidden);
+          });
         }
         else {
           toggle.hidden = true;

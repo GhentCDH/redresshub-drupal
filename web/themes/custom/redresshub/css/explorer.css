@@ -497,6 +497,21 @@
   display: flex;
 }
 
+/* Network: only the graph in a white window; the legend on the page. */
+.explorer__stage:has(.network-views) {
+  border: 0;
+  background: none;
+}
+
+.explorer__stage:has(.network-views) .explorer__result--list {
+  padding: 1rem 0 0;
+}
+
+.explorer .network-views__canvas {
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
 /* Network: the graph (network_views) over the whole width of the stage. */
 .explorer__result--list > .network-views {
   grid-column: 1 / -1;
