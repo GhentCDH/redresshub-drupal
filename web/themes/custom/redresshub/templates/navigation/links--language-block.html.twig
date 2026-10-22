@@ -1,24 +1,33 @@
 {#
 /**
  * @file
- * Language switcher: a globe and the language codes, the current one in red.
+ * Language switcher: a button with the current language, which opens a menu
+ * with the languages.
  *
- * The links are keyed by langcode.
+ * The links are keyed by langcode; current_langcode is set in
+ * redresshub_preprocess_links__language_block().
  */
 #}
 {% if links %}
   <nav class="language-switcher" aria-label="{{ 'Language'|t }}">
-    <span class="icon icon--globe" aria-hidden="true"></span>
-    <ul class="language-switcher__list">
+    <button type="button" class="language-switcher__toggle" aria-expanded="false" aria-controls="language-switcher-menu">
+      <span class="icon icon--globe" aria-hidden="true"></span>
+      <span class="language-switcher__current">{{ current_langcode|upper }}</span>
+      <span class="icon icon--chevron-down" aria-hidden="true"></span>
+      <span class="visually-hidden">{{ 'Choose a language'|t }}</span>
+    </button>
+    <ul class="language-switcher__list" id="language-switcher-menu" hidden>
       {% for langcode, item in links %}
         <li>
           {% if item.link %}
             {# Keep the attributes other modules add (e.g. translation_availability marks
                the languages a page is not available in). #}
             {% set attributes = item.link['#options'].attributes ?? {} %}
-            {{ item.link|merge({'#title': langcode|upper, '#options': item.link['#options']|merge({'attributes': attributes|merge({'lang': langcode, 'hreflang': langcode, 'title': attributes.title ?? item.text, 'class': (attributes.class ?? [])|merge(['language-switcher__link'])})})}) }}
+            {% set classes = (attributes.class ?? [])|merge(['language-switcher__link'])|merge(langcode == current_langcode ? ['is-current'] : []) %}
+            {% set label = {'#type': 'inline_template', '#template': '<span class="language-switcher__code">{{ code }}</span> {{ name }}', '#context': {'code': langcode|upper, 'name': item.text}} %}
+            {{ item.link|merge({'#title': label, '#options': item.link['#options']|merge({'attributes': attributes|merge({'lang': langcode, 'hreflang': langcode, 'title': attributes.title ?? item.text, 'class': classes})|merge(langcode == current_langcode ? {'aria-current': 'true'} : {})})}) }}
           {% else %}
-            <span class="language-switcher__link" lang="{{ langcode }}">{{ langcode|upper }}</span>
+            <span class="language-switcher__link" lang="{{ langcode }}"><span class="language-switcher__code">{{ langcode|upper }}</span> {{ item.text }}</span>
           {% endif %}
         </li>
       {% endfor %}
