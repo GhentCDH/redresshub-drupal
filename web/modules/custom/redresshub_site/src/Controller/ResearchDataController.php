@@ -8,19 +8,22 @@ use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use Drupal\redresshub_site\ResearchData;
+use Drupal\redresshub_site\WebContent;
 
 /**
- * Pages of the research data environment.
+ * Pages of the research data and web content environments.
  */
 final class ResearchDataController extends ControllerBase {
 
   /**
-   * The choice lists (vocabularies) of the research data, with their terms.
+   * The choice lists (vocabularies) of the research data or of the web
+   * content ($group: research or web), with links to their terms.
    */
-  public function vocabularies(): array {
+  public function vocabularies(string $group = 'research'): array {
+    $vocabularies = $group === 'web' ? WebContent::VOCABULARIES : ResearchData::VOCABULARIES;
     $cacheability = (new CacheableMetadata())->addCacheContexts(['user.permissions'])->addCacheTags(['config:taxonomy_vocabulary_list']);
     $rows = [];
-    foreach ($this->entityTypeManager()->getStorage('taxonomy_vocabulary')->loadMultiple(ResearchData::VOCABULARIES) as $vocabulary) {
+    foreach ($this->entityTypeManager()->getStorage('taxonomy_vocabulary')->loadMultiple($vocabularies) as $vocabulary) {
       $links = [];
       $overview = Url::fromRoute('entity.taxonomy_vocabulary.overview_form', ['taxonomy_vocabulary' => $vocabulary->id()]);
       if ($overview->access()) {

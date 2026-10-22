@@ -1,8 +1,20 @@
 redresshub_site.research_data_vocabularies:
-  path: '/admin/research-data/vocabularies'
+  path: '/admin/research-data/choice-lists'
   defaults:
     _controller: '\Drupal\redresshub_site\Controller\ResearchDataController::vocabularies'
     _title: 'Choice lists'
+    group: research
+  requirements:
+    _permission: 'access taxonomy overview'
+  options:
+    _admin_route: TRUE
+
+redresshub_site.web_content_choice_lists:
+  path: '/admin/web-content/choice-lists'
+  defaults:
+    _controller: '\Drupal\redresshub_site\Controller\ResearchDataController::vocabularies'
+    _title: 'Choice lists'
+    group: web
   requirements:
     _permission: 'access taxonomy overview'
   options:

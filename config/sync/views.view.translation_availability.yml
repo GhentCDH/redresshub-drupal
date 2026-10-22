@@ -490,10 +490,8 @@ display:
           operator: in
           value:
             event: event
-            fragment: fragment
-            home: home
+            example: example
             page: page
-            publication: publication
           exposed: true
           expose:
             operator_id: type_op
@@ -512,10 +510,8 @@ display:
           operator: in
           value:
             event: event
-            fragment: fragment
-            home: home
+            example: example
             page: page
-            publication: publication
           group: 1
           exposed: false
       filter_groups:
@@ -526,7 +522,7 @@ display:
         filters: false
         filter_groups: false
       display_extenders: {  }
-      path: admin/content/translation-availability
+      path: admin/web-content/translation-availability
     cache_metadata:
       max-age: -1
       contexts:

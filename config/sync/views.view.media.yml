@@ -913,3 +913,24 @@ display:
         - user
         - user.permissions
       tags: {  }
+  web_content:
+    id: web_content
+    display_title: 'Web content'
+    display_plugin: page
+    position: 2
+    display_options:
+      display_description: ''
+      display_extenders: {  }
+      path: admin/web-content/media
+      menu:
+        type: none
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.permissions
+      tags: {  }

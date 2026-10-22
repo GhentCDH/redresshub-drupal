@@ -292,6 +292,7 @@ display:
           operator: in
           value:
             event: event
+            example: example
             fragment: fragment
             home: home
             page: page
@@ -338,7 +339,7 @@ display:
           field: area_text_custom
           plugin_id: text_custom
           empty: true
-          content: '<div class="more-link"><a href="/admin/content">All website content</a></div>'
+          content: '<div class="more-link"><a href="/admin/web-content">All web content</a></div>'
       display_extenders: {  }
       block_description: 'Recent changes to the website content'
     cache_metadata:

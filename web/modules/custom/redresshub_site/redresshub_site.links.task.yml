@@ -1,30 +1,38 @@
+# Web content and research data: the same three tabs; web content also has
+# the media. No tabs from one to the other.
+redresshub_site.web_content:
+  title: 'Overview'
+  route_name: view.content.web_content
+  base_route: view.content.web_content
+  weight: 0
+redresshub_site.web_content_translation_availability:
+  title: 'Translation availability'
+  route_name: view.translation_availability.website
+  base_route: view.content.web_content
+  weight: 10
+redresshub_site.web_content_choice_lists:
+  title: 'Choice lists'
+  route_name: redresshub_site.web_content_choice_lists
+  base_route: view.content.web_content
+  weight: 20
+redresshub_site.web_content_media:
+  title: 'Media'
+  route_name: view.media.web_content
+  base_route: view.content.web_content
+  weight: 30
+
 redresshub_site.research_data:
-  title: 'Content'
+  title: 'Overview'
   route_name: view.content.research_data
   base_route: view.content.research_data
   weight: 0
-redresshub_site.research_data_vocabularies:
-  title: 'Choice lists'
-  route_name: redresshub_site.research_data_vocabularies
-  base_route: view.content.research_data
-  weight: 10
 redresshub_site.research_data_translation_availability:
   title: 'Translation availability'
   route_name: view.translation_availability.research_data
   base_route: view.content.research_data
-  weight: 20
-redresshub_site.admin_content_research_data:
-  title: 'Research data'
-  route_name: view.content.research_data
-  base_route: system.admin_content
-  weight: 1
-redresshub_site.pages:
-  title: 'Static pages'
-  route_name: view.content.pages
-  base_route: view.content.pages
-  weight: 0
-redresshub_site.pages_translation_availability:
-  title: 'Translation availability'
-  route_name: view.translation_availability.website
-  base_route: view.content.pages
   weight: 10
+redresshub_site.research_data_vocabularies:
+  title: 'Choice lists'
+  route_name: redresshub_site.research_data_vocabularies
+  base_route: view.content.research_data
+  weight: 20
