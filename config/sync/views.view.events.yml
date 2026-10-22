@@ -84,14 +84,41 @@ display:
           id: field_event_date_value
           table: node__field_event_date
           field: field_event_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
           plugin_id: datetime
           operator: '>='
           value:
             min: ''
             max: ''
-            value: '-1 day'
+            value: today
             type: offset
-          group: 1
+          group: 2
+          exposed: false
+          is_grouped: false
+        field_event_date_end_value:
+          id: field_event_date_end_value
+          table: node__field_event_date
+          field: field_event_date_end_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: today
+            type: offset
+          group: 2
+          exposed: false
+          is_grouped: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+          2: OR
       style:
         type: default
         options:
