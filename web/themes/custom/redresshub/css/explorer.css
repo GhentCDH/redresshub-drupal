@@ -443,12 +443,6 @@
   padding: 1.25rem;
 }
 
-/* The network keeps the height of the map. */
-.explorer__result--list:has(> .network-views) {
-  max-height: var(--explorer-height);
-  overflow-y: auto;
-}
-
 .explorer .pager {
   padding: 0 1.25rem 1.25rem;
 }
