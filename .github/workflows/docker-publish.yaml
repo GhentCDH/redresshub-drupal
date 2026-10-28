@@ -1,0 +1,22 @@
+# Builds the production image and publishes it to Docker Hub with the shared
+# GhentCDH workflow: a vX.Y.Z tag publishes X.Y.Z, X.Y, X and latest; a pull
+# request only builds (no push, no secrets needed).
+# Uses the GhentCDH organization secrets DOCKERHUB_USERNAME and DOCKERHUB_TOKEN
+# (secrets: inherit).
+name: Docker Hub publish
+
+on:
+  push:
+    tags: ['v*.*.*']
+  pull_request:
+
+jobs:
+  publish:
+    uses: GhentCDH/.github/.github/workflows/dockerhub-publish.yaml@v1
+    with:
+      image: ghentcdh/redresshub
+      target: production
+      build-args: |
+        PHP_VERSION=8.3
+      push: ${{ github.event_name != 'pull_request' }}
+    secrets: inherit
