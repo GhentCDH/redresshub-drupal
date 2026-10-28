@@ -118,6 +118,23 @@ To build the production image locally:
 docker build --target production --build-arg PHP_VERSION=8.3 -t redresshub .
 ```
 
+### Running the image
+
+The image holds the code only. It needs:
+
+- **A database** with the site in it (a dump of a running site). On startup the
+  image waits up to a minute for it and then runs `drush updatedb` (or
+  `drush deploy` with `DRUPAL_RUN_CONFIG_IMPORT=true`); it never installs a site.
+- **A persistent volume** at `/app/web/sites/default/files` for the uploaded
+  files (icons, images, media). Without it they are gone after every deployment.
+- **The environment** of `dev.env`, at least `DB_HOST`, `DB_NAME`, `DB_USER`,
+  `DB_PASSWORD`, `DRUPAL_HASH_SALT` and `DOMAIN` (the host names of the site,
+  comma separated). Optional: `MAP_TILES_KEY` (CARTO Basemaps key for these
+  host names), `ROBOTS_NOINDEX=true` on test sites.
+
+When the database cannot be reached, the log says why (missing variable,
+access denied, unknown host, empty database).
+
 ## Template
 
 This repository was generated using [this cookiecutter template](https://github.com/ghentcdh/drupal_template)

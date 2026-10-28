@@ -89,9 +89,10 @@ $settings['locale_translation_auto_update'] = FALSE;
 
 $settings['config_exclude_modules'] = ['devel', 'devel_generate'];
 
-// DOMAIN is a comma separated list of host names, e.g. "localhost,127.0.0.1".
+// DOMAIN is a comma separated list of host names, e.g. "localhost,127.0.0.1";
+// a URL ("https://example.org/") counts as its host name.
 $settings['trusted_host_patterns'] = array_map(
-  fn($domain) => '^' . preg_quote(trim($domain), '/') . '$',
+  fn($domain) => '^' . preg_quote(parse_url(str_contains($domain, '://') ? trim($domain) : 'http://' . trim($domain), PHP_URL_HOST) ?: trim($domain), '/') . '$',
   explode(',', getenv('DOMAIN') ?: 'localhost')
 );
 
