@@ -22,7 +22,7 @@ function redresshub_form_system_theme_settings_alter(array &$form, FormStateInte
     '#type' => 'textfield',
     '#title' => t('Map tiles'),
     '#maxlength' => 512,
-    '#description' => t('URL template of the base map of the explorer, with {z}, {x} and {y}. Stadia Maps (the default) works on localhost; on a public domain, register the domain in a (free) Stadia account.'),
+    '#description' => t('URL template of the base map of the explorer, with {z}, {x} and {y}. CARTO Positron (the default) needs a (free) key: it is added from the environment variable MAP_TILES_KEY.'),
     '#default_value' => theme_get_setting('map_tiles'),
   ];
   $form['redresshub']['map_attribution'] = [

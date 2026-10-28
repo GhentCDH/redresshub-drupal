@@ -97,6 +97,10 @@ $settings['trusted_host_patterns'] = array_map(
 
 $config['system.site']['name'] = getenv('DRUPAL_SITE_NAME');
 
+// The key of the map tiles (CARTO Basemaps), per environment: a key lists
+// the host names it serves, and localhost needs a key of its own.
+$settings['map_tiles_key'] = getenv('MAP_TILES_KEY') ?: '';
+
 /**
  * Database connection settings.
  */
