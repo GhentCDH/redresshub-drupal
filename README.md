@@ -94,6 +94,30 @@ If you have [`just`](https://github.com/casey/just) installed, these are some us
 - `just rebuild`: start from scratch website again (no content if no database dump in `initdb`)
 - `just enter`: opens a bash session in the drupal container
 
+## Docker image
+
+Pushing a version tag builds the production image and publishes it to Docker Hub
+as [`ghentcdh/redresshub`](https://hub.docker.com/r/ghentcdh/redresshub)
+(`.github/workflows/docker-publish.yaml`, based on the shared
+[GhentCDH workflow](https://github.com/GhentCDH/.github/blob/main/.github/workflows/dockerhub-publish.yaml)):
+
+```sh
+git tag v1.2.3
+git push origin v1.2.3
+```
+
+This publishes the tags `1.2.3`, `1.2`, `1` and `latest` (no `latest` for
+pre-releases such as `v1.2.3-rc.1`). Pull requests only check that the image builds.
+
+The workflow logs in with the GhentCDH organization secrets `DOCKERHUB_USERNAME`
+and `DOCKERHUB_TOKEN` (passed with `secrets: inherit`).
+
+To build the production image locally:
+
+```sh
+docker build --target production --build-arg PHP_VERSION=8.3 -t redresshub .
+```
+
 ## Template
 
 This repository was generated using [this cookiecutter template](https://github.com/ghentcdh/drupal_template)
