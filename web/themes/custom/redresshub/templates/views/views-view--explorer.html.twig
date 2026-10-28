@@ -6,6 +6,7 @@
  */
 #}
 <div{{ attributes.addClass('explorer__view') }}>
+  {{ title_suffix }}
   {% if exposed %}
     <div class="explorer__filters" id="explorer-filters" hidden>
       {% if view.id == 'explorer_network' %}

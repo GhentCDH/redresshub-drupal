@@ -322,7 +322,7 @@ display:
           field: title_s
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           link_to_item: false
         field_place_coordinates_s:
           id: field_place_coordinates_s

@@ -310,6 +310,32 @@ function redresshub_theme_suggestions_views_view_alter(array &$suggestions, arra
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for views_view.
+ *
+ * The explorer views are embedded, not placed as blocks, so Views gives them
+ * no "Edit view" link: the explorer adds it, to the display that is shown.
+ */
+function redresshub_preprocess_views_view(array &$variables): void {
+  $view = $variables['view'];
+  $account = \Drupal::currentUser();
+  if (!str_starts_with($view->id(), 'explorer_') || !\Drupal::moduleHandler()->moduleExists('views_ui')
+    || !$account->hasPermission('access contextual links') || !$account->hasPermission('administer views')) {
+    return;
+  }
+  $links = [
+    'entity.view.edit_form' => [
+      'route_parameters' => ['view' => $view->id()],
+      'metadata' => ['location' => 'view', 'name' => $view->id(), 'display_id' => $view->current_display],
+    ],
+  ];
+  $variables['title_suffix']['contextual_links'] = [
+    '#type' => 'contextual_links_placeholder',
+    '#id' => _contextual_links_to_id($links),
+  ];
+  $variables['attributes']['class'][] = 'contextual-region';
+}
+
+/**
  * Implements hook_preprocess_HOOK() for links__language_block.
  *
  * The current language, for the button of the language switcher.
