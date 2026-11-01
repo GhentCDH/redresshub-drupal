@@ -189,3 +189,6 @@ msgstr "Vorige afbeelding"
 
 msgid "Next image"
 msgstr "Volgende afbeelding"
+
+msgid "Read more"
+msgstr "Lees meer"

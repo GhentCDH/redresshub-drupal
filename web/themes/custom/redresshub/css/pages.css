@@ -342,6 +342,32 @@
   line-height: 1.7;
 }
 
+/* The link of a fragment to its page. */
+.tile-more {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--crimson);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.tile-more::after {
+  content: " →";
+}
+
+.tile-more:hover,
+.tile-more:focus-visible {
+  text-decoration: underline;
+}
+
+.tile-photo figcaption .tile-more {
+  display: block;
+  margin-top: 0.25rem;
+}
+
 /* Moments ahead: timeline of events. */
 .timeline {
   position: relative;

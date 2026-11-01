@@ -12,7 +12,7 @@ field_name: field_text
 entity_type: node
 bundle: fragment
 label: Text
-description: ''
+description: 'The text in the tile on Uncharted.'
 required: false
 translatable: true
 default_value: {  }

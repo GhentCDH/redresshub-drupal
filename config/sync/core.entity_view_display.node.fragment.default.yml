@@ -4,66 +4,35 @@ status: true
 dependencies:
   config:
     - field.field.node.fragment.field_caption
+    - field.field.node.fragment.field_content
     - field.field.node.fragment.field_credit
     - field.field.node.fragment.field_fragment_type
     - field.field.node.fragment.field_media
     - field.field.node.fragment.field_text
     - node.type.fragment
   module:
-    - text
+    - entity_reference_revisions
     - user
 id: node.fragment.default
 targetEntityType: node
 bundle: fragment
 mode: default
 content:
-  field_caption:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-      link_rel: canonical
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_credit:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-      link_rel: canonical
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_fragment_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 101
-    region: content
-  field_media:
-    type: entity_reference_entity_view
-    label: above
+  field_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
-    weight: 3
-    region: content
-  field_text:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 1
     region: content
 hidden:
+  field_caption: true
+  field_credit: true
+  field_fragment_type: true
+  field_media: true
+  field_text: true
   langcode: true
+  links: true
   search_api_excerpt: true

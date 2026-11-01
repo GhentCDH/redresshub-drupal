@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.fragment.field_caption
+    - field.field.node.fragment.field_content
     - field.field.node.fragment.field_credit
     - field.field.node.fragment.field_fragment_type
     - field.field.node.fragment.field_media
@@ -12,6 +13,7 @@ dependencies:
   module:
     - field_group
     - media_library
+    - paragraph_group
     - path
     - text
 third_party_settings:
@@ -39,6 +41,7 @@ third_party_settings:
     group_content:
       children:
         - field_text
+        - field_content
       label: Content
       region: content
       parent_name: group_tabs
@@ -107,6 +110,25 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_content:
+    type: paragraph_group_details_widget
+    weight: 6
+    region: content
+    settings:
+      title: paragraph
+      title_plural: paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        convert: '0'
+        duplicate: '0'
     third_party_settings: {  }
   field_credit:
     type: string_textfield

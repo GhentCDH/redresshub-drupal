@@ -189,3 +189,6 @@ msgstr "Image précédente"
 
 msgid "Next image"
 msgstr "Image suivante"
+
+msgid "Read more"
+msgstr "Lire la suite"

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.fragment.field_caption
+    - field.field.node.fragment.field_content
     - field.field.node.fragment.field_credit
     - field.field.node.fragment.field_fragment_type
     - field.field.node.fragment.field_media
@@ -52,6 +53,7 @@ content:
     weight: 1
     region: content
 hidden:
+  field_content: true
   field_fragment_type: true
   langcode: true
   links: true
