@@ -250,8 +250,10 @@ function _redresshub_explorer_filter_is_set(mixed $value): bool {
 /**
  * Prepares an initiative or organisation for the side panel or a tile.
  *
- * Sets facts (label => items, each with text and an optional URL), text,
- * resources and, for tiles, a short meta line and the rendered panel.
+ * Sets facts (label => items, each with text and an optional URL or, for
+ * linked research data, the node ID: it has no page of its own and opens in
+ * the panel), text, resources and, for tiles, a short meta line and the
+ * rendered panel.
  */
 function _redresshub_preprocess_explorer_item(array &$variables): void {
   /** @var \Drupal\node\NodeInterface $node */
@@ -265,7 +267,7 @@ function _redresshub_preprocess_explorer_item(array &$variables): void {
     $node->get($field)->referencedEntities(),
   );
   $links = fn(array $entities) => array_map(
-    fn($entity) => ['text' => $translate($entity)->label(), 'url' => $translate($entity)->toUrl()->toString()],
+    fn($entity) => ['text' => $translate($entity)->label(), 'nid' => $entity->id()],
     $entities,
   );
 
@@ -306,7 +308,6 @@ function _redresshub_preprocess_explorer_item(array &$variables): void {
   $variables['tag_facts'] = [(string) t('Type of initiative'), (string) t('UN category'), (string) t('Keywords'), (string) t('Sector'), (string) t('Status')];
   $variables['facts'] = array_filter($facts);
   $variables['kicker'] = $node->bundle() === 'initiative' ? t('Initiative') : t('Organisation');
-  $variables['url'] = $node->toUrl()->toString();
   $variables['meta'] = implode(' · ', array_filter($meta));
 
   if ($variables['view_mode'] === 'tile') {

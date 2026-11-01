@@ -3,8 +3,9 @@
  * @file
  * An initiative or organisation in the side panel of the explorer.
  *
- * Variables from _redresshub_preprocess_explorer_item(): kicker, url, facts
- * (label => items of text and url), tag_facts, text, resources.
+ * Variables from _redresshub_preprocess_explorer_item(): kicker, facts
+ * (label => items of text and a url, or the nid of research data, which
+ * opens in the panel), tag_facts, text, resources.
  */
 #}
 <article class="explorer-item">
@@ -16,9 +17,13 @@
       <dd>
         {% if fact in tag_facts %}
           <ul class="explorer__tags">{% for item in items %}<li>{{ item.text }}</li>{% endfor %}</ul>
-        {% elseif items|length > 1 or items|first.url %}
+        {% elseif items|length > 1 or items|first.url or items|first.nid %}
           <ul class="explorer__links">
-            {% for item in items %}<li>{% if item.url %}<a href="{{ item.url }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}</li>{% endfor %}
+            {% for item in items %}<li>
+              {%- if item.nid %}<button type="button" class="explorer__item-link" data-explorer-nid="{{ item.nid }}">{{ item.text }}</button>
+              {%- elseif item.url %}<a href="{{ item.url }}">{{ item.text }}</a>
+              {%- else %}{{ item.text }}{% endif -%}
+            </li>{% endfor %}
           </ul>
         {% else %}
           {{ items|first.text }}
@@ -37,5 +42,4 @@
       {% endfor %}
     </ul>
   {% endif %}
-  <p><a class="button button--small" href="{{ url }}">{{ 'Open page'|t }}</a></p>
 </article>

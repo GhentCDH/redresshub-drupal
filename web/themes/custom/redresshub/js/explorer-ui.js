@@ -32,6 +32,16 @@
   };
 
   /**
+   * Shows the content of a node (research data) in the side panel.
+   */
+  const openNode = (container, nid) => {
+    fetch(Drupal.url(`explorer/panel/${nid}`))
+      .then((response) => (response.ok ? response.text() : Promise.reject(response.status)))
+      .then((html) => openPanel(container, html))
+      .catch(() => {});
+  };
+
+  /**
    * Closes the side panel, and gives the stage its own height again.
    */
   const closePanel = (panel) => {
@@ -120,12 +130,17 @@
             const template = tile.parentElement.querySelector('.explorer__tile-panel');
             openPanel(tile.closest('.explorer__view'), template ? template.innerHTML : '');
           }
+          // Linked research data in the panel (it has no page of its own).
+          const link = event.target.closest('[data-explorer-nid]');
+          if (link) {
+            openNode(link.closest('.explorer__view'), link.dataset.explorerNid);
+          }
           if (event.target.closest('.explorer__panel-close')) {
             closePanel(event.target.closest('.explorer__panel'));
           }
         });
         // A node of the network (network_views) opens its content in the
-        // panel too; if that fails, its page.
+        // panel too.
         explorer.addEventListener('networkviews:nodeclick', (event) => {
           const nid = event.detail.id.replace(/^node:/, '');
           const container = event.target.closest('.explorer__view');
@@ -133,14 +148,7 @@
             return;
           }
           event.preventDefault();
-          fetch(Drupal.url(`explorer/panel/${nid}`))
-            .then((response) => (response.ok ? response.text() : Promise.reject(response.status)))
-            .then((html) => openPanel(container, html))
-            .catch(() => {
-              if (event.detail.url) {
-                window.location.href = event.detail.url;
-              }
-            });
+          openNode(container, nid);
         });
         explorer.addEventListener('keydown', (event) => {
           if (event.key === 'Escape') {

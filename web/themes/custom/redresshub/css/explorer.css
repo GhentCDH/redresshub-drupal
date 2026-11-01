@@ -262,6 +262,23 @@
   margin-top: 0.25rem;
 }
 
+/* Linked research data (no page of its own): opens in the panel. */
+.explorer__item-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.explorer__item-link:hover,
+.explorer__item-link:focus-visible {
+  color: var(--crimson);
+}
+
 .explorer__uncertain {
   color: var(--muted-foreground);
   font-style: italic;
