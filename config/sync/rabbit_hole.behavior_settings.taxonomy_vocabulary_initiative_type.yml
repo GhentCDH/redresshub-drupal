@@ -1,0 +1,14 @@
+uuid: 3accc136-1dc4-4c55-8714-1ee6ce607c69
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.initiative_type
+id: taxonomy_vocabulary_initiative_type
+entity_type_id: taxonomy_vocabulary
+entity_id: initiative_type
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

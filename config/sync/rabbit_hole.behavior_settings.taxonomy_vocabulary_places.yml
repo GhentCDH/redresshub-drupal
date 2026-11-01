@@ -1,0 +1,14 @@
+uuid: 9b4906a3-89db-4d3c-942a-b8df16edaaab
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.places
+id: taxonomy_vocabulary_places
+entity_type_id: taxonomy_vocabulary
+entity_id: places
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

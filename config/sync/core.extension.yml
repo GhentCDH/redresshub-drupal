@@ -60,8 +60,11 @@ module:
   purge_queuer_coretags: 0
   purge_tokens: 0
   purge_ui: 0
+  rabbit_hole: 0
   redresshub_migrate: 0
   redresshub_site: 0
+  rh_node: 0
+  rh_taxonomy: 0
   role_delegation: 0
   search_api: 0
   search_api_db: 0

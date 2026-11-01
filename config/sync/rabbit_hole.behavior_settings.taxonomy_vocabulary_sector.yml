@@ -1,0 +1,14 @@
+uuid: 11be99e5-d2a3-4cab-b59f-3a50c1105a82
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sector
+id: taxonomy_vocabulary_sector
+entity_type_id: taxonomy_vocabulary
+entity_id: sector
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

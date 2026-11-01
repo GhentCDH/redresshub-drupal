@@ -1,0 +1,14 @@
+uuid: 9520e79f-7b1b-464e-aee6-a3caac36052f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.historical_era
+id: taxonomy_vocabulary_historical_era
+entity_type_id: taxonomy_vocabulary
+entity_id: historical_era
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

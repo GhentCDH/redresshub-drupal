@@ -168,6 +168,18 @@ function _redresshub_site_text_media_validate(array $element, \Drupal\Core\Form\
 }
 
 /**
+ * Implements hook_rabbit_hole_values_alter().
+ *
+ * Content without a page of its own (research data, terms) has none for the
+ * administrator either: the edit form, like for the other editors.
+ */
+function redresshub_site_rabbit_hole_values_alter(array &$values, \Drupal\Core\Entity\ContentEntityInterface $entity): void {
+  if (($values['rh_action'] ?? NULL) === 'redresshub_edit_form_or_not_found') {
+    $values['bypass_access'] = FALSE;
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_build_defaults_alter() for node.
  *
  * The Home node shows the explorer, which depends on the URL (?view=…, the

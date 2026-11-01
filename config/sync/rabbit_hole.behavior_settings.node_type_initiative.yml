@@ -1,0 +1,14 @@
+uuid: 5b09b11c-a9a9-43de-95cd-831c89e82342
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.initiative
+id: node_type_initiative
+entity_type_id: node_type
+entity_id: initiative
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

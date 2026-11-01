@@ -1,0 +1,14 @@
+uuid: 54b9c852-9c41-4807-b4f9-be04c19a4142
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.organisation
+id: node_type_organisation
+entity_type_id: node_type
+entity_id: organisation
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

@@ -1,0 +1,14 @@
+uuid: 62718b5e-10c5-4311-80b8-a45ef92df262
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.fragment_type
+id: taxonomy_vocabulary_fragment_type
+entity_type_id: taxonomy_vocabulary
+entity_id: fragment_type
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

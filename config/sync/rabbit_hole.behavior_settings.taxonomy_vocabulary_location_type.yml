@@ -1,0 +1,14 @@
+uuid: 271548a1-d129-466f-8dba-509ee72f0f63
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.location_type
+id: taxonomy_vocabulary_location_type
+entity_type_id: taxonomy_vocabulary
+entity_id: location_type
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

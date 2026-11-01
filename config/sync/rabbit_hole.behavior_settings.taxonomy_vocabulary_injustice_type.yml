@@ -1,0 +1,14 @@
+uuid: 6bfb1fd7-a747-4fa8-be98-5012967f8f4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.injustice_type
+id: taxonomy_vocabulary_injustice_type
+entity_type_id: taxonomy_vocabulary
+entity_id: injustice_type
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

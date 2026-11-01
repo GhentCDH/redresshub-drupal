@@ -1,0 +1,14 @@
+uuid: fba337cc-7b0f-4077-a50a-2fa31a8401ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.icon
+id: taxonomy_vocabulary_icon
+entity_type_id: taxonomy_vocabulary
+entity_id: icon
+action: redresshub_edit_form_or_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied
