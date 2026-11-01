@@ -52,7 +52,9 @@ explorer:
       css/explorer.css: {}
   js:
     js/explorer-ui.js: {}
+    js/explorer-filter.js: {}
   dependencies:
     - core/drupal
+    - core/drupalSettings
     - core/jquery
     - core/once

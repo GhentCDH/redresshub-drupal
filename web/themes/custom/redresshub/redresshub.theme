@@ -190,7 +190,7 @@ const REDRESSHUB_EXPLORER_VIEWS = [
 const REDRESSHUB_EXPLORER_FILTERS = [
   'initiatives' => ['search', 'type', 'org', 'keyword', 'sector', 'period'],
   'organisations' => ['search', 'sector', 'status', 'type', 'keyword', 'period'],
-  'network' => ['keyword'],
+  'network' => ['keyword', 'period'],
 ];
 
 /**

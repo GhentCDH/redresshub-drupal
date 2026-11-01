@@ -6,6 +6,7 @@ dependencies:
     - search_api.index.all_content
     - taxonomy.vocabulary.keywords
   module:
+    - search_api_range_filter
     - network_views
     - search_api
     - user
@@ -117,6 +118,33 @@ display:
           type: select
           hierarchy: false
           limit: true
+        period:
+          id: period
+          table: search_api_index_all_content
+          field: search_api_range_filter
+          plugin_id: search_api_range_filter
+          value:
+            from: ''
+            to: ''
+          exposed: true
+          expose:
+            operator_id: period_op
+            label: Period
+            use_operator: false
+            identifier: period
+            required: false
+            remember: false
+          start_field: field_period_d
+          end_field: field_period_end_d
+          empty_end: open
+          widget: slider
+          from_label: From
+          to_label: To
+          int_range:
+            min: 1900
+            max: 2030
+            min_source: index
+            max_source: current_year
       style:
         type: network
         options:
@@ -137,10 +165,10 @@ display:
               max: 0
           directed: false
           hide_isolated: true
+          hide_empty_filter_options: true
           language: show
           size: degree
           height: 640px
-          hide_empty_filter_options: true
       row:
         type: fields
         options: {  }
