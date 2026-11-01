@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.media
     - paragraphs.paragraphs_type.quote
     - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.text_media
     - paragraphs.paragraphs_type.view
   module:
     - entity_reference_revisions
@@ -32,6 +33,7 @@ settings:
       intro: intro
       quote: quote
       media: media
+      text_media: text_media
       icon_row: icon_row
       view: view
       form: form
@@ -57,6 +59,9 @@ settings:
         enabled: true
       text:
         weight: 0
+        enabled: true
+      text_media:
+        weight: 8
         enabled: true
       view:
         weight: 5

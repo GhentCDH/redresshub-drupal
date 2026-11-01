@@ -177,3 +177,15 @@ msgid "@year – ongoing"
 msgstr "@year – en cours"
 
 
+
+msgid "slideshow"
+msgstr "diaporama"
+
+msgid "slide"
+msgstr "diapositive"
+
+msgid "Previous image"
+msgstr "Image précédente"
+
+msgid "Next image"
+msgstr "Image suivante"

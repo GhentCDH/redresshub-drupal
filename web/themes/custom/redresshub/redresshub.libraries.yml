@@ -37,6 +37,14 @@ pages:
     - core/drupal
     - core/once
 
+slideshow:
+  version: VERSION
+  js:
+    js/slideshow.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
 explorer:
   version: VERSION
   css:

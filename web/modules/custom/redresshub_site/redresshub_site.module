@@ -134,6 +134,40 @@ function redresshub_site_form_views_exposed_form_alter(array &$form, \Drupal\Cor
 }
 
 /**
+ * Implements hook_field_widget_single_element_form_alter().
+ *
+ * Text + media paragraph: the Slideshow switch shows either the media field
+ * or the images field, and the chosen one must be filled in.
+ */
+function redresshub_site_field_widget_single_element_form_alter(array &$element, \Drupal\Core\Form\FormStateInterface $form_state, array $context): void {
+  if (($element['#paragraph_type'] ?? NULL) !== 'text_media' || !isset($element['subform']['field_slideshow'], $element['subform']['#parents'])) {
+    return;
+  }
+  $parents = $element['subform']['#parents'];
+  $name = array_shift($parents) . ($parents ? '[' . implode('][', $parents) . ']' : '') . '[field_slideshow][value]';
+  $selector = ':input[name="' . $name . '"]';
+  $element['subform']['field_media']['#states']['visible'][$selector] = ['checked' => FALSE];
+  $element['subform']['field_media_multiple']['#states']['visible'][$selector] = ['checked' => TRUE];
+  $element['subform']['#element_validate'][] = '_redresshub_site_text_media_validate';
+}
+
+/**
+ * Element validation: a Text + media paragraph needs its media or images.
+ */
+function _redresshub_site_text_media_validate(array $element, \Drupal\Core\Form\FormStateInterface $form_state): void {
+  // Buttons that limit validation (media library, remove) ignore this error.
+  $values = $form_state->getValue($element['#parents']) ?? [];
+  $slideshow = !empty($values['field_slideshow']['value']);
+  $field = $slideshow ? 'field_media_multiple' : 'field_media';
+  $selection = $values[$field]['selection'] ?? [];
+  if (!array_filter(array_column((array) $selection, 'target_id')) && isset($element[$field])) {
+    $form_state->setError($element[$field], $slideshow
+      ? t('Choose the images of the slideshow.')
+      : t('Choose an image, video or audio fragment.'));
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_build_defaults_alter() for node.
  *
  * The Home node shows the explorer, which depends on the URL (?view=…, the

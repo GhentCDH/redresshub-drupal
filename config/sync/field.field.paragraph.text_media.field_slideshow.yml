@@ -1,0 +1,23 @@
+uuid: 4e865023-7d1b-4715-9de7-58b6ab88f771
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slideshow
+    - paragraphs.paragraphs_type.text_media
+id: paragraph.text_media.field_slideshow
+field_name: field_slideshow
+entity_type: paragraph
+bundle: text_media
+label: Slideshow
+description: 'Show several images one after the other, instead of one media item.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Several images (slideshow)'
+  off_label: 'One media item (image, video or audio)'
+field_type: boolean

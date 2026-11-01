@@ -1,0 +1,23 @@
+uuid: 85fdb251-be7b-479a-a8c9-4e209377795d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_layout
+    - paragraphs.paragraphs_type.text_media
+  module:
+    - options
+id: paragraph.text_media.field_media_layout
+field_name: field_media_layout
+entity_type: paragraph
+bundle: text_media
+label: Layout
+description: 'On narrow screens the media is always shown above the text.'
+required: true
+translatable: false
+default_value:
+  -
+    value: right_50
+default_value_callback: ''
+settings: {  }
+field_type: list_string

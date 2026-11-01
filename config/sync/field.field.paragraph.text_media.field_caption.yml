@@ -1,0 +1,19 @@
+uuid: 1dfc48c2-a1ae-4957-b64b-437d4a559ef2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_caption
+    - paragraphs.paragraphs_type.text_media
+id: paragraph.text_media.field_caption
+field_name: field_caption
+entity_type: paragraph
+bundle: text_media
+label: Caption
+description: 'Shown below the media.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

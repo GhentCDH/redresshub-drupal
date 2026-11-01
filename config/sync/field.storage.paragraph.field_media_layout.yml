@@ -1,0 +1,33 @@
+uuid: e80ec9a1-89c5-40dd-8d76-6c75b470ac1a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_media_layout
+field_name: field_media_layout
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: right_50
+      label: 'Text (left 50%) – media (right 50%)'
+    -
+      value: left_50
+      label: 'Media (left 50%) – text (right 50%)'
+    -
+      value: right_33
+      label: 'Text (left 67%) – media (right 33%)'
+    -
+      value: left_33
+      label: 'Media (left 33%) – text (right 67%)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

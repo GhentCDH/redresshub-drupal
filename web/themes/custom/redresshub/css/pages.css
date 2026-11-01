@@ -580,6 +580,115 @@
   font-style: italic;
 }
 
+/* Text + media paragraph: the media next to the text from 48rem on (half or
+   a third of the width, left or right), above it on narrow screens. */
+.text-media {
+  display: grid;
+  gap: 1.5rem 3rem;
+  align-items: start;
+}
+
+.text-media__body > :first-child {
+  margin-top: 0;
+}
+
+@media (min-width: 48rem) {
+  .text-media--right-50,
+  .text-media--left-50 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .text-media--right-33 {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .text-media--left-33 {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .text-media--right-50 .text-media__media,
+  .text-media--right-33 .text-media__media {
+    order: 2;
+  }
+}
+
+/* Slideshow of a Text + media paragraph: a horizontal scroll-snap track with
+   previous/next buttons and a counter below it (js/slideshow.js). */
+.slideshow__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border-radius: var(--radius-lg);
+}
+
+.slideshow__track::-webkit-scrollbar {
+  display: none;
+}
+
+.slideshow__track:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 2px;
+}
+
+.slideshow__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.slideshow .slideshow__slide img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.slideshow__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.slideshow__controls[hidden] {
+  display: none;
+}
+
+.slideshow__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--crimson);
+  cursor: pointer;
+  --icon-size: 1.25rem;
+}
+
+.slideshow__button:hover,
+.slideshow__button:focus-visible {
+  border-color: var(--crimson);
+}
+
+.slideshow__button--prev .icon {
+  transform: rotate(90deg);
+}
+
+.slideshow__button--next .icon {
+  transform: rotate(-90deg);
+}
+
+.slideshow__count {
+  min-width: 3.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
 /* Form paragraph. */
 .form-block form > .form-item:first-child {
   margin-top: 0;

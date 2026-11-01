@@ -1,0 +1,10 @@
+uuid: 0298ffb2-3fa3-4142-b82d-864332ee99f4
+langcode: en
+status: true
+dependencies: {  }
+id: text_media
+label: 'Text + media'
+icon_uuid: null
+icon_default: null
+description: 'Text with an image, video or audio fragment next to it; choose which side the media is on and how wide it is.'
+behavior_plugins: {  }

@@ -1,0 +1,23 @@
+uuid: e4cd7b72-bce5-4aea-a545-cc3df26f6ec3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_caption
+    - paragraphs.paragraphs_type.text_media
+id: paragraph.text_media.field_show_caption
+field_name: field_show_caption
+entity_type: paragraph
+bundle: text_media
+label: 'Show caption'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Show caption'
+  off_label: 'Hide caption'
+field_type: boolean

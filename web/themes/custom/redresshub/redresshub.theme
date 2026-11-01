@@ -10,6 +10,7 @@ declare(strict_types=1);
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
@@ -93,6 +94,19 @@ function redresshub_preprocess_paragraph(array &$variables): void {
   }
   if ($paragraph->hasField('field_link') && !$paragraph->get('field_link')->isEmpty()) {
     $variables['link_url'] = $paragraph->get('field_link')->first()->getUrl()->toString();
+  }
+
+  // Text + media paragraph: the images of the slideshow (when it is on), and
+  // the caption unless it is hidden.
+  if ($paragraph->bundle() === 'text_media') {
+    $variables['slides'] = [];
+    if ($paragraph->get('field_slideshow')->value && isset($variables['content']['field_media_multiple'])) {
+      foreach (Element::children($variables['content']['field_media_multiple']) as $delta) {
+        $variables['slides'][] = $variables['content']['field_media_multiple'][$delta];
+      }
+    }
+    $show = $paragraph->get('field_show_caption');
+    $variables['caption'] = ($show->isEmpty() || $show->value) ? $paragraph->get('field_caption')->value : '';
   }
 
   // View paragraph: render the chosen view ("view_id:display_id").

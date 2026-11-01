@@ -1,0 +1,30 @@
+uuid: 0573a5c8-38d2-4b7e-a372-72936432ad41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media
+    - media.type.audio
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - paragraphs.paragraphs_type.text_media
+id: paragraph.text_media.field_media
+field_name: field_media
+entity_type: paragraph
+bundle: text_media
+label: Media
+description: 'One image, video or audio fragment.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      video: video
+      remote_video: remote_video
+      audio: audio
+field_type: entity_reference
