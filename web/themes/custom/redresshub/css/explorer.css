@@ -114,10 +114,12 @@
   font-size: 0.8125rem;
 }
 
-/* The stage: map, list or network, with the side panel over it. */
+/* The stage: map, list or network, with the side panel over it. Isolated: the
+   layers inside (Leaflet, time bar, panel) stay below the header and the
+   admin toolbar. */
 .explorer__stage {
   position: relative;
-  overflow: hidden;
+  isolation: isolate;
   margin-top: 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -163,17 +165,20 @@
   font-size: 0.75rem;
 }
 
-/* Side panel. */
+/* Side panel: the same on every view. It floats over the stage, from its top
+   or, when that is out of sight, from below the header (js/explorer-ui.js),
+   and is as long as its content, also past the bottom of the stage: the page
+   scrolls, the panel does not. */
 .explorer__panel {
   position: absolute;
   z-index: 800;
   top: 0;
   right: 0;
-  bottom: 0;
-  overflow-y: auto;
+  min-height: 100%;
   width: min(24rem, 100%);
-  padding: 1.75rem 1.5rem 1.5rem;
-  border-left: 1px solid var(--border);
+  padding: 1.75rem 2rem 1.5rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   background: var(--white);
   box-shadow: -8px 0 24px rgba(58, 54, 51, 0.1);
   font-size: 0.875rem;
@@ -183,14 +188,18 @@
   display: none;
 }
 
+/* Stays in sight below the header while the page scrolls past a long panel,
+   in the right padding of the panel: it never covers the text. */
 .explorer__panel-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  padding: 0.375rem;
+  position: sticky;
+  z-index: 1;
+  top: 6rem;
+  float: right;
+  margin: -1rem -1.875rem 0 0;
+  padding: 0.25rem;
   border: 0;
   border-radius: var(--radius);
-  background: none;
+  background: var(--white);
   color: var(--charcoal);
   cursor: pointer;
   --icon-size: 1.125rem;
@@ -363,6 +372,7 @@
 /* The number of results above a list. */
 .explorer__list-count {
   margin: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   padding: 0.75rem 1.25rem;
   border-bottom: 1px solid var(--border);
   background: var(--warm-cream);
@@ -581,7 +591,9 @@
 
 /* Map: Leaflet, with the clusters in the colours of the site. */
 .explorer__result--map {
+  overflow: hidden;
   height: var(--explorer-height);
+  border-radius: var(--radius-lg);
 }
 
 .explorer .leaflet-container a.leaflet-popup-close-button {

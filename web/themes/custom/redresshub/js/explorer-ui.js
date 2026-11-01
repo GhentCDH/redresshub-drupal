@@ -19,15 +19,13 @@
     }
     panel.querySelector('.explorer__panel-body').innerHTML = html;
     panel.hidden = false;
-    panel.scrollTop = 0;
-    // Next to a list or the network, a short result grows with the panel
-    // (no scrollbar in the panel); the map keeps its height.
-    const stage = panel.parentElement;
-    stage.style.minHeight = '';
-    if (stage.querySelector('.explorer__result--list')) {
-      // Plus the border of the stage.
-      stage.style.minHeight = `${panel.scrollHeight + stage.offsetHeight - stage.clientHeight}px`;
-    }
+    // The page stays where it is: with the top of the stage out of sight, the
+    // panel starts below the header, where the visitor is looking.
+    const header = document.querySelector('.site-header');
+    const visibleTop = (header ? header.getBoundingClientRect().bottom : 0) + 16;
+    const offset = Math.max(0, visibleTop - panel.parentElement.getBoundingClientRect().top);
+    panel.style.top = `${offset}px`;
+    panel.style.minHeight = `calc(100% - ${offset}px)`;
     panel.querySelector('.explorer__panel-close').focus({ preventScroll: true });
   };
 
@@ -42,11 +40,10 @@
   };
 
   /**
-   * Closes the side panel, and gives the stage its own height again.
+   * Closes the side panel.
    */
   const closePanel = (panel) => {
     panel.hidden = true;
-    panel.parentElement.style.minHeight = '';
   };
 
   // A popup of a map marker opens in the side panel instead.

@@ -106,12 +106,16 @@
         // explorer itself is found too.
         const parent = explorer.parentElement;
         const focus = focusSelector(explorer);
+        // The new explorer is shorter until its filter panel is open again,
+        // which would move the page.
+        const { scrollY } = window;
         Drupal.detachBehaviors(explorer, drupalSettings);
         explorer.replaceWith(fresh);
         Drupal.attachBehaviors(parent, drupalSettings);
         if (focus) {
           fresh.querySelector(focus)?.focus({ preventScroll: true });
         }
+        window.scrollTo(0, scrollY);
         window.history.pushState({ explorer: true }, '', finalUrl);
         pushed = true;
       })
