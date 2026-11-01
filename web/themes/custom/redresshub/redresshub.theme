@@ -216,8 +216,14 @@ function _redresshub_explorer(): array {
     $links[$key] = Url::fromRoute('<front>', [], ['query' => $params])->toString();
   }
 
+  // What the filter panel holds: on the map and the network the period is
+  // on the stage, so it does not count there.
+  $panel_filters = REDRESSHUB_EXPLORER_FILTERS[$kind];
+  if ($display_id === 'map' || $kind === 'network') {
+    $panel_filters = array_diff($panel_filters, ['period']);
+  }
   $active = array_filter(
-    array_intersect_key($query, array_flip(REDRESSHUB_EXPLORER_FILTERS[$kind])),
+    array_intersect_key($query, array_flip($panel_filters)),
     '_redresshub_explorer_filter_is_set',
   );
 

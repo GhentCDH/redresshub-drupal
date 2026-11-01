@@ -8,6 +8,8 @@
  *   (the time bar). Its
  *   fields stay in the exposed form through their form attribute, and moving
  *   a handle applies the filters.
+ * - A chosen filter applies at once, without the Apply button; only the
+ *   search field waits for its own search button (or Enter).
  * - Applying the filters fetches the front page with the new filters and
  *   swaps the explorer (toolbar included, so its links and filter count
  *   follow): the new map starts at the position of the old one, the filter
@@ -33,6 +35,32 @@
       }
     });
     return url.toString();
+  };
+
+  /**
+   * Returns the URL of the current view without any filter.
+   */
+  const resetUrl = (form) => {
+    const url = new URL(form.getAttribute('action') || window.location.pathname, window.location.href);
+    const view = form.querySelector('input[name="view"]');
+    if (view) {
+      url.searchParams.set('view', view.value);
+    }
+    return url.toString();
+  };
+
+  /**
+   * Returns a selector for the focused filter or slider handle, if any.
+   */
+  const focusSelector = (explorer) => {
+    const active = document.activeElement;
+    if (!active || !explorer.contains(active)) {
+      return null;
+    }
+    if (active.matches('.noUi-handle')) {
+      return `.noUi-handle[data-handle="${active.dataset.handle}"]`;
+    }
+    return active.name ? `[name="${active.name}"]` : null;
   };
 
   // The request in progress: a newer one replaces it.
@@ -77,9 +105,13 @@
         // once() looks inside the context: attach to the parent, so the
         // explorer itself is found too.
         const parent = explorer.parentElement;
+        const focus = focusSelector(explorer);
         Drupal.detachBehaviors(explorer, drupalSettings);
         explorer.replaceWith(fresh);
         Drupal.attachBehaviors(parent, drupalSettings);
+        if (focus) {
+          fresh.querySelector(focus)?.focus({ preventScroll: true });
+        }
         window.history.pushState({ explorer: true }, '', finalUrl);
         pushed = true;
       })
@@ -107,8 +139,31 @@
 
         form.addEventListener('submit', (event) => {
           event.preventDefault();
-          load(explorer, formUrl(form));
+          load(explorer, event.submitter?.name === 'op' ? resetUrl(form) : formUrl(form));
         });
+
+        // Every filter but the search field applies at once.
+        form.addEventListener('change', (event) => {
+          if (event.target.matches('select, input:not([type="text"])')) {
+            form.requestSubmit();
+          }
+        });
+
+        // The search field gets its own button, in place of Apply.
+        const search = form.querySelector('input[name="search"]');
+        const apply = form.querySelector('.form-actions input[type="submit"]:not([name="op"])');
+        if (search && apply) {
+          const button = document.createElement('button');
+          button.type = 'submit';
+          button.className = 'explorer__search-button';
+          button.setAttribute('aria-label', Drupal.t('Search'));
+          button.innerHTML = '<span class="icon icon--search" aria-hidden="true"></span>';
+          const wrapper = document.createElement('div');
+          wrapper.className = 'explorer__search';
+          search.before(wrapper);
+          wrapper.append(search, button);
+          apply.hidden = true;
+        }
 
         // The period slider onto the stage.
         const slider = form.querySelector('[data-search-api-range-slider]');

@@ -437,15 +437,60 @@
   font-size: 0.875rem;
 }
 
-/* The reset button is secondary. */
-.explorer__form .form-actions [data-drupal-selector="edit-reset"] {
-  border-color: transparent;
-  background: transparent;
-  color: var(--muted-foreground);
+/* Filters apply at once: the Apply button is hidden with JavaScript. */
+.explorer__form .form-actions input[hidden] {
+  display: none;
 }
 
-.explorer__form .form-actions [data-drupal-selector="edit-reset"]:hover {
-  color: var(--charcoal);
+/* Without filters there is no reset button either: no empty row. */
+.explorer__form .form-actions:not(:has(input:not([hidden]))) {
+  display: none;
+}
+
+/* The reset button is secondary: outlined. */
+.explorer__form .form-actions input[name="op"] {
+  border-width: 1px;
+  border-color: var(--crimson);
+  background: transparent;
+  color: var(--crimson);
+}
+
+.explorer__form .form-actions input[name="op"]:hover,
+.explorer__form .form-actions input[name="op"]:focus-visible {
+  background: var(--crimson);
+  color: var(--white);
+}
+
+/* The search field with its button (js/explorer-filter.js). */
+.explorer__search {
+  display: flex;
+}
+
+.explorer__search input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.explorer__search-button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--crimson);
+  color: var(--white);
+  cursor: pointer;
+  --icon-size: 1.125rem;
+}
+
+.explorer__search-button:hover,
+.explorer__search-button:focus-visible {
+  background: var(--crimson-dark);
 }
 
 .explorer__view .explorer__network-note {
@@ -585,20 +630,15 @@
   border: 0;
 }
 
+/* The slider speaks for itself: its label is for screen readers only. */
 .explorer__timebar legend {
-  float: left;
-  margin: 0;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
   padding: 0;
-}
-
-.explorer__timebar legend,
-.explorer__view .explorer__timebar .fieldset-legend {
-  color: var(--crimson);
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .explorer__timebar .fieldset-wrapper {
