@@ -23,7 +23,8 @@
     // panel starts below the header, where the visitor is looking.
     const header = document.querySelector('.site-header');
     const visibleTop = (header ? header.getBoundingClientRect().bottom : 0) + 16;
-    const offset = Math.max(0, visibleTop - panel.parentElement.getBoundingClientRect().top);
+    // In full screen the stage is all there is.
+    const offset = document.fullscreenElement ? 0 : Math.max(0, visibleTop - panel.parentElement.getBoundingClientRect().top);
     panel.style.top = `${offset}px`;
     panel.style.minHeight = `calc(100% - ${offset}px)`;
     panel.querySelector('.explorer__panel-close').focus({ preventScroll: true });
@@ -46,12 +47,60 @@
     panel.hidden = true;
   };
 
+  /**
+   * A full screen button on the map: the whole stage (map, time bar, side
+   * panel) fills the screen. Not shown where the browser cannot do it (e.g.
+   * on iPhones).
+   */
+  const addFullscreen = (map, stage) => {
+    if (!document.fullscreenEnabled || !stage) {
+      return;
+    }
+    const Control = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd() {
+        const bar = L.DomUtil.create('div', 'leaflet-bar explorer__fullscreen');
+        const button = L.DomUtil.create('button', '', bar);
+        button.type = 'button';
+        const update = () => {
+          const on = document.fullscreenElement === stage;
+          button.innerHTML = `<span class="icon icon--${on ? 'minimize' : 'maximize'}" aria-hidden="true"></span>`;
+          button.setAttribute('aria-label', on ? Drupal.t('Exit full screen') : Drupal.t('Full screen'));
+          button.title = button.getAttribute('aria-label');
+        };
+        L.DomEvent.disableClickPropagation(bar);
+        L.DomEvent.on(button, 'click', () => {
+          if (document.fullscreenElement === stage) {
+            document.exitFullscreen();
+          }
+          else {
+            stage.requestFullscreen().catch(() => {});
+          }
+        });
+        // The new size is only known once the browser has laid it out.
+        const changed = () => {
+          update();
+          window.requestAnimationFrame(() => window.requestAnimationFrame(() => map.invalidateSize()));
+        };
+        document.addEventListener('fullscreenchange', changed);
+        map.on('unload', () => document.removeEventListener('fullscreenchange', changed));
+        update();
+        return bar;
+      },
+    });
+    map.addControl(new Control());
+  };
+
   // A popup of a map marker opens in the side panel instead.
   $(document).on('leafletMapInit', (event, settings, map, mapId) => {
     const container = document.getElementById(mapId)?.closest('.explorer__view');
     if (!container) {
       return;
     }
+    addFullscreen(map, container.querySelector('.explorer__stage'));
+    // The attribution without the Leaflet prefix; the map data and tiles
+    // themselves must stay credited.
+    map.attributionControl?.setPrefix(false);
     map.on('popupopen', (e) => {
       const content = e.popup.getContent();
       map.closePopup(e.popup);
@@ -59,9 +108,30 @@
     });
   });
 
+  /**
+   * Aligns the cards next to the explorer with the top of the stage (the
+   * map, list or network), also when the filter panel opens.
+   */
+  const alignSidebar = (explorer) => {
+    const layout = explorer.closest('.map-layout');
+    const stage = explorer.querySelector('.explorer__stage');
+    if (!layout || !stage || typeof ResizeObserver === 'undefined') {
+      return;
+    }
+    const align = () => {
+      if (stage.isConnected) {
+        const offset = stage.getBoundingClientRect().top - layout.getBoundingClientRect().top;
+        layout.style.setProperty('--map-layout-stage-top', `${Math.max(0, Math.round(offset))}px`);
+      }
+    };
+    new ResizeObserver(align).observe(explorer);
+    align();
+  };
+
   Drupal.behaviors.redresshubExplorer = {
     attach(context) {
       once('redresshub-explorer', '[data-explorer]', context).forEach((explorer) => {
+        alignSidebar(explorer);
         const toggle = explorer.querySelector('.explorer__filter-toggle');
         const filters = explorer.querySelector('#explorer-filters');
         // Open or closed stays so while switching views and applying

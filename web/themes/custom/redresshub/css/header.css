@@ -59,6 +59,23 @@ body.toolbar-fixed .site-header {
   color: var(--crimson);
 }
 
+/* The map: outlined, filled on the map itself. */
+.main-menu__link--map {
+  display: inline-block;
+  margin-block: -0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--crimson);
+  border-radius: var(--radius);
+  color: var(--crimson);
+}
+
+.main-menu__link--map:hover,
+.main-menu__link--map:focus-visible,
+.main-menu__link--map.is-active {
+  background: var(--crimson);
+  color: var(--white);
+}
+
 .site-header__toggle {
   display: none;
   padding: 0;
@@ -74,14 +91,35 @@ body.toolbar-fixed .site-header {
 }
 
 @media (min-width: 64rem) {
+  /* The menu centred between the name and the language switcher. */
   .site-header__nav {
     display: flex;
+    flex: 1;
     align-items: center;
     gap: 3rem;
+    margin-left: 3rem;
+  }
+
+  .site-header__nav > :first-child {
+    display: flex;
+    flex: 1;
+    justify-content: center;
   }
 
   .main-menu {
     gap: 2.5rem;
+  }
+}
+
+/* Just wide enough for the menu on one line: less space between the links. */
+@media (min-width: 64rem) and (max-width: 79.999rem) {
+  .site-header__nav {
+    gap: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
+  .site-header__nav .main-menu {
+    gap: 1.5rem;
   }
 }
 

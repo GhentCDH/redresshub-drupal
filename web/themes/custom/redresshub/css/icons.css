@@ -79,6 +79,10 @@
   --icon: url("../images/icons/map-pin.svg");
 }
 
+.icon--maximize {
+  --icon: url("../images/icons/maximize.svg");
+}
+
 .icon--menu {
   --icon: url("../images/icons/menu.svg");
 }
@@ -134,6 +138,10 @@
 
 .icon--map {
   --icon: url("../images/icons/map.svg");
+}
+
+.icon--minimize {
+  --icon: url("../images/icons/minimize.svg");
 }
 
 .icon--network {

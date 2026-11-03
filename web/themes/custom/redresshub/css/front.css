@@ -65,6 +65,12 @@
   .map-layout {
     grid-template-columns: 3fr 1fr;
   }
+
+  /* The cards start at the top of the map, not of the toolbar
+     (--map-layout-stage-top from js/explorer-ui.js). */
+  .map-layout__sidebar {
+    margin-top: var(--map-layout-stage-top, 0);
+  }
 }
 
 .map-layout__note {

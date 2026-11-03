@@ -192,3 +192,9 @@ msgstr "Volgende afbeelding"
 
 msgid "Read more"
 msgstr "Lees meer"
+
+msgid "Full screen"
+msgstr "Volledig scherm"
+
+msgid "Exit full screen"
+msgstr "Volledig scherm verlaten"
