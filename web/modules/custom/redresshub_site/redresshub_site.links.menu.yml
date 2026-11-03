@@ -309,26 +309,58 @@ redresshub_site.editorial.settings.footer_menu:
   parent: redresshub_site.editorial.settings
   weight: 1
 
+redresshub_site.editorial.settings.footer_logos:
+  title: 'Footer logos'
+  description: 'The partner logos at the bottom of every page.'
+  route_name: entity.media.collection
+  options:
+    query:
+      type: partner_logo
+    # Shown after the link on the dashboard cards.
+    card_hint: edit
+  menu_name: editorial
+  parent: redresshub_site.editorial.settings
+  weight: 2
+
+redresshub_site.editorial.settings.footer_logos.overview:
+  title: 'All footer logos'
+  route_name: entity.media.collection
+  options:
+    query:
+      type: partner_logo
+  menu_name: editorial
+  parent: redresshub_site.editorial.settings.footer_logos
+  weight: 0
+
+redresshub_site.editorial.settings.footer_logos.add:
+  title: 'Add a footer logo'
+  route_name: entity.media.add_form
+  route_parameters:
+    media_type: partner_logo
+  menu_name: editorial
+  parent: redresshub_site.editorial.settings.footer_logos
+  weight: 1
+
 redresshub_site.editorial.settings.interface_translation:
   title: 'Interface translation'
   route_name: locale.translate_page
   menu_name: editorial
   parent: redresshub_site.editorial.settings
-  weight: 2
+  weight: 3
 
 redresshub_site.editorial.settings.information:
   title: 'Site information'
   route_name: system.site_information_settings
   menu_name: editorial
   parent: redresshub_site.editorial.settings
-  weight: 3
+  weight: 4
 
 redresshub_site.editorial.settings.maintenance:
   title: 'Maintenance'
   route_name: system.performance_settings
   menu_name: editorial
   parent: redresshub_site.editorial.settings
-  weight: 4
+  weight: 5
 
 redresshub_site.editorial.settings.maintenance.cache:
   title: 'Clear the cache'
