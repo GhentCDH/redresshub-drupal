@@ -58,3 +58,37 @@
   padding: 0;
   list-style: none;
 }
+
+/* Partner logos (Partner logo media), below the columns. */
+.site-footer__logos {
+  padding-bottom: 3rem;
+}
+
+.site-footer__logo-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 3rem;
+  margin: 0;
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.site-footer__logo img {
+  display: block;
+  width: auto;
+  max-width: 12rem;
+  height: 4rem;
+  object-fit: contain;
+}
+
+.site-footer__logo a {
+  display: block;
+  border-radius: var(--radius);
+}
+
+.site-footer__logo a:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 4px;
+}

@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.text_media.field_media
     - field.field.paragraph.text_media.field_media_layout
     - field.field.paragraph.text_media.field_media_multiple
+    - field.field.paragraph.text_media.field_pretitle
     - field.field.paragraph.text_media.field_show_caption
     - field.field.paragraph.text_media.field_slideshow
     - field.field.paragraph.text_media.field_text
@@ -47,6 +48,14 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_pretitle:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_show_caption:
     type: boolean_checkbox

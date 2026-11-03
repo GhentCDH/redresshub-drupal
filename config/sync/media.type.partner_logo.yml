@@ -1,0 +1,13 @@
+uuid: 13ced3b4-7c9a-41b5-a75a-cf7503339f4a
+langcode: en
+status: true
+dependencies: {  }
+id: partner_logo
+label: 'Partner logo'
+description: 'A logo in the footer of every page, with an optional link.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

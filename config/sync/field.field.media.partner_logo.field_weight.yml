@@ -1,0 +1,25 @@
+uuid: 8f0aa56b-9527-4bd1-8c66-6ca4feca6c55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_weight
+    - media.type.partner_logo
+id: media.partner_logo.field_weight
+field_name: field_weight
+entity_type: media
+bundle: partner_logo
+label: Order
+description: 'Logos with a lower number come first.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,7 +1,8 @@
 {#
 /**
  * @file
- * Three column site footer. Included by the page templates.
+ * Three column site footer, with the partner logos (Partner logo media,
+ * managed by the editors) below it. Included by the page templates.
  */
 #}
 <footer class="site-footer" role="contentinfo">
@@ -22,4 +23,20 @@
       {% endif %}
     </div>
   </div>
+  {{ footer_logos_cache }}
+  {% if footer_logos %}
+    <div class="site-footer__logos container">
+      <ul class="site-footer__logo-list">
+        {% for logo in footer_logos %}
+          <li class="site-footer__logo">
+            {% if logo.link %}
+              <a href="{{ logo.link }}" rel="noopener" target="_blank"><img src="{{ logo.url }}" alt="{{ logo.alt }}" loading="lazy"></a>
+            {% else %}
+              <img src="{{ logo.url }}" alt="{{ logo.alt }}" loading="lazy">
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 </footer>

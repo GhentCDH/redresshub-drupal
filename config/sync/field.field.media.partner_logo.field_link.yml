@@ -1,0 +1,23 @@
+uuid: 630af183-b5d3-4d5c-818a-59df42328b63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_link
+    - media.type.partner_logo
+  module:
+    - link
+id: media.partner_logo.field_link
+field_name: field_link
+entity_type: media
+bundle: partner_logo
+label: Link
+description: 'The website of the partner, opened from the logo.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

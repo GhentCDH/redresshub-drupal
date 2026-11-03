@@ -22,7 +22,8 @@ use Drupal\taxonomy\TermInterface;
  * Adds classes for the layout of the page:
  * - "page--<alias>", e.g. page--contact.
  * - "page-title--center" when a basic page has a centered title.
- * - "page--has-tabs" when a basic page has tabs: it gets the wide layout.
+ * - "page--wide" on basic pages: the wide layout of About.
+ * - "page--has-tabs" when a basic page has tabs.
  */
 function redresshub_preprocess_html(array &$variables): void {
   $current_path = \Drupal::service('path.current')->getPath();
@@ -43,6 +44,8 @@ function redresshub_preprocess_html(array &$variables): void {
     if ($node->hasField('field_tabs') && !$node->get('field_tabs')->isEmpty()) {
       $variables['attributes']['class'][] = 'page--has-tabs';
     }
+    // Basic pages line up with About: the wide layout, with space on the left.
+    $variables['attributes']['class'][] = 'page--wide';
   }
 }
 
@@ -52,6 +55,9 @@ function redresshub_preprocess_html(array &$variables): void {
 function redresshub_preprocess_page(array &$variables): void {
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
   $variables['contact_email'] = theme_get_setting('contact_email');
+  $variables['footer_logos'] = _redresshub_footer_logos();
+  // Printed in the footer, so a new or changed logo shows on cached pages.
+  $variables['footer_logos_cache'] = ['#cache' => ['tags' => ['media_list:partner_logo']]];
 
   if ($variables['is_front']) {
     $variables['#attached']['library'][] = 'redresshub/front';
@@ -107,6 +113,12 @@ function redresshub_preprocess_paragraph(array &$variables): void {
     }
     $show = $paragraph->get('field_show_caption');
     $variables['caption'] = ($show->isEmpty() || $show->value) ? $paragraph->get('field_caption')->value : '';
+    // The first block of a page is its header: it shows the page title.
+    $parent = $paragraph->getParentEntity();
+    if ($parent instanceof NodeInterface && _redresshub_page_header($parent)?->id() === $paragraph->id()) {
+      $langcode = $paragraph->language()->getId();
+      $variables['page_title'] = ($parent->hasTranslation($langcode) ? $parent->getTranslation($langcode) : $parent)->label();
+    }
   }
 
   // View paragraph: render the chosen view ("view_id:display_id").
@@ -366,4 +378,60 @@ function redresshub_preprocess_views_view(array &$variables): void {
 function redresshub_preprocess_links__language_block(array &$variables): void {
   $variables['current_langcode'] = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_INTERFACE)->getId();
   $variables['#cache']['contexts'][] = 'languages:language_interface';
+}
+
+/**
+ * Returns the header of a page: its first block, when that is Text + media.
+ *
+ * The header shows the page title next to its media, in place of the title
+ * above the page (see redresshub_preprocess_page_title()).
+ */
+function _redresshub_page_header(NodeInterface $node): ?\Drupal\paragraphs\ParagraphInterface {
+  if (!in_array($node->bundle(), ['page', 'example'], TRUE) || !$node->hasField('field_content')) {
+    return NULL;
+  }
+  $first = $node->get('field_content')->first()?->entity;
+  return $first && $first->bundle() === 'text_media' ? $first : NULL;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page-title.html.twig.
+ *
+ * A page with a header (a first Text + media block) shows its title there.
+ */
+function redresshub_preprocess_page_title(array &$variables): void {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface && \Drupal::routeMatch()->getRouteName() === 'entity.node.canonical' && _redresshub_page_header($node)) {
+    $variables['title'] = NULL;
+  }
+  $variables['#cache']['contexts'][] = 'route';
+}
+
+/**
+ * Returns the partner logos of the footer (Partner logo media), in order.
+ *
+ * @return array
+ *   Items with url, alt, link and name; their cache tag is in
+ *   footer_logos_cache (see redresshub_preprocess_page()).
+ */
+function _redresshub_footer_logos(): array {
+  $storage = \Drupal::entityTypeManager()->getStorage('media');
+  $ids = $storage->getQuery()->accessCheck(TRUE)
+    ->condition('bundle', 'partner_logo')->condition('status', 1)
+    ->sort('field_weight')->sort('name')->execute();
+  $logos = [];
+  foreach ($storage->loadMultiple($ids) as $media) {
+    $image = $media->get('field_media_image')->first();
+    if (!$image?->entity) {
+      continue;
+    }
+    $link = $media->get('field_link')->first();
+    $logos[] = [
+      'url' => \Drupal::service('file_url_generator')->generateString($image->entity->getFileUri()),
+      'alt' => $image->alt ?: $media->label(),
+      'link' => $link ? $link->getUrl()->toString() : NULL,
+      'name' => $media->label(),
+    ];
+  }
+  return $logos;
 }

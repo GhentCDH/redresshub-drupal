@@ -1,0 +1,19 @@
+uuid: de2bbc8f-76ed-484a-982e-504d476886b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - media
+id: media.field_link
+field_name: field_link
+entity_type: media
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

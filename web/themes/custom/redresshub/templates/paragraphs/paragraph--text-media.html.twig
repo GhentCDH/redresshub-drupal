@@ -4,22 +4,33 @@
  * Text + media paragraph: text with an image, video or audio fragment, or a
  * slideshow of images, next to it. The layout says on which side the media
  * is and how wide it is (half or a third); on narrow screens the media is
- * above the text.
+ * below the text.
+ *
+ * The caption is a label on the media; the image zooms in a little on hover.
+ * The first block of a page is its header: it shows the page title (h1) in
+ * place of its own title.
  *
  * Variables from redresshub_preprocess_paragraph(): slides (the rendered
- * images of the slideshow), caption (empty when hidden).
+ * images of the slideshow), caption (empty when hidden), page_title (in the
+ * header of a page).
  */
 #}
 {% set layout = paragraph.field_media_layout.value ?: 'right_50' %}
-<section{{ attributes.addClass('paragraph', 'text-media', 'text-media--' ~ layout|clean_class) }}>
-  <figure class="text-media__media media-block">
+{% set label %}
+  {% if caption %}<figcaption class="text-media__caption">{{ caption }}</figcaption>{% endif %}
+{% endset %}
+<section{{ attributes.addClass('paragraph', 'text-media', 'text-media--' ~ layout|clean_class, page_title ? 'text-media--page-header') }}>
+  <figure class="text-media__media">
     {% if slides|length > 1 %}
       {{ attach_library('redresshub/slideshow') }}
       <div class="slideshow" aria-roledescription="{{ 'slideshow'|t }}">
-        <div class="slideshow__track" tabindex="0">
-          {% for slide in slides %}
-            <div class="slideshow__slide" aria-roledescription="{{ 'slide'|t }}" aria-label="{{ loop.index }} / {{ slides|length }}">{{ slide }}</div>
-          {% endfor %}
+        <div class="text-media__frame">
+          <div class="slideshow__track" tabindex="0">
+            {% for slide in slides %}
+              <div class="slideshow__slide" aria-roledescription="{{ 'slide'|t }}" aria-label="{{ loop.index }} / {{ slides|length }}">{{ slide }}</div>
+            {% endfor %}
+          </div>
+          {{ label }}
         </div>
         <div class="slideshow__controls" hidden>
           <button type="button" class="slideshow__button slideshow__button--prev" aria-label="{{ 'Previous image'|t }}"><span class="icon icon--chevron-down" aria-hidden="true"></span></button>
@@ -27,17 +38,20 @@
           <button type="button" class="slideshow__button slideshow__button--next" aria-label="{{ 'Next image'|t }}"><span class="icon icon--chevron-down" aria-hidden="true"></span></button>
         </div>
       </div>
-    {% elseif slides %}
-      {{ slides|first }}
     {% else %}
-      {{ content.field_media }}
-    {% endif %}
-    {% if caption %}
-      <figcaption>{{ caption }}</figcaption>
+      <div class="text-media__frame">
+        {{ slides ? slides|first : content.field_media }}
+        {{ label }}
+      </div>
     {% endif %}
   </figure>
   <div class="text-media__body">
-    {% if paragraph.field_title.value %}
+    {% if paragraph.field_pretitle.value %}
+      <p class="text-media__pretitle">{{ paragraph.field_pretitle.value }}</p>
+    {% endif %}
+    {% if page_title %}
+      <h1 class="page-title text-media__page-title">{{ page_title }}</h1>
+    {% elseif paragraph.field_title.value %}
       <h2 class="text-block__title">{{ paragraph.field_title.value }}</h2>
     {% endif %}
     {% if content.field_text|render|trim %}

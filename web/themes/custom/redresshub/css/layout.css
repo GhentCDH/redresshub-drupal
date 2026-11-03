@@ -26,13 +26,14 @@
   padding-block: 5rem;
 }
 
-/* Pages with tabs (e.g. About) are wide, with extra space on the left. */
-.page--has-tabs .site-main__inner {
+/* Basic pages (e.g. About, Examples) are wide, with extra space on the left;
+   their running text keeps its narrow width (.prose). */
+.page--wide .site-main__inner {
   max-width: var(--container-wide);
 }
 
 @media (min-width: 48rem) {
-  .page--has-tabs .site-main__inner {
+  .page--wide .site-main__inner {
     padding-left: 6rem;
   }
 }

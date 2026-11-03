@@ -607,15 +607,26 @@
 }
 
 /* Text + media paragraph: the media next to the text from 48rem on (half or
-   a third of the width, left or right), above it on narrow screens. */
+   a third of the width, left or right), below it on narrow screens. The text
+   is centred next to the media; the caption is a label on the media, and
+   the image zooms in a little on hover. */
 .text-media {
   display: grid;
   gap: 1.5rem 3rem;
-  align-items: start;
+  align-items: center;
+}
+
+.text-media__media {
+  order: 2;
+  margin: 0;
 }
 
 .text-media__body > :first-child {
   margin-top: 0;
+}
+
+.text-media__body > :last-child {
+  margin-bottom: 0;
 }
 
 @media (min-width: 48rem) {
@@ -632,10 +643,80 @@
     grid-template-columns: 1fr 2fr;
   }
 
-  .text-media--right-50 .text-media__media,
-  .text-media--right-33 .text-media__media {
-    order: 2;
+  .text-media--left-50 .text-media__media,
+  .text-media--left-33 .text-media__media {
+    order: 0;
   }
+}
+
+.text-media__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.text-media__frame img,
+.text-media__frame video,
+.text-media__frame iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.text-media__frame img {
+  transition: transform 0.5s ease;
+}
+
+.text-media__frame:hover img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-media__frame img {
+    transition: none;
+  }
+
+  .text-media__frame:hover img {
+    transform: none;
+  }
+}
+
+.text-media__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 85%;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  background: var(--crimson);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.text-media__pretitle {
+  margin-bottom: 1rem;
+  color: var(--crimson);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* The header of a page: the page title next to the media. */
+.text-media--page-header {
+  margin-bottom: 4rem;
+}
+
+.text-media--page-header .text-media__page-title {
+  margin-bottom: 1.5rem;
+}
+
+.text-media--page-header .text-media__text p {
+  font-size: 1.125rem;
 }
 
 /* Slideshow of a Text + media paragraph: a horizontal scroll-snap track with
@@ -645,7 +726,6 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  border-radius: var(--radius-lg);
 }
 
 .slideshow__track::-webkit-scrollbar {
