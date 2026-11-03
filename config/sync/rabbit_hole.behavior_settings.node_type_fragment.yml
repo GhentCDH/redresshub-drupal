@@ -1,0 +1,14 @@
+uuid: 662409f8-b13b-4d03-97e5-45cf491ef184
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.fragment
+id: node_type_fragment
+entity_type_id: node_type
+entity_id: fragment
+action: display_page
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied
