@@ -1,12 +1,12 @@
-uuid: fc201434-8ef8-4164-8aab-fe2fb21ea73b
+uuid: 4760dfb2-8499-42d8-ba5f-6ae586c3e5f8
 langcode: en
 status: true
 dependencies:
   module:
-    - paragraphs
-id: paragraph.field_pretitle
+    - node
+id: node.field_pretitle
 field_name: field_pretitle
-entity_type: paragraph
+entity_type: node
 type: string
 settings:
   max_length: 255

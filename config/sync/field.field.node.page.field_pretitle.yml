@@ -1,14 +1,14 @@
-uuid: 1b5689b8-6daa-45a6-9359-898c99e32a83
+uuid: 055cc4cf-f123-4652-acfa-41697873effe
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_pretitle
-    - paragraphs.paragraphs_type.text_media
-id: paragraph.text_media.field_pretitle
+    - field.storage.node.field_pretitle
+    - node.type.page
+id: node.page.field_pretitle
 field_name: field_pretitle
-entity_type: paragraph
-bundle: text_media
+entity_type: node
+bundle: page
 label: Pretitle
 description: 'A short line above the title, e.g. "Ways into the map".'
 required: false

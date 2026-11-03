@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_content
+    - field.field.node.page.field_pretitle
     - field.field.node.page.field_tabs
     - field.field.node.page.field_title_alignment
     - node.type.page
@@ -39,6 +40,7 @@ content:
     weight: 101
     region: content
 hidden:
+  field_pretitle: true
   field_title_alignment: true
   langcode: true
   search_api_excerpt: true

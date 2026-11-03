@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.example.field_content
+    - field.field.node.example.field_pretitle
     - field.field.node.example.field_title_alignment
     - node.type.example
   module:
@@ -29,6 +30,7 @@ content:
     weight: 101
     region: content
 hidden:
+  field_pretitle: true
   field_tabs: true
   field_title_alignment: true
   langcode: true

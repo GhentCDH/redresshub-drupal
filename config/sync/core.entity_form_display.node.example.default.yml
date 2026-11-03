@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.example.field_content
+    - field.field.node.example.field_pretitle
     - field.field.node.example.field_title_alignment
     - node.type.example
   module:
@@ -15,6 +16,7 @@ third_party_settings:
     group_key:
       children:
         - title
+        - field_pretitle
         - field_title_alignment
       label: Title
       region: content
@@ -113,9 +115,17 @@ content:
         convert: '0'
         duplicate: '0'
     third_party_settings: {  }
+  field_pretitle:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_title_alignment:
     type: options_buttons
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

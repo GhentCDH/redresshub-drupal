@@ -697,14 +697,6 @@
   text-transform: uppercase;
 }
 
-.text-media__pretitle {
-  margin-bottom: 1rem;
-  color: var(--crimson);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
 
 /* The header of a page: the page title next to the media. */
 .text-media--page-header {

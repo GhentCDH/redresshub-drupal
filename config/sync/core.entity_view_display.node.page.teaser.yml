@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.field_content
+    - field.field.node.page.field_pretitle
     - field.field.node.page.field_tabs
     - field.field.node.page.field_title_alignment
     - node.type.page
@@ -22,6 +23,7 @@ content:
     region: content
 hidden:
   field_content: true
+  field_pretitle: true
   field_tabs: true
   field_title_alignment: true
   langcode: true

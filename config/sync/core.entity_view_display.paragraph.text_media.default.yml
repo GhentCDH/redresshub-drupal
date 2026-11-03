@@ -7,7 +7,6 @@ dependencies:
     - field.field.paragraph.text_media.field_media
     - field.field.paragraph.text_media.field_media_layout
     - field.field.paragraph.text_media.field_media_multiple
-    - field.field.paragraph.text_media.field_pretitle
     - field.field.paragraph.text_media.field_show_caption
     - field.field.paragraph.text_media.field_slideshow
     - field.field.paragraph.text_media.field_text
@@ -57,7 +56,6 @@ content:
 hidden:
   field_caption: true
   field_media_layout: true
-  field_pretitle: true
   field_show_caption: true
   field_slideshow: true
   search_api_excerpt: true

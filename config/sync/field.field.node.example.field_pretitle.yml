@@ -1,0 +1,19 @@
+uuid: 5628c0b7-9dc2-4d6b-881d-9b41764f658e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretitle
+    - node.type.example
+id: node.example.field_pretitle
+field_name: field_pretitle
+entity_type: node
+bundle: example
+label: Pretitle
+description: 'A short line above the title, e.g. "Ways into the map".'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

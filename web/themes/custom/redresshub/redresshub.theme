@@ -116,8 +116,12 @@ function redresshub_preprocess_paragraph(array &$variables): void {
     // The first block of a page is its header: it shows the page title.
     $parent = $paragraph->getParentEntity();
     if ($parent instanceof NodeInterface && _redresshub_page_header($parent)?->id() === $paragraph->id()) {
-      $langcode = $paragraph->language()->getId();
-      $variables['page_title'] = ($parent->hasTranslation($langcode) ? $parent->getTranslation($langcode) : $parent)->label();
+      // The page in the language it is shown in (the block may have no
+      // translation of its own).
+      $langcode = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+      $parent = $parent->hasTranslation($langcode) ? $parent->getTranslation($langcode) : $parent;
+      $variables['page_title'] = $parent->label();
+      $variables['pretitle'] = $parent->get('field_pretitle')->value;
     }
   }
 
@@ -383,8 +387,9 @@ function redresshub_preprocess_links__language_block(array &$variables): void {
 /**
  * Returns the header of a page: its first block, when that is Text + media.
  *
- * The header shows the page title next to its media, in place of the title
- * above the page (see redresshub_preprocess_page_title()).
+ * The header shows the pretitle and the title of the page next to its media,
+ * in place of the title above the page (see
+ * redresshub_preprocess_page_title()).
  */
 function _redresshub_page_header(NodeInterface $node): ?\Drupal\paragraphs\ParagraphInterface {
   if (!in_array($node->bundle(), ['page', 'example'], TRUE) || !$node->hasField('field_content')) {
@@ -397,12 +402,20 @@ function _redresshub_page_header(NodeInterface $node): ?\Drupal\paragraphs\Parag
 /**
  * Implements hook_preprocess_HOOK() for page-title.html.twig.
  *
- * A page with a header (a first Text + media block) shows its title there.
+ * A page with a header (a first Text + media block) shows its title there;
+ * otherwise the pretitle of the page goes above its title.
  */
 function redresshub_preprocess_page_title(array &$variables): void {
   $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node instanceof NodeInterface && \Drupal::routeMatch()->getRouteName() === 'entity.node.canonical' && _redresshub_page_header($node)) {
-    $variables['title'] = NULL;
+  if ($node instanceof NodeInterface && \Drupal::routeMatch()->getRouteName() === 'entity.node.canonical') {
+    if (_redresshub_page_header($node)) {
+      $variables['title'] = NULL;
+    }
+    elseif ($node->hasField('field_pretitle')) {
+      $langcode = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+      $node = $node->hasTranslation($langcode) ? $node->getTranslation($langcode) : $node;
+      $variables['pretitle'] = $node->get('field_pretitle')->value;
+    }
   }
   $variables['#cache']['contexts'][] = 'route';
 }

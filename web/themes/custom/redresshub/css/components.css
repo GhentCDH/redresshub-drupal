@@ -4,6 +4,16 @@
  */
 
 /* Page title and the lead paragraph below it. */
+/* The pretitle of a page: a short line above its title. */
+.pretitle {
+  margin-bottom: 1rem;
+  color: var(--crimson);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
 .page-title {
   margin-bottom: 1.25rem;
 }
