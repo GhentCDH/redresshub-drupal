@@ -1,0 +1,20 @@
+/**
+ * @file
+ * The footer logos page: the logos at a readable size, the buttons in a row.
+ */
+
+.footer-logos__image {
+  display: block;
+  width: auto;
+  max-width: 10rem;
+  height: 3.5rem;
+  object-fit: contain;
+}
+
+.footer-logos td:last-child {
+  white-space: nowrap;
+}
+
+.footer-logos td:last-child .button {
+  margin-block: 0.25rem;
+}

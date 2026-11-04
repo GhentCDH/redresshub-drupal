@@ -12,3 +12,8 @@ forms:
   css:
     theme:
       css/forms.css: {}
+
+footer_logos:
+  css:
+    theme:
+      css/footer-logos.css: {}

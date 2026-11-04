@@ -312,34 +312,13 @@ redresshub_site.editorial.settings.footer_menu:
 redresshub_site.editorial.settings.footer_logos:
   title: 'Footer logos'
   description: 'The partner logos at the bottom of every page.'
-  route_name: entity.media.collection
+  route_name: redresshub_site.footer_logos
   options:
-    query:
-      type: partner_logo
     # Shown after the link on the dashboard cards.
     card_hint: edit
   menu_name: editorial
   parent: redresshub_site.editorial.settings
   weight: 2
-
-redresshub_site.editorial.settings.footer_logos.overview:
-  title: 'All footer logos'
-  route_name: entity.media.collection
-  options:
-    query:
-      type: partner_logo
-  menu_name: editorial
-  parent: redresshub_site.editorial.settings.footer_logos
-  weight: 0
-
-redresshub_site.editorial.settings.footer_logos.add:
-  title: 'Add a footer logo'
-  route_name: entity.media.add_form
-  route_parameters:
-    media_type: partner_logo
-  menu_name: editorial
-  parent: redresshub_site.editorial.settings.footer_logos
-  weight: 1
 
 redresshub_site.editorial.settings.interface_translation:
   title: 'Interface translation'

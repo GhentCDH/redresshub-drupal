@@ -41,3 +41,13 @@ redresshub_site.explorer_panel:
     parameters:
       node:
         type: entity:node
+
+redresshub_site.footer_logos:
+  path: '/admin/footer-logos'
+  defaults:
+    _controller: '\Drupal\redresshub_site\Controller\FooterLogosController::page'
+    _title: 'Footer logos'
+  requirements:
+    _permission: 'create media'
+  options:
+    _admin_route: TRUE
