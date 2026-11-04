@@ -91,12 +91,37 @@
     map.addControl(new Control());
   };
 
+  // The view of each map when the page was loaded: the reset button goes
+  // back to it, also after filtering (Leaflet would use the view it started
+  // from, and computes that without the padding of its fitBounds options).
+  const initialViews = {};
+
   // A popup of a map marker opens in the side panel instead.
   $(document).on('leafletMapInit', (event, settings, map, mapId) => {
     const container = document.getElementById(mapId)?.closest('.explorer__view');
     if (!container) {
       return;
     }
+    const reset = Drupal.Leaflet[mapId]?.reset_view_control;
+    const applyReset = () => {
+      if (reset) {
+        reset.options.latlng = initialViews[mapId].latlng;
+        reset.options.zoom = initialViews[mapId].zoom;
+      }
+    };
+    if (!initialViews[mapId]) {
+      // Leaflet settles on its first view just after this event: take the
+      // view it moves to right after loading, not a later move of the visitor.
+      const loaded = Date.now();
+      initialViews[mapId] = { latlng: map.getCenter(), zoom: map.getZoom() };
+      map.once('moveend', () => {
+        if (Date.now() - loaded < 1000) {
+          initialViews[mapId] = { latlng: map.getCenter(), zoom: map.getZoom() };
+          applyReset();
+        }
+      });
+    }
+    applyReset();
     addFullscreen(map, container.querySelector('.explorer__stage'));
     // The attribution without the Leaflet prefix; the map data and tiles
     // themselves must stay credited.
