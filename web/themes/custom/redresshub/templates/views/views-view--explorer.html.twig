@@ -2,7 +2,9 @@
 /**
  * @file
  * An explorer view (map, list or network): the filters in a panel that the
- * toolbar opens, the result in the stage, and the side panel.
+ * toolbar opens, the number of results with the active filters
+ * (views_filters_summary) above the stage, the result in the stage, and the
+ * side panel.
  */
 #}
 <div{{ attributes.addClass('explorer__view') }}>
@@ -15,10 +17,10 @@
       {{ exposed }}
     </div>
   {% endif %}
+  {% if header %}
+    <div class="explorer__results">{{ header }}</div>
+  {% endif %}
   <div class="explorer__stage">
-    {% if header %}
-      <div class="explorer__list-count">{{ header }}</div>
-    {% endif %}
     <div class="explorer__result explorer__result--{{ view.current_display }}">
       {{ rows }}
       {{ empty }}

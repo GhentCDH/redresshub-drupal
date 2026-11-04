@@ -180,6 +180,38 @@ function redresshub_site_rabbit_hole_values_alter(array &$values, \Drupal\Core\E
 }
 
 /**
+ * Implements hook_views_filters_summary_info_alter().
+ *
+ * The active filters of the explorer by name: terms (types, keywords,
+ * sector, status) and organisations instead of their IDs, in the language
+ * of the page. The raw value stays the ID, to remove the filter.
+ */
+function redresshub_site_views_filters_summary_info_alter(array &$info, \Drupal\views\Plugin\views\filter\FilterPluginBase $filter): void {
+  $entity_type = match ($filter->getPluginId()) {
+    'search_api_term' => 'taxonomy_term',
+    'search_api_options' => ($filter->options['expose']['identifier'] ?? '') === 'org' ? 'node' : NULL,
+    default => NULL,
+  };
+  if (!$entity_type) {
+    return;
+  }
+  $ids = array_filter((array) $filter->value, fn($id) => is_scalar($id) && $id !== '' && $id !== 'All');
+  if (!$ids) {
+    return;
+  }
+  $langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
+  $entities = \Drupal::entityTypeManager()->getStorage($entity_type)->loadMultiple($ids);
+  $info['value'] = [];
+  foreach ($ids as $id) {
+    $entity = $entities[$id] ?? NULL;
+    if ($entity && $entity->hasTranslation($langcode)) {
+      $entity = $entity->getTranslation($langcode);
+    }
+    $info['value'][] = ['id' => $id, 'raw' => $id, 'value' => $entity ? $entity->label() : (string) $id];
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_build_defaults_alter() for node.
  *
  * The Home node shows the explorer, which depends on the URL (?view=…, the

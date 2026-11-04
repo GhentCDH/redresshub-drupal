@@ -146,6 +146,33 @@
           load(explorer, event.submitter?.name === 'op' ? resetUrl(form) : formUrl(form));
         });
 
+        // Removing one active filter (the cross in the summary of
+        // views_filters_summary): its fields empty, also those outside the
+        // form (the period on the stage), then the filters apply.
+        explorer.addEventListener('click', (event) => {
+          const remove = event.target.closest('.remove-filter[data-remove-selector]');
+          if (!remove) {
+            return;
+          }
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          const name = remove.dataset.removeSelector.split(':')[0];
+          Array.from(form.elements).forEach((element) => {
+            if (element.name === name || element.name?.startsWith(`${name}[`)) {
+              if (element.tagName === 'SELECT') {
+                element.value = element.querySelector('option[value="All"]') ? 'All' : '';
+              }
+              else if (element.type === 'checkbox' || element.type === 'radio') {
+                element.checked = false;
+              }
+              else {
+                element.value = '';
+              }
+            }
+          });
+          form.requestSubmit();
+        }, true);
+
         // Every filter but the search field applies at once.
         form.addEventListener('change', (event) => {
           if (event.target.matches('select, input:not([type="text"])')) {

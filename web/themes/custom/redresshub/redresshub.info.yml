@@ -6,6 +6,13 @@ base theme: stable9
 logo: false
 libraries:
   - redresshub/global
+# The summary of the active filters in the explorer has its own look
+# (css/explorer.css).
+libraries-override:
+  views_filters_summary/views_filters_summary:
+    css:
+      theme:
+        css/views_filters_summary.css: false
 regions:
   header: Header
   primary_menu: 'Primary menu'

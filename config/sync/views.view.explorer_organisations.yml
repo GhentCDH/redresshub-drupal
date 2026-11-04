@@ -10,6 +10,7 @@ dependencies:
     - taxonomy.vocabulary.organisation_status
     - taxonomy.vocabulary.sector
   module:
+    - views_filters_summary
     - geofield
     - leaflet_views
     - search_api
@@ -248,13 +249,24 @@ display:
           skip_access: false
           preserve_facet_query_args: false
       header:
-        result:
-          id: result
+        views_filters_summary:
+          id: views_filters_summary
           table: views
-          field: result
-          plugin_id: result
+          field: views_filters_summary
+          plugin_id: views_filters_summary
           empty: true
-          content: '@total organisations'
+          filters: {  }
+          show_labels: true
+          show_remove_link: true
+          show_reset_link: false
+          group_values: {  }
+          content: '@total @result_label @exposed_filter_summary'
+          filters_reset_link_title: Reset
+          filters_summary_separator: ' '
+          filters_summary_prefix: ''
+          filters_result_label:
+            plural: organisations
+            singular: organisation
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders: {  }
     cache_metadata:
@@ -603,8 +615,6 @@ display:
         fields: false
         filters: false
         filter_groups: false
-        header: false
-      header: {  }
       display_extenders: {  }
       block_description: 'Explorer: organisations: map'
       block_hide_empty: false

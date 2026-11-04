@@ -217,15 +217,15 @@
     attach(context) {
       once('redresshub-explorer', '[data-explorer]', context).forEach((explorer) => {
         alignSidebar(explorer);
-        // The network in full screen too: the button next to its count.
+        // The network in full screen too: the button at the top left of the
+        // graph, as on the map (the graph library follows the size of its
+        // canvas on a resize).
         const network = explorer.querySelector('.explorer__stage .network-views');
-        const count = explorer.querySelector('.explorer__stage .explorer__list-count');
-        if (network && count) {
-          // The graph library follows the size of its canvas on a resize.
-          const button = fullscreenButton(count.closest('.explorer__stage'), () => window.dispatchEvent(new Event('resize')));
+        if (network) {
+          const button = fullscreenButton(network.closest('.explorer__stage'), () => window.dispatchEvent(new Event('resize')));
           if (button) {
-            count.classList.add('explorer__list-count--network');
-            count.appendChild(button);
+            button.classList.add('explorer__fullscreen-button--network');
+            network.prepend(button);
           }
         }
         explorer.querySelectorAll('.explorer__panel').forEach(fitPanel);

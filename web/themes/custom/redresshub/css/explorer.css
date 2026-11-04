@@ -433,20 +433,77 @@
   color: var(--crimson);
 }
 
-/* The number of results above a list. */
-.explorer__list-count {
-  margin: 0;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  padding: 0.75rem 1.25rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--warm-cream);
+/* Above the stage of every view: the number of results and the active
+   filters (views_filters_summary), each with a cross that removes it
+   (js/explorer-filter.js). */
+.explorer__results {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 1rem;
   color: var(--muted-foreground);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
 }
 
-.explorer__list-count p {
-  margin: 0;
+.explorer__results .views-filters-summary,
+.explorer__results .views-filters-summary .items {
+  display: contents;
+}
+
+.explorer__results .views-filters-summary .item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.375rem 0.25rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 9999px;
+  background: var(--white);
+  color: var(--charcoal);
+}
+
+.explorer__results .views-filters-summary .label {
+  color: var(--muted-foreground);
+}
+
+.explorer__results .views-filters-summary .value-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.explorer__results .views-filters-summary .value {
+  font-weight: 500;
+}
+
+/* The cross: a small round button instead of the letter X. */
+.explorer__results .remove-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  color: var(--muted-foreground);
+  font-size: 0;
+  text-decoration: none;
+}
+
+.explorer__results .remove-filter::before {
+  content: "\00d7";
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.explorer__results .remove-filter:hover,
+.explorer__results .remove-filter:focus-visible {
+  background: var(--crimson);
+  color: var(--white);
+}
+
+.explorer__results + .explorer__stage {
+  margin-top: 0.75rem;
 }
 
 /* Views markup of the explorer (views-view--explorer.html.twig). */
@@ -688,16 +745,18 @@
   outline-offset: 2px;
 }
 
-/* The network: the button at the right of its count. */
-.explorer__list-count--network {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+/* The network: the button at the top left of the graph, as on the map. */
+.explorer .network-views {
+  position: relative;
 }
 
-.explorer__list-count--network .explorer__fullscreen-button {
-  border: 1px solid var(--border-strong);
+.explorer__fullscreen-button--network {
+  position: absolute;
+  z-index: 2;
+  top: 0.75rem;
+  left: 0.75rem;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-clip: padding-box;
 }
 
 .explorer__stage:fullscreen {
@@ -724,9 +783,9 @@
 }
 
 /* The network in full screen: the graph takes the height of the screen,
-   less its count and legend (it has its height from the view, inline). */
+   less its legend (it has its height from the view, inline). */
 .explorer__stage:fullscreen .network-views__canvas {
-  height: calc(100vh - 12rem) !important;
+  height: calc(100vh - 7rem) !important;
 }
 
 .explorer__stage:fullscreen:has(.network-views) {

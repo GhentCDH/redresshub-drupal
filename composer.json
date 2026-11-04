@@ -62,6 +62,7 @@
         "drupal/search_api_range_filter": "^1.0",
         "drupal/translation_availability": "dev-main",
         "drupal/varnish_purge": "^2.3",
+        "drupal/views_filters_summary": "^3.4",
         "drupal/webform": "^6.3",
         "drush/drush": "^13"
     },
