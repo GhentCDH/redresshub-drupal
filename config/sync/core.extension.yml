@@ -63,6 +63,7 @@ module:
   rabbit_hole: 0
   redresshub_migrate: 0
   redresshub_site: 0
+  require_login: 0
   rh_node: 0
   rh_taxonomy: 0
   role_delegation: 0
