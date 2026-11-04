@@ -41,6 +41,28 @@
   };
 
   /**
+   * Keeps what comes below the stage (the note, the footer) below a side
+   * panel that is longer than the stage: the stage gets the overflow as its
+   * bottom margin, whenever the panel changes size, opens or closes.
+   */
+  const fitPanel = (panel) => {
+    const stage = panel.parentElement;
+    const fit = () => {
+      stage.style.marginBottom = '';
+      if (!panel.hidden && !document.fullscreenElement) {
+        const over = panel.getBoundingClientRect().bottom - stage.getBoundingClientRect().bottom;
+        if (over > 0) {
+          // Plus the usual space between the stage and the note below it.
+          stage.style.marginBottom = `${Math.ceil(over) + 20}px`;
+        }
+      }
+    };
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(fit).observe(panel);
+    }
+  };
+
+  /**
    * Closes the side panel.
    */
   const closePanel = (panel) => {
@@ -157,6 +179,7 @@
     attach(context) {
       once('redresshub-explorer', '[data-explorer]', context).forEach((explorer) => {
         alignSidebar(explorer);
+        explorer.querySelectorAll('.explorer__panel').forEach(fitPanel);
         const toggle = explorer.querySelector('.explorer__filter-toggle');
         const filters = explorer.querySelector('#explorer-filters');
         // Open or closed stays so while switching views and applying
