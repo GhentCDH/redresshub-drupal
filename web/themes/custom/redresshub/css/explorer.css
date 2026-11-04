@@ -6,19 +6,21 @@
 
 .explorer {
   --explorer-height: 560px;
+  /* The lines of the toolbar and the filters: clear against the page. */
+  --border-strong: rgba(145, 72, 83, 0.28);
 }
 
 /* Toolbar: filter toggle, map view, list view, network. */
 .explorer__bar {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   background: var(--white);
 }
 
 .explorer__bar > * + * {
-  border-left: 1px solid var(--border);
+  border-left: 1px solid var(--border-strong);
 }
 
 .explorer__bar-button {
@@ -61,6 +63,11 @@
 .explorer__filter-toggle {
   flex: 1;
   min-width: 12rem;
+}
+
+/* The network link fills the height of the bar, like the other buttons. */
+.explorer__bar > a.explorer__bar-button {
+  height: auto;
 }
 
 .explorer__filter-label {
@@ -369,11 +376,11 @@
     grid-row: 2;
     grid-column: 1 / -1;
     min-width: 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--border-strong);
   }
 
   .explorer__bar > :nth-child(n + 3) {
-    border-left: 1px solid var(--border);
+    border-left: 1px solid var(--border-strong);
   }
 
   .explorer__bar-button {
@@ -446,7 +453,7 @@
 .explorer__view .explorer__filters {
   display: block;
   padding: 1.25rem 1.5rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-top: 0;
   background: var(--white);
 }
@@ -657,7 +664,7 @@
 
 /* Full screen (js/explorer-ui.js): the stage fills the screen; a long side
    panel scrolls with the stage. */
-.explorer__fullscreen button {
+.explorer__fullscreen-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -672,8 +679,25 @@
   --icon-size: 1rem;
 }
 
-.explorer__fullscreen button:hover {
+.explorer__fullscreen-button:hover {
   background: #f4f4f4;
+}
+
+.explorer__fullscreen-button:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 2px;
+}
+
+/* The network: the button at the right of its count. */
+.explorer__list-count--network {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.explorer__list-count--network .explorer__fullscreen-button {
+  border: 1px solid var(--border-strong);
 }
 
 .explorer__stage:fullscreen {
@@ -684,6 +708,11 @@
   background: var(--white);
 }
 
+/* No site header in full screen: the close button of the panel at its top. */
+.explorer__stage:fullscreen .explorer__panel-close {
+  top: 0.75rem;
+}
+
 .explorer__stage:fullscreen .explorer__result--map {
   height: 100vh;
   border-radius: 0;
@@ -692,6 +721,17 @@
 /* The map has its height from the view, inline. */
 .explorer__stage:fullscreen .explorer__result--map > .leaflet-container {
   height: 100% !important;
+}
+
+/* The network in full screen: the graph takes the height of the screen,
+   less its count and legend (it has its height from the view, inline). */
+.explorer__stage:fullscreen .network-views__canvas {
+  height: calc(100vh - 12rem) !important;
+}
+
+.explorer__stage:fullscreen:has(.network-views) {
+  padding: 1rem 1.5rem;
+  background: var(--warm-cream);
 }
 
 /* The credits of the map data and tiles: required, but discreet. */

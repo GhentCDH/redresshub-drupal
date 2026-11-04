@@ -12,6 +12,26 @@
   /**
    * Shows content in the side panel of an explorer view.
    */
+  /**
+   * Places an open side panel. The page stays where it is: with the top of
+   * the stage out of sight, the panel starts below the header, where the
+   * visitor is looking. In full screen the stage is all there is: the panel
+   * starts at its top.
+   */
+  const placePanel = (panel) => {
+    const header = document.querySelector('.site-header');
+    const visibleTop = (header ? header.getBoundingClientRect().bottom : 0) + 16;
+    const offset = document.fullscreenElement ? 0 : Math.max(0, visibleTop - panel.parentElement.getBoundingClientRect().top);
+    panel.style.top = `${offset}px`;
+    panel.style.minHeight = `calc(100% - ${offset}px)`;
+    panel.redresshubFit?.();
+  };
+
+  // Into or out of full screen: an open panel at once in its place.
+  document.addEventListener('fullscreenchange', () => {
+    document.querySelectorAll('.explorer__panel:not([hidden])').forEach(placePanel);
+  });
+
   const openPanel = (container, html) => {
     const panel = container.querySelector('.explorer__panel');
     if (!panel) {
@@ -27,15 +47,7 @@
       }
     });
     panel.hidden = false;
-    // The page stays where it is: with the top of the stage out of sight, the
-    // panel starts below the header, where the visitor is looking.
-    const header = document.querySelector('.site-header');
-    const visibleTop = (header ? header.getBoundingClientRect().bottom : 0) + 16;
-    // In full screen the stage is all there is.
-    const offset = document.fullscreenElement ? 0 : Math.max(0, visibleTop - panel.parentElement.getBoundingClientRect().top);
-    panel.style.top = `${offset}px`;
-    panel.style.minHeight = `calc(100% - ${offset}px)`;
-    panel.redresshubFit?.();
+    placePanel(panel);
     panel.querySelector('.explorer__panel-close').focus({ preventScroll: true });
   };
 
@@ -81,43 +93,58 @@
   };
 
   /**
-   * A full screen button on the map: the whole stage (map, time bar, side
-   * panel) fills the screen. Not shown where the browser cannot do it (e.g.
-   * on iPhones).
+   * A full screen button for a stage (map or network, with the time bar and
+   * the side panel): the whole stage fills the screen. Not made where the
+   * browser cannot do it (e.g. on iPhones). onChange runs once the new size
+   * is laid out.
+   */
+  const fullscreenButton = (stage, onChange) => {
+    if (!document.fullscreenEnabled || !stage) {
+      return null;
+    }
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'explorer__fullscreen-button';
+    const update = () => {
+      const on = document.fullscreenElement === stage;
+      button.innerHTML = `<span class="icon icon--${on ? 'minimize' : 'maximize'}" aria-hidden="true"></span>`;
+      button.setAttribute('aria-label', on ? Drupal.t('Exit full screen') : Drupal.t('Full screen'));
+      button.title = button.getAttribute('aria-label');
+    };
+    button.addEventListener('click', () => {
+      if (document.fullscreenElement === stage) {
+        document.exitFullscreen();
+      }
+      else {
+        stage.requestFullscreen().catch(() => {});
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      if (!button.isConnected) {
+        return;
+      }
+      update();
+      window.requestAnimationFrame(() => window.requestAnimationFrame(() => onChange?.()));
+    });
+    update();
+    return button;
+  };
+
+  /**
+   * The full screen button on a map: a Leaflet control at the top left, below
+   * the zoom and reset buttons (the side panel covers the right).
    */
   const addFullscreen = (map, stage) => {
-    if (!document.fullscreenEnabled || !stage) {
+    const button = fullscreenButton(stage, () => map.invalidateSize());
+    if (!button) {
       return;
     }
     const Control = L.Control.extend({
-      options: { position: 'topright' },
+      options: { position: 'topleft' },
       onAdd() {
         const bar = L.DomUtil.create('div', 'leaflet-bar explorer__fullscreen');
-        const button = L.DomUtil.create('button', '', bar);
-        button.type = 'button';
-        const update = () => {
-          const on = document.fullscreenElement === stage;
-          button.innerHTML = `<span class="icon icon--${on ? 'minimize' : 'maximize'}" aria-hidden="true"></span>`;
-          button.setAttribute('aria-label', on ? Drupal.t('Exit full screen') : Drupal.t('Full screen'));
-          button.title = button.getAttribute('aria-label');
-        };
+        bar.appendChild(button);
         L.DomEvent.disableClickPropagation(bar);
-        L.DomEvent.on(button, 'click', () => {
-          if (document.fullscreenElement === stage) {
-            document.exitFullscreen();
-          }
-          else {
-            stage.requestFullscreen().catch(() => {});
-          }
-        });
-        // The new size is only known once the browser has laid it out.
-        const changed = () => {
-          update();
-          window.requestAnimationFrame(() => window.requestAnimationFrame(() => map.invalidateSize()));
-        };
-        document.addEventListener('fullscreenchange', changed);
-        map.on('unload', () => document.removeEventListener('fullscreenchange', changed));
-        update();
         return bar;
       },
     });
@@ -190,6 +217,17 @@
     attach(context) {
       once('redresshub-explorer', '[data-explorer]', context).forEach((explorer) => {
         alignSidebar(explorer);
+        // The network in full screen too: the button next to its count.
+        const network = explorer.querySelector('.explorer__stage .network-views');
+        const count = explorer.querySelector('.explorer__stage .explorer__list-count');
+        if (network && count) {
+          // The graph library follows the size of its canvas on a resize.
+          const button = fullscreenButton(count.closest('.explorer__stage'), () => window.dispatchEvent(new Event('resize')));
+          if (button) {
+            count.classList.add('explorer__list-count--network');
+            count.appendChild(button);
+          }
+        }
         explorer.querySelectorAll('.explorer__panel').forEach(fitPanel);
         const toggle = explorer.querySelector('.explorer__filter-toggle');
         const filters = explorer.querySelector('#explorer-filters');
