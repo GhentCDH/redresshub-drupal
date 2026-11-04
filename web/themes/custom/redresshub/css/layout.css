@@ -39,7 +39,7 @@
 }
 
 /* Basic pages with a centered title (e.g. Foundations, Uncharted). */
-.page-title--center .pretitle {
+.page-title--center .page-pretitle {
   text-align: center;
 }
 
