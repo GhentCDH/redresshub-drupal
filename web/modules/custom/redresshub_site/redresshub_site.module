@@ -128,6 +128,26 @@ function redresshub_site_form_views_exposed_form_alter(array &$form, \Drupal\Cor
       $form['view'] = ['#type' => 'hidden', '#value' => $current, '#name' => 'view'];
     }
     $form['#attributes']['class'][] = 'explorer__form';
+    // A period outside the bounds of the slider or dropdowns (e.g. from 1980
+    // on the initiatives, kept from the organisations, which start earlier)
+    // is still a valid filter, not an error that empties the view: the number
+    // fields of the slider get no min and max.
+    // With the dropdowns (lists), such a year is added as a choice.
+    $input = $form_state->getUserInput()['period'] ?? [];
+    foreach ([&$form['period'], &$form['period_wrapper']['period']] as &$period) {
+      foreach (['from', 'to'] as $key) {
+        if (!isset($period[$key])) {
+          continue;
+        }
+        unset($period[$key]['#min'], $period[$key]['#max']);
+        $year = is_array($input) ? (string) ($input[$key] ?? '') : '';
+        if (isset($period[$key]['#options']) && preg_match('/^-?\d{1,4}$/', $year) && !isset($period[$key]['#options'][$year])) {
+          $period[$key]['#options'][$year] = $year;
+          ksort($period[$key]['#options'], SORT_NATURAL);
+        }
+      }
+    }
+    unset($period);
     // The explorer is on the front page; filter there (not on /node/…).
     $form['#action'] = \Drupal\Core\Url::fromRoute('<front>')->toString();
   }
