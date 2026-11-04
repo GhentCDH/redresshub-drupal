@@ -50,19 +50,19 @@
   };
 
   /**
-   * Keeps what comes below the stage (the note, the footer) below a side
-   * panel that is longer than the stage: the stage gets the overflow as its
-   * bottom margin, whenever the panel changes size, opens or closes.
+   * Keeps what comes after the explorer (the footer; on small screens the
+   * cards) below a side panel that is longer than the explorer: the explorer
+   * gets the overflow as its bottom margin, whenever the panel changes size,
+   * opens or closes. The note below the map stays where it is.
    */
   const fitPanel = (panel) => {
-    const stage = panel.parentElement;
+    const explorer = panel.closest('[data-explorer]');
     const fit = () => {
-      stage.style.marginBottom = '';
+      explorer.style.marginBottom = '';
       if (!panel.hidden && !document.fullscreenElement) {
-        const over = panel.getBoundingClientRect().bottom - stage.getBoundingClientRect().bottom;
+        const over = panel.getBoundingClientRect().bottom - explorer.getBoundingClientRect().bottom;
         if (over > 0) {
-          // Plus the usual space between the stage and the note below it.
-          stage.style.marginBottom = `${Math.ceil(over) + 20}px`;
+          explorer.style.marginBottom = `${Math.ceil(over) + 20}px`;
         }
       }
     };
