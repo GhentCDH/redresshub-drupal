@@ -1,8 +1,9 @@
 {#
 /**
  * @file
- * Three column site footer, with the partner logos (Partner logo media,
- * managed by the editors) below it. Included by the page templates.
+ * Three column site footer; the partner logos (Footer logo media, managed by
+ * the editors) at the bottom of the contact column. Included by the page
+ * templates.
  */
 #}
 <footer class="site-footer" role="contentinfo">
@@ -17,26 +18,24 @@
     <div class="site-footer__col">
       {{ page.footer }}
     </div>
-    <div class="site-footer__col">
+    <div class="site-footer__col site-footer__col--contact">
       {% if contact_email %}
         <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+      {% endif %}
+      {% if footer_logos %}
+        <ul class="site-footer__logos">
+          {% for logo in footer_logos %}
+            <li class="site-footer__logo">
+              {% if logo.link %}
+                <a href="{{ logo.link }}" rel="noopener" target="_blank"><img src="{{ logo.url }}" alt="{{ logo.alt }}" loading="lazy"></a>
+              {% else %}
+                <img src="{{ logo.url }}" alt="{{ logo.alt }}" loading="lazy">
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
       {% endif %}
     </div>
   </div>
   {{ footer_logos_cache }}
-  {% if footer_logos %}
-    <div class="site-footer__logos container">
-      <ul class="site-footer__logo-list">
-        {% for logo in footer_logos %}
-          <li class="site-footer__logo">
-            {% if logo.link %}
-              <a href="{{ logo.link }}" rel="noopener" target="_blank"><img src="{{ logo.url }}" alt="{{ logo.alt }}" loading="lazy"></a>
-            {% else %}
-              <img src="{{ logo.url }}" alt="{{ logo.alt }}" loading="lazy">
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
 </footer>

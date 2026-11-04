@@ -59,27 +59,27 @@
   list-style: none;
 }
 
-/* Partner logos (Partner logo media), below the columns. */
-.site-footer__logos {
-  padding-bottom: 3rem;
+/* Partner logos (Footer logo media): small, at the bottom of the contact
+   column. */
+.site-footer__col--contact {
+  justify-content: space-between;
 }
 
-.site-footer__logo-list {
+.site-footer__logos {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.5rem 3rem;
-  margin: 0;
-  padding: 2rem 0 0;
-  border-top: 1px solid var(--border);
+  gap: 0.75rem 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
   list-style: none;
 }
 
 .site-footer__logo img {
   display: block;
   width: auto;
-  max-width: 12rem;
-  height: 4rem;
+  max-width: 8rem;
+  height: 2.75rem;
   object-fit: contain;
 }
 
