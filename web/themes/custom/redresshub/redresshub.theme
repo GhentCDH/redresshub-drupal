@@ -50,6 +50,17 @@ function redresshub_preprocess_html(array &$variables): void {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for menu--main.
+ *
+ * The map link is active on the whole front page, also with another view or
+ * filters in the query (the active-link script compares the query too).
+ */
+function redresshub_preprocess_menu__main(array &$variables): void {
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  $variables['#cache']['contexts'][] = 'url.path.is_front';
+}
+
+/**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function redresshub_preprocess_page(array &$variables): void {

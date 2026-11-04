@@ -4,7 +4,7 @@
  * Main navigation, a flat list (the block only renders one level).
  *
  * The link to the front page (the map) stands out: filled on the map,
- * outlined elsewhere.
+ * outlined elsewhere (on the front page whatever its view or filters).
  */
 #}
 {% if items %}
@@ -12,7 +12,7 @@
     {% for item in items %}
       <li class="main-menu__item">
         {% set is_map = item.url.isRouted and item.url.routeName == '<front>' %}
-        {{ link(item.title, item.url, item.attributes.addClass('main-menu__link', item.in_active_trail ? 'is-active-trail', is_map ? 'main-menu__link--map')) }}
+        {{ link(item.title, item.url, item.attributes.addClass('main-menu__link', item.in_active_trail ? 'is-active-trail', is_map ? 'main-menu__link--map', is_map and is_front ? 'is-active')) }}
       </li>
     {% endfor %}
   </ul>
