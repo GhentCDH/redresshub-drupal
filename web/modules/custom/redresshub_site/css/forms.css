@@ -16,3 +16,30 @@
   margin-block: 0 0.5rem;
   break-inside: avoid;
 }
+
+/* Blocks (paragraphs) in a form: tabs with a narrow menu (Text, Text +
+   media), and fields that fit the content column. */
+.paragraphs-subform {
+  --vertical-tabs-menu-width: 9rem;
+  /* Claro derives this one on :root, from its own menu width. */
+  --vertical-tabs-pane-width: calc(100% - 9rem);
+}
+
+.paragraphs-subform .vertical-tabs__items {
+  min-width: 0;
+}
+
+/* Fields (size="60") take the width of the block instead of pushing the
+   table of blocks wider than the form. */
+.paragraphs-subform .form-element {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* The editor toolbar in a block wraps onto a second line instead of making
+   the block wider than the form. */
+.paragraphs-subform .ck.ck-toolbar.ck-toolbar_grouping > .ck-toolbar__items {
+  flex-wrap: wrap;
+  min-width: 0;
+}

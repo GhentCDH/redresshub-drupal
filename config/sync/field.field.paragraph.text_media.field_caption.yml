@@ -10,7 +10,7 @@ field_name: field_caption
 entity_type: paragraph
 bundle: text_media
 label: Caption
-description: 'Shown below the media.'
+description: 'Shown as a label on the media.'
 required: false
 translatable: true
 default_value: {  }
