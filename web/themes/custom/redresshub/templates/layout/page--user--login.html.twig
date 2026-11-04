@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * The login page (also for a new password): only the name of the site and
+ * the form, without menu or footer, while the site is only for logged-in
+ * users (require_login).
+ */
+#}
+<div class="layout-container">
+  <header class="site-header" role="banner">
+    <div class="site-header__inner container">
+      {{ page.header }}
+    </div>
+  </header>
+
+  <main class="site-main" role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <div class="site-main__inner container">
+      {{ page.highlighted }}
+      {{ page.help }}
+      {{ page.content }}
+    </div>
+  </main>
+</div>
