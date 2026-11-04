@@ -1,11 +1,11 @@
 /**
  * @file
  * Filtering the explorer without loading the page again, and the period
- * slider on the map and the network.
+ * slider on the map, the list and the network.
  *
- * - The period slider (search_api_range_filter) of the map and network
- *   displays moves from the filter panel onto the map or the network canvas
- *   (the time bar). Its
+ * - The period slider (search_api_range_filter) moves from the filter
+ *   panel onto the map, under the network canvas or above the list (the
+ *   time bar). Its
  *   fields stay in the exposed form through their form attribute, and moving
  *   a handle applies the filters.
  * - A chosen filter applies at once, without the Apply button; only the
@@ -211,6 +211,11 @@
         if (canvas) {
           bar.classList.add('explorer__timebar--network');
           canvas.after(bar);
+        }
+        // On the list: above it, in the flow.
+        else if (!stage.querySelector('.explorer__result--map')) {
+          bar.classList.add('explorer__timebar--list');
+          stage.prepend(bar);
         }
         else {
           stage.appendChild(bar);

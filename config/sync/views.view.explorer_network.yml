@@ -170,6 +170,7 @@ display:
           language: show
           size: degree
           height: 640px
+          legend: false
       row:
         type: fields
         options: {  }

@@ -225,7 +225,7 @@ display:
           start_field: field_period_d
           end_field: field_period_end_d
           empty_end: open
-          widget: select_range
+          widget: slider
           from_label: From
           to_label: To
           int_range:

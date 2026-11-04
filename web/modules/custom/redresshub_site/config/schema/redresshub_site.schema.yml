@@ -5,3 +5,11 @@ block.settings.redresshub_heading:
     heading:
       type: label
       label: 'Heading'
+
+redresshub_site.settings:
+  type: config_object
+  label: 'RedressHub site settings'
+  mapping:
+    login_required:
+      type: boolean
+      label: 'Only for logged-in users'

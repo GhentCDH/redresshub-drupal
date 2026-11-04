@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\redresshub_site\Hook;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Hook\Order\Order;
 use Drupal\Core\Language\LanguageInterface;
@@ -56,6 +57,34 @@ final class AdminHooks {
     if ($this->routeMatch->getRouteName() !== 'user.reset.login' && !$query->get('destination')) {
       $query->set('destination', Url::fromRoute('<front>')->toString());
     }
+  }
+
+  /**
+   * Basic site settings: whether the site is only for logged-in users.
+   */
+  #[Hook('form_system_site_information_settings_alter')]
+  public function siteInformationFormAlter(array &$form): void {
+    $form['site_access'] = [
+      '#type' => 'details',
+      '#title' => t('Access'),
+      '#open' => TRUE,
+      'redresshub_login_required' => [
+        '#type' => 'checkbox',
+        '#title' => t('Only for logged-in users'),
+        '#description' => t('Visitors who are not logged in get the login form. Untick to make the site public.'),
+        '#default_value' => (bool) \Drupal::config('redresshub_site.settings')->get('login_required'),
+      ],
+    ];
+    $form['#submit'][] = [static::class, 'siteInformationFormSubmit'];
+  }
+
+  /**
+   * Saves the access setting of the basic site settings.
+   */
+  public static function siteInformationFormSubmit(array &$form, FormStateInterface $form_state): void {
+    \Drupal::configFactory()->getEditable('redresshub_site.settings')
+      ->set('login_required', (bool) $form_state->getValue('redresshub_login_required'))
+      ->save();
   }
 
 }

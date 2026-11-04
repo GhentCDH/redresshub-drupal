@@ -716,7 +716,7 @@
   display: flex;
 }
 
-/* Network: only the graph in a white window; the legend on the page. */
+/* Network: only the graph in a white window. */
 .explorer__stage:has(.network-views) {
   border: 0;
   background: none;
@@ -829,7 +829,7 @@
 }
 
 /* The network in full screen: the graph takes the height of the screen,
-   less its legend (it has its height from the view, inline). */
+   less room for the toolbar (it has its height from the view, inline). */
 .explorer__stage:fullscreen .network-views__canvas {
   height: calc(100vh - 7rem) !important;
 }
@@ -983,6 +983,16 @@
   left: auto;
   margin: -5.25rem auto 1.5rem;
   transform: none;
+}
+
+/* On the list: in the flow, above it. */
+.explorer__timebar--list {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  margin: 1.25rem auto 0.5rem;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Fetching the filtered explorer. */

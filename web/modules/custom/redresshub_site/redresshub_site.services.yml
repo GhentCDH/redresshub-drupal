@@ -6,3 +6,8 @@ services:
   logger.channel.redresshub_site:
     parent: logger.channel_base
     arguments: ['redresshub_site']
+  redresshub_site.login_required:
+    class: Drupal\redresshub_site\EventSubscriber\LoginRequired
+    arguments: ['@config.factory', '@current_user', '@current_route_match', '@page_cache_kill_switch']
+    tags:
+      - { name: event_subscriber }
