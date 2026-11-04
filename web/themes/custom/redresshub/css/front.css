@@ -61,6 +61,11 @@
   padding-bottom: 5rem;
 }
 
+/* Grid items may shrink below their content: nothing pushes the page wider. */
+.map-layout > * {
+  min-width: 0;
+}
+
 @media (min-width: 64rem) {
   .map-layout {
     grid-template-columns: 3fr 1fr;
