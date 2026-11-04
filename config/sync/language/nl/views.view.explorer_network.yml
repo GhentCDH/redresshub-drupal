@@ -10,8 +10,10 @@ display:
           submit_button: 'Filters toepassen'
           reset_button_label: Wissen
       header:
-        result:
-          content: '@total initiatieven'
+        views_filters_summary:
+          filters_result_label:
+            plural: initiatieven
+            singular: initiatief
       empty:
         area_text_custom:
           content: 'Niets gevonden voor deze filters.'

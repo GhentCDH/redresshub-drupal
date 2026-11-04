@@ -27,8 +27,33 @@ display:
           submit_button: 'Appliquer les filtres'
           reset_button_label: Réinitialiser
       header:
-        result:
-          content: '@total initiatives'
+        views_filters_summary:
+          filters_result_label:
+            plural: initiatives
+            singular: initiative
       empty:
         area_text_custom:
           content: 'Aucun résultat pour ces filtres.'
+  map:
+    display_options:
+      filters:
+        search:
+          expose:
+            label: 'Rechercher un mot'
+        type:
+          expose:
+            label: "Type d'initiative"
+        org:
+          expose:
+            label: Organisation(s)
+        keyword:
+          expose:
+            label: Mots-clés
+        sector:
+          expose:
+            label: Secteur
+        period:
+          expose:
+            label: Période
+          from_label: De
+          to_label: À

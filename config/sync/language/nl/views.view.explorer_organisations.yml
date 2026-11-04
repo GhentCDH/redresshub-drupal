@@ -27,8 +27,33 @@ display:
           submit_button: 'Filters toepassen'
           reset_button_label: Wissen
       header:
-        result:
-          content: '@total organisaties'
+        views_filters_summary:
+          filters_result_label:
+            plural: organisaties
+            singular: organisatie
       empty:
         area_text_custom:
           content: 'Niets gevonden voor deze filters.'
+  map:
+    display_options:
+      filters:
+        search:
+          expose:
+            label: 'Zoek op een woord'
+        sector:
+          expose:
+            label: Sector
+        org_status:
+          expose:
+            label: Status
+        type:
+          expose:
+            label: 'Type initiatief'
+        keyword:
+          expose:
+            label: Trefwoorden
+        period:
+          expose:
+            label: Periode
+          from_label: Van
+          to_label: Tot
