@@ -59,10 +59,9 @@ body.toolbar-fixed .site-header {
   color: var(--crimson);
 }
 
-/* The page you are on: crimson, semibold and underlined, so it stands out
-   next to the boxed map link. */
+/* The page you are on: crimson and underlined, so it stands out next to the
+   boxed map link. */
 .main-menu__link.is-active:not(.main-menu__link--map) {
-  font-weight: 600;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.6em;
