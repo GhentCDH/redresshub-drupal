@@ -131,8 +131,8 @@
   };
 
   /**
-   * The full screen button on a map: a Leaflet control at the top left, below
-   * the zoom and reset buttons (the side panel covers the right).
+   * The full screen button on a map: a Leaflet control at the top right
+   * (next to an open side panel, see css/explorer.css).
    */
   const addFullscreen = (map, stage) => {
     const button = fullscreenButton(stage, () => map.invalidateSize());
@@ -140,7 +140,7 @@
       return;
     }
     const Control = L.Control.extend({
-      options: { position: 'topleft' },
+      options: { position: 'topright' },
       onAdd() {
         const bar = L.DomUtil.create('div', 'leaflet-bar explorer__fullscreen');
         bar.appendChild(button);
@@ -217,7 +217,7 @@
     attach(context) {
       once('redresshub-explorer', '[data-explorer]', context).forEach((explorer) => {
         alignSidebar(explorer);
-        // The network in full screen too: the button at the top left of the
+        // The network in full screen too: the button at the top right of the
         // graph, as on the map (the graph library follows the size of its
         // canvas on a resize).
         const network = explorer.querySelector('.explorer__stage .network-views');

@@ -745,7 +745,7 @@
   outline-offset: 2px;
 }
 
-/* The network: the button at the top left of the graph, as on the map. */
+/* The network: the button at the top right of the graph, as on the map. */
 .explorer .network-views {
   position: relative;
 }
@@ -754,9 +754,31 @@
   position: absolute;
   z-index: 2;
   top: 0.75rem;
-  left: 0.75rem;
+  right: 0.75rem;
   border: 2px solid rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
+}
+
+/* With the side panel open, the full screen buttons move next to it. */
+.explorer__stage:has(> .explorer__panel:not([hidden])) .leaflet-top.leaflet-right {
+  right: min(28rem, 100%);
+}
+
+.explorer__stage:has(> .explorer__panel:not([hidden])) .explorer__fullscreen-button--network {
+  right: calc(min(28rem, 100%) + 0.75rem);
+}
+
+/* A network without results: an empty window of the size of the graph, with
+   the message in it. */
+.explorer__result--network:not(:has(.network-views)) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 640px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  color: var(--muted-foreground);
+  text-align: center;
 }
 
 .explorer__stage:fullscreen {

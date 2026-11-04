@@ -21,7 +21,7 @@
     <div class="explorer__results">{{ header }}</div>
   {% endif %}
   <div class="explorer__stage">
-    <div class="explorer__result explorer__result--{{ view.current_display }}">
+    <div class="explorer__result explorer__result--{{ view.current_display }}{{ view.id == 'explorer_network' ? ' explorer__result--network' }}">
       {{ rows }}
       {{ empty }}
     </div>
