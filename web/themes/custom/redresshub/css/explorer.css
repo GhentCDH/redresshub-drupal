@@ -65,6 +65,21 @@
   min-width: 12rem;
 }
 
+/* The buttons in the rounded corners of the bar are rounded too, so their
+   background does not cover its border (the bar cannot clip them: its
+   menus open below it). */
+.explorer__bar > * > .explorer__bar-button {
+  border-radius: inherit;
+}
+
+.explorer__bar > :first-child {
+  border-top-left-radius: calc(var(--radius-lg) - 1px);
+}
+
+.explorer__bar > :last-child {
+  border-top-right-radius: calc(var(--radius-lg) - 1px);
+}
+
 /* The network link fills the height of the bar, like the other buttons. */
 .explorer__bar > a.explorer__bar-button {
   height: auto;
@@ -377,6 +392,15 @@
     grid-column: 1 / -1;
     min-width: 0;
     border-top: 1px solid var(--border-strong);
+  }
+
+  /* Here the map view (second) is top left, not the filter toggle. */
+  .explorer__bar > .explorer__filter-toggle {
+    border-top-left-radius: 0;
+  }
+
+  .explorer__bar > :nth-child(2) {
+    border-top-left-radius: calc(var(--radius-lg) - 1px);
   }
 
   .explorer__bar > :nth-child(n + 3) {
