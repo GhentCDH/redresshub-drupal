@@ -588,7 +588,9 @@
   color: var(--white);
 }
 
+/* The active page: only another colour, the same size as the others. */
 .explorer .pager__item.is-active a {
+  min-width: 0;
   padding: 0;
   border: 0;
   color: inherit;
