@@ -5,7 +5,9 @@
  *
  * Variables from _redresshub_preprocess_explorer_item(): kicker, facts
  * (label => items of text and a url, or the nid of research data, which
- * opens in the panel), tag_facts, text, resources.
+ * opens in the panel; terms with the filter they set), tag_facts, text,
+ * resources. A term with a filter is a button that sets that filter on the
+ * current view (js/explorer-ui.js), where the view has it.
  */
 #}
 <article class="explorer-item">
@@ -16,7 +18,15 @@
       <dt>{{ fact }}</dt>
       <dd>
         {% if fact in tag_facts %}
-          <ul class="explorer__tags">{% for item in items %}<li>{{ item.text }}</li>{% endfor %}</ul>
+          <ul class="explorer__tags">
+            {% for item in items %}<li>
+              {%- if item.filter -%}
+                <button type="button" class="explorer__tag" data-explorer-filter="{{ item.filter }}" data-explorer-value="{{ item.tid }}" title="{{ 'Show only: @term'|t({'@term': item.text}) }}">{{ item.text }}</button>
+              {%- else -%}
+                {{ item.text }}
+              {%- endif -%}
+            </li>{% endfor %}
+          </ul>
         {% elseif items|length > 1 or items|first.url or items|first.nid %}
           <ul class="explorer__links">
             {% for item in items %}<li>

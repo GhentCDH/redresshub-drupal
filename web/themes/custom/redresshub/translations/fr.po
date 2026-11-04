@@ -198,3 +198,6 @@ msgstr "Plein écran"
 
 msgid "Exit full screen"
 msgstr "Quitter le plein écran"
+
+msgid "Show only: @term"
+msgstr "Afficher seulement : @term"

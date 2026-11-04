@@ -171,7 +171,8 @@
    scrolls, the panel does not. */
 .explorer__panel {
   position: absolute;
-  z-index: 800;
+  /* Above the controls and credits of the map (Leaflet: 1000). */
+  z-index: 1100;
   top: 0;
   right: 0;
   min-height: 100%;
@@ -254,10 +255,32 @@
 }
 
 .explorer__tags li {
+  display: flex;
   padding: 0.125rem 0.625rem;
   border-radius: 9999px;
   background: var(--soft-beige);
   font-size: 0.8125rem;
+}
+
+/* A tag that filters the view on its term. */
+.explorer__tags li:has(.explorer__tag) {
+  padding: 0;
+}
+
+.explorer__tag {
+  padding: 0.125rem 0.625rem;
+  border: 0;
+  border-radius: inherit;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.explorer__tag:hover,
+.explorer__tag:focus-visible {
+  background: var(--crimson);
+  color: var(--white);
 }
 
 .explorer__links,

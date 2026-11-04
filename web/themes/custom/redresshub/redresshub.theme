@@ -284,8 +284,9 @@ function _redresshub_preprocess_explorer_item(array &$variables): void {
   $translate = fn($entity) => $entity && $entity->hasTranslation($langcode) ? $entity->getTranslation($langcode) : $entity;
   $node = $translate($node);
 
-  $labels = fn(string $field) => array_map(
-    fn($entity) => ['text' => $translate($entity)->label()],
+  // Terms with the filter of the explorer they set (its URL parameter).
+  $labels = fn(string $field, ?string $filter = NULL) => array_map(
+    fn($entity) => ['text' => $translate($entity)->label(), 'tid' => $entity->id(), 'filter' => $filter],
     $node->get($field)->referencedEntities(),
   );
   $links = fn(array $entities) => array_map(
@@ -304,27 +305,27 @@ function _redresshub_preprocess_explorer_item(array &$variables): void {
       $period_text .= ' (' . t('uncertain') . ')';
     }
     $facts[(string) t('Period')] = $period_text ? [['text' => $period_text]] : [];
-    $facts[(string) t('Type of initiative')] = $labels('field_initiative_type');
+    $facts[(string) t('Type of initiative')] = $labels('field_initiative_type', 'type');
     $facts[(string) t('UN category')] = $labels('field_un_category');
     $facts[(string) t('Organisation(s)')] = $links($node->get('field_organisations')->referencedEntities());
     $facts[(string) t('Location')] = $labels('field_place');
-    $facts[(string) t('Keywords')] = $labels('field_keywords');
+    $facts[(string) t('Keywords')] = $labels('field_keywords', 'keyword');
     $variables['text'] = $node->get('field_short_description')->processed;
     $variables['resources'] = array_map(fn($item) => $item->getUrl()->toString(), iterator_to_array($node->get('field_resources')));
-    $meta = array_filter([implode(', ', array_column($labels('field_initiative_type'), 'text')), $start ? ($end ? ($end === $start ? $start : "{$start}–{$end}") : "{$start}–") : '']);
+    $meta = array_filter([implode(', ', array_column($labels('field_initiative_type', 'type'), 'text')), $start ? ($end ? ($end === $start ? $start : "{$start}–{$end}") : "{$start}–") : '']);
   }
   else {
     $initiative_ids = \Drupal::entityQuery('node')->accessCheck(TRUE)
       ->condition('type', 'initiative')->condition('status', 1)
       ->condition('field_organisations', $node->id())->sort('title')->execute();
-    $facts[(string) t('Sector')] = $labels('field_sector');
-    $facts[(string) t('Status')] = $labels('field_organisation_status');
+    $facts[(string) t('Sector')] = $labels('field_sector', 'sector');
+    $facts[(string) t('Status')] = $labels('field_organisation_status', 'status');
     $facts[(string) t('Period')] = $period_text ? [['text' => $period_text]] : [];
     $facts[(string) t('Location')] = $labels('field_locations');
     $facts[(string) t('Initiatives')] = $links(Node::loadMultiple($initiative_ids));
     $website = $node->get('field_website')->first();
     $facts[(string) t('Website')] = $website ? [['text' => preg_replace('#^https?://(www\.)?#', '', rtrim($website->getUrl()->toString(), '/')), 'url' => $website->getUrl()->toString()]] : [];
-    $meta = [implode(', ', array_column($labels('field_sector'), 'text'))];
+    $meta = [implode(', ', array_column($labels('field_sector', 'sector'), 'text'))];
   }
   // Term labels are shown as tags.
   $variables['tag_facts'] = [(string) t('Type of initiative'), (string) t('UN category'), (string) t('Keywords'), (string) t('Sector'), (string) t('Status')];

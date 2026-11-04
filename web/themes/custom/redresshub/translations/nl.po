@@ -198,3 +198,6 @@ msgstr "Volledig scherm"
 
 msgid "Exit full screen"
 msgstr "Volledig scherm verlaten"
+
+msgid "Show only: @term"
+msgstr "Toon enkel: @term"

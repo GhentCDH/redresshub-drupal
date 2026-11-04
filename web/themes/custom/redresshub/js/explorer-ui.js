@@ -18,6 +18,14 @@
       return;
     }
     panel.querySelector('.explorer__panel-body').innerHTML = html;
+    // A tag is a filter where this view has that filter with that term.
+    const form = container.querySelector('form.explorer__form');
+    panel.querySelectorAll('[data-explorer-filter]').forEach((tag) => {
+      const select = form?.querySelector(`select[name="${tag.dataset.explorerFilter}"]`);
+      if (!select || ![...select.options].some((option) => option.value === tag.dataset.explorerValue)) {
+        tag.replaceWith(document.createTextNode(tag.textContent));
+      }
+    });
     panel.hidden = false;
     // The page stays where it is: with the top of the stage out of sight, the
     // panel starts below the header, where the visitor is looking.
@@ -27,6 +35,7 @@
     const offset = document.fullscreenElement ? 0 : Math.max(0, visibleTop - panel.parentElement.getBoundingClientRect().top);
     panel.style.top = `${offset}px`;
     panel.style.minHeight = `calc(100% - ${offset}px)`;
+    panel.redresshubFit?.();
     panel.querySelector('.explorer__panel-close').focus({ preventScroll: true });
   };
 
@@ -60,6 +69,8 @@
     if (typeof ResizeObserver !== 'undefined') {
       new ResizeObserver(fit).observe(panel);
     }
+    // Also when it moves without changing size (see openPanel()).
+    panel.redresshubFit = fit;
   };
 
   /**
@@ -244,6 +255,16 @@
           if (tile) {
             const template = tile.parentElement.querySelector('.explorer__tile-panel');
             openPanel(tile.closest('.explorer__view'), template ? template.innerHTML : '');
+          }
+          // A tag in the panel: that term as the filter of this view.
+          const tag = event.target.closest('[data-explorer-filter]');
+          if (tag) {
+            const form = tag.closest('.explorer__view')?.querySelector('form.explorer__form');
+            const select = form?.querySelector(`select[name="${tag.dataset.explorerFilter}"]`);
+            if (select) {
+              select.value = tag.dataset.explorerValue;
+              form.requestSubmit();
+            }
           }
           // Linked research data in the panel (it has no page of its own).
           const link = event.target.closest('[data-explorer-nid]');
