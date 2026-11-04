@@ -1,13 +1,17 @@
 {#
 /**
  * @file
- * Text paragraph: title with an optional icon, text and an optional button.
+ * Text paragraph: an optional pretitle, title with an optional icon, text
+ * and an optional button.
  *
  * Variables from redresshub_preprocess_paragraph(): icon_url, button_url,
  * button_title, button_style, background.
  */
 #}
 <section{{ attributes.addClass('paragraph', 'text-block', background == 'white' ? 'card') }}>
+  {% if paragraph.field_pretitle.value %}
+    <p class="pretitle">{{ paragraph.field_pretitle.value }}</p>
+  {% endif %}
   {% if content.field_title|render|trim %}
     <h2 class="text-block__title"{% if icon_url %} style="--icon: url('{{ icon_url }}');"{% endif %}>
       {% if icon_url %}<span class="icon" aria-hidden="true"></span>{% endif %}

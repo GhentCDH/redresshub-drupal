@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.text.field_button
     - field.field.paragraph.text.field_button_style
     - field.field.paragraph.text.field_icon
+    - field.field.paragraph.text.field_pretitle
     - field.field.paragraph.text.field_text
     - field.field.paragraph.text.field_title
     - paragraphs.paragraphs_type.text
@@ -38,4 +39,5 @@ hidden:
   field_button: true
   field_button_style: true
   field_icon: true
+  field_pretitle: true
   search_api_excerpt: true

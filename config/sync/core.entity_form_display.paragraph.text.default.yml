@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.text.field_button
     - field.field.paragraph.text.field_button_style
     - field.field.paragraph.text.field_icon
+    - field.field.paragraph.text.field_pretitle
     - field.field.paragraph.text.field_text
     - field.field.paragraph.text.field_title
     - paragraphs.paragraphs_type.text
@@ -43,6 +44,14 @@ content:
     weight: 2
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_pretitle:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_text:
     type: text_textarea

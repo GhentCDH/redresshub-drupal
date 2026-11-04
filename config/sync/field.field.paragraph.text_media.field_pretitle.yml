@@ -1,0 +1,19 @@
+uuid: 3c613c0f-6924-4c45-908e-0b51bdc82852
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pretitle
+    - paragraphs.paragraphs_type.text_media
+id: paragraph.text_media.field_pretitle
+field_name: field_pretitle
+entity_type: paragraph
+bundle: text_media
+label: Pretitle
+description: 'A short line above the title, e.g. "Ways into the map".'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
