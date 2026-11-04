@@ -1,5 +1,4 @@
 global:
-  version: VERSION
   css:
     base:
       css/fonts.css: {}
@@ -21,13 +20,11 @@ global:
     - core/once
 
 front:
-  version: VERSION
   css:
     component:
       css/front.css: {}
 
 pages:
-  version: VERSION
   css:
     component:
       css/pages.css: {}
@@ -38,7 +35,6 @@ pages:
     - core/once
 
 slideshow:
-  version: VERSION
   js:
     js/slideshow.js: {}
   dependencies:
@@ -46,7 +42,6 @@ slideshow:
     - core/once
 
 explorer:
-  version: VERSION
   css:
     component:
       css/explorer.css: {}
