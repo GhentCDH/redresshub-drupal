@@ -57,7 +57,7 @@
 
 /* ------------------------------------------------------------------------
  * Blocks: every part of a content form is a block, its name in a crimson
- * column on the left and its fields on a warm light background, in the
+ * bar on top and its fields below it on a warm light background, in the
  * colours and fonts of the RedressHub theme.
  * --------------------------------------------------------------------- */
 
@@ -66,7 +66,6 @@
   --rh-block-accent-dark: #7a3d45;
   --rh-block-tint: #f8f1ed;
   --rh-block-line: rgba(184, 126, 114, 0.3);
-  --rh-block-label: 11rem;
   --rh-block-serif: "Libre Baskerville", Georgia, serif;
 }
 
@@ -76,27 +75,23 @@
 .node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] {
   position: relative;
   margin: 0 0 1.25rem;
+  padding: 0;
   border: 0;
   border-radius: 0.5rem;
   background: var(--rh-block-tint);
   box-shadow: none;
-  overflow: hidden;
 }
 
-.node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) {
-  padding: 0 0 0 calc(var(--rh-block-label) + 2rem);
-}
-
-/* Its name: a column on the left, with a notch pointing at the fields. */
+/* Its name: a bar on top, with a notch pointing at the fields. */
 .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend {
-  position: absolute;
-  inset: 0 auto 0 0;
+  position: relative;
   display: block;
   float: none;
-  width: var(--rh-block-label);
+  width: 100%;
   margin: 0;
-  padding: 1.25rem 1rem;
+  padding: 0.75rem 1.5rem;
   box-sizing: border-box;
+  border-radius: 0.5rem 0.5rem 0 0;
   background: var(--rh-block-accent);
   color: #fff;
 }
@@ -104,10 +99,10 @@
 .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend::after {
   content: "";
   position: absolute;
-  top: 1.1rem;
-  right: -0.75rem;
-  border-block: 0.75rem solid transparent;
-  border-left: 0.75rem solid var(--rh-block-accent);
+  bottom: -0.6rem;
+  left: 1.5rem;
+  border-inline: 0.6rem solid transparent;
+  border-top: 0.6rem solid var(--rh-block-accent);
 }
 
 .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend .fieldset__label {
@@ -121,12 +116,7 @@
 
 .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__wrapper {
   margin: 0;
-  padding: 1.25rem 1.5rem 0.5rem 0;
-}
-
-/* The notch of the column sticks out: room for it. */
-.node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) {
-  overflow: visible;
+  padding: 1.5rem 1.5rem 0.5rem;
 }
 
 /* An optional block (closed): a bar with its name, open on a click. */
@@ -296,25 +286,14 @@
   background: #fff;
 }
 
-/* Narrow screens: the name of a block above it, the fields full width. */
+/* Narrow screens: less room around the fields. */
 @media (max-width: 48rem) {
-  .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) {
-    padding: 0;
-    overflow: hidden;
-  }
-
   .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend {
-    position: static;
-    width: 100%;
-    padding: 0.75rem 1rem;
-  }
-
-  .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend::after {
-    display: none;
+    padding-inline: 1rem;
   }
 
   .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__wrapper {
-    padding: 1rem;
+    padding: 1.25rem 1rem 0.25rem;
   }
 }
 
