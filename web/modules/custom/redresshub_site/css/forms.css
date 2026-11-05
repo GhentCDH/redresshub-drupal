@@ -36,3 +36,14 @@
 .layout-region--main > .return-to-top {
   display: none;
 }
+
+/* The language (last in the form) right above Published: one gap between
+   them instead of three margins. */
+.layout-region--main > .layout-region__content > .field--name-langcode .form-item,
+.layout-region--footer .form-item--status-value {
+  margin-block: 0;
+}
+
+.layout-region--footer > .layout-region__content {
+  margin-top: 0;
+}
