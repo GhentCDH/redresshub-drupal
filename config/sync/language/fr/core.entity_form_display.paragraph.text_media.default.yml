@@ -1,6 +1,10 @@
 third_party_settings:
   field_group:
+    group_tm_tabs:
+      label: Onglets
+    group_tm_text:
+      label: Texte
+    group_tm_media:
+      label: Média
     group_title_extras:
       label: 'Compléments du titre'
-    group_caption_layout:
-      label: 'Légende et disposition'

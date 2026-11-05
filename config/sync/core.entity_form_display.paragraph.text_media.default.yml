@@ -19,31 +19,69 @@ dependencies:
     - text
 third_party_settings:
   field_group:
-    group_title_extras:
+    group_tm_tabs:
       children:
-        - field_pretitle
-      label: 'Title extras'
+        - group_tm_text
+        - group_tm_media
+      label: Tabs
       region: content
       parent_name: ''
-      weight: 0
-      format_type: details
+      weight: 1
+      format_type: tabs
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
         description: ''
-        required_fields: false
-    group_caption_layout:
+        required_fields: true
+        direction: horizontal
+        width_breakpoint: 640
+    group_tm_text:
       children:
+        - group_title_extras
+        - field_title
+        - field_text
+      label: Text
+      region: content
+      parent_name: group_tm_tabs
+      weight: 0
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+        required_fields: true
+    group_tm_media:
+      children:
+        - field_slideshow
+        - field_media
+        - field_media_multiple
         - field_caption
         - field_show_caption
-        - field_media_layout
-      label: 'Caption and layout'
+      label: Media
       region: content
-      parent_name: ''
-      weight: 7
+      parent_name: group_tm_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_title_extras:
+      children:
+        - field_pretitle
+      label: 'Title extras'
+      region: content
+      parent_name: group_tm_text
+      weight: 0
       format_type: details
       format_settings:
         classes: ''
@@ -60,7 +98,7 @@ mode: default
 content:
   field_caption:
     type: string_textfield
-    weight: 8
+    weight: 7
     region: content
     settings:
       size: 60
@@ -75,7 +113,7 @@ content:
     third_party_settings: {  }
   field_media_layout:
     type: options_select
-    weight: 10
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -96,7 +134,7 @@ content:
     third_party_settings: {  }
   field_show_caption:
     type: boolean_checkbox
-    weight: 9
+    weight: 8
     region: content
     settings:
       display_label: true
