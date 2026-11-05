@@ -240,3 +240,6 @@ msgstr "Opent of sluit alles in dit blok, ook de blokken erin."
 
 msgid "This button opens / closes all the nested items for all the paragraphs on this page."
 msgstr "Opent of sluit alle blokken op deze pagina."
+
+msgid "End date (optional)"
+msgstr "Einddatum (optioneel)"

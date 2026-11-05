@@ -4,7 +4,5 @@ third_party_settings:
       label: Evenement
     group_tabs:
       label: Tabbladen
-    group_when:
-      label: 'Wanneer en waar'
     group_link:
       label: 'Link (optioneel)'
