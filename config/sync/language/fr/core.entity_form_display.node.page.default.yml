@@ -1,13 +1,11 @@
 third_party_settings:
   field_group:
-    group_key:
-      label: Titre
     group_content:
-      label: 'Contenu principal'
+      label: Contenu
     group_page_tabs:
       label: Onglets
       format_settings:
-        description: "Facultatif. Sous le contenu principal, une rangée d'onglets, par ex. « Le projet », « L'équipe », « Publications ». Chaque onglet a un titre (le nom sur l'onglet) et ses propres blocs ; les visiteurs voient un onglet à la fois et cliquent pour changer. Laissez vide pour une page sans onglets."
+        description: "Facultatif. Sous le contenu, une rangée d'onglets, par ex. « Le projet », « L'équipe », « Publications ». Chaque onglet a un titre (le nom sur l'onglet) et ses propres blocs ; les visiteurs voient un onglet à la fois et cliquent pour changer. Laissez vide pour une page sans onglets."
     group_tabs:
       label: Onglets
     group_title_extras:

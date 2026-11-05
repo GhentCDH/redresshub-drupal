@@ -13,62 +13,13 @@ dependencies:
     - path
 third_party_settings:
   field_group:
-    group_key:
-      children:
-        - title
-        - group_title_extras
-      label: Title
-      region: content
-      parent_name: group_tabs
-      weight: 0
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: open
-        description: ''
-        required_fields: true
-    group_content:
-      children:
-        - field_content
-      label: Content
-      region: content
-      parent_name: group_tabs
-      weight: 1
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: closed
-        description: ''
-        required_fields: true
-    group_tabs:
-      children:
-        - group_key
-        - group_content
-      label: Tabs
-      region: content
-      parent_name: ''
-      weight: -100
-      format_type: tabs
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        direction: horizontal
-        width_breakpoint: 640
     group_title_extras:
       children:
         - field_pretitle
         - field_title_alignment
       label: 'Title extras'
       region: content
-      parent_name: group_key
+      parent_name: ''
       weight: 1
       format_type: details
       format_settings:
@@ -94,7 +45,7 @@ content:
     third_party_settings: {  }
   field_content:
     type: paragraph_group_details_widget
-    weight: 2
+    weight: 4
     region: content
     settings:
       title: block

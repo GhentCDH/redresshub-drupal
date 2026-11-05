@@ -14,11 +14,12 @@ dependencies:
     - path
 third_party_settings:
   field_group:
-    group_key:
+    group_content:
       children:
         - title
         - group_title_extras
-      label: Title
+        - field_content
+      label: Content
       region: content
       parent_name: group_tabs
       weight: 0
@@ -31,10 +32,10 @@ third_party_settings:
         formatter: open
         description: ''
         required_fields: true
-    group_content:
+    group_page_tabs:
       children:
-        - field_content
-      label: 'Main content'
+        - field_tabs
+      label: Tabs
       region: content
       parent_name: group_tabs
       weight: 1
@@ -45,27 +46,10 @@ third_party_settings:
         id: ''
         label_as_html: false
         formatter: closed
-        description: ''
-        required_fields: true
-    group_page_tabs:
-      children:
-        - field_tabs
-      label: Tabs
-      region: content
-      parent_name: group_tabs
-      weight: 2
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: closed
-        description: 'Optional. Below the main content, a row of tabs, e.g. "The project", "The team", "Publications". Each tab has a tab title (the name on the tab) and its own blocks; visitors see one tab at a time and click to switch. Leave empty for a page without tabs.'
+        description: 'Optional. Below the content, a row of tabs, e.g. "The project", "The team", "Publications". Each tab has a tab title (the name on the tab) and its own blocks; visitors see one tab at a time and click to switch. Leave empty for a page without tabs.'
         required_fields: true
     group_tabs:
       children:
-        - group_key
         - group_content
         - group_page_tabs
       label: Tabs
@@ -86,7 +70,7 @@ third_party_settings:
         - field_title_alignment
       label: 'Title extras'
       region: content
-      parent_name: group_key
+      parent_name: group_content
       weight: 1
       format_type: details
       format_settings:
@@ -112,7 +96,7 @@ content:
     third_party_settings: {  }
   field_content:
     type: paragraph_group_details_widget
-    weight: 2
+    weight: 4
     region: content
     settings:
       title: block
