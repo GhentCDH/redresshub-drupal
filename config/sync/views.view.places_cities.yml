@@ -1,0 +1,128 @@
+uuid: f1f0f5ba-f266-422c-af77-e1ca9187e2b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.places
+  module:
+    - taxonomy
+id: places_cities
+label: 'Places: cities'
+module: views
+description: 'The places that can be chosen as the city of a location: the terms below a country, not the countries.'
+tag: entity_reference
+base_table: taxonomy_term_field_data
+base_field: tid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      fields:
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: field
+          label: ''
+          type: string
+          settings:
+            link_to_entity: false
+      pager:
+        type: none
+        options:
+          offset: 0
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: tag
+        options: {  }
+      sorts:
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: standard
+          order: ASC
+      filters:
+        vid:
+          id: vid
+          table: taxonomy_term_field_data
+          field: vid
+          entity_type: taxonomy_term
+          entity_field: vid
+          plugin_id: bundle
+          operator: in
+          value:
+            places: places
+        parent_target_id:
+          id: parent_target_id
+          table: taxonomy_term__parent
+          field: parent_target_id
+          entity_type: taxonomy_term
+          entity_field: parent
+          plugin_id: numeric
+          operator: '>'
+          value:
+            min: ''
+            max: ''
+            value: '0'
+        status:
+          id: status
+          table: taxonomy_term_field_data
+          field: status
+          entity_type: taxonomy_term
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+        default_langcode:
+          id: default_langcode
+          table: taxonomy_term_field_data
+          field: default_langcode
+          entity_type: taxonomy_term
+          entity_field: default_langcode
+          plugin_id: boolean
+          value: '1'
+      style:
+        type: default
+      row:
+        type: fields
+      query:
+        type: views_query
+        options: {  }
+      rendering_language: '***LANGUAGE_language_content***'
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+      tags: {  }
+  entity_reference_1:
+    id: entity_reference_1
+    display_title: Cities
+    display_plugin: entity_reference
+    position: 1
+    display_options:
+      style:
+        type: entity_reference
+        options:
+          search_fields:
+            name: name
+      row:
+        type: entity_reference
+        options: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+      tags: {  }
