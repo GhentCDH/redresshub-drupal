@@ -20,7 +20,7 @@ third_party_settings:
       children:
         - title
         - field_short_description
-        - field_link
+        - group_link
       label: Event
       region: content
       parent_name: group_tabs
@@ -67,6 +67,22 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
+    group_link:
+      children:
+        - field_link
+      label: 'Link (optional)'
+      region: content
+      parent_name: group_key
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
 id: node.event.default
 targetEntityType: node
 bundle: event

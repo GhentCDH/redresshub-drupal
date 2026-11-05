@@ -6,3 +6,5 @@ third_party_settings:
       label: Onglets
     group_when:
       label: 'Quand et où'
+    group_link:
+      label: 'Lien (facultatif)'

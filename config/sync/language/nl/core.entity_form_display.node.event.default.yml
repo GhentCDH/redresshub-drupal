@@ -6,3 +6,5 @@ third_party_settings:
       label: Tabbladen
     group_when:
       label: 'Wanneer en waar'
+    group_link:
+      label: 'Link (optioneel)'
