@@ -12,7 +12,7 @@ field_name: field_coordinates
 entity_type: node
 bundle: location
 label: Coordinates
-description: 'Place the marker on the map.'
+description: 'Latitude and longitude in decimal degrees, e.g. 51.05 and 3.72.'
 required: false
 translatable: false
 default_value: {  }
