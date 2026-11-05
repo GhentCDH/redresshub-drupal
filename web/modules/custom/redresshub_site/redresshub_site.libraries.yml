@@ -17,13 +17,3 @@ footer_logos:
   css:
     theme:
       css/footer-logos.css: {}
-
-tab_states:
-  js:
-    js/tab-states.js: {}
-  dependencies:
-    - core/drupal
-    - core/drupal.states
-    - core/jquery
-    - core/once
-    - field_group/element.horizontal_tabs

@@ -44,25 +44,24 @@ final class AdminHooks {
       $form['langcode']['widget'][0]['value']['#languages'] = LanguageInterface::STATE_CONFIGURABLE;
     }
     if (isset($form['field_fragment_type'])) {
-      $form['#after_build'][] = [self::class, 'fragmentTabs'];
-      $form['#attached']['library'][] = 'redresshub_site/tab_states';
+      $form['#after_build'][] = [self::class, 'fragmentGroups'];
     }
   }
 
   /**
-   * Fragment form: the tabs Media and Content only for the types that use them.
+   * Fragment form: the groups Media and Text only for the types that use them.
    *
    * Image and video: media and caption; quote and text: the text; audio: both
    * (see node--fragment--teaser.html.twig).
    */
-  public static function fragmentTabs(array $form): array {
-    $tabs = [
+  public static function fragmentGroups(array $form): array {
+    $groups = [
       'group_media' => ['image', 'audio', 'video'],
       'group_content' => ['text', 'quote', 'audio'],
     ];
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
       ->loadByProperties(['vid' => 'fragment_type']);
-    foreach ($tabs as $group => $types) {
+    foreach ($groups as $group => $types) {
       $conditions = [];
       foreach ($terms as $term) {
         if (in_array(strtolower($term->getUntranslated()->label()), $types, TRUE)) {
