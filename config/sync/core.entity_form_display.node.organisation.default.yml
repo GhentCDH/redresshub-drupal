@@ -26,7 +26,7 @@ third_party_settings:
       label: 'When and where'
       region: content
       parent_name: group_key
-      weight: 4
+      weight: 2
       format_type: fieldset
       format_settings:
         classes: ''
@@ -42,7 +42,7 @@ third_party_settings:
       label: Classification
       region: content
       parent_name: group_key
-      weight: 7
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -57,7 +57,7 @@ third_party_settings:
       label: Related
       region: content
       parent_name: group_key
-      weight: 9
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -73,7 +73,8 @@ third_party_settings:
         - group_when_and_where
         - group_classification
         - group_related
-      label: 'Key data'
+        - group_optional
+      label: Organisation
       region: content
       parent_name: group_tabs
       weight: 0
@@ -86,26 +87,9 @@ third_party_settings:
         formatter: open
         description: ''
         required_fields: true
-    group_content:
-      children:
-        - field_general_contact
-      label: Content
-      region: content
-      parent_name: group_tabs
-      weight: 1
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: closed
-        description: ''
-        required_fields: true
     group_tabs:
       children:
         - group_key
-        - group_content
       label: Tabs
       region: content
       parent_name: ''
@@ -118,6 +102,22 @@ third_party_settings:
         label_as_html: false
         direction: horizontal
         width_breakpoint: 640
+    group_optional:
+      children:
+        - field_general_contact
+      label: 'Contact (optional)'
+      region: content
+      parent_name: group_key
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
 id: node.organisation.default
 targetEntityType: node
 bundle: organisation

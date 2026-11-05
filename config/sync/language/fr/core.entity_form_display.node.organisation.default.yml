@@ -7,8 +7,8 @@ third_party_settings:
     group_related:
       label: Liens
     group_key:
-      label: 'Données de base'
-    group_content:
-      label: Contenu
+      label: Organisation
     group_tabs:
       label: Onglets
+    group_optional:
+      label: 'Contact (facultatif)'

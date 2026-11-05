@@ -7,8 +7,8 @@ third_party_settings:
     group_related:
       label: Gerelateerd
     group_key:
-      label: Basisgegevens
-    group_content:
-      label: Inhoud
+      label: Initiatief
     group_tabs:
       label: Tabbladen
+    group_optional:
+      label: 'Bronnen (optioneel)'
