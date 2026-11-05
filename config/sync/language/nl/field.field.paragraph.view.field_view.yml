@@ -1,2 +1,2 @@
-label: Lijst
-description: 'Welke lijst getoond wordt. Lijsten (views) met de tag "paragraph" kunnen hier gekozen worden.'
+label: View
+description: 'Welke view getoond wordt. Views met de tag "paragraph" kunnen hier gekozen worden.'

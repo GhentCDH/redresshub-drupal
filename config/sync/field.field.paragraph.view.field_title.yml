@@ -10,7 +10,7 @@ field_name: field_title
 entity_type: paragraph
 bundle: view
 label: Title
-description: 'Optional. A title above the list.'
+description: 'Optional. A title above the view.'
 required: false
 translatable: true
 default_value: {  }

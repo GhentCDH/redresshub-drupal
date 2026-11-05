@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: view
-label: List
+label: 'View block'
 icon_uuid: null
 icon_default: null
-description: 'A list from the website, e.g. the fragments or the events.'
+description: 'Shows a view of the website, e.g. the publications or the fragments.'
 behavior_plugins: {  }

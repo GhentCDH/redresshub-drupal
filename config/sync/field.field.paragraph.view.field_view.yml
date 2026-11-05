@@ -11,8 +11,8 @@ id: paragraph.view.field_view
 field_name: field_view
 entity_type: paragraph
 bundle: view
-label: List
-description: 'Which list to show. Lists (views) tagged "paragraph" can be chosen here.'
+label: View
+description: 'Which view to show. Views tagged "paragraph" can be chosen here.'
 required: true
 translatable: false
 default_value: {  }
