@@ -11,7 +11,7 @@ field_name: field_initiative_type
 entity_type: node
 bundle: initiative
 label: 'Type of initiative'
-description: ''
+description: 'Click to choose from the list, or type a new name and press Enter to add it.'
 required: false
 translatable: false
 default_value: {  }

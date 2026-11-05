@@ -38,25 +38,9 @@ third_party_settings:
         - field_content
       label: Content
       region: content
-      parent_name: group_tabs
-      weight: 0
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: open
-        description: ''
-        required_fields: true
-    group_tabs:
-      children:
-        - group_content
-      label: Tabs
-      region: content
       parent_name: ''
       weight: -100
-      format_type: tabs
+      format_type: fieldset
       format_settings:
         classes: ''
         show_empty_fields: false
@@ -64,8 +48,6 @@ third_party_settings:
         label_as_html: false
         description: ''
         required_fields: true
-        direction: horizontal
-        width_breakpoint: 640
 _core:
   default_config_hash: MzSYzZbqqlwSM8mtLwEdCerBZRNGvHZntu5u_Gao8LY
 id: node.example.default

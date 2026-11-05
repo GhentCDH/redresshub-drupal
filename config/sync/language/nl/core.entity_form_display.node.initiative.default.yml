@@ -8,7 +8,5 @@ third_party_settings:
       label: Gerelateerd
     group_key:
       label: Initiatief
-    group_tabs:
-      label: Tabbladen
     group_optional:
       label: 'Bronnen (optioneel)'

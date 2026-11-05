@@ -4,8 +4,6 @@ third_party_settings:
       label: "Extra's bij de titel"
     group_content:
       label: Inhoud
-    group_tabs:
-      label: Tabbladen
 content:
   field_content:
     settings:

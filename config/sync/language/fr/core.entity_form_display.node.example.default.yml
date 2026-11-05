@@ -4,8 +4,6 @@ third_party_settings:
       label: 'Compléments du titre'
     group_content:
       label: Contenu
-    group_tabs:
-      label: Onglets
 content:
   field_content:
     settings:

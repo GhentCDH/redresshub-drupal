@@ -27,8 +27,8 @@ third_party_settings:
         - field_locations
       label: 'When and where'
       region: content
-      parent_name: group_key
-      weight: 2
+      parent_name: ''
+      weight: -99
       format_type: fieldset
       format_settings:
         classes: ''
@@ -43,8 +43,8 @@ third_party_settings:
         - field_organisation_status
       label: Classification
       region: content
-      parent_name: group_key
-      weight: 3
+      parent_name: ''
+      weight: -98
       format_type: fieldset
       format_settings:
         classes: ''
@@ -58,8 +58,8 @@ third_party_settings:
         - field_predecessor
       label: Related
       region: content
-      parent_name: group_key
-      weight: 4
+      parent_name: ''
+      weight: -97
       format_type: fieldset
       format_settings:
         classes: ''
@@ -72,45 +72,25 @@ third_party_settings:
       children:
         - title
         - field_website
-        - group_when_and_where
-        - group_classification
-        - group_related
-        - group_optional
       label: Organisation
-      region: content
-      parent_name: group_tabs
-      weight: 0
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: open
-        description: ''
-        required_fields: true
-    group_tabs:
-      children:
-        - group_key
-      label: Tabs
       region: content
       parent_name: ''
       weight: -100
-      format_type: tabs
+      format_type: fieldset
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
-        direction: horizontal
-        width_breakpoint: 640
+        description: ''
+        required_fields: true
     group_optional:
       children:
         - field_general_contact
       label: 'Contact (optional)'
       region: content
-      parent_name: group_key
-      weight: 5
+      parent_name: ''
+      weight: -96
       format_type: details
       format_settings:
         classes: ''
@@ -150,7 +130,7 @@ content:
       modal_width: 80%
       modal_title: 'Add new'
       duplicate: false
-      search: true
+      search: false
       bootstrap: false
       tagify: false
       match_operator: CONTAINS
@@ -181,7 +161,7 @@ content:
       modal_width: 80%
       modal_title: 'Add new'
       duplicate: false
-      search: true
+      search: false
       bootstrap: false
       tagify: false
       match_operator: CONTAINS

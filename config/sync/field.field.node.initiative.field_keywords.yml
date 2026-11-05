@@ -11,7 +11,7 @@ field_name: field_keywords
 entity_type: node
 bundle: initiative
 label: Keywords
-description: ''
+description: 'Start typing to choose a keyword, or type a new one and press Enter to add it.'
 required: false
 translatable: false
 default_value: {  }

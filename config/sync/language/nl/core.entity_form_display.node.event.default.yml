@@ -2,7 +2,5 @@ third_party_settings:
   field_group:
     group_key:
       label: Evenement
-    group_tabs:
-      label: Tabbladen
     group_link:
       label: 'Link (optioneel)'

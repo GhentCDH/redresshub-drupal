@@ -8,7 +8,5 @@ third_party_settings:
       label: Liens
     group_key:
       label: Initiative
-    group_tabs:
-      label: Onglets
     group_optional:
       label: 'Ressources (facultatif)'

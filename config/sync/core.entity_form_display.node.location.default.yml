@@ -24,32 +24,16 @@ third_party_settings:
         - field_coordinates
       label: Location
       region: content
-      parent_name: group_tabs
-      weight: 0
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: open
-        description: ''
-        required_fields: true
-    group_tabs:
-      children:
-        - group_key
-      label: Tabs
-      region: content
       parent_name: ''
       weight: -100
-      format_type: tabs
+      format_type: fieldset
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
-        direction: horizontal
-        width_breakpoint: 640
+        description: ''
+        required_fields: true
 id: node.location.default
 targetEntityType: node
 bundle: location

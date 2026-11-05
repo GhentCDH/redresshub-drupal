@@ -11,7 +11,7 @@ field_name: field_organisations
 entity_type: node
 bundle: initiative
 label: Organisation(s)
-description: 'The organisations behind the initiative.'
+description: 'The organisations behind the initiative. Type to search; with + you add a new one.'
 required: false
 translatable: false
 default_value: {  }

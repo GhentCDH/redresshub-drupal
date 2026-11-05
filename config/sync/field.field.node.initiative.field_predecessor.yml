@@ -10,7 +10,7 @@ field_name: field_predecessor
 entity_type: node
 bundle: initiative
 label: Predecessor
-description: 'The initiative this one continues, if any.'
+description: 'The initiative this one continues, if any. Type to search; with + you add a new one.'
 required: false
 translatable: false
 default_value: {  }
