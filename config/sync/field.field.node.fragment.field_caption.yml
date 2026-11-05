@@ -10,7 +10,7 @@ field_name: field_caption
 entity_type: node
 bundle: fragment
 label: Caption
-description: ''
+description: 'Image and video: the text below it. Audio: a short introduction below the name.'
 required: false
 translatable: true
 default_value: {  }

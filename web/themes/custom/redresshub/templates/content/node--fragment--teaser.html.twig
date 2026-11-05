@@ -3,6 +3,9 @@
  * @file
  * A fragment in the Uncharted masonry, styled by its type.
  *
+ * Image and video: the media with the caption below it; audio: the name, the
+ * caption as a short text and the player; quote and text: the text.
+ *
  * fragment_type: text, quote, image, audio or video; page_url: the page of
  * the fragment, when it has page content. From redresshub_preprocess_node().
  */
@@ -27,7 +30,9 @@
 {% elseif fragment_type == 'audio' %}
   <div{{ attributes.addClass('tile-audio') }}>
     <h3 style="--icon: url('{{ '/' ~ directory }}/images/icons/volume-2.svg');"><span class="icon" aria-hidden="true"></span>{{ label }}</h3>
-    {{ content.field_text }}
+    {% if node.field_caption.value %}
+      <p>{{ node.field_caption.value }}</p>
+    {% endif %}
     {% if not node.field_media.isEmpty() %}
       {{ content.field_media }}
     {% else %}

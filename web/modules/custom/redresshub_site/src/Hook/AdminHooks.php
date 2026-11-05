@@ -51,13 +51,13 @@ final class AdminHooks {
   /**
    * Fragment form: the groups Media and Text only for the types that use them.
    *
-   * Image and video: media and caption; quote and text: the text; audio: both
+   * Image, video and audio: media and caption; quote and text: the text
    * (see node--fragment--teaser.html.twig).
    */
   public static function fragmentGroups(array $form): array {
     $groups = [
       'group_media' => ['image', 'audio', 'video'],
-      'group_content' => ['text', 'quote', 'audio'],
+      'group_content' => ['text', 'quote'],
     ];
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
       ->loadByProperties(['vid' => 'fragment_type']);
