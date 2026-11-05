@@ -491,21 +491,10 @@
   contain: inline-size;
 }
 
-/* "Open all blocks" (Paragraph Group) above the blocks, not floating next
-   to the first one; a secondary button. */
+/* "Open all blocks" (Paragraph Group) at the top of the page: not needed,
+   every list of blocks has its own "Open blocks". */
 .node-form .layout-region--main input.paragroup.toggle-all {
-  display: block;
-  float: none;
-  margin: 0 0 1rem auto;
-  border: 1px solid var(--rh-block-accent);
-  background: #fff;
-  color: var(--rh-block-accent);
-}
-
-.node-form .layout-region--main input.paragroup.toggle-all:hover,
-.node-form .layout-region--main input.paragroup.toggle-all:focus {
-  background: var(--rh-block-accent);
-  color: #fff;
+  display: none;
 }
 
 /* Sub-boxes in a block, slightly darker so they stand out as one whole:
@@ -553,7 +542,12 @@
 }
 
 /* The form fills its column (Claro keeps it narrower, centred, which leaves
-   a gap next to the side column on wide screens). */
+   a gap next to the side column on wide screens); the form and the side
+   column together not wider than a calm reading width. */
+.node-form .layout-form {
+  max-width: 78rem;
+}
+
 .node-form .layout-region--main,
 .node-form .layout-region--footer {
   width: 100%;
