@@ -1,6 +1,6 @@
 third_party_settings:
   field_group:
     group_key:
-      label: Basisgegevens
+      label: Locatie
     group_tabs:
       label: Tabbladen

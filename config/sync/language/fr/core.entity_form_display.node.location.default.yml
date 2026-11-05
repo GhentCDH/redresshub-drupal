@@ -1,6 +1,6 @@
 third_party_settings:
   field_group:
     group_key:
-      label: 'Données de base'
+      label: Lieu
     group_tabs:
       label: Onglets
