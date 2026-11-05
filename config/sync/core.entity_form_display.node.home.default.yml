@@ -12,7 +12,6 @@ dependencies:
     - media_library
     - paragraph_group
     - path
-    - tagify
 third_party_settings:
   field_group:
     group_key:
@@ -138,15 +137,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: tagify_select_widget
+    type: entity_reference_autocomplete
     weight: 4
     region: content
     settings:
       match_operator: CONTAINS
-      match_limit: 0
+      match_limit: 10
+      size: 60
       placeholder: ''
-      show_entity_id: 0
-      parent_selection: 1
     third_party_settings: {  }
 hidden:
   promote: true

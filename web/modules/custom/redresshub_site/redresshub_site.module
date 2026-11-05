@@ -167,6 +167,21 @@ function redresshub_site_field_widget_single_element_form_alter(array &$element,
     $element['settings']['#access'] = FALSE;
     return;
   }
+  // Entity Reference Modal puts its "+" button in the place of the help text
+  // of the field; with one value (no table below which the text is shown),
+  // the help text comes back below the field.
+  $definition = $context['items']->getFieldDefinition();
+  if ($context['widget']->getPluginId() === 'entity_reference_modal'
+    && $definition->getFieldStorageDefinition()->getCardinality() === 1
+    && ($description = (string) $definition->getDescription()) !== '') {
+    $element['help'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => \Drupal\Component\Utility\Xss::filterAdmin($description),
+      '#attributes' => ['class' => ['form-item__description']],
+      '#weight' => 10,
+    ];
+  }
   if (($element['#paragraph_type'] ?? NULL) !== 'text_media' || !isset($element['subform']['field_slideshow'], $element['subform']['#parents'])) {
     return;
   }

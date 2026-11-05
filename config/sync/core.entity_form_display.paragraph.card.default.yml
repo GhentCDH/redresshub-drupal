@@ -26,8 +26,8 @@ content:
     weight: 4
     region: content
     settings:
-      placeholder_url: 'The url'
-      placeholder_title: 'Link text'
+      placeholder_url: ''
+      placeholder_title: ''
       match_operator: CONTAINS
       match_limit: 20
       suggestions_dropdown: 1
