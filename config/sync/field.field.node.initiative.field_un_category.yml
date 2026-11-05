@@ -21,5 +21,9 @@ settings:
   handler_settings:
     target_bundles:
       un_category: un_category
-    auto_create: false
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
 field_type: entity_reference

@@ -11,8 +11,9 @@ dependencies:
   module:
     - datetime_range
     - field_group
-    - link
     - path
+    - tagify
+    - tagify_link
     - text
 third_party_settings:
   field_group:
@@ -93,12 +94,19 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_link:
-    type: link_default
+    type: tagify_link_widget
     weight: 5
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      placeholder_url: 'The url'
+      placeholder_title: 'Link text'
+      match_operator: CONTAINS
+      match_limit: 20
+      suggestions_dropdown: 1
+      placeholder: ''
+      show_entity_id: false
+      show_info_label: false
+      info_label: ''
     third_party_settings: {  }
   field_short_description:
     type: text_textarea
@@ -137,14 +145,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: tagify_select_widget
     weight: 5
     region: content
     settings:
       match_operator: CONTAINS
-      match_limit: 10
-      size: 60
+      match_limit: 0
       placeholder: ''
+      show_entity_id: 0
+      parent_selection: 1
     third_party_settings: {  }
 hidden:
   promote: true

@@ -19,9 +19,11 @@ dependencies:
     - node.type.initiative
   module:
     - datetime_range
+    - entity_reference_modal
     - field_group
-    - link
     - path
+    - tagify
+    - tagify_link
     - text
 third_party_settings:
   field_group:
@@ -142,34 +144,75 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_historical_era:
-    type: options_buttons
+    type: tagify_entity_reference_autocomplete_widget
     weight: 9
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 0
+      placeholder: ''
+      suggestions_dropdown: 0
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   field_initiative_type:
-    type: options_buttons
+    type: tagify_entity_reference_autocomplete_widget
     weight: 6
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 0
+      placeholder: ''
+      suggestions_dropdown: 0
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   field_injustice_type:
-    type: options_buttons
+    type: tagify_entity_reference_autocomplete_widget
     weight: 7
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 0
+      placeholder: ''
+      suggestions_dropdown: 0
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   field_keywords:
-    type: options_buttons
+    type: tagify_entity_reference_autocomplete_widget
     weight: 10
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 0
+      placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   field_organisations:
-    type: entity_reference_autocomplete
+    type: entity_reference_modal
     weight: 12
     region: content
     settings:
+      view_and_display: ''
+      add_new_button_title: +
+      modal_form_mode: default
+      modal_width: 80%
+      modal_title: 'Add new'
+      duplicate: false
+      search: true
+      bootstrap: false
+      tagify: false
       match_operator: CONTAINS
       match_limit: 10
       size: 60
@@ -189,10 +232,19 @@ content:
       display_label: true
     third_party_settings: {  }
   field_place:
-    type: entity_reference_autocomplete
+    type: entity_reference_modal
     weight: 3
     region: content
     settings:
+      view_and_display: ''
+      add_new_button_title: +
+      modal_form_mode: default
+      modal_width: 80%
+      modal_title: 'Add new'
+      duplicate: false
+      search: true
+      bootstrap: false
+      tagify: false
       match_operator: CONTAINS
       match_limit: 10
       size: 60
@@ -206,22 +258,38 @@ content:
       display_label: true
     third_party_settings: {  }
   field_predecessor:
-    type: entity_reference_autocomplete
+    type: entity_reference_modal
     weight: 13
     region: content
     settings:
+      view_and_display: ''
+      add_new_button_title: +
+      modal_form_mode: default
+      modal_width: 80%
+      modal_title: 'Add new'
+      duplicate: false
+      search: true
+      bootstrap: false
+      tagify: false
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_resources:
-    type: link_default
+    type: tagify_link_widget
     weight: 16
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      placeholder_url: 'The url'
+      placeholder_title: 'Link text'
+      match_operator: CONTAINS
+      match_limit: 20
+      suggestions_dropdown: 1
+      placeholder: ''
+      show_entity_id: false
+      show_info_label: false
+      info_label: ''
     third_party_settings: {  }
   field_short_description:
     type: text_textarea
@@ -232,10 +300,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_un_category:
-    type: options_buttons
+    type: tagify_entity_reference_autocomplete_widget
     weight: 8
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 0
+      placeholder: ''
+      suggestions_dropdown: 0
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -266,14 +342,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: tagify_select_widget
     weight: 17
     region: content
     settings:
       match_operator: CONTAINS
-      match_limit: 10
-      size: 60
+      match_limit: 0
       placeholder: ''
+      show_entity_id: 0
+      parent_selection: 1
     third_party_settings: {  }
 hidden:
   promote: true

@@ -13,7 +13,7 @@ dependencies:
     - paragraphs.paragraphs_type.text
   module:
     - field_group
-    - link
+    - tagify_link
     - text
 third_party_settings:
   field_group:
@@ -63,12 +63,19 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_button:
-    type: link_default
+    type: tagify_link_widget
     weight: 5
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      placeholder_url: 'The url'
+      placeholder_title: 'Link text'
+      match_operator: CONTAINS
+      match_limit: 20
+      suggestions_dropdown: 1
+      placeholder: ''
+      show_entity_id: false
+      show_info_label: false
+      info_label: ''
     third_party_settings: {  }
   field_button_style:
     type: options_select

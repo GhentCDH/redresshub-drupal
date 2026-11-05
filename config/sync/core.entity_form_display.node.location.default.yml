@@ -62,14 +62,17 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_city:
-    type: tagify_select_widget
+    type: tagify_entity_reference_autocomplete_widget
     weight: 3
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 0
       placeholder: ''
+      suggestions_dropdown: 0
       show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
       parent_selection: 0
     third_party_settings: {  }
   field_coordinates:
@@ -80,10 +83,18 @@ content:
       html5_geolocation: false
     third_party_settings: {  }
   field_location_type:
-    type: options_select
+    type: tagify_entity_reference_autocomplete_widget
     weight: 1
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 0
+      placeholder: ''
+      suggestions_dropdown: 0
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   field_street:
     type: string_textfield
@@ -122,14 +133,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: tagify_select_widget
     weight: 5
     region: content
     settings:
       match_operator: CONTAINS
-      match_limit: 10
-      size: 60
+      match_limit: 0
       placeholder: ''
+      show_entity_id: 0
+      parent_selection: 1
     third_party_settings: {  }
 hidden:
   promote: true

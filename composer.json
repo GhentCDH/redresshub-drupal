@@ -45,6 +45,7 @@
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
         "drupal/dashboard": "^2.2",
+        "drupal/entity_reference_modal": "^1.0",
         "drupal/field_group": "^4.0",
         "drupal/geofield": "^10.3",
         "drupal/leaflet": "^10.4",

@@ -21,5 +21,9 @@ settings:
   handler_settings:
     target_bundles:
       organisation: organisation
-    auto_create: false
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
 field_type: entity_reference
