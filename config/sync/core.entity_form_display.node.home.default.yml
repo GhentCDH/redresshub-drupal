@@ -19,7 +19,7 @@ third_party_settings:
         - title
         - field_hero_text
         - field_hero_image
-      label: 'Key data'
+      label: Banner
       region: content
       parent_name: group_tabs
       weight: 0
@@ -35,7 +35,7 @@ third_party_settings:
     group_content:
       children:
         - field_cards
-      label: Content
+      label: Cards
       region: content
       parent_name: group_tabs
       weight: 1

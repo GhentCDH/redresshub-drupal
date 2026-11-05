@@ -1,9 +1,9 @@
 third_party_settings:
   field_group:
     group_key:
-      label: 'Données de base'
+      label: Bannière
     group_content:
-      label: Contenu
+      label: Encadrés
     group_tabs:
       label: Onglets
 content:

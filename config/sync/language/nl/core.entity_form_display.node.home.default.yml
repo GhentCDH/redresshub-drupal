@@ -1,9 +1,9 @@
 third_party_settings:
   field_group:
     group_key:
-      label: Basisgegevens
+      label: Banner
     group_content:
-      label: Inhoud
+      label: Blokken
     group_tabs:
       label: Tabbladen
 content:

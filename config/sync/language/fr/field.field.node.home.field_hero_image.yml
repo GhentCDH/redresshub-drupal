@@ -1,2 +1,2 @@
 label: 'Image de la bannière'
-description: "Facultatif. Sans image, l'image par défaut du thème est utilisée."
+description: "Le fond de la bannière : une image large au format paysage, avec le titre et le texte par-dessus. Facultatif : sans image, l'image par défaut est utilisée."

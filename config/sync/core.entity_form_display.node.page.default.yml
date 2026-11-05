@@ -17,8 +17,7 @@ third_party_settings:
     group_key:
       children:
         - title
-        - field_pretitle
-        - field_title_alignment
+        - group_title_extras
       label: Title
       region: content
       parent_name: group_tabs
@@ -35,7 +34,7 @@ third_party_settings:
     group_content:
       children:
         - field_content
-      label: Content
+      label: 'Main content'
       region: content
       parent_name: group_tabs
       weight: 1
@@ -81,6 +80,23 @@ third_party_settings:
         label_as_html: false
         direction: horizontal
         width_breakpoint: 640
+    group_title_extras:
+      children:
+        - field_pretitle
+        - field_title_alignment
+      label: 'Title extras'
+      region: content
+      parent_name: group_key
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
 _core:
   default_config_hash: MzSYzZbqqlwSM8mtLwEdCerBZRNGvHZntu5u_Gao8LY
 id: node.page.default
@@ -115,7 +131,7 @@ content:
     third_party_settings: {  }
   field_pretitle:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60
@@ -142,7 +158,7 @@ content:
     third_party_settings: {  }
   field_title_alignment:
     type: options_select
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }

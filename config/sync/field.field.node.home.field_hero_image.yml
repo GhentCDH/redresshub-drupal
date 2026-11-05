@@ -11,7 +11,7 @@ field_name: field_hero_image
 entity_type: node
 bundle: home
 label: 'Banner image'
-description: 'Optional. Without an image the default image of the theme is used.'
+description: 'The background of the banner: a wide landscape image, with the title and text on top of it. Optional: without one, the default image is used.'
 required: false
 translatable: false
 default_value: {  }

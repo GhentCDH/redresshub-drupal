@@ -13,7 +13,7 @@ field_name: field_cards
 entity_type: node
 bundle: home
 label: Cards
-description: 'The cards next to the map, in this order.'
+description: 'The blocks in the column next to the map, from top to bottom.'
 required: false
 translatable: false
 default_value: {  }

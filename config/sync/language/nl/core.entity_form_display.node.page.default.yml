@@ -3,11 +3,13 @@ third_party_settings:
     group_key:
       label: Titel
     group_content:
-      label: Inhoud
+      label: Hoofdinhoud
     group_page_tabs:
       label: Tabbladen
     group_tabs:
       label: Tabbladen
+    group_title_extras:
+      label: "Extra's bij de titel"
 content:
   field_content:
     settings:

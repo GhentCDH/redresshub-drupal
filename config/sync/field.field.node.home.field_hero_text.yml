@@ -10,7 +10,7 @@ field_name: field_hero_text
 entity_type: node
 bundle: home
 label: 'Banner text'
-description: 'Shown under the title in the banner.'
+description: 'A short text under the title, on top of the banner image. One or two sentences.'
 required: true
 translatable: true
 default_value: {  }
