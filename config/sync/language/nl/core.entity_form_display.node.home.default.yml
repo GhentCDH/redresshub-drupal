@@ -4,8 +4,6 @@ third_party_settings:
       label: Banner
     group_content:
       label: Blokken
-    group_tabs:
-      label: Tabbladen
 content:
   field_cards:
     settings:

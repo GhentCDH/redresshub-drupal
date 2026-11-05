@@ -9,7 +9,7 @@ id: node.publication.field_biblio_id
 field_name: field_biblio_id
 entity_type: node
 bundle: publication
-label: 'Biblio ID'
+label: 'UGent Biblio ID'
 description: 'The ID of the publication in UGent Biblio, or its URL.'
 required: true
 translatable: false

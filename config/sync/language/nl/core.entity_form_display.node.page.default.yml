@@ -6,8 +6,6 @@ third_party_settings:
       label: Tabbladen
       format_settings:
         description: 'Optioneel. Onder de inhoud een rij tabbladen, bv. "Het project", "Het team", "Publicaties". Elk tabblad heeft een titel (de naam op het tabblad) en eigen blokken; bezoekers zien één tabblad tegelijk en klikken om te wisselen. Laat leeg voor een pagina zonder tabbladen.'
-    group_tabs:
-      label: Tabbladen
     group_title_extras:
       label: "Extra's bij de titel"
 content:

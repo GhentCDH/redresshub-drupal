@@ -103,7 +103,7 @@ third_party_settings:
     group_optional:
       children:
         - field_resources
-      label: 'Resources (optional)'
+      label: Resources
       region: content
       parent_name: ''
       weight: -96
@@ -113,7 +113,7 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        open: true
         description: ''
         required_fields: false
 id: node.initiative.default

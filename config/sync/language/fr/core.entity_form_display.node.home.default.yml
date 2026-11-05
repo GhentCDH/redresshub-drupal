@@ -4,8 +4,6 @@ third_party_settings:
       label: Bannière
     group_content:
       label: Encadrés
-    group_tabs:
-      label: Onglets
 content:
   field_cards:
     settings:

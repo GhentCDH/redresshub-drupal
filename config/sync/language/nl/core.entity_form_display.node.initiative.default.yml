@@ -9,4 +9,4 @@ third_party_settings:
     group_key:
       label: Initiatief
     group_optional:
-      label: 'Bronnen (optioneel)'
+      label: Bronnen

@@ -48,12 +48,6 @@
   margin-top: 0;
 }
 
-/* "Main content" of a page: an arrow, the blocks are filled in below it. */
-.field--name-field-content:not(.paragraphs-subform *) > .paragraphs-tabs-wrapper > .form-item > table > thead .form-item__label--multiple-value-form::after {
-  content: "↓";
-  margin-inline-start: 0.5em;
-  color: #914853;
-}
 
 /* ------------------------------------------------------------------------
  * Blocks: every part of a content form is a block that can be closed, its
@@ -191,7 +185,6 @@
 
 .node-form .field--widget-entity-reference-modal .input-group > .claro-autocomplete {
   flex: 1 1 16rem;
-  max-width: 40rem;
 }
 
 .node-form .field--widget-entity-reference-modal .input-group > .claro-autocomplete .form-element {
@@ -342,4 +335,210 @@
 
 .node-form .field--widget-tagify-entity-reference-autocomplete-widget .form-item__description .item-list li + li::before {
   content: " ";
+}
+
+/* Text fields as wide as the other fields (Tagify, lists): the width of
+   their block. */
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] input.form-text,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] input.form-url,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] input.form-email,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .claro-autocomplete {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* A link: URL and link text next to each other, on one row, in a slightly
+   darker box so the pair stands out in its block. */
+.node-form {
+  --rh-block-sub: #f1e3dd;
+}
+
+.node-form .field--widget-tagify-link-widget .fieldset__wrapper,
+.node-form .field--widget-link-default .fieldset__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0 1.5rem;
+  padding: 1rem 1.25rem 0.25rem;
+  border-radius: 0.375rem;
+  background: var(--rh-block-sub);
+}
+
+.node-form .field--widget-tagify-link-widget .fieldset__wrapper > .form-item,
+.node-form .field--widget-link-default .fieldset__wrapper > .form-item {
+  margin-block: 0 0.75rem;
+  margin-inline: 0;
+}
+
+/* In a list of links (Resources) the same, in the cell of each row, which
+   takes the width the other cells leave. */
+.node-form .field--widget-tagify-link-widget .field-multiple-table {
+  width: 100%;
+}
+
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field--widget-tagify-link-widget .field-multiple-table td:nth-child(2) {
+  width: 100%;
+  padding: 1rem 1.25rem 0.25rem;
+  border-radius: 0.375rem;
+  background: var(--rh-block-sub);
+}
+
+.node-form .field--widget-tagify-link-widget .field-multiple-table td:nth-child(2) > .form-item {
+  contain: inline-size;
+  float: left;
+  box-sizing: border-box;
+  width: calc(50% - 0.75rem);
+  margin: 0 0 0.75rem;
+}
+
+.node-form .field--widget-tagify-link-widget .field-multiple-table td:nth-child(2) > .form-item + .form-item {
+  margin-inline-start: 1.5rem;
+}
+
+.node-form .field--widget-tagify-link-widget .field-multiple-table td:nth-child(2)::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+@media (max-width: 48rem) {
+  .node-form .field--widget-tagify-link-widget .field-multiple-table td:nth-child(2) > .form-item {
+    float: none;
+    width: 100%;
+  }
+
+  .node-form .field--widget-tagify-link-widget .field-multiple-table td:nth-child(2) > .form-item + .form-item {
+    margin-inline-start: 0;
+  }
+}
+
+.node-form .field--widget-tagify-link-widget .claro-autocomplete,
+.node-form .field--widget-tagify-link-widget .tagify,
+.node-form .field--widget-tagify-link-widget .form-element,
+.node-form .field--widget-link-default .form-element {
+  display: block;
+  box-sizing: border-box;
+  width: 100% !important;
+}
+
+.node-form .field--widget-tagify-link-widget .tagify {
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: auto !important;
+  min-height: 3rem;
+  padding-inline-end: 2.5rem;
+}
+
+/* A long URL on one line, cut off with "…" (the whole URL on hover). */
+.node-form .field--widget-tagify-link-widget .tagify__tag {
+  min-width: 0;
+  max-width: 100%;
+  margin-inline-start: 0.5rem;
+}
+
+.node-form .field--widget-tagify-link-widget .tagify__tag > div {
+  max-width: 100%;
+}
+
+.node-form .field--widget-tagify-link-widget .tagify__tag-text {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* "Period is certain" next to the period. */
+.node-form .claro-details__wrapper:has(> .field--name-field-period-certain) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.node-form .claro-details__wrapper:has(> .field--name-field-period-certain) > * {
+  flex: 0 0 100%;
+}
+
+.node-form .claro-details__wrapper:has(> .field--name-field-period-certain) > .field--name-field-period,
+.node-form .claro-details__wrapper:has(> .field--name-field-period-certain) > .field--name-field-period-certain {
+  flex: 0 0 auto;
+  width: fit-content;
+}
+
+.node-form .field--name-field-period > .fieldset {
+  width: fit-content;
+}
+
+/* Its help text wraps instead of making the period wider. */
+.node-form .field--name-field-period .fieldset__description {
+  contain: inline-size;
+}
+
+/* "Open all blocks" (Paragraph Group) above the blocks, not floating next
+   to the first one; a secondary button. */
+.node-form .layout-region--main input.paragroup.toggle-all {
+  display: block;
+  float: none;
+  margin: 0 0 1rem auto;
+  border: 1px solid var(--rh-block-accent);
+  background: #fff;
+  color: var(--rh-block-accent);
+}
+
+.node-form .layout-region--main input.paragroup.toggle-all:hover,
+.node-form .layout-region--main input.paragroup.toggle-all:focus {
+  background: var(--rh-block-accent);
+  color: #fff;
+}
+
+/* Sub-boxes in a block, slightly darker so they stand out as one whole:
+   a group of fields (Title extras) and the blocks of a page (Paragraphs). */
+.node-form .layout-region--main .claro-details__wrapper > fieldset[data-drupal-selector^="edit-group-"],
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper > .field--type-entity-reference-revisions {
+  margin-block: 1rem 1.25rem;
+  padding: 1rem 1.25rem 0.5rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: var(--rh-block-sub);
+  box-shadow: none;
+}
+
+.node-form .layout-region--main .claro-details__wrapper > fieldset[data-drupal-selector^="edit-group-"] > .fieldset__legend {
+  position: static;
+  display: block;
+  float: left;
+  width: 100%;
+  margin: 0 0 0.5rem;
+}
+
+.node-form .layout-region--main .claro-details__wrapper > fieldset[data-drupal-selector^="edit-group-"] > .fieldset__legend .fieldset__label {
+  padding: 0;
+  color: var(--rh-block-accent-dark);
+  font-family: var(--rh-block-serif);
+  font-weight: 400;
+}
+
+.node-form .layout-region--main .claro-details__wrapper > fieldset[data-drupal-selector^="edit-group-"] > .fieldset__wrapper {
+  clear: both;
+  margin: 0;
+}
+
+/* Less room above the label of the blocks (Main content, Tabs). */
+.node-form .field--type-entity-reference-revisions:not(.paragraphs-subform *) > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > thead > tr > th {
+  padding-top: 0;
+}
+
+/* The table of blocks on the sub-box, not white. */
+.node-form .field--type-entity-reference-revisions:not(.paragraphs-subform *) > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table,
+.node-form .field--type-entity-reference-revisions:not(.paragraphs-subform *) > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > thead > tr > th,
+.node-form .field--type-entity-reference-revisions:not(.paragraphs-subform *) > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr {
+  background: transparent;
+}
+
+/* The form fills its column (Claro keeps it narrower, centred, which leaves
+   a gap next to the side column on wide screens). */
+.node-form .layout-region--main,
+.node-form .layout-region--footer {
+  width: 100%;
+  max-width: none;
 }

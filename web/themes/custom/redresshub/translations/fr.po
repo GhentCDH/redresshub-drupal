@@ -241,3 +241,6 @@ msgstr "Ouvre ou ferme tout dans ce bloc, y compris les blocs qu'il contient."
 
 msgid "This button opens / closes all the nested items for all the paragraphs on this page."
 msgstr "Ouvre ou ferme tous les blocs de cette page."
+
+msgid "A page of this site (type its title) or a web address, e.g. https://example.com."
+msgstr "Une page de ce site (tapez son titre) ou une adresse web, par ex. https://example.com."

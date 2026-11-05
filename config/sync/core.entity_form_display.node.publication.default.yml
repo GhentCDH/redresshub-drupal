@@ -14,6 +14,26 @@ dependencies:
     - field.field.node.publication.field_volume
     - field.field.node.publication.field_year
     - node.type.publication
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_publication:
+      children:
+        - field_biblio_id
+      label: Publication
+      region: content
+      parent_name: ''
+      weight: -100
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
 id: node.publication.default
 targetEntityType: node
 bundle: publication

@@ -167,6 +167,10 @@ function redresshub_site_field_widget_single_element_form_alter(array &$element,
     $element['settings']['#access'] = FALSE;
     return;
   }
+  // A link: a short help text instead of the long one of core.
+  if (isset($element['uri']) && in_array($context['widget']->getPluginId(), ['link_default', 'tagify_link_widget'], TRUE)) {
+    $element['uri']['#description'] = t('A page of this site (type its title) or a web address, e.g. https://example.com.');
+  }
   // Entity Reference Modal puts its "+" button in the place of the help text
   // of the field; with one value (no table below which the text is shown),
   // the help text comes back below the field.

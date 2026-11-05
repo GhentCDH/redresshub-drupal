@@ -9,4 +9,4 @@ third_party_settings:
     group_key:
       label: Initiative
     group_optional:
-      label: 'Ressources (facultatif)'
+      label: Ressources

@@ -243,3 +243,6 @@ msgstr "Opent of sluit alle blokken op deze pagina."
 
 msgid "End date (optional)"
 msgstr "Einddatum (optioneel)"
+
+msgid "A page of this site (type its title) or a web address, e.g. https://example.com."
+msgstr "Een pagina van deze site (typ de titel) of een webadres, bv. https://example.com."
