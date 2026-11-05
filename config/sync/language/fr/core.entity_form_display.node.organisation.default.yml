@@ -10,3 +10,5 @@ third_party_settings:
       label: Organisation
     group_optional:
       label: 'Contact (facultatif)'
+    group_website:
+      label: 'Site web'

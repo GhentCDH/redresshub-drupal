@@ -10,3 +10,5 @@ third_party_settings:
       label: Organisatie
     group_optional:
       label: 'Contact (optioneel)'
+    group_website:
+      label: Website

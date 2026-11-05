@@ -2,3 +2,7 @@ third_party_settings:
   field_group:
     group_key:
       label: Locatie
+    group_address:
+      label: Adres
+    group_coordinates:
+      label: Coördinaten

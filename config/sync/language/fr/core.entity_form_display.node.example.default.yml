@@ -1,9 +1,9 @@
 third_party_settings:
   field_group:
-    group_title_extras:
-      label: 'Compléments du titre'
     group_content:
-      label: Contenu
+      label: 'Contenu principal'
+    group_title:
+      label: Titre
 content:
   field_content:
     settings:

@@ -359,7 +359,8 @@
 /* A link: URL and link text next to each other, on one row, in a slightly
    darker box so the pair stands out in its block. */
 .node-form {
-  --rh-block-sub: #f1e3dd;
+  --rh-block-sub: #ecd7d0;
+  --rh-block-sub-line: rgba(145, 72, 83, 0.45);
 }
 
 .node-form .field--widget-tagify-link-widget .fieldset__wrapper,
@@ -368,6 +369,7 @@
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: 0 1.5rem;
   padding: 1rem 1.25rem 0.25rem;
+  border: 1px solid var(--rh-block-sub-line);
   border-radius: 0.375rem;
   background: var(--rh-block-sub);
 }
@@ -387,6 +389,7 @@
 .node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field--widget-tagify-link-widget .field-multiple-table td:nth-child(2) {
   width: 100%;
   padding: 1rem 1.25rem 0.25rem;
+  border: 1px solid var(--rh-block-sub-line);
   border-radius: 0.375rem;
   background: var(--rh-block-sub);
 }
@@ -495,7 +498,7 @@
 .node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper > .field--type-entity-reference-revisions {
   margin-block: 1rem 1.25rem;
   padding: 1rem 1.25rem 0.5rem;
-  border: 0;
+  border: 1px solid var(--rh-block-sub-line);
   border-radius: 0.375rem;
   background: var(--rh-block-sub);
   box-shadow: none;
@@ -533,17 +536,11 @@
   background: transparent;
 }
 
-/* The form fills its column (Claro keeps it narrower, centred, which leaves
-   a gap next to the side column on wide screens); the form and the side
-   column together not wider than a calm reading width. */
-.node-form .layout-form {
-  max-width: 78rem;
-}
-
+/* The form a little wider than Claro makes it (still centred in its
+   column), so less room is lost next to the side column. */
 .node-form .layout-region--main,
 .node-form .layout-region--footer {
-  width: 100%;
-  max-width: none;
+  width: min(100%, 68rem);
 }
 
 /* Lists of references (places, organisations): "Remove" close to the field,
@@ -573,7 +570,7 @@
 .node-form .layout-region--main .claro-details__wrapper .media-library-widget {
   margin-block: 1rem 1.25rem;
   padding: 1rem 1.25rem 0.5rem;
-  border: 0;
+  border: 1px solid var(--rh-block-sub-line);
   border-radius: 0.375rem;
   background: var(--rh-block-sub);
   box-shadow: none;
@@ -597,4 +594,11 @@
 .node-form .layout-region--main .claro-details__wrapper .media-library-widget > .fieldset__wrapper {
   clear: both;
   margin: 0;
+}
+
+/* A section with one field that is a group itself (a link, coordinates):
+   no second label with the same name. */
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .form-wrapper > .fieldset:not(.media-library-widget) > .fieldset__legend,
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .form-wrapper > .js-form-wrapper > .fieldset:not(.media-library-widget) > .fieldset__legend {
+  display: none;
 }

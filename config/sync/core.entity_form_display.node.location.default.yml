@@ -19,13 +19,43 @@ third_party_settings:
       children:
         - title
         - field_location_type
-        - field_street
-        - field_city
-        - field_coordinates
       label: Location
       region: content
       parent_name: ''
       weight: -100
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+    group_address:
+      children:
+        - field_street
+        - field_city
+      label: Address
+      region: content
+      parent_name: ''
+      weight: -99
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+    group_coordinates:
+      children:
+        - field_coordinates
+      label: Coordinates
+      region: content
+      parent_name: ''
+      weight: -98
       format_type: details
       format_settings:
         classes: ''

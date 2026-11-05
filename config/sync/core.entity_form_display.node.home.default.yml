@@ -18,7 +18,6 @@ third_party_settings:
       children:
         - title
         - field_hero_text
-        - field_hero_image
       label: Banner
       region: content
       parent_name: ''
@@ -36,6 +35,22 @@ third_party_settings:
       children:
         - field_cards
       label: Cards
+      region: content
+      parent_name: ''
+      weight: -98
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+    group_banner_image:
+      children:
+        - field_hero_image
+      label: 'Banner image'
       region: content
       parent_name: ''
       weight: -99
