@@ -19,7 +19,7 @@ id: node.example.field_content
 field_name: field_content
 entity_type: node
 bundle: example
-label: Blocks
+label: 'Main content'
 description: 'The blocks of the page, below each other.'
 required: false
 translatable: false
