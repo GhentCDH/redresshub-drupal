@@ -64,25 +64,6 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-    group_metadata:
-      children:
-        - uid
-        - created
-        - path
-        - langcode
-      label: Metadata
-      region: content
-      parent_name: group_tabs
-      weight: 3
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: closed
-        description: ''
-        required_fields: true
     group_tabs:
       children:
         - group_key
@@ -168,7 +149,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 7
+    weight: 100
     region: content
     settings:
       include_locked: true

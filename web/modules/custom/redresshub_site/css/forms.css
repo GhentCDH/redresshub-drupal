@@ -31,3 +31,9 @@
   flex-wrap: wrap;
   min-width: 0;
 }
+
+/* "Return to top" (paragraph_group) under the form: not against its edge. */
+.layout-region--main > .return-to-top {
+  display: block;
+  margin: 0.75rem 1rem 0 auto;
+}

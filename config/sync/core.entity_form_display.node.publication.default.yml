@@ -34,22 +34,6 @@ third_party_settings:
         formatter: open
         description: ''
         required_fields: true
-    group_metadata:
-      children:
-        - translation
-      label: Metadata
-      region: content
-      parent_name: group_tabs
-      weight: 1
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: closed
-        description: ''
-        required_fields: true
     group_tabs:
       children:
         - group_key
