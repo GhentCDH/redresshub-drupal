@@ -214,3 +214,30 @@ msgstr "Type de bloc : @type"
 
 msgid "The ID of the publication in <a href=\":biblio\" target=\"_blank\">UGent Biblio</a>, or its URL. The title, authors and the rest come from Biblio when you save, and are updated every day."
 msgstr "L'identifiant de la publication dans <a href=\":biblio\" target=\"_blank\">UGent Biblio</a>, ou son URL. Le titre, les auteurs et le reste viennent de Biblio à l'enregistrement, et sont mis à jour chaque jour."
+
+msgid "Open Below"
+msgstr "Ouvrir les blocs"
+
+msgid "Close Below"
+msgstr "Fermer les blocs"
+
+msgid "Open Nested"
+msgstr "Tout ouvrir"
+
+msgid "Close Nested"
+msgstr "Tout fermer"
+
+msgid "Open All Paragraphs"
+msgstr "Ouvrir tous les blocs"
+
+msgid "Close All Paragraphs"
+msgstr "Fermer tous les blocs"
+
+msgid "This button opens / closes the items immediately below."
+msgstr "Ouvre ou ferme les blocs ci-dessous."
+
+msgid "This button opens / closes all the nested items in this paragraph."
+msgstr "Ouvre ou ferme tout dans ce bloc, y compris les blocs qu'il contient."
+
+msgid "This button opens / closes all the nested items for all the paragraphs on this page."
+msgstr "Ouvre ou ferme tous les blocs de cette page."

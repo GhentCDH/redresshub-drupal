@@ -213,3 +213,30 @@ msgstr "Soort blok: @type"
 
 msgid "The ID of the publication in <a href=\":biblio\" target=\"_blank\">UGent Biblio</a>, or its URL. The title, authors and the rest come from Biblio when you save, and are updated every day."
 msgstr "Het ID van de publicatie in <a href=\":biblio\" target=\"_blank\">UGent Biblio</a>, of de URL ervan. De titel, auteurs en de rest komen uit Biblio wanneer je opslaat, en worden elke dag bijgewerkt."
+
+msgid "Open Below"
+msgstr "Blokken openen"
+
+msgid "Close Below"
+msgstr "Blokken sluiten"
+
+msgid "Open Nested"
+msgstr "Alles openen"
+
+msgid "Close Nested"
+msgstr "Alles sluiten"
+
+msgid "Open All Paragraphs"
+msgstr "Alle blokken openen"
+
+msgid "Close All Paragraphs"
+msgstr "Alle blokken sluiten"
+
+msgid "This button opens / closes the items immediately below."
+msgstr "Opent of sluit de blokken hieronder."
+
+msgid "This button opens / closes all the nested items in this paragraph."
+msgstr "Opent of sluit alles in dit blok, ook de blokken erin."
+
+msgid "This button opens / closes all the nested items for all the paragraphs on this page."
+msgstr "Opent of sluit alle blokken op deze pagina."

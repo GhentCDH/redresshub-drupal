@@ -1,0 +1,109 @@
+--- a/libraries/main/main.js
++++ b/libraries/main/main.js
+@@ -35,14 +35,14 @@
+     $nestedButtons
+       .removeClass('collapsed')
+       .addClass('expanded')
+-      .prop('value', 'Close Nested');
++      .prop('value', Drupal.t('Close Nested'));
+   }
+ 
+   static setNestedCollapsed($nestedButtons) {
+     $nestedButtons
+       .removeClass('expanded')
+       .addClass('collapsed')
+-      .prop('value', 'Open Nested');
++      .prop('value', Drupal.t('Open Nested'));
+   }
+ 
+   resetAllNested($button) {
+@@ -71,11 +71,11 @@
+       .closest('table')
+       .find('> tbody > tr > td > div > details');
+     if ($ths.hasClass('collapsed')) {
+-      $ths.prop('value', 'Close Below');
++      $ths.prop('value', Drupal.t('Close Below'));
+       $details.prop('open', true);
+       $ths.removeClass('collapsed').addClass('expanded');
+     } else if ($ths.hasClass('expanded')) {
+-      $ths.prop('value', 'Open Below');
++      $ths.prop('value', Drupal.t('Open Below'));
+       $details.prop('open', false);
+       $ths.removeClass('expanded').addClass('collapsed');
+     }
+@@ -103,12 +103,12 @@
+     const $belowButtons = this.$('.paragroup.toggle-below');
+     const $nestedButtons = this.$('.paragroup.toggle-nested');
+     if ($ths.hasClass('collapsed')) {
+-      $ths.prop('value', 'Close All Paragraphs');
++      $ths.prop('value', Drupal.t('Close All Paragraphs'));
+       $ths.removeClass('collapsed').addClass('expanded');
+       $belowButtons.each((_, el) => this.expandBelowBulk(el));
+       ParagroupMain.setNestedExpanded($nestedButtons);
+     } else if ($ths.hasClass('expanded')) {
+-      $ths.prop('value', 'Open All Paragraphs');
++      $ths.prop('value', Drupal.t('Open All Paragraphs'));
+       $ths.removeClass('expanded').addClass('collapsed');
+       $belowButtons.each((_, el) => this.collapseBelowBulk(el));
+       ParagroupMain.setNestedCollapsed($nestedButtons);
+--- a/src/Main/ButtonManager.php
++++ b/src/Main/ButtonManager.php
+@@ -6,6 +6,7 @@
+ use Drupal\paragraph_group\Helper;
+ use Drupal\Core\Routing\RouteMatchInterface;
+ use Drupal\Core\Entity\EntityTypeManagerInterface;
++use Drupal\Core\StringTranslation\StringTranslationTrait;
+ 
+ /**
+  * Service for managing paragraph group buttons.
+@@ -16,6 +17,8 @@
+  */
+ class ButtonManager {
+ 
++  use StringTranslationTrait;
++
+   /**
+    * Constructs a ButtonManager object.
+    *
+@@ -866,10 +869,9 @@
+           ],
+ 
+         'title' =>
+-        'This button opens / closes all the nested items ' .
+-        'for all the paragraphs on this page.',
++        $this->t('This button opens / closes all the nested items for all the paragraphs on this page.'),
+ 
+-        'value' => 'Open All Paragraphs',
++        'value' => $this->t('Open All Paragraphs'),
+         'readonly' => 'readonly',
+ 
+       ],
+@@ -893,11 +895,11 @@
+ 
+       '#attributes' => [
+ 
+-        'value' => 'Open Below',
++        'value' => $this->t('Open Below'),
+         'readonly' => 'readonly',
+ 
+         'title' =>
+-        'This button opens / closes the items immediately below.',
++        $this->t('This button opens / closes the items immediately below.'),
+ 
+         'class' =>
+           ['button', 'button--small', 'paragroup',
+@@ -925,12 +927,11 @@
+ 
+       '#attributes' => [
+ 
+-        'value' => 'Open Nested',
++        'value' => $this->t('Open Nested'),
+         'readonly' => 'readonly',
+ 
+         'title' =>
+-        'This button opens / closes all the nested ' .
+-        'items in this paragraph.',
++        $this->t('This button opens / closes all the nested items in this paragraph.'),
+ 
+         'class' =>
+           ['button', 'button--small', 'paragroup',
