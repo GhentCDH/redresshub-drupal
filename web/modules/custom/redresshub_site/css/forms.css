@@ -47,3 +47,10 @@
 .layout-region--footer > .layout-region__content {
   margin-top: 0;
 }
+
+/* "Main content" of a page: an arrow, the blocks are filled in below it. */
+.field--name-field-content:not(.paragraphs-subform *) > .paragraphs-tabs-wrapper > .form-item > table > thead .form-item__label--multiple-value-form::after {
+  content: "↓";
+  margin-inline-start: 0.5em;
+  color: var(--color-absolutezero, #003ecc);
+}
