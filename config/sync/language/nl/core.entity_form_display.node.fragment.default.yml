@@ -6,8 +6,5 @@ third_party_settings:
       label: Inhoud
     group_tabs:
       label: Tabbladen
-content:
-  field_content:
-    settings:
-      title: blok
-      title_plural: blokken
+    group_media:
+      label: Media

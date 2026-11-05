@@ -6,8 +6,5 @@ third_party_settings:
       label: Contenu
     group_tabs:
       label: Onglets
-content:
-  field_content:
-    settings:
-      title: bloc
-      title_plural: blocs
+    group_media:
+      label: Média
