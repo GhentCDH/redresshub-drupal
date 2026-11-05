@@ -19,8 +19,8 @@ third_party_settings:
   field_group:
     group_key:
       children:
-        - title
         - field_fragment_type
+        - title
       label: 'Key data'
       region: content
       parent_name: group_tabs
@@ -114,7 +114,7 @@ content:
     third_party_settings: {  }
   field_fragment_type:
     type: options_select
-    weight: 1
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -155,7 +155,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60

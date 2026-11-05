@@ -155,8 +155,11 @@ function redresshub_preprocess_node(array &$variables): void {
     $variables['fragment_type'] = $term instanceof TermInterface
       ? strtolower($term->getUntranslated()->label())
       : 'text';
-    // A fragment with page content: the tile links to that page.
-    $variables['page_url'] = !$node->get('field_content')->isEmpty() ? $variables['url'] : NULL;
+    // A fragment with page content: the tile links to that page, as long as
+    // fragments have pages of their own (Rabbit Hole).
+    $own_page = \Drupal::config('rabbit_hole.behavior_settings.node_type_fragment')->get('action') === 'display_page';
+    $variables['page_url'] = $own_page && !$node->get('field_content')->isEmpty() ? $variables['url'] : NULL;
+    $variables['#cache']['tags'][] = 'config:rabbit_hole.behavior_settings.node_type_fragment';
   }
 
   if ($node->bundle() === 'home' && $variables['view_mode'] === 'full') {

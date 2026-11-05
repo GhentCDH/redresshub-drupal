@@ -7,7 +7,7 @@ dependencies:
 id: node_type_fragment
 entity_type_id: node_type
 entity_id: fragment
-action: display_page
+action: redresshub_edit_form_or_not_found
 allow_override: 0
 redirect: ''
 redirect_code: 301

@@ -44,29 +44,36 @@ final class AdminHooks {
       $form['langcode']['widget'][0]['value']['#languages'] = LanguageInterface::STATE_CONFIGURABLE;
     }
     if (isset($form['field_fragment_type'])) {
-      $form['#after_build'][] = [self::class, 'fragmentMediaTab'];
+      $form['#after_build'][] = [self::class, 'fragmentTabs'];
       $form['#attached']['library'][] = 'redresshub_site/tab_states';
     }
   }
 
   /**
-   * Fragment form: the Media tab only for the types with media.
+   * Fragment form: the tabs Media and Content only for the types that use them.
    *
-   * The types image, audio and video (see node--fragment--teaser.html.twig).
+   * Image and video: media and caption; quote and text: the text; audio: both
+   * (see node--fragment--teaser.html.twig).
    */
-  public static function fragmentMediaTab(array $form): array {
+  public static function fragmentTabs(array $form): array {
+    $tabs = [
+      'group_media' => ['image', 'audio', 'video'],
+      'group_content' => ['text', 'quote', 'audio'],
+    ];
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
       ->loadByProperties(['vid' => 'fragment_type']);
-    $conditions = [];
-    foreach ($terms as $term) {
-      if (in_array(strtolower($term->getUntranslated()->label()), ['image', 'audio', 'video'], TRUE)) {
-        $conditions[] = [':input[name="field_fragment_type"]' => ['value' => (string) $term->id()]];
+    foreach ($tabs as $group => $types) {
+      $conditions = [];
+      foreach ($terms as $term) {
+        if (in_array(strtolower($term->getUntranslated()->label()), $types, TRUE)) {
+          // [cond, 'or', cond, …]: visible when one of them is true.
+          $conditions[] = 'or';
+          $conditions[] = [':input[name="field_fragment_type"]' => ['value' => (string) $term->id()]];
+        }
       }
-    }
-    if ($conditions && isset($form['group_media'])) {
-      // [cond, 'or', cond, …]: visible when one of them is true.
-      $form['group_media']['#states']['visible'] = array_merge(...array_map(fn($c) => [$c, 'or'], $conditions));
-      array_pop($form['group_media']['#states']['visible']);
+      if ($conditions && isset($form[$group])) {
+        $form[$group]['#states']['visible'] = array_slice($conditions, 1);
+      }
     }
     return $form;
   }
