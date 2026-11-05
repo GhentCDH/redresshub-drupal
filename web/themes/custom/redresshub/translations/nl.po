@@ -210,3 +210,6 @@ msgstr "Justice Visions"
 
 msgid "Paragraph type: @type"
 msgstr "Soort blok: @type"
+
+msgid "The ID of the publication in <a href=\":biblio\" target=\"_blank\">UGent Biblio</a>, or its URL. The title, authors and the rest come from Biblio when you save, and are updated every day."
+msgstr "Het ID van de publicatie in <a href=\":biblio\" target=\"_blank\">UGent Biblio</a>, of de URL ervan. De titel, auteurs en de rest komen uit Biblio wanneer je opslaat, en worden elke dag bijgewerkt."
