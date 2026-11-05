@@ -156,10 +156,17 @@ function redresshub_site_form_views_exposed_form_alter(array &$form, \Drupal\Cor
 /**
  * Implements hook_field_widget_single_element_form_alter().
  *
+ * A form (webform) field only chooses the form: its status and default data
+ * are settings of the form itself (Structure > Webforms), not of each block.
+ *
  * Text + media paragraph: the Slideshow switch shows either the media field
  * or the images field, and the chosen one must be filled in.
  */
 function redresshub_site_field_widget_single_element_form_alter(array &$element, \Drupal\Core\Form\FormStateInterface $form_state, array $context): void {
+  if (isset($element['settings']) && str_starts_with($context['widget']->getPluginId(), 'webform_entity_reference')) {
+    $element['settings']['#access'] = FALSE;
+    return;
+  }
   if (($element['#paragraph_type'] ?? NULL) !== 'text_media' || !isset($element['subform']['field_slideshow'], $element['subform']['#parents'])) {
     return;
   }
