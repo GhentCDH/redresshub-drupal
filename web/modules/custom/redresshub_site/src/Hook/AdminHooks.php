@@ -43,6 +43,32 @@ final class AdminHooks {
     if (isset($form['langcode']['widget'][0]['value'])) {
       $form['langcode']['widget'][0]['value']['#languages'] = LanguageInterface::STATE_CONFIGURABLE;
     }
+    if (isset($form['field_fragment_type'])) {
+      $form['#after_build'][] = [self::class, 'fragmentMediaTab'];
+      $form['#attached']['library'][] = 'redresshub_site/tab_states';
+    }
+  }
+
+  /**
+   * Fragment form: the Media tab only for the types with media.
+   *
+   * The types image, audio and video (see node--fragment--teaser.html.twig).
+   */
+  public static function fragmentMediaTab(array $form): array {
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+      ->loadByProperties(['vid' => 'fragment_type']);
+    $conditions = [];
+    foreach ($terms as $term) {
+      if (in_array(strtolower($term->getUntranslated()->label()), ['image', 'audio', 'video'], TRUE)) {
+        $conditions[] = [':input[name="field_fragment_type"]' => ['value' => (string) $term->id()]];
+      }
+    }
+    if ($conditions && isset($form['group_media'])) {
+      // [cond, 'or', cond, …]: visible when one of them is true.
+      $form['group_media']['#states']['visible'] = array_merge(...array_map(fn($c) => [$c, 'or'], $conditions));
+      array_pop($form['group_media']['#states']['visible']);
+    }
+    return $form;
   }
 
   /**
