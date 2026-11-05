@@ -1,0 +1,18 @@
+uuid: a75fc12a-00f9-4560-974a-f4ac2070dd71
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.fragment
+id: node.fragment.title
+field_name: title
+entity_type: node
+bundle: fragment
+label: Name
+description: 'To find the fragment in the content overview. On the site, only shown for audio.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -19,10 +19,9 @@ third_party_settings:
     group_key:
       children:
         - title
-        - field_event_date
-        - field_event_location
+        - field_short_description
         - field_link
-      label: 'Key data'
+      label: Event
       region: content
       parent_name: group_tabs
       weight: 0
@@ -35,26 +34,10 @@ third_party_settings:
         formatter: open
         description: ''
         required_fields: true
-    group_content:
-      children:
-        - field_short_description
-      label: Content
-      region: content
-      parent_name: group_tabs
-      weight: 1
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        formatter: closed
-        description: ''
-        required_fields: true
     group_tabs:
       children:
         - group_key
-        - group_content
+        - group_when
       label: Tabs
       region: content
       parent_name: ''
@@ -67,6 +50,23 @@ third_party_settings:
         label_as_html: false
         direction: horizontal
         width_breakpoint: 640
+    group_when:
+      children:
+        - field_event_date
+        - field_event_location
+      label: 'When and where'
+      region: content
+      parent_name: group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -80,13 +80,13 @@ content:
     third_party_settings: {  }
   field_event_date:
     type: daterange_default
-    weight: 1
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_event_location:
     type: string_textfield
-    weight: 2
+    weight: 4
     region: content
     settings:
       size: 60
@@ -94,7 +94,7 @@ content:
     third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 3
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
@@ -102,7 +102,7 @@ content:
     third_party_settings: {  }
   field_short_description:
     type: text_textarea
-    weight: 4
+    weight: 1
     region: content
     settings:
       rows: 5
