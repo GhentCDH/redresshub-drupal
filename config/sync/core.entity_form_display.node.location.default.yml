@@ -12,6 +12,7 @@ dependencies:
     - field_group
     - geofield
     - path
+    - tagify
 third_party_settings:
   field_group:
     group_key:
@@ -61,10 +62,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_city:
-    type: options_select
+    type: tagify_select_widget
     weight: 3
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 0
+      placeholder: ''
+      show_entity_id: 0
+      parent_selection: 0
     third_party_settings: {  }
   field_coordinates:
     type: geofield_latlon

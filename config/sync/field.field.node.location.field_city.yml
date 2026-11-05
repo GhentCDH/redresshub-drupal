@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_city
     - node.type.location
+    - taxonomy.vocabulary.places
 id: node.location.field_city
 field_name: field_city
 entity_type: node
@@ -16,10 +17,9 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: views
+  handler: 'default:taxonomy_term'
   handler_settings:
-    view:
-      view_name: places_cities
-      display_name: entity_reference_1
-      arguments: {  }
+    target_bundles:
+      places: places
+    auto_create: false
 field_type: entity_reference
