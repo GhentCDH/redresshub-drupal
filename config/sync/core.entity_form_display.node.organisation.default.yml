@@ -29,12 +29,13 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: -99
-      format_type: fieldset
+      format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
+        open: true
         description: ''
         required_fields: true
     group_classification:
@@ -45,12 +46,13 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: -98
-      format_type: fieldset
+      format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
+        open: true
         description: ''
         required_fields: true
     group_related:
@@ -60,12 +62,13 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: -97
-      format_type: fieldset
+      format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
+        open: true
         description: ''
         required_fields: true
     group_key:
@@ -76,12 +79,13 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: -100
-      format_type: fieldset
+      format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
+        open: true
         description: ''
         required_fields: true
     group_optional:

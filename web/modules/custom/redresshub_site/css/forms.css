@@ -56,9 +56,9 @@
 }
 
 /* ------------------------------------------------------------------------
- * Blocks: every part of a content form is a block, its name in a crimson
- * bar on top and its fields below it on a warm light background, in the
- * colours and fonts of the RedressHub theme.
+ * Blocks: every part of a content form is a block that can be closed, its
+ * name in a crimson bar on top and its fields below it on a warm light
+ * background, in the colours and fonts of the RedressHub theme.
  * --------------------------------------------------------------------- */
 
 .node-form {
@@ -69,65 +69,43 @@
   --rh-block-serif: "Libre Baskerville", Georgia, serif;
 }
 
-/* A block: a part of the form (fieldset or collapsible details), not one
-   inside another. */
-.node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *),
+/* A block: a part of the form, open by default, closed with a click on its
+   name. */
 .node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] {
-  position: relative;
   margin: 0 0 1.25rem;
-  padding: 0;
   border: 0;
   border-radius: 0.5rem;
   background: var(--rh-block-tint);
   box-shadow: none;
+  overflow: hidden;
 }
 
-/* Its name: a bar on top, with a notch pointing at the fields. */
-.node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend {
-  position: relative;
-  display: block;
-  float: none;
-  width: 100%;
-  margin: 0;
-  padding: 0.75rem 1.5rem;
-  box-sizing: border-box;
-  border-radius: 0.5rem 0.5rem 0 0;
+/* Its name: a crimson bar on top. */
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] > .claro-details__summary {
+  padding: 0.75rem 1.5rem 0.75rem 3rem;
+  border-radius: 0;
   background: var(--rh-block-accent);
   color: #fff;
-}
-
-.node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend::after {
-  content: "";
-  position: absolute;
-  bottom: -0.6rem;
-  left: 1.5rem;
-  border-inline: 0.6rem solid transparent;
-  border-top: 0.6rem solid var(--rh-block-accent);
-}
-
-.node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend .fieldset__label {
-  padding: 0;
-  color: inherit;
   font-family: var(--rh-block-serif);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
 }
 
-.node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__wrapper {
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] > .claro-details__summary:hover,
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] > .claro-details__summary:focus {
+  background: var(--rh-block-accent-dark);
+  color: #fff;
+}
+
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] > .claro-details__summary::before {
+  inset-inline-start: 1.25rem;
+  filter: brightness(0) invert(1);
+}
+
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] > .claro-details__wrapper {
   margin: 0;
   padding: 1.5rem 1.5rem 0.5rem;
-}
-
-/* An optional block (closed): a bar with its name, open on a click. */
-.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] {
-  border-left: 0.5rem solid var(--rh-block-accent);
-}
-
-.node-form details[data-drupal-selector^="edit-group-"] > .claro-details__summary {
-  color: var(--rh-block-accent-dark);
-  font-family: var(--rh-block-serif);
-  font-weight: 400;
 }
 
 /* A group inside a block (Title extras, Link): a light bar, not a box. */
@@ -288,25 +266,31 @@
 
 /* Narrow screens: less room around the fields. */
 @media (max-width: 48rem) {
-  .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__legend {
-    padding-inline: 1rem;
-  }
-
-  .node-form .layout-region--main .field-group-fieldset:not(.fieldset__wrapper *, .claro-details__wrapper *) > .fieldset__wrapper {
+  .node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] > .claro-details__wrapper {
     padding: 1.25rem 1rem 0.25rem;
   }
 }
 
-/* Lists of values (locations, organisations): no grey table header, the
-   rows white on the block. */
-.node-form .layout-region--main .field-multiple-table thead th {
-  background: none;
+/* Lists of values (locations, organisations) on the background of their
+   block, not in a white table: only a thin line between the values. */
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field-multiple-table,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field-multiple-table thead,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field-multiple-table thead tr,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field-multiple-table thead th,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field-multiple-table tbody tr,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field-multiple-table td,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .tabledrag-toggle-weight-wrapper,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .tabledrag-toggle-weight {
+  background: transparent;
+}
+
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field-multiple-table thead th {
   border: 0;
   padding-inline: 0;
 }
 
-.node-form .layout-region--main .field-multiple-table tbody tr {
-  background: #fff;
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field-multiple-table tbody tr {
+  border-color: var(--rh-block-line);
 }
 
 /* The tabs (Page, Home) and the main buttons in the colours of the theme. */
