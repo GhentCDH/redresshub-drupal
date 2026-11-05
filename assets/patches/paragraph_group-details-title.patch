@@ -1,0 +1,41 @@
+--- a/src/Plugin/Field/FieldWidget/ParagraphGroupDetailsWidget.php
++++ b/src/Plugin/Field/FieldWidget/ParagraphGroupDetailsWidget.php
+@@ -387,20 +387,27 @@
+    *   The paragraph delta.
+    * @param \Drupal\Core\Form\FormStateInterface $form_state
+    *   The form state object.
++   * @param string $paragraph_label
++   *   The label of the paragraph type.
+    *
+    * @return \Drupal\Core\StringTranslation\TranslatableMarkup
+-   *   The formatted summary text or 'Paragraph' if no summary.
++   *   The summary text, or the paragraph type (or 'Paragraph') if no summary.
+    */
+   private function getDetailSummary(
+     array $element,
+     int $delta,
+     FormStateInterface $form_state,
++    string $paragraph_label = '',
+   ): TranslatableMarkup {
+ 
+     $summary = $this->getSummaryText($element, $delta, $form_state);
+ 
+     if ($summary) {
+-      return $this->t('Summary: @summary', ['@summary' => $summary]);
++      return $this->t('@summary', ['@summary' => $summary]);
++    }
++
++    if ($paragraph_label !== '') {
++      return $this->t('@type', ['@type' => $paragraph_label]);
+     }
+ 
+     return $this->t('Paragraph');
+@@ -435,7 +442,7 @@
+     $paragraph_label = $this->getParagraphLabel($paragraph_type);
+     $type_text = "Paragraph Type: " . $paragraph_label;
+ 
+-    $detail_summary = $this->getDetailSummary($element, $delta, $form_state);
++    $detail_summary = $this->getDetailSummary($element, $delta, $form_state, (string) $paragraph_label);
+ 
+     // Change to details element.
+     $element['#type'] = 'details';
