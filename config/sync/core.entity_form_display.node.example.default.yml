@@ -19,7 +19,7 @@ third_party_settings:
         - field_title_alignment
       label: 'Title extras'
       region: content
-      parent_name: ''
+      parent_name: group_content
       weight: 1
       format_type: details
       format_settings:
@@ -30,6 +30,23 @@ third_party_settings:
         open: false
         description: ''
         required_fields: false
+    group_content:
+      children:
+        - title
+        - group_title_extras
+        - field_content
+      label: Content
+      region: content
+      parent_name: ''
+      weight: -100
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: MzSYzZbqqlwSM8mtLwEdCerBZRNGvHZntu5u_Gao8LY
 id: node.example.default

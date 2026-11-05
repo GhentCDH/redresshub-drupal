@@ -19,7 +19,7 @@ id: node.page.field_content
 field_name: field_content
 entity_type: node
 bundle: page
-label: Content
+label: Blocks
 description: 'The blocks of the page, below each other.'
 required: false
 translatable: false
