@@ -10,7 +10,7 @@ field_name: field_plain_text
 entity_type: paragraph
 bundle: intro
 label: Text
-description: ''
+description: 'A short introduction, shown in a larger font.'
 required: true
 translatable: true
 default_value: {  }

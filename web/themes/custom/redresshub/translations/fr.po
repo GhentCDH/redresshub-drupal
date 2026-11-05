@@ -208,3 +208,6 @@ msgstr "Choisir une langue"
 
 msgid "Justice Visions"
 msgstr "Justice Visions"
+
+msgid "Paragraph type: @type"
+msgstr "Type de bloc : @type"

@@ -106,7 +106,6 @@ third_party_settings:
       children:
         - group_key
         - group_content
-        - group_metadata
       label: Tabs
       region: content
       parent_name: ''
@@ -149,7 +148,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_organisation_status:
-    type: options_buttons
+    type: options_select
     weight: 6
     region: content
     settings: {  }

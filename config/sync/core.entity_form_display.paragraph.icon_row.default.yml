@@ -17,8 +17,8 @@ content:
     weight: 1
     region: content
     settings:
-      title: item
-      title_plural: items
+      title: icon
+      title_plural: icons
       edit_mode: open
       closed_mode: summary
       autocollapse: none

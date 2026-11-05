@@ -12,7 +12,7 @@ field_name: field_link
 entity_type: node
 bundle: event
 label: Link
-description: ''
+description: 'Optional. A page with more information or to register.'
 required: false
 translatable: false
 default_value: {  }

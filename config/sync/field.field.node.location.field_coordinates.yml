@@ -12,7 +12,7 @@ field_name: field_coordinates
 entity_type: node
 bundle: location
 label: Coordinates
-description: ''
+description: 'Place the marker on the map.'
 required: false
 translatable: false
 default_value: {  }

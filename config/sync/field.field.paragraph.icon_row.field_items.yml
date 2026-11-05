@@ -12,8 +12,8 @@ id: paragraph.icon_row.field_items
 field_name: field_items
 entity_type: paragraph
 bundle: icon_row
-label: Items
-description: ''
+label: Icons
+description: 'The icons, in this order.'
 required: true
 translatable: false
 default_value: {  }

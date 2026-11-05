@@ -10,7 +10,7 @@ field_name: field_credit
 entity_type: node
 bundle: fragment
 label: 'Credit / source'
-description: ''
+description: 'Who made it, or where it comes from.'
 required: false
 translatable: false
 default_value: {  }

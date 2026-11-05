@@ -1,0 +1,6 @@
+third_party_settings:
+  field_group:
+    group_title_extras:
+      label: "Extra's bij de titel"
+    group_caption_layout:
+      label: 'Onderschrift en schikking'

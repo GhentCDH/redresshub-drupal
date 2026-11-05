@@ -1,0 +1,6 @@
+third_party_settings:
+  field_group:
+    group_button:
+      label: Bouton
+    group_title_extras:
+      label: 'Compléments du titre'

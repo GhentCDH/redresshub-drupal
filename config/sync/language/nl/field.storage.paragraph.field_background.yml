@@ -1,0 +1,6 @@
+settings:
+  allowed_values:
+    -
+      label: 'Achtergrond van de pagina'
+    -
+      label: 'Witte kaart'

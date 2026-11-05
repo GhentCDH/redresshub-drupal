@@ -20,7 +20,7 @@ field_name: field_content
 entity_type: node
 bundle: page
 label: Content
-description: 'Shown below each other.'
+description: 'The blocks of the page, below each other.'
 required: false
 translatable: false
 default_value: {  }

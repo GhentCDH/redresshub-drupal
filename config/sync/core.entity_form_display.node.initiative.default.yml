@@ -118,7 +118,6 @@ third_party_settings:
       children:
         - group_key
         - group_content
-        - group_metadata
       label: Tabs
       region: content
       parent_name: ''

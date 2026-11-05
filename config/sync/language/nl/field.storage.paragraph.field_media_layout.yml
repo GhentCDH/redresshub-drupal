@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: 'Tekst (links 50%) – media (rechts 50%)'
+    -
+      label: 'Media (links 50%) – tekst (rechts 50%)'
+    -
+      label: 'Tekst (links 67%) – media (rechts 33%)'
+    -
+      label: 'Media (links 33%) – tekst (rechts 67%)'

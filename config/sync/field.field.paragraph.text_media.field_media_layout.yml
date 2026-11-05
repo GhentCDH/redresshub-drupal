@@ -12,7 +12,7 @@ field_name: field_media_layout
 entity_type: paragraph
 bundle: text_media
 label: Layout
-description: 'On narrow screens the media is always shown above the text.'
+description: 'On narrow screens the media is always shown below the text.'
 required: true
 translatable: false
 default_value:

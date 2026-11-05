@@ -155,7 +155,7 @@
         },
         "patches": {
             "drupal/paragraph_group": {
-                "Paragraph details: no 'Summary:' prefix, the paragraph type instead of 'Paragraph' when empty": "assets/patches/paragraph_group-details-title.patch"
+                "Paragraph details: the start of the summary without 'Summary:', or the paragraph type instead of 'Paragraph'; a translatable paragraph type line": "assets/patches/paragraph_group-details-title.patch"
             }
         }
     },

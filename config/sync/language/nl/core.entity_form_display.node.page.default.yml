@@ -1,0 +1,19 @@
+third_party_settings:
+  field_group:
+    group_key:
+      label: Titel
+    group_content:
+      label: Inhoud
+    group_page_tabs:
+      label: Tabbladen
+    group_tabs:
+      label: Tabbladen
+content:
+  field_content:
+    settings:
+      title: blok
+      title_plural: blokken
+  field_tabs:
+    settings:
+      title: tabblad
+      title_plural: tabbladen

@@ -1,0 +1,6 @@
+third_party_settings:
+  field_group:
+    group_title_extras:
+      label: 'Compléments du titre'
+    group_caption_layout:
+      label: 'Légende et disposition'

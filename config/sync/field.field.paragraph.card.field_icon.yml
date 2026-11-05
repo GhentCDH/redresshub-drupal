@@ -11,7 +11,7 @@ field_name: field_icon
 entity_type: paragraph
 bundle: card
 label: Icon
-description: ''
+description: 'Optional. Shown in front of the title.'
 required: false
 translatable: false
 default_value: {  }

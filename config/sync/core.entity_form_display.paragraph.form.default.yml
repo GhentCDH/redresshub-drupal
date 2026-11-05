@@ -8,7 +8,26 @@ dependencies:
     - field.field.paragraph.form.field_webform
     - paragraphs.paragraphs_type.form
   module:
+    - field_group
     - webform
+third_party_settings:
+  field_group:
+    group_title_extras:
+      children:
+        - field_icon
+      label: 'Title extras'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
 id: paragraph.form.default
 targetEntityType: paragraph
 bundle: form
@@ -16,13 +35,13 @@ mode: default
 content:
   field_icon:
     type: options_select
-    weight: -1
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_title:
     type: string_textfield
-    weight: -2
+    weight: 2
     region: content
     settings:
       size: 60
@@ -30,7 +49,7 @@ content:
     third_party_settings: {  }
   field_webform:
     type: webform_entity_reference_select
-    weight: 1
+    weight: 3
     region: content
     settings:
       default_data: true

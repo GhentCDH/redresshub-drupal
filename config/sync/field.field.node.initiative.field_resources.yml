@@ -12,7 +12,7 @@ field_name: field_resources
 entity_type: node
 bundle: initiative
 label: Resources
-description: ''
+description: 'Links to websites, articles or documents about the initiative.'
 required: false
 translatable: false
 default_value: {  }

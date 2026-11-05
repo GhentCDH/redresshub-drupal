@@ -12,36 +12,73 @@ dependencies:
     - field.field.paragraph.text.field_title
     - paragraphs.paragraphs_type.text
   module:
+    - field_group
     - link
     - text
+third_party_settings:
+  field_group:
+    group_button:
+      children:
+        - field_button
+        - field_button_style
+      label: Button
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
+    group_title_extras:
+      children:
+        - field_pretitle
+        - field_icon
+      label: 'Title extras'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
 id: paragraph.text.default
 targetEntityType: paragraph
 bundle: text
 mode: default
 content:
   field_background:
-    type: options_buttons
-    weight: 6
+    type: options_select
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_button:
     type: link_default
-    weight: 4
+    weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
   field_button_style:
-    type: options_buttons
-    weight: 5
+    type: options_select
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_icon:
     type: options_select
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -55,7 +92,7 @@ content:
     third_party_settings: {  }
   field_text:
     type: text_textarea
-    weight: 3
+    weight: 2
     region: content
     settings:
       rows: 5

@@ -1,0 +1,14 @@
+third_party_settings:
+  field_group:
+    group_when_and_where:
+      label: 'Quand et où'
+    group_classification:
+      label: Classification
+    group_related:
+      label: Liens
+    group_key:
+      label: 'Données de base'
+    group_content:
+      label: Contenu
+    group_tabs:
+      label: Onglets

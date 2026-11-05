@@ -14,8 +14,45 @@ dependencies:
     - field.field.paragraph.text_media.field_title
     - paragraphs.paragraphs_type.text_media
   module:
+    - field_group
     - media_library
     - text
+third_party_settings:
+  field_group:
+    group_title_extras:
+      children:
+        - field_pretitle
+      label: 'Title extras'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
+    group_caption_layout:
+      children:
+        - field_caption
+        - field_show_caption
+        - field_media_layout
+      label: 'Caption and layout'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
 id: paragraph.text_media.default
 targetEntityType: paragraph
 bundle: text_media
@@ -23,7 +60,7 @@ mode: default
 content:
   field_caption:
     type: string_textfield
-    weight: 6
+    weight: 8
     region: content
     settings:
       size: 60
@@ -31,27 +68,27 @@ content:
     third_party_settings: {  }
   field_media:
     type: media_library_widget
-    weight: 3
+    weight: 5
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_media_layout:
     type: options_select
-    weight: 8
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_media_multiple:
     type: media_library_widget
-    weight: 4
+    weight: 6
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_pretitle:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -59,21 +96,21 @@ content:
     third_party_settings: {  }
   field_show_caption:
     type: boolean_checkbox
-    weight: 7
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_slideshow:
     type: boolean_checkbox
-    weight: 5
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_text:
     type: text_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 5
@@ -81,7 +118,7 @@ content:
     third_party_settings: {  }
   field_title:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60

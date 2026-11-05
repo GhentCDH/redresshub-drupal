@@ -10,7 +10,7 @@ field_name: field_show_caption
 entity_type: paragraph
 bundle: text_media
 label: 'Show caption'
-description: ''
+description: 'Untick to hide the caption on the website.'
 required: false
 translatable: false
 default_value:

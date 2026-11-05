@@ -10,7 +10,7 @@ field_name: field_event_location
 entity_type: node
 bundle: event
 label: Location
-description: ''
+description: 'Where it takes place, e.g. the venue and the city.'
 required: false
 translatable: true
 default_value: {  }

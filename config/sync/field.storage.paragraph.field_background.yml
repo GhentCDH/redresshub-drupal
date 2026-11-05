@@ -13,7 +13,7 @@ settings:
   allowed_values:
     -
       value: none
-      label: None
+      label: 'Page background'
     -
       value: white
       label: 'White card'

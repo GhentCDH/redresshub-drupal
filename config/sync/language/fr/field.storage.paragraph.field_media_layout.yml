@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: 'Texte (gauche 50 %) – média (droite 50 %)'
+    -
+      label: 'Média (gauche 50 %) – texte (droite 50 %)'
+    -
+      label: 'Texte (gauche 67 %) – média (droite 33 %)'
+    -
+      label: 'Média (gauche 33 %) – texte (droite 67 %)'

@@ -1,6 +1,21 @@
 --- a/src/Plugin/Field/FieldWidget/ParagraphGroupDetailsWidget.php
 +++ b/src/Plugin/Field/FieldWidget/ParagraphGroupDetailsWidget.php
-@@ -387,20 +387,27 @@
+@@ -362,10 +362,12 @@
+       /** @var array{content?: array<int, string>} $summary_items */
+       if (isset($summary_items['content'])) {
+ 
++        // The first item, shortened: a long text says more than the next
++        // item (e.g. the value of a list field).
+         foreach ($summary_items['content'] as $item) {
+ 
+-          if (mb_strlen($item) < 256) {
+-            return $item;
++          if (trim((string) $item) !== '') {
++            return \Drupal\Component\Utility\Unicode::truncate((string) $item, 120, TRUE, TRUE);
+           }
+ 
+         }
+@@ -387,20 +389,27 @@
     *   The paragraph delta.
     * @param \Drupal\Core\Form\FormStateInterface $form_state
     *   The form state object.
@@ -30,9 +45,12 @@
      }
  
      return $this->t('Paragraph');
-@@ -435,7 +442,7 @@
+@@ -433,9 +442,9 @@
+     }
+ 
      $paragraph_label = $this->getParagraphLabel($paragraph_type);
-     $type_text = "Paragraph Type: " . $paragraph_label;
+-    $type_text = "Paragraph Type: " . $paragraph_label;
++    $type_text = (string) $this->t('Paragraph type: @type', ['@type' => (string) $paragraph_label]);
  
 -    $detail_summary = $this->getDetailSummary($element, $delta, $form_state);
 +    $detail_summary = $this->getDetailSummary($element, $delta, $form_state, (string) $paragraph_label);

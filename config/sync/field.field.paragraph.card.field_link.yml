@@ -12,7 +12,7 @@ field_name: field_link
 entity_type: paragraph
 bundle: card
 label: Link
-description: ''
+description: 'Where the card leads to: the whole card is a link.'
 required: true
 translatable: true
 default_value: {  }

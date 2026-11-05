@@ -207,3 +207,6 @@ msgstr "Kies een taal"
 
 msgid "Justice Visions"
 msgstr "Justice Visions"
+
+msgid "Paragraph type: @type"
+msgstr "Soort blok: @type"

@@ -1,0 +1,6 @@
+settings:
+  allowed_values:
+    -
+      label: Rouge
+    -
+      label: 'Blanc avec bordure rouge'

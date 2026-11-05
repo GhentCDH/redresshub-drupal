@@ -12,7 +12,7 @@ field_name: field_webform
 entity_type: paragraph
 bundle: form
 label: Form
-description: ''
+description: 'The form to show. Forms are made under Structure > Webforms.'
 required: true
 translatable: false
 default_value: {  }

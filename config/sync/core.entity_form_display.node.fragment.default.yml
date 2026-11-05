@@ -59,7 +59,6 @@ third_party_settings:
       children:
         - group_key
         - group_content
-        - group_metadata
       label: Tabs
       region: content
       parent_name: ''
@@ -96,8 +95,8 @@ content:
     weight: 6
     region: content
     settings:
-      title: paragraph
-      title_plural: paragraphs
+      title: block
+      title_plural: blocks
       edit_mode: closed
       closed_mode: summary
       autocollapse: none

@@ -14,7 +14,7 @@ field_name: field_media
 entity_type: node
 bundle: fragment
 label: Media
-description: ''
+description: 'The image, video or audio fragment of the tile.'
 required: false
 translatable: false
 default_value: {  }

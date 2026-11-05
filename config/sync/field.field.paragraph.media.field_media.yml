@@ -14,7 +14,7 @@ field_name: field_media
 entity_type: paragraph
 bundle: media
 label: Media
-description: ''
+description: 'One image, video or audio fragment.'
 required: true
 translatable: false
 default_value: {  }

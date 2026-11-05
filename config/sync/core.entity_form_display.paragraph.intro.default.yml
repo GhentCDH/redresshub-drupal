@@ -12,7 +12,7 @@ bundle: intro
 mode: default
 content:
   field_alignment:
-    type: options_buttons
+    type: options_select
     weight: 2
     region: content
     settings: {  }

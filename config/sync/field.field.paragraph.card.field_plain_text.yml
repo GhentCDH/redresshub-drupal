@@ -10,7 +10,7 @@ field_name: field_plain_text
 entity_type: paragraph
 bundle: card
 label: Text
-description: ''
+description: 'A short text: one or two sentences.'
 required: true
 translatable: true
 default_value: {  }

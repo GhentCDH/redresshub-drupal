@@ -10,8 +10,8 @@ id: node.home.field_hero_image
 field_name: field_hero_image
 entity_type: node
 bundle: home
-label: 'Hero image'
-description: "Optional; without an image the theme's default image is used."
+label: 'Banner image'
+description: 'Optional. Without an image the default image of the theme is used.'
 required: false
 translatable: false
 default_value: {  }

@@ -1,0 +1,6 @@
+settings:
+  allowed_values:
+    -
+      label: Rood
+    -
+      label: 'Wit met rode rand'

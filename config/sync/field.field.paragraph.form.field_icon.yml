@@ -11,7 +11,7 @@ field_name: field_icon
 entity_type: paragraph
 bundle: form
 label: Icon
-description: Optional.
+description: 'Optional. Shown in front of the title.'
 required: false
 translatable: false
 default_value: {  }

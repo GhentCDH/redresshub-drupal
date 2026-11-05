@@ -13,7 +13,7 @@ bundle: quote
 mode: default
 content:
   field_alignment:
-    type: options_buttons
+    type: options_select
     weight: 3
     region: content
     settings: {  }

@@ -1,0 +1,19 @@
+third_party_settings:
+  field_group:
+    group_key:
+      label: Titre
+    group_content:
+      label: Contenu
+    group_page_tabs:
+      label: Onglets
+    group_tabs:
+      label: Onglets
+content:
+  field_content:
+    settings:
+      title: bloc
+      title_plural: blocs
+  field_tabs:
+    settings:
+      title: onglet
+      title_plural: onglets

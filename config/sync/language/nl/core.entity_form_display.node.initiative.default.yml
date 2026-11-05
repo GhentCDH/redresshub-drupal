@@ -1,0 +1,14 @@
+third_party_settings:
+  field_group:
+    group_when_and_where:
+      label: 'Wanneer en waar'
+    group_classification:
+      label: Classificatie
+    group_related:
+      label: Gerelateerd
+    group_key:
+      label: Basisgegevens
+    group_content:
+      label: Inhoud
+    group_tabs:
+      label: Tabbladen

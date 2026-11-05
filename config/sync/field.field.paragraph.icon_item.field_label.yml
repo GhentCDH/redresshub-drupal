@@ -10,7 +10,7 @@ field_name: field_label
 entity_type: paragraph
 bundle: icon_item
 label: Label
-description: ''
+description: 'A word or a few words under the icon.'
 required: true
 translatable: true
 default_value: {  }
