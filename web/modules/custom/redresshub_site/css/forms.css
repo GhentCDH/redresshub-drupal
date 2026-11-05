@@ -185,6 +185,7 @@
 
 .node-form .field--widget-entity-reference-modal .input-group > .claro-autocomplete {
   flex: 1 1 16rem;
+  max-width: var(--rh-field-width);
 }
 
 .node-form .field--widget-entity-reference-modal .input-group > .claro-autocomplete .form-element {
@@ -337,14 +338,30 @@
   content: " ";
 }
 
-/* Text fields as wide as the other fields (Tagify, lists): the width of
-   their block. */
+/* Fields one readable width (not the full width of a wide block): text
+   fields, Tagify and the search fields of Entity Reference Modal alike. */
+.node-form {
+  --rh-field-width: 40rem;
+}
+
 .node-form .layout-region--main details[data-drupal-selector^="edit-group-"] input.form-text,
 .node-form .layout-region--main details[data-drupal-selector^="edit-group-"] input.form-url,
 .node-form .layout-region--main details[data-drupal-selector^="edit-group-"] input.form-email,
-.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .claro-autocomplete {
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .claro-autocomplete,
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field--widget-tagify-entity-reference-autocomplete-widget .tagify {
   box-sizing: border-box;
   width: 100%;
+  max-width: var(--rh-field-width);
+}
+
+/* A link (URL + text): the pair a little wider than one field. */
+.node-form .field--widget-tagify-link-widget .fieldset__wrapper,
+.node-form .field--widget-link-default .fieldset__wrapper {
+  max-width: calc(var(--rh-field-width) * 1.5);
+}
+
+.node-form .field--widget-tagify-link-widget .field-multiple-table {
+  max-width: calc(var(--rh-field-width) * 1.5 + 8rem);
 }
 
 /* A link: URL and link text next to each other, on one row, in a slightly
@@ -541,4 +558,26 @@
 .node-form .layout-region--footer {
   width: 100%;
   max-width: none;
+}
+
+/* Lists of references (places, organisations): "Remove" close to the field,
+   not at the far end of a wide block. */
+.node-form .field--widget-entity-reference-modal .field-multiple-table {
+  max-width: calc(var(--rh-field-width) + 14rem);
+}
+
+/* The side column starts at the same height as the form. */
+.node-form .layout-region--secondary {
+  margin-block-start: 0;
+}
+
+/* Narrow screens: a small "Remove" in lists of values, so the field keeps
+   its room. */
+@media (max-width: 48rem) {
+  .node-form .layout-region--main .field-multiple-table td > .button,
+  .node-form .layout-region--main .field-multiple-table td > input.button {
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
 }
