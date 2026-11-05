@@ -6,3 +6,5 @@ third_party_settings:
       label: Média
     group_content:
       label: Texte
+    group_tabs:
+      label: Onglets

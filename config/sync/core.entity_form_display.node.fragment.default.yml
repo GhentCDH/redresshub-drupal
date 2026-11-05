@@ -25,14 +25,15 @@ third_party_settings:
         - group_content
       label: Fragment
       region: content
-      parent_name: ''
-      weight: -100
-      format_type: fieldset
+      parent_name: group_tabs
+      weight: 0
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
+        formatter: open
         description: ''
         required_fields: true
     group_media:
@@ -69,6 +70,23 @@ third_party_settings:
         open: true
         description: ''
         required_fields: true
+    group_tabs:
+      children:
+        - group_fragment
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: -100
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+        direction: horizontal
+        width_breakpoint: 640
 id: node.fragment.default
 targetEntityType: node
 bundle: fragment
