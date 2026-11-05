@@ -26,7 +26,6 @@ dependencies:
     - taxonomy.vocabulary.tags
     - taxonomy.vocabulary.un_category
   module:
-    - config_translation
     - content_translation
     - contextual
     - dashboard
@@ -183,7 +182,6 @@ permissions:
   - 'revert term revisions in sector'
   - 'revert term revisions in tags'
   - 'revert term revisions in un_category'
-  - 'translate configuration'
   - 'translate editable entities'
   - 'translate interface'
   - 'update any media'
