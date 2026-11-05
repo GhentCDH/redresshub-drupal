@@ -61,14 +61,11 @@
         "drupal/role_delegation": "^1.6",
         "drupal/search_api": "^1.41",
         "drupal/search_api_range_filter": "^1.0",
-        "drupal/select2": "^2.0",
         "drupal/translation_availability": "dev-main",
         "drupal/varnish_purge": "^2.3",
         "drupal/views_filters_summary": "^3.4",
         "drupal/webform": "^6.3",
-        "drush/drush": "^13",
-        "oomphinc/composer-installers-extender": "^2.0",
-        "select2/select2": "^4.1"
+        "drush/drush": "^13"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -85,8 +82,7 @@
             "php-http/discovery": true,
             "php-tuf/composer-integration": true,
             "phpstan/extension-installer": true,
-            "symfony/runtime": true,
-            "oomphinc/composer-installers-extender": true
+            "symfony/runtime": true
         },
         "sort-packages": true
     },
@@ -106,8 +102,7 @@
                 "type:drupal-core"
             ],
             "web/libraries/{$name}": [
-                "type:drupal-library",
-                "select2/select2"
+                "type:drupal-library"
             ],
             "web/modules/contrib/{$name}": [
                 "type:drupal-module"
@@ -154,10 +149,7 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
-        },
-        "installer-types": [
-            "component"
-        ]
+        }
     },
     "require-dev": {
         "drupal/devel": "^5.5"
