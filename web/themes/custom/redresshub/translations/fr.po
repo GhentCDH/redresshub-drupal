@@ -153,10 +153,11 @@ msgstr "Rechercher un mot"
 
 msgid ""
 "The network shows how initiatives are linked by their keywords; only "
-"the keyword filter applies."
+"the keyword and period filters apply."
 msgstr ""
 "Le réseau montre comment les initiatives sont liées par leurs "
-"mots-clés ; seul le filtre des mots-clés s'applique."
+"mots-clés ; seuls les filtres des mots-clés et de la période "
+"s'appliquent."
 
 msgid "Map"
 msgstr "Carte"
@@ -201,3 +202,9 @@ msgstr "Quitter le plein écran"
 
 msgid "Show only: @term"
 msgstr "Afficher seulement : @term"
+
+msgid "Choose a language"
+msgstr "Choisir une langue"
+
+msgid "Justice Visions"
+msgstr "Justice Visions"

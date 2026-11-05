@@ -153,10 +153,10 @@ msgstr "Zoek op een woord"
 
 msgid ""
 "The network shows how initiatives are linked by their keywords; only "
-"the keyword filter applies."
+"the keyword and period filters apply."
 msgstr ""
 "Het netwerk toont hoe initiatieven via hun trefwoorden verbonden zijn; "
-"enkel de trefwoordfilter is van toepassing."
+"enkel de filters op trefwoord en periode zijn van toepassing."
 
 msgid "Map"
 msgstr "Kaart"
@@ -201,3 +201,9 @@ msgstr "Volledig scherm verlaten"
 
 msgid "Show only: @term"
 msgstr "Toon enkel: @term"
+
+msgid "Choose a language"
+msgstr "Kies een taal"
+
+msgid "Justice Visions"
+msgstr "Justice Visions"

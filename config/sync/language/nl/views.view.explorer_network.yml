@@ -5,6 +5,11 @@ display:
         keyword:
           expose:
             label: Trefwoorden
+        period:
+          expose:
+            label: Periode
+          from_label: Van
+          to_label: Tot
       exposed_form:
         options:
           submit_button: 'Filters toepassen'
@@ -14,6 +19,11 @@ display:
           filters_result_label:
             plural: initiatieven
             singular: initiatief
+      style:
+        options:
+          shared_links:
+            -
+              label: 'Zelfde trefwoord'
       empty:
         area_text_custom:
           content: 'Niets gevonden voor deze filters.'
