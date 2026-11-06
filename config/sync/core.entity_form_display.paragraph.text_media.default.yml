@@ -83,15 +83,20 @@ third_party_settings:
       label: 'Title extras'
       region: content
       parent_name: group_tm_text
-      weight: 0
-      format_type: details
+      weight: 3
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: title-extras
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
-        description: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: false
 id: paragraph.text_media.default
 targetEntityType: paragraph
@@ -150,7 +155,7 @@ content:
     third_party_settings: {  }
   field_text:
     type: text_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 5
