@@ -794,29 +794,23 @@
   height: 1px;
 }
 
-/* Nested blocks (the paragraphs of a tab, the icons of a row): a light
-   card with a crimson line on the left, so they stand apart from the pink
-   card they are in; an outlined type label. */
-.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details {
-  border-inline-start: 4px solid var(--rh-block-accent);
-  background: #fffcfb;
+/* Tabs (the level between a section and its blocks): a bar between the
+   crimson of a section and the pink of a block, with white text. */
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary,
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary:hover {
+  background: #a8636c;
+  color: #fff;
 }
 
-.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary {
-  background: #fffcfb;
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary::before {
+  filter: brightness(0) invert(1);
 }
 
-.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary:hover {
-  background: var(--rh-block-tint);
-}
-
-.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper {
-  background: #fffcfb;
-}
-
-.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget .paragraph-type-badge {
-  padding: 0 0.45rem;
-  border: 1px solid var(--rh-block-accent);
-  background: transparent;
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary .paragraph-type-badge {
+  background: #fff;
   color: var(--rh-block-accent-dark);
+}
+
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper > .paragraph-top .paragraphs-dropdown-toggle {
+  filter: brightness(0) invert(1);
 }
