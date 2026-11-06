@@ -650,7 +650,7 @@
   gap: 0.25rem;
 }
 
-.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > thead .paragroup.toggle-below {
+.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > thead .paragroup {
   min-height: 0;
   margin: 0;
   padding: 0.3rem 0.9rem;
