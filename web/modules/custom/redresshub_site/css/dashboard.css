@@ -153,10 +153,14 @@
 }
 
 /* ---------------------------------------------------------------------
- * The colours of the site as accents: white cards with a fine warm line and
- * a thin crimson line on top, names in the crimson serif, quiet headings,
- * add buttons as pills.
+ * The colours of the site as accents: white cards on a warm background,
+ * a short crimson line before their names, headings in the crimson serif,
+ * add buttons as light pink pills.
  * --------------------------------------------------------------------- */
+
+main:has(.dashboard) {
+  background: #f3ede8;
+}
 
 .dashboard {
   --rh-accent: #914853;
@@ -168,28 +172,44 @@
   --rh-serif: "Libre Baskerville", Georgia, serif;
 }
 
-/* A block and a card of the menu: white, a fine line, crimson on top. */
+/* A block and a card of the menu: white on the warm background. */
 .dashboard .layout .block:not(:has(.menu-cards)):not(:has(.dashboard-heading)),
 .menu-cards__card {
   overflow: hidden;
-  border: 1px solid var(--rh-line, rgba(145, 72, 83, 0.14));
-  border-top: 3px solid var(--rh-accent, #914853);
+  border: 0;
   border-radius: 0.75rem;
   background: #fff;
-  box-shadow: 0 1px 2px rgba(58, 54, 51, 0.04), 0 4px 12px -6px rgba(58, 54, 51, 0.08);
+  box-shadow: 0 1px 2px rgba(58, 54, 51, 0.06), 0 8px 20px -10px rgba(58, 54, 51, 0.18);
 }
 
-/* Its name: in the crimson serif, no bar. */
+/* Its name: in the crimson serif, a short crimson line before it. */
 .dashboard .layout .block:not(:has(.menu-cards)):not(:has(.dashboard-heading)) > h2 {
+  position: relative;
   margin: 0;
-  padding: 1.25rem 1.5rem 0.5rem;
+  padding: 1.25rem 1.5rem 0.5rem 2.25rem;
   border-radius: 0;
   background: none;
   color: var(--rh-accent-dark);
   font-family: var(--rh-serif);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.4;
+}
+
+.dashboard .layout .block:not(:has(.menu-cards)):not(:has(.dashboard-heading)) > h2::before,
+.dashboard .layout .block .menu-cards__title::before {
+  position: absolute;
+  inset-block: 0.2em;
+  inset-inline-start: 0;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--rh-accent);
+  content: "";
+}
+
+.dashboard .layout .block:not(:has(.menu-cards)):not(:has(.dashboard-heading)) > h2::before {
+  inset-block: 1.4rem 0.65rem;
+  inset-inline-start: 1.5rem;
 }
 
 .menu-cards__card {
@@ -197,8 +217,9 @@
 }
 
 .dashboard .layout .block .menu-cards__title {
+  position: relative;
   margin: 0 0 0.35rem;
-  padding: 0;
+  padding: 0 0 0 0.75rem;
   background: none;
   font-family: var(--rh-serif);
   font-size: 1.05rem;
@@ -219,14 +240,13 @@
   color: var(--rh-muted, #8a8279);
 }
 
-/* Headings above the rows: a small quiet label. */
+/* Headings above the rows: in the crimson serif. */
 .dashboard .layout .block .dashboard-heading {
-  margin: 1.5rem 0 0;
-  color: var(--rh-muted);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  margin: 2rem 0 0.25rem;
+  color: var(--rh-accent-dark);
+  font-family: var(--rh-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
 }
 
 /* Links in crimson. */
@@ -244,9 +264,9 @@
 .dashboard .menu-cards .button--action {
   min-height: 0;
   padding: 0.3rem 0.85rem 0.3rem 1.75rem;
-  border: 1px solid var(--rh-line-strong);
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M8 2v12M2 8h12' stroke='%23914853' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 0.7rem center / 0.7rem;
+  background: var(--rh-blush) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M8 2v12M2 8h12' stroke='%23914853' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 0.7rem center / 0.7rem;
   color: var(--rh-accent-dark);
   font-weight: 600;
   box-shadow: none;
@@ -255,7 +275,7 @@
 .dashboard .menu-cards .button--action:hover,
 .dashboard .menu-cards .button--action:focus {
   border-color: var(--rh-accent);
-  background-color: var(--rh-blush);
+  background-color: #efd8cf;
   color: var(--rh-accent-dark);
 }
 
