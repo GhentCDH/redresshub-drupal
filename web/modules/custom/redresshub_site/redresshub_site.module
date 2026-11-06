@@ -266,6 +266,11 @@ function _redresshub_site_text_button(array &$element, array $context): void {
     }
   }
   unset($element['subform']['field_button']['widget'][0]['uri']['#description'], $element['subform']['field_button']['widget'][0]['#description']);
+  // No style chosen yet (a block from before the default): red, as on the
+  // site.
+  if (isset($element['subform']['field_button_style']['widget']) && empty($element['subform']['field_button_style']['widget']['#default_value'])) {
+    $element['subform']['field_button_style']['widget']['#default_value'] = ['filled'];
+  }
   $element['subform']['#element_validate'][] = '_redresshub_site_text_button_validate';
 }
 
