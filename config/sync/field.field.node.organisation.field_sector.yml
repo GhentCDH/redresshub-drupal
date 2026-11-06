@@ -11,7 +11,7 @@ field_name: field_sector
 entity_type: node
 bundle: organisation
 label: Sector
-description: 'Click to choose from the list, or type a new name and press Enter to add it.'
+description: '<strong>Several sectors are possible.</strong> Click to choose from the list, or type a new name and press Enter to add it.'
 required: false
 translatable: false
 default_value: {  }
