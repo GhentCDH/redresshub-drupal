@@ -33,6 +33,16 @@ final class AdminHooks {
   }
 
   /**
+   * The admin pages in the colours of the site (css/admin.css).
+   */
+  #[Hook('page_attachments')]
+  public function pageAttachments(array &$attachments): void {
+    if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+      $attachments['#attached']['library'][] = 'redresshub_site/admin';
+    }
+  }
+
+  /**
    * Content forms: long lists of choices in columns, and only real languages.
    *
    * Translatable content is always in one of the site languages: no "Not

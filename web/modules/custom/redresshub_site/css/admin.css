@@ -1,0 +1,78 @@
+/**
+ * @file
+ * The admin pages (Claro) in the colours of the site: crimson instead of
+ * Claro's blue, and the overviews (Web content, Research data, People) as
+ * white cards on a warm background, as the dashboard.
+ */
+
+/* Claro's blue (buttons, links, active tabs, the pager, focus of a field):
+   the crimson of the site; a soft crimson focus ring instead of green.
+   html:root weighs more than Claro's own :root, which is loaded later. */
+html:root {
+  --color-absolutezero: #914853;
+  --color-absolutezero-hover: #7a3d45;
+  --color-absolutezero-active: #6a343c;
+  --color-focus: #c89b8c;
+  --button--focus-border-color: #c89b8c;
+}
+
+/* An overview: a warm background behind white cards. */
+main:has(.views-exposed-form, .views-table) {
+  background: #f3ede8;
+}
+
+main:has(.views-exposed-form, .views-table) .views-exposed-form {
+  border: 0;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(58, 54, 51, 0.06), 0 8px 20px -10px rgba(58, 54, 51, 0.18);
+}
+
+main:has(.views-exposed-form, .views-table) table.views-table {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(58, 54, 51, 0.06), 0 8px 20px -10px rgba(58, 54, 51, 0.18);
+}
+
+/* Its head: small and quiet; the sorted column in crimson. */
+main:has(.views-exposed-form, .views-table) table.views-table thead th {
+  border-bottom: 1px solid rgba(145, 72, 83, 0.14);
+  background: #fff;
+  color: #8a8279;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+main:has(.views-exposed-form, .views-table) table.views-table thead th a,
+main:has(.views-exposed-form, .views-table) table.views-table thead th.is-active a {
+  color: inherit;
+}
+
+main:has(.views-exposed-form, .views-table) table.views-table thead th.is-active {
+  color: #7a3d45;
+}
+
+/* Rows: a fine warm line between them, a light tint on hover. */
+main:has(.views-exposed-form, .views-table) table.views-table tbody tr {
+  border-color: rgba(145, 72, 83, 0.12);
+  background: #fff;
+}
+
+main:has(.views-exposed-form, .views-table) table.views-table tbody tr:hover,
+main:has(.views-exposed-form, .views-table) table.views-table tbody tr.selected {
+  background: #fcf8f6;
+}
+
+main:has(.views-exposed-form, .views-table) table.views-table td a:not(.button):not(.dropbutton__item a) {
+  color: #7a3d45;
+  text-decoration-color: rgba(145, 72, 83, 0.35);
+  text-underline-offset: 0.2em;
+}
+
+/* The bar for the selected rows: dark warm grey instead of black. */
+main:has(.views-table) .views-form [data-drupal-selector="edit-header"],
+main:has(.views-table) .views-bulk-actions {
+  border-radius: 0.75rem;
+  background-color: #3a3633;
+}

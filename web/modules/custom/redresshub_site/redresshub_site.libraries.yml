@@ -3,6 +3,11 @@ editorial_toolbar:
     theme:
       css/editorial-toolbar.css: {}
 
+admin:
+  css:
+    theme:
+      css/admin.css: {}
+
 dashboard:
   css:
     theme:
