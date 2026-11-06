@@ -2,8 +2,6 @@ third_party_settings:
   field_group:
     group_classification:
       label: Classificatie
-    group_related:
-      label: Gerelateerd
     group_key:
       label: Organisatie
     group_optional:

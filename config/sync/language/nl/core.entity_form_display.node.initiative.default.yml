@@ -3,7 +3,7 @@ third_party_settings:
     group_classification:
       label: Classificatie
     group_related:
-      label: Gerelateerd
+      label: Organisaties
     group_key:
       label: Initiatief
     group_optional:

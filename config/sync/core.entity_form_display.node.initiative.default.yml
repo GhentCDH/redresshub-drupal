@@ -50,8 +50,7 @@ third_party_settings:
     group_related:
       children:
         - field_organisations
-        - field_predecessor
-      label: Related
+      label: Organisations
       region: content
       parent_name: ''
       weight: -96
@@ -68,6 +67,7 @@ third_party_settings:
       children:
         - title
         - field_short_description
+        - field_predecessor
       label: Initiative
       region: content
       parent_name: ''
@@ -258,7 +258,7 @@ content:
     third_party_settings: {  }
   field_predecessor:
     type: entity_reference_modal
-    weight: 13
+    weight: 2
     region: content
     settings:
       view_and_display: ''

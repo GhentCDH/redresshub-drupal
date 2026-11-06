@@ -2,8 +2,6 @@ third_party_settings:
   field_group:
     group_classification:
       label: Classification
-    group_related:
-      label: Liens
     group_key:
       label: Organisation
     group_optional:

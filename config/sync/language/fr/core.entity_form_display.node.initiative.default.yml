@@ -3,7 +3,7 @@ third_party_settings:
     group_classification:
       label: Classification
     group_related:
-      label: Liens
+      label: Organisations
     group_key:
       label: Initiative
     group_optional:
