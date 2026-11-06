@@ -176,6 +176,11 @@ function redresshub_site_field_widget_single_element_form_alter(array &$element,
     $definition = $context['items']->getFieldDefinition();
     $internal = (bool) ($definition->getSetting('link_type') & \Drupal\link\LinkItemInterface::LINK_INTERNAL);
     $element['uri']['#description'] = $internal ? t('A page of this site (type its title) or a web address, e.g. https://example.com.') : t('A web address, e.g. https://example.com.');
+    // A list of links: the hint once, in the help text above the list (see
+    // redresshub_site_field_widget_complete_form_alter()).
+    if ($definition->getFieldStorageDefinition()->getCardinality() !== 1) {
+      unset($element['uri']['#description']);
+    }
     if (!empty($element['#description']) && $definition->getFieldStorageDefinition()->getCardinality() === 1) {
       $description = (string) $element['#description'] . ($internal ? ' ' . t('Type the title of a page of this site, or a web address, e.g. https://example.com.') : '');
       // Without a link text the link is no box with a help text of its own:
@@ -248,6 +253,23 @@ function _redresshub_site_text_media_validate(array $element, \Drupal\Core\Form\
       ? t('Choose the images of the slideshow.')
       : t('Choose an image, video or audio fragment.'));
   }
+}
+
+/**
+ * Implements hook_field_widget_complete_form_alter().
+ *
+ * A list of links (Resources): the hint about the URL once, after the help
+ * text of the field, instead of below every URL.
+ */
+function redresshub_site_field_widget_complete_form_alter(array &$field_widget_complete_form, \Drupal\Core\Form\FormStateInterface $form_state, array $context): void {
+  $definition = $context['items']->getFieldDefinition();
+  if (!in_array($context['widget']->getPluginId(), ['link_default', 'tagify_link_widget'], TRUE)
+    || $definition->getFieldStorageDefinition()->getCardinality() === 1) {
+    return;
+  }
+  $internal = (bool) ($definition->getSetting('link_type') & \Drupal\link\LinkItemInterface::LINK_INTERNAL);
+  $hint = $internal ? t('Type the title of a page of this site, or a web address, e.g. https://example.com.') : t('A web address, e.g. https://example.com.');
+  $field_widget_complete_form['widget']['#description'] = trim(\Drupal\Component\Utility\Xss::filterAdmin((string) $definition->getDescription()) . ' ' . $hint);
 }
 
 /**
