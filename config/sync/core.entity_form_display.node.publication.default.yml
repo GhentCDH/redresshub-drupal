@@ -21,7 +21,7 @@ third_party_settings:
     group_publication:
       children:
         - field_biblio_id
-      label: Publication
+      label: Biblio
       region: content
       parent_name: ''
       weight: -100
