@@ -794,15 +794,24 @@
   height: 1px;
 }
 
-/* Nested blocks (the paragraphs of a tab, the icons of a row): the same
-   card, one shade lighter, with an outlined type label. */
-.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details,
+/* Nested blocks (the paragraphs of a tab, the icons of a row): a light
+   card with a crimson line on the left, so they stand apart from the pink
+   card they are in; an outlined type label. */
+.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details {
+  border-inline-start: 4px solid var(--rh-block-accent);
+  background: #fffcfb;
+}
+
 .node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary {
-  background: #f4e6e1;
+  background: #fffcfb;
 }
 
 .node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary:hover {
-  background: #ecd7d0;
+  background: var(--rh-block-tint);
+}
+
+.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper {
+  background: #fffcfb;
 }
 
 .node-form .paragraphs-subform .field--widget-paragraph-group-details-widget .paragraph-type-badge {
