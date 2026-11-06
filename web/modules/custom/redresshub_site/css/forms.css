@@ -1040,3 +1040,45 @@
 .node-form details[data-drupal-selector="edit-group-media"]:not(:has(.media-library-widget .media-library-item)) :is(.field--name-field-caption, .field--name-field-credit) {
   display: none;
 }
+
+/* In a block: its groups (Title extras, Button) as the sections, in small:
+   a light pink bar with the name in crimson, a thin crimson line around,
+   no white box. Text fields and choice lists the width of the other fields;
+   the text editor the whole width. */
+.node-form .paragraphs-subform > details.claro-details {
+  margin-block: 1rem 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--rh-block-sub-line);
+  border-radius: 0.375rem;
+  background: transparent;
+  box-shadow: none;
+}
+
+.node-form .paragraphs-subform > details.claro-details > .claro-details__summary {
+  padding-block: 0.6rem;
+  background: var(--rh-block-sub);
+  color: var(--rh-block-accent-dark);
+  font-family: var(--rh-block-serif);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.node-form .paragraphs-subform > details.claro-details > .claro-details__summary:hover {
+  background: #e4c9c1;
+  color: var(--rh-block-accent-dark);
+}
+
+.node-form .paragraphs-subform > details.claro-details[open] > .claro-details__summary {
+  border-bottom: 1px solid var(--rh-block-sub-line);
+}
+
+.node-form .paragraphs-subform > details.claro-details > .claro-details__wrapper {
+  margin: 0;
+  padding: 1rem 1.25rem 0.25rem;
+}
+
+.node-form .paragraphs-subform input.form-text,
+.node-form .paragraphs-subform select.form-select,
+.node-form .paragraphs-subform .claro-autocomplete {
+  max-width: var(--rh-field-width);
+}
