@@ -18,7 +18,7 @@ third_party_settings:
       children:
         - title
         - field_hero_text
-      label: Banner
+      label: 'Banner title'
       region: content
       parent_name: ''
       weight: -100

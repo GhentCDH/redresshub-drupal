@@ -9,7 +9,7 @@ id: node.home.field_hero_text
 field_name: field_hero_text
 entity_type: node
 bundle: home
-label: 'Banner text'
+label: 'Banner tagline'
 description: 'A short text under the title, on top of the banner image. One or two sentences.'
 required: true
 translatable: true

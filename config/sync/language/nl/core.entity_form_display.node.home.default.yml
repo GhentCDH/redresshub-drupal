@@ -1,7 +1,7 @@
 third_party_settings:
   field_group:
     group_key:
-      label: Banner
+      label: 'Titel in de banner'
     group_content:
       label: Blokken
     group_banner_image:

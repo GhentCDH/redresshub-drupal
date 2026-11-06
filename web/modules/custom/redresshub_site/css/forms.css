@@ -602,3 +602,31 @@
 .node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .form-wrapper > .js-form-wrapper > .fieldset:not(.media-library-widget) > .fieldset__legend {
   display: none;
 }
+
+/* A section with only a media field or a list of blocks (Banner image,
+   Cards, Main content): the field is the section itself, no box in a box
+   and no second label. */
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .form-wrapper > .media-library-widget,
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--type-entity-reference-revisions {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .form-wrapper > .media-library-widget > .fieldset__legend {
+  display: none;
+}
+
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--type-entity-reference-revisions > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > thead .form-item__label {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+}
+
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--type-entity-reference-revisions > .paragraphs-tabs-wrapper > .form-item,
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--type-entity-reference-revisions > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table {
+  margin-block-start: 0;
+}
