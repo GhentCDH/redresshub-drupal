@@ -20,7 +20,7 @@ field_name: field_content
 entity_type: paragraph
 bundle: tab
 label: Content
-description: 'The blocks of this tab, below each other.'
+description: ''
 required: false
 translatable: false
 default_value: {  }
