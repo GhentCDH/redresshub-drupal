@@ -6,6 +6,7 @@ editorial_toolbar:
 dashboard:
   css:
     theme:
+      /themes/custom/redresshub/css/fonts.css: {}
       css/dashboard.css: {}
 
 forms:
