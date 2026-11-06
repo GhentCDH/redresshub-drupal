@@ -1,7 +1,7 @@
 third_party_settings:
   field_group:
     group_tm_tabs:
-      label: Onglets
+      label: 'Texte et média'
     group_tm_text:
       label: Texte
     group_tm_media:

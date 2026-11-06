@@ -1,7 +1,7 @@
 third_party_settings:
   field_group:
     group_tm_tabs:
-      label: Tabbladen
+      label: 'Tekst en media'
     group_tm_text:
       label: Tekst
     group_tm_media:

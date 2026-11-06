@@ -250,23 +250,6 @@
   color: #fff;
 }
 
-/* Tabs (Page, Home): a clean bar, the open tab white like its content. */
-.node-form .horizontal-tabs {
-  border: 1px solid var(--rh-block-line);
-  border-radius: 0.5rem;
-  background: #fff;
-  overflow: hidden;
-}
-
-.node-form .horizontal-tabs-list {
-  border-bottom: 1px solid var(--rh-block-line);
-  background: var(--rh-block-tint);
-}
-
-.node-form .horizontal-tabs-list .horizontal-tab-button.selected {
-  background: #fff;
-}
-
 /* Narrow screens: less room around the fields. */
 @media (max-width: 48rem) {
   .node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] > .claro-details__wrapper {
@@ -296,17 +279,7 @@
   border-color: var(--rh-block-line);
 }
 
-/* The tabs (Page, Home) and the main buttons in the colours of the theme. */
-.node-form .horizontal-tabs-list .horizontal-tab-button a {
-  color: var(--rh-block-accent-dark);
-  font-family: var(--rh-block-serif);
-  font-weight: 400;
-}
-
-.node-form .horizontal-tabs-list .horizontal-tab-button.selected a {
-  box-shadow: inset 0 -3px 0 var(--rh-block-accent);
-}
-
+/* The main buttons in the colours of the theme. */
 .node-form .button--primary {
   border-color: var(--rh-block-accent);
   background-color: var(--rh-block-accent);
@@ -1087,4 +1060,84 @@
    item weights". */
 .node-form .layout-region--main .media-library-widget .tabledrag-toggle-weight-wrapper {
   display: none;
+}
+
+/* Text + media: Text and Media next to each other (as on the page), each a
+   white card with a short crimson line before its name; below each other
+   on narrow screens. Title extras as a soft pink area in the card. */
+.node-form .paragraphs-subform .text-media-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+  align-items: start;
+  margin-block: 1.25rem 0.5rem;
+}
+
+.node-form .paragraphs-subform .text-media-column {
+  margin: 0;
+  padding: 0 1rem 0.25rem;
+  border: 0;
+  border-radius: 0.6rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(58, 54, 51, 0.06), 0 6px 16px -10px rgba(58, 54, 51, 0.2);
+}
+
+.node-form .paragraphs-subform .text-media-column > .fieldset__legend {
+  position: static;
+  display: block;
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 0.8rem 0 0.25rem;
+}
+
+.node-form .paragraphs-subform .text-media-column > .fieldset__legend .fieldset__label {
+  position: relative;
+  padding: 0 0 0 0.75rem;
+  color: var(--rh-block-accent-dark);
+  font-family: var(--rh-block-serif);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.node-form .paragraphs-subform .text-media-column > .fieldset__legend .fieldset__label::before {
+  position: absolute;
+  inset-block: 0.15em;
+  inset-inline-start: 0;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--rh-block-accent);
+  content: "";
+}
+
+.node-form .paragraphs-subform .text-media-column > .fieldset__wrapper {
+  clear: both;
+  margin: 0;
+}
+
+.node-form .paragraphs-subform .text-media-column details.claro-details {
+  margin-block: 0.5rem 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--rh-block-tint);
+  box-shadow: none;
+}
+
+.node-form .paragraphs-subform .text-media-column details.claro-details > .claro-details__summary {
+  padding-block: 0.55rem;
+  background: transparent;
+  color: var(--rh-block-accent-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.node-form .paragraphs-subform .text-media-column details.claro-details > .claro-details__wrapper {
+  margin: 0;
+  padding: 0 0.9rem 0.25rem;
+}
+
+/* The chosen media: a readable preview, not squeezed. */
+.node-form .paragraphs-subform .text-media-column .media-library-selection .media-library-item {
+  width: 100%;
+  max-width: 14rem;
 }

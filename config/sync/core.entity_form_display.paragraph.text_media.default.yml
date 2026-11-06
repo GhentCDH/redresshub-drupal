@@ -23,20 +23,24 @@ third_party_settings:
       children:
         - group_tm_text
         - group_tm_media
-      label: Tabs
+      label: 'Text and media'
       region: content
       parent_name: ''
       weight: 1
-      format_type: tabs
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: text-media-columns
         show_empty_fields: false
         id: ''
         label_as_html: false
-        description: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
-        direction: horizontal
-        width_breakpoint: 640
     group_tm_text:
       children:
         - group_title_extras
@@ -46,13 +50,12 @@ third_party_settings:
       region: content
       parent_name: group_tm_tabs
       weight: 0
-      format_type: tab
+      format_type: fieldset
       format_settings:
-        classes: ''
+        classes: text-media-column
         show_empty_fields: false
         id: ''
         label_as_html: false
-        formatter: open
         description: ''
         required_fields: true
     group_tm_media:
@@ -66,13 +69,12 @@ third_party_settings:
       region: content
       parent_name: group_tm_tabs
       weight: 1
-      format_type: tab
+      format_type: fieldset
       format_settings:
-        classes: ''
+        classes: text-media-column
         show_empty_fields: false
         id: ''
         label_as_html: false
-        formatter: closed
         description: ''
         required_fields: true
     group_title_extras:
