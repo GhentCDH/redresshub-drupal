@@ -665,7 +665,7 @@
 }
 
 .node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details {
-  overflow: hidden;
+  position: relative;
   margin-block: 0.25rem;
   border: 1px solid var(--rh-block-sub-line);
   border-radius: 0.375rem;
@@ -738,9 +738,25 @@
 }
 
 .node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper > .paragraph-top {
-  float: right;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.5rem;
   min-height: 0;
-  margin: 0 -0.5rem 0 0;
+  margin: 0;
+}
+
+/* The bar keeps room for the menu, and its corners round with the card. */
+.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary {
+  padding-inline-end: 3rem;
+  border-radius: 0.375rem;
+}
+
+.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details[open] > summary {
+  border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper {
+  border-radius: 0 0 0.375rem 0.375rem;
 }
 
 .node-form .field--widget-paragraph-group-details-widget .paragraphs-subform > .form-wrapper > .form-item,
