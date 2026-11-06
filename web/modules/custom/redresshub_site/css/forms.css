@@ -1100,60 +1100,38 @@
   margin-block: 0 1rem;
 }
 
-/* A group in a block (the button of a text): a soft pink area, always
-   open, its name as a small crimson label. */
-.node-form .paragraphs-subform fieldset.soft-group.fieldset {
-  margin-block: 0.75rem 1.25rem;
-  padding: 0 1rem 0.25rem;
-  border: 0;
-  border-radius: 0.5rem;
-  background: #f3e6e1;
-  box-shadow: none;
-}
-
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__legend {
-  position: static;
-  display: block;
-  float: left;
-  width: 100%;
-  margin: 0;
-  padding: 0.65rem 0 0.25rem;
-}
-
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__legend .fieldset__label {
-  padding: 0;
-  color: var(--rh-block-accent-dark);
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper {
-  clear: both;
-  margin: 0;
-}
-
-/* The button: URL, link text and style on one row; the help text of the
-   link below them, over the whole row. */
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper:has(> .field--type-link) {
+/* The button of a text: URL, link text and style on one row over the whole
+   width, without a frame, below "Show a button"; small labels. */
+.node-form .paragraphs-subform .button-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  grid-template-columns: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
   gap: 0 1.25rem;
   align-items: start;
+  margin-block: -0.25rem 1rem;
 }
 
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link,
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link > fieldset,
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link > fieldset > .fieldset__wrapper {
+.node-form .paragraphs-subform .button-row > .field--type-link,
+.node-form .paragraphs-subform .button-row > .field--type-link > fieldset,
+.node-form .paragraphs-subform .button-row > .field--type-link > fieldset > .fieldset__wrapper {
   display: contents;
 }
 
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link > fieldset > .fieldset__wrapper > .fieldset__description {
-  grid-column: 1 / -1;
-  order: 1;
-  margin-block: 0 0.75rem;
+.node-form .paragraphs-subform .button-row .form-item {
+  margin-block: 0 0.5rem;
 }
 
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .form-wrapper:not(.field--type-link) > .form-item,
-.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link > fieldset > .fieldset__wrapper > .form-item {
-  margin-block: 0 0.5rem;
+.node-form .paragraphs-subform .button-row .form-item__label {
+  font-size: 0.8rem;
+}
+
+.node-form .paragraphs-subform .button-row input.form-text,
+.node-form .paragraphs-subform .button-row select.form-select,
+.node-form .paragraphs-subform .button-row .tagify {
+  max-width: none;
+}
+
+@media (max-width: 48rem) {
+  .node-form .paragraphs-subform .button-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

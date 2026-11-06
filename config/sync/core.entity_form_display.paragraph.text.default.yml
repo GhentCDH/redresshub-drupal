@@ -25,13 +25,19 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 3
-      format_type: fieldset
+      format_type: html_element
       format_settings:
-        classes: soft-group
+        classes: button-row
         show_empty_fields: false
         id: ''
         label_as_html: false
-        description: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: false
     group_title_extras:
       children:
@@ -71,8 +77,8 @@ content:
     weight: 5
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      placeholder_url: 'https://…'
+      placeholder_title: 'Learn more'
       match_operator: CONTAINS
       match_limit: 20
       suggestions_dropdown: 1

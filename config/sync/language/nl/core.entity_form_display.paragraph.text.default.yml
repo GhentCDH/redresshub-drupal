@@ -4,3 +4,7 @@ third_party_settings:
       label: Knop
     group_title_extras:
       label: "Extra's bij de titel"
+content:
+  field_button:
+    settings:
+      placeholder_title: 'Lees meer'

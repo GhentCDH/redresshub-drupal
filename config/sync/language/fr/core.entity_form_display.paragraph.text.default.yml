@@ -4,3 +4,7 @@ third_party_settings:
       label: Bouton
     group_title_extras:
       label: 'Compléments du titre'
+content:
+  field_button:
+    settings:
+      placeholder_title: 'En savoir plus'

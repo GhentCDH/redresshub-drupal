@@ -228,6 +228,9 @@ function redresshub_site_field_widget_single_element_form_alter(array &$element,
       '#weight' => 10,
     ];
   }
+  if (($element['#paragraph_type'] ?? NULL) === 'text' && isset($element['subform']['field_button'], $element['subform']['#parents'])) {
+    _redresshub_site_text_button($element, $context);
+  }
   if (($element['#paragraph_type'] ?? NULL) !== 'text_media' || !isset($element['subform']['field_slideshow'], $element['subform']['#parents'])) {
     return;
   }
@@ -237,6 +240,43 @@ function redresshub_site_field_widget_single_element_form_alter(array &$element,
   $element['subform']['field_media']['#states']['visible'][$selector] = ['checked' => FALSE];
   $element['subform']['field_media_multiple']['#states']['visible'][$selector] = ['checked' => TRUE];
   $element['subform']['#element_validate'][] = '_redresshub_site_text_media_validate';
+}
+
+/**
+ * Text paragraph: "Show a button", and only then its URL, text and style.
+ *
+ * The checkbox is not stored: it is on when the paragraph has a button, and
+ * unticking it removes the button. One help text for the button, below the
+ * checkbox.
+ */
+function _redresshub_site_text_button(array &$element, array $context): void {
+  $paragraph = $context['items'][$context['delta']]->entity ?? NULL;
+  $parents = $element['subform']['#parents'];
+  $name = array_shift($parents) . ($parents ? '[' . implode('][', $parents) . ']' : '') . '[show_button]';
+  $element['subform']['show_button'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show a button'),
+    '#description' => t('A button below the text. The link text is the text on the button; for the URL, type the title of a page of this site, or a web address.'),
+    '#default_value' => $paragraph && $paragraph->hasField('field_button') && !$paragraph->get('field_button')->isEmpty(),
+    '#weight' => 2.5,
+  ];
+  foreach (['field_button', 'field_button_style'] as $field) {
+    if (isset($element['subform'][$field])) {
+      $element['subform'][$field]['#states']['visible'][':input[name="' . $name . '"]'] = ['checked' => TRUE];
+    }
+  }
+  unset($element['subform']['field_button']['widget'][0]['uri']['#description'], $element['subform']['field_button']['widget'][0]['#description']);
+  $element['subform']['#element_validate'][] = '_redresshub_site_text_button_validate';
+}
+
+/**
+ * Element validation: no button when "Show a button" is off.
+ */
+function _redresshub_site_text_button_validate(array $element, \Drupal\Core\Form\FormStateInterface $form_state): void {
+  $parents = $element['#parents'];
+  if (!$form_state->getValue(array_merge($parents, ['show_button']))) {
+    $form_state->setValue(array_merge($parents, ['field_button']), [['uri' => '', 'title' => '']]);
+  }
 }
 
 /**

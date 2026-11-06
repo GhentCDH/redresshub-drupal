@@ -273,3 +273,9 @@ msgstr "Een videofragment heeft een video nodig."
 
 msgid "A slideshow needs at least two images."
 msgstr "Een diavoorstelling heeft minstens twee afbeeldingen nodig."
+
+msgid "Show a button"
+msgstr "Een knop tonen"
+
+msgid "A button below the text. The link text is the text on the button; for the URL, type the title of a page of this site, or a web address."
+msgstr "Een knop onder de tekst. De linktekst staat op de knop; typ voor de URL de titel van een pagina van deze site, of een webadres."

@@ -271,3 +271,9 @@ msgstr "Un fragment vidéo a besoin d’une vidéo."
 
 msgid "A slideshow needs at least two images."
 msgstr "Un diaporama a besoin d’au moins deux images."
+
+msgid "Show a button"
+msgstr "Afficher un bouton"
+
+msgid "A button below the text. The link text is the text on the button; for the URL, type the title of a page of this site, or a web address."
+msgstr "Un bouton sous le texte. Le texte du lien figure sur le bouton ; pour l’URL, tapez le titre d’une page de ce site, ou une adresse web."

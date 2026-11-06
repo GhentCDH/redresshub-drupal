@@ -12,7 +12,7 @@ field_name: field_button
 entity_type: paragraph
 bundle: text
 label: Button
-description: 'Optional. The link text is the text of the button.'
+description: ''
 required: false
 translatable: true
 default_value: {  }
