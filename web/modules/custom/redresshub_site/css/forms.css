@@ -793,3 +793,21 @@
   width: 1px;
   height: 1px;
 }
+
+/* Nested blocks (the paragraphs of a tab, the icons of a row): the same
+   card, one shade lighter, with an outlined type label. */
+.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details,
+.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary {
+  background: #f4e6e1;
+}
+
+.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary:hover {
+  background: #ecd7d0;
+}
+
+.node-form .paragraphs-subform .field--widget-paragraph-group-details-widget .paragraph-type-badge {
+  padding: 0 0.45rem;
+  border: 1px solid var(--rh-block-accent);
+  background: transparent;
+  color: var(--rh-block-accent-dark);
+}
