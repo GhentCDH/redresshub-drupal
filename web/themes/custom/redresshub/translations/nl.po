@@ -255,3 +255,9 @@ msgstr "Typ de titel van een pagina van deze site, of een webadres, bv. https://
 
 msgid "A web address, e.g. https://example.com."
 msgstr "Een webadres, bv. https://example.com."
+
+msgid "Several values are possible."
+msgstr "Meerdere waarden zijn mogelijk."
+
+msgid "Drag them to change the order."
+msgstr "Sleep ze om de volgorde te wijzigen."

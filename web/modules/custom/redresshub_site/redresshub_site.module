@@ -189,6 +189,16 @@ function redresshub_site_field_widget_single_element_form_alter(array &$element,
       }
     }
   }
+  // A Tagify field with several values: one help text, that says so in bold
+  // first (instead of the help text and "Drag to re-order …" as a list).
+  if ($context['widget']->getPluginId() === 'tagify_entity_reference_autocomplete_widget'
+    && $context['items']->getFieldDefinition()->getFieldStorageDefinition()->isMultiple()) {
+    $element['#description'] = [
+      '#markup' => '<strong>' . t('Several values are possible.') . '</strong> '
+        . \Drupal\Component\Utility\Xss::filterAdmin((string) $context['items']->getFieldDefinition()->getDescription())
+        . ' ' . t('Drag them to change the order.'),
+    ];
+  }
   // A date range: no label above the two parts, the parts say what they are;
   // with a time (an event) "Start date and time" and "End (optional)".
   if (isset($element['value'], $element['end_value']) && $context['items']->getFieldDefinition()->getType() === 'daterange') {

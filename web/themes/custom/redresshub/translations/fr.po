@@ -253,3 +253,9 @@ msgstr "Tapez le titre d'une page de ce site, ou une adresse web, par ex. https:
 
 msgid "A web address, e.g. https://example.com."
 msgstr "Une adresse web, par ex. https://example.com."
+
+msgid "Several values are possible."
+msgstr "Plusieurs valeurs sont possibles."
+
+msgid "Drag them to change the order."
+msgstr "Faites-les glisser pour changer l'ordre."
