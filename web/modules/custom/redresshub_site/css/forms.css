@@ -64,14 +64,31 @@
 }
 
 /* A block: a part of the form, open by default, closed with a click on its
-   name. */
+   name. The blocks one after the other as an accordion: no room between
+   them, a thin light line between two bars, rounded only at the top of the
+   first and the bottom of the last. */
 .node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] {
-  margin: 0 0 1.25rem;
+  margin: 0;
   border: 0;
-  border-radius: 0.5rem;
+  border-radius: 0;
   background: var(--rh-block-tint);
   box-shadow: none;
   overflow: hidden;
+}
+
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] ~ details[data-drupal-selector^="edit-group-"] {
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"]:not(details[data-drupal-selector^="edit-group-"] ~ *) {
+  border-start-start-radius: 0.5rem;
+  border-start-end-radius: 0.5rem;
+}
+
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"]:not(:has(~ details[data-drupal-selector^="edit-group-"])) {
+  margin-block-end: 1.5rem;
+  border-end-start-radius: 0.5rem;
+  border-end-end-radius: 0.5rem;
 }
 
 /* Its name: a crimson bar on top. */
