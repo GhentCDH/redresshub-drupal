@@ -720,12 +720,13 @@
 /* The title of a block a little smaller than that of a section; the menu
    of a block (⋮) in its title bar, on the right. */
 .node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary {
+  padding-block: 0.875rem;
   font-size: 0.95rem;
 }
 
 .node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper > .paragraph-top {
   position: absolute;
-  top: 0.8rem;
+  top: 0.7rem;
   right: 0.5rem;
   min-height: 0;
   margin: 0;
