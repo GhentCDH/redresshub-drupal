@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\redresshub_site\Hook;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Hook\Order\Order;
 use Drupal\Core\Language\LanguageInterface;
@@ -45,6 +46,33 @@ final class AdminHooks {
     }
     if (isset($form['field_fragment_type'])) {
       $form['#after_build'][] = [self::class, 'fragmentGroups'];
+      $form['#validate'][] = [self::class, 'fragmentMediaValidate'];
+    }
+  }
+
+  /**
+   * Fragment form: the media fits the type (an image for an image, …).
+   */
+  public static function fragmentMediaValidate(array &$form, FormStateInterface $form_state): void {
+    $allowed = [
+      'image' => ['image'],
+      'audio' => ['audio'],
+      'video' => ['video', 'remote_video'],
+    ];
+    $messages = [
+      'image' => t('An image fragment needs an image.'),
+      'audio' => t('An audio fragment needs an audio file.'),
+      'video' => t('A video fragment needs a video.'),
+    ];
+    $node = $form_state->getFormObject()->buildEntity($form, $form_state);
+    $type = $node->get('field_fragment_type')->entity;
+    $media = $node->get('field_media')->entity;
+    if (!$type || !$media) {
+      return;
+    }
+    $key = strtolower($type->getUntranslated()->label());
+    if (isset($allowed[$key]) && !in_array($media->bundle(), $allowed[$key], TRUE)) {
+      $form_state->setErrorByName('field_media', $messages[$key]);
     }
   }
 

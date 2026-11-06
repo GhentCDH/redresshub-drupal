@@ -261,3 +261,12 @@ msgstr "Meerdere waarden zijn mogelijk."
 
 msgid "Drag them to change the order."
 msgstr "Sleep ze om de volgorde te wijzigen."
+
+msgid "An image fragment needs an image."
+msgstr "Een afbeeldingsfragment heeft een afbeelding nodig."
+
+msgid "An audio fragment needs an audio file."
+msgstr "Een audiofragment heeft een audiobestand nodig."
+
+msgid "A video fragment needs a video."
+msgstr "Een videofragment heeft een video nodig."

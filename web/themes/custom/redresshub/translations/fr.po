@@ -259,3 +259,12 @@ msgstr "Plusieurs valeurs sont possibles."
 
 msgid "Drag them to change the order."
 msgstr "Faites-les glisser pour changer l'ordre."
+
+msgid "An image fragment needs an image."
+msgstr "Un fragment image a besoin d’une image."
+
+msgid "An audio fragment needs an audio file."
+msgstr "Un fragment audio a besoin d’un fichier audio."
+
+msgid "A video fragment needs a video."
+msgstr "Un fragment vidéo a besoin d’une vidéo."
