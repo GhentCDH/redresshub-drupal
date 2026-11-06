@@ -1131,3 +1131,29 @@
   clear: both;
   margin: 0;
 }
+
+/* The button: URL, link text and style on one row; the help text of the
+   link below them, over the whole row. */
+.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper:has(> .field--type-link) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 0 1.25rem;
+  align-items: start;
+}
+
+.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link,
+.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link > fieldset,
+.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link > fieldset > .fieldset__wrapper {
+  display: contents;
+}
+
+.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link > fieldset > .fieldset__wrapper > .fieldset__description {
+  grid-column: 1 / -1;
+  order: 1;
+  margin-block: 0 0.75rem;
+}
+
+.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .form-wrapper:not(.field--type-link) > .form-item,
+.node-form .paragraphs-subform fieldset.soft-group.fieldset > .fieldset__wrapper > .field--type-link > fieldset > .fieldset__wrapper > .form-item {
+  margin-block: 0 0.5rem;
+}
