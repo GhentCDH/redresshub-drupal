@@ -994,3 +994,26 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Focus on a bar (a section, a block): no thick green frame after a click;
+   with the keyboard a thin frame in the colours of the form (white on a
+   crimson bar, crimson on a pink one). */
+.node-form .layout-region--main details > .claro-details__summary:focus::after,
+.node-form .layout-region--main details > .claro-details__summary:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
+.node-form .layout-region--main details > .claro-details__summary:focus::after {
+  border-color: transparent;
+}
+
+.node-form .layout-region--main details > .claro-details__summary:focus-visible {
+  outline: 2px solid var(--rh-block-accent);
+  outline-offset: -4px;
+}
+
+.node-form .layout-region--main > .layout-region__content > details[data-drupal-selector^="edit-group-"] > .claro-details__summary:focus-visible,
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary:focus-visible {
+  outline-color: #fff;
+}
