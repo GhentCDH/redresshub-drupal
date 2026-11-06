@@ -796,6 +796,19 @@
 
 /* Tabs (the level between a section and its blocks): a bar between the
    crimson of a section and the pink of a block, with white text. */
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details {
+  border: 3px solid #b5747c;
+}
+
+/* Inner corners that fit the thicker border. */
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary {
+  border-radius: 0.15rem;
+}
+
+.node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details[open] > summary {
+  border-radius: 0.15rem 0.15rem 0 0;
+}
+
 .node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary,
 .node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary:hover {
   background: #b5747c;
