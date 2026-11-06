@@ -945,3 +945,17 @@
 .node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field--widget-tagify-entity-reference-autocomplete-widget:has(input[data-cardinality="-1"]) .tagify {
   max-width: none;
 }
+
+/* One link (Website, a button): URL and link text side by side, without a
+   box or a label above them; a list of links (Resources) keeps a box per row. */
+.node-form .layout-region--main .field--widget-tagify-link-widget > fieldset > .fieldset__wrapper,
+.node-form .layout-region--main .field--widget-link-default > fieldset > .fieldset__wrapper {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.node-form .layout-region--main .field--widget-tagify-link-widget > fieldset > .fieldset__legend,
+.node-form .layout-region--main .field--widget-link-default > fieldset > .fieldset__legend {
+  display: none;
+}
