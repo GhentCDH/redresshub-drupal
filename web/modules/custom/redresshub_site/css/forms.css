@@ -827,3 +827,19 @@
 .node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper > .paragraph-top .paragraphs-dropdown-toggle {
   filter: brightness(0) invert(1);
 }
+
+/* Coordinates: latitude and longitude next to each other on wide screens. */
+.node-form .field--widget-geofield-latlon .fieldset__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0 1.5rem;
+  max-width: var(--rh-field-width);
+}
+
+.node-form .field--widget-geofield-latlon .fieldset__wrapper > .form-item {
+  margin-block: 0 0.5rem;
+}
+
+.node-form .field--widget-geofield-latlon .fieldset__wrapper > .fieldset__description {
+  grid-column: 1 / -1;
+}
