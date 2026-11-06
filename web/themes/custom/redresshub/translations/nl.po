@@ -243,3 +243,9 @@ msgstr "Einddatum (optioneel)"
 
 msgid "A page of this site (type its title) or a web address, e.g. https://example.com."
 msgstr "Een pagina van deze site (typ de titel) of een webadres, bv. https://example.com."
+
+msgid "Start date and time"
+msgstr "Begindatum en -uur"
+
+msgid "End (optional)"
+msgstr "Einde (optioneel)"

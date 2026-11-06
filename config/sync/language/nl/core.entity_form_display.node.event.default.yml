@@ -3,4 +3,8 @@ third_party_settings:
     group_key:
       label: Evenement
     group_link:
-      label: 'Link (optioneel)'
+      label: Link
+    group_when:
+      label: Wanneer
+    group_where:
+      label: Waar

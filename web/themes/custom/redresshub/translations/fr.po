@@ -241,3 +241,9 @@ msgstr "Ouvre ou ferme tous les blocs de cette page."
 
 msgid "A page of this site (type its title) or a web address, e.g. https://example.com."
 msgstr "Une page de ce site (tapez son titre) ou une adresse web, par ex. https://example.com."
+
+msgid "Start date and time"
+msgstr "Date et heure de début"
+
+msgid "End (optional)"
+msgstr "Fin (facultatif)"

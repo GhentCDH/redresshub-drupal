@@ -843,3 +843,37 @@
 .node-form .field--widget-geofield-latlon .fieldset__wrapper > .fieldset__description {
   grid-column: 1 / -1;
 }
+
+/* A section with only a link (Link of an event, Website): the section is
+   the box, no darker box in it. */
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--widget-tagify-link-widget .fieldset__wrapper,
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--widget-link-default .fieldset__wrapper {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+/* The help text of a link below URL and link text, over the whole row. */
+.node-form .field--widget-tagify-link-widget .fieldset__wrapper > .fieldset__description,
+.node-form .field--widget-link-default .fieldset__wrapper > .fieldset__description {
+  grid-column: 1 / -1;
+}
+
+/* A link alone in its section: URL and link text share the whole row. */
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--widget-tagify-link-widget .fieldset__wrapper,
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--widget-link-default .fieldset__wrapper {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: none;
+}
+
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--widget-tagify-link-widget .fieldset__wrapper input,
+.node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--widget-link-default .fieldset__wrapper input {
+  max-width: none;
+}
+
+@media (max-width: 48rem) {
+  .node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--widget-tagify-link-widget .fieldset__wrapper,
+  .node-form .layout-region--main > .layout-region__content > details > .claro-details__wrapper:not(:has(> .form-wrapper ~ .form-wrapper)) > .field--widget-link-default .fieldset__wrapper {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

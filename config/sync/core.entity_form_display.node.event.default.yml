@@ -19,8 +19,6 @@ third_party_settings:
     group_key:
       children:
         - title
-        - field_event_date
-        - field_event_location
         - field_short_description
       label: Event
       region: content
@@ -38,7 +36,23 @@ third_party_settings:
     group_link:
       children:
         - field_link
-      label: 'Link (optional)'
+      label: Link
+      region: content
+      parent_name: ''
+      weight: -97
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+    group_when:
+      children:
+        - field_event_date
+      label: When
       region: content
       parent_name: ''
       weight: -99
@@ -50,7 +64,23 @@ third_party_settings:
         label_as_html: false
         open: true
         description: ''
-        required_fields: false
+        required_fields: true
+    group_where:
+      children:
+        - field_event_location
+      label: Where
+      region: content
+      parent_name: ''
+      weight: -98
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -64,13 +94,13 @@ content:
     third_party_settings: {  }
   field_event_date:
     type: daterange_default
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_event_location:
     type: string_textfield
-    weight: 2
+    weight: 3
     region: content
     settings:
       size: 60
@@ -93,7 +123,7 @@ content:
     third_party_settings: {  }
   field_short_description:
     type: text_textarea
-    weight: 3
+    weight: 1
     region: content
     settings:
       rows: 5

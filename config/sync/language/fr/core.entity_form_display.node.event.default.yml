@@ -3,4 +3,8 @@ third_party_settings:
     group_key:
       label: Événement
     group_link:
-      label: 'Lien (facultatif)'
+      label: Lien
+    group_when:
+      label: Quand
+    group_where:
+      label: Où
