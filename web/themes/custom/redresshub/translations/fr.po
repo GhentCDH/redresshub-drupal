@@ -247,3 +247,6 @@ msgstr "Date et heure de début"
 
 msgid "End (optional)"
 msgstr "Fin (facultatif)"
+
+msgid "Type the title of a page of this site, or a web address, e.g. https://example.com."
+msgstr "Tapez le titre d'une page de ce site, ou une adresse web, par ex. https://example.com."

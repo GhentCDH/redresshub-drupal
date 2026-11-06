@@ -249,3 +249,6 @@ msgstr "Begindatum en -uur"
 
 msgid "End (optional)"
 msgstr "Einde (optioneel)"
+
+msgid "Type the title of a page of this site, or a web address, e.g. https://example.com."
+msgstr "Typ de titel van een pagina van deze site, of een webadres, bv. https://example.com."
