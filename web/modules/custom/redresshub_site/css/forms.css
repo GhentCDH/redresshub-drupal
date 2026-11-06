@@ -798,7 +798,7 @@
    crimson of a section and the pink of a block, with white text. */
 .node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary,
 .node-form .field--name-field-tabs > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary:hover {
-  background: #a8636c;
+  background: #b5747c;
   color: #fff;
 }
 
