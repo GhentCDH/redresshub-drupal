@@ -939,3 +939,9 @@
   width: 1px;
   height: 1px;
 }
+
+/* A Tagify field with several values (Sector, Keywords): the whole width,
+   room for many tags; one value (City) keeps the width of the other fields. */
+.node-form .layout-region--main details[data-drupal-selector^="edit-group-"] .field--widget-tagify-entity-reference-autocomplete-widget:has(input[data-cardinality="-1"]) .tagify {
+  max-width: none;
+}
