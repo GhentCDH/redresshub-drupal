@@ -1,0 +1,18 @@
+uuid: 492d298b-5990-437f-86c1-aac9b4e3686f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.location
+id: node.location.title
+field_name: title
+entity_type: node
+bundle: location
+label: Title
+description: 'The name of the place, e.g. the building or the square.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

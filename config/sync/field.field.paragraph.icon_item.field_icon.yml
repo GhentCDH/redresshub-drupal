@@ -11,7 +11,7 @@ field_name: field_icon
 entity_type: paragraph
 bundle: icon_item
 label: Icon
-description: ''
+description: 'The icon; the label comes below it.'
 required: true
 translatable: false
 default_value: {  }

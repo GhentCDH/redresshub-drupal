@@ -1,0 +1,18 @@
+uuid: e3544880-1f55-40b3-9843-f4d66474699a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.organisation
+id: node.organisation.title
+field_name: title
+entity_type: node
+bundle: organisation
+label: Title
+description: 'The name of the organisation, as it calls itself.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

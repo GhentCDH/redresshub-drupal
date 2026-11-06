@@ -1,0 +1,18 @@
+uuid: 0d6339ae-c4ba-474d-ac62-45b841550bef
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.initiative
+id: node.initiative.title
+field_name: title
+entity_type: node
+bundle: initiative
+label: Title
+description: 'The name of the initiative, on the map and in the lists.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

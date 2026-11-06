@@ -12,7 +12,7 @@ field_name: field_alignment
 entity_type: paragraph
 bundle: quote
 label: Alignment
-description: ''
+description: 'Where the quote stands: on the left or in the centre.'
 required: true
 translatable: false
 default_value:

@@ -12,7 +12,7 @@ field_name: field_title_alignment
 entity_type: node
 bundle: example
 label: 'Title alignment'
-description: ''
+description: 'Where the pretitle and the title stand: on the left or in the centre.'
 required: true
 translatable: false
 default_value:

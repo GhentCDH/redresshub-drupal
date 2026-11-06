@@ -1,0 +1,18 @@
+uuid: 03cd0ba8-4df9-46eb-a0e7-899452396850
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.example
+id: node.example.title
+field_name: title
+entity_type: node
+bundle: example
+label: Title
+description: 'The title at the top of the page.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -10,7 +10,7 @@ field_name: field_street
 entity_type: node
 bundle: location
 label: 'Street and number'
-description: ''
+description: 'Optional. E.g. Rue Royale 1.'
 required: false
 translatable: false
 default_value: {  }

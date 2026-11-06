@@ -12,7 +12,7 @@ field_name: field_short_description
 entity_type: node
 bundle: event
 label: Description
-description: ''
+description: 'What the event is about, in a few sentences.'
 required: false
 translatable: true
 default_value: {  }

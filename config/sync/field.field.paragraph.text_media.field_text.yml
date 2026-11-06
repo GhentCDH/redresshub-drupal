@@ -13,7 +13,7 @@ field_name: field_text
 entity_type: paragraph
 bundle: text_media
 label: Text
-description: ''
+description: 'The text next to the media.'
 required: false
 translatable: true
 default_value: {  }

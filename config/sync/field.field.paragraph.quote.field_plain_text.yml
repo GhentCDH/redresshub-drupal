@@ -10,7 +10,7 @@ field_name: field_plain_text
 entity_type: paragraph
 bundle: quote
 label: Quote
-description: ''
+description: 'The quote itself; who said it goes below, in the attribution.'
 required: true
 translatable: true
 default_value: {  }

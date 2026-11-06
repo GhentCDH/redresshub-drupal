@@ -12,7 +12,7 @@ field_name: field_button_style
 entity_type: paragraph
 bundle: text
 label: 'Button style'
-description: ''
+description: 'Red, or white with a red border (less prominent).'
 required: true
 translatable: false
 default_value:
