@@ -1,7 +1,5 @@
 third_party_settings:
   field_group:
-    group_when_and_where:
-      label: 'Wanneer en waar'
     group_classification:
       label: Classificatie
     group_related:
@@ -9,6 +7,10 @@ third_party_settings:
     group_key:
       label: Organisatie
     group_optional:
-      label: 'Contact (optioneel)'
+      label: Contactgegevens
     group_website:
       label: Website
+    group_when:
+      label: Wanneer
+    group_where:
+      label: Waar

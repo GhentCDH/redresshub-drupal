@@ -877,3 +877,10 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Choice lists (Status, Type of fragment) as wide as the other fields, so a
+   list and a Tagify field next to it look the same. */
+.node-form .layout-region--main .field--widget-options-select select.form-select {
+  width: 100%;
+  max-width: var(--rh-field-width);
+}

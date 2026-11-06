@@ -21,23 +21,6 @@ dependencies:
     - text
 third_party_settings:
   field_group:
-    group_when_and_where:
-      children:
-        - field_period
-        - field_locations
-      label: 'When and where'
-      region: content
-      parent_name: ''
-      weight: -98
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        open: true
-        description: ''
-        required_fields: true
     group_classification:
       children:
         - field_sector
@@ -45,7 +28,7 @@ third_party_settings:
       label: Classification
       region: content
       parent_name: ''
-      weight: -97
+      weight: -96
       format_type: details
       format_settings:
         classes: ''
@@ -61,7 +44,7 @@ third_party_settings:
       label: Related
       region: content
       parent_name: ''
-      weight: -96
+      weight: -95
       format_type: details
       format_settings:
         classes: ''
@@ -90,10 +73,10 @@ third_party_settings:
     group_optional:
       children:
         - field_general_contact
-      label: 'Contact (optional)'
+      label: 'Contact information'
       region: content
       parent_name: ''
-      weight: -95
+      weight: -94
       format_type: details
       format_settings:
         classes: ''
@@ -110,6 +93,38 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: -99
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+    group_when:
+      children:
+        - field_period
+      label: When
+      region: content
+      parent_name: ''
+      weight: -98
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+    group_where:
+      children:
+        - field_locations
+      label: Where
+      region: content
+      parent_name: ''
+      weight: -97
       format_type: details
       format_settings:
         classes: ''
