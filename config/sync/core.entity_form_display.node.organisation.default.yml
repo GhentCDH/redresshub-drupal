@@ -71,6 +71,7 @@ third_party_settings:
         required_fields: true
     group_optional:
       children:
+        - field_website
         - field_general_contact
       label: 'Contact information'
       region: content
@@ -82,25 +83,9 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
-        description: ''
-        required_fields: false
-    group_website:
-      children:
-        - field_website
-      label: Website
-      region: content
-      parent_name: ''
-      weight: -95
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
         open: true
         description: ''
-        required_fields: true
+        required_fields: false
     group_when:
       children:
         - field_period
@@ -219,7 +204,7 @@ content:
     third_party_settings: {  }
   field_website:
     type: tagify_link_widget
-    weight: 1
+    weight: 9
     region: content
     settings:
       placeholder_url: ''

@@ -8,8 +8,6 @@ third_party_settings:
       label: Organisatie
     group_optional:
       label: Contactgegevens
-    group_website:
-      label: Website
     group_when:
       label: Wanneer
     group_where:
