@@ -5,14 +5,14 @@ third_party_settings:
     group_page_tabs:
       label: Tabbladen
       format_settings:
-        description: 'Optioneel. Onder de inhoud een rij tabbladen, bv. "Het project", "Het team", "Publicaties". Elk tabblad heeft een titel (de naam op het tabblad) en eigen blokken; bezoekers zien één tabblad tegelijk en klikken om te wisselen. Laat leeg voor een pagina zonder tabbladen.'
+        description: 'Optioneel. Onder de inhoud een rij tabbladen, bv. "Het project", "Het team", "Publicaties". Elk tabblad heeft een titel (de naam op het tabblad) en eigen paragrafen; bezoekers zien één tabblad tegelijk en klikken om te wisselen. Laat leeg voor een pagina zonder tabbladen.'
     group_title:
       label: Titel
 content:
   field_content:
     settings:
-      title: blok
-      title_plural: blokken
+      title: paragraaf
+      title_plural: paragrafen
   field_tabs:
     settings:
       title: tabblad

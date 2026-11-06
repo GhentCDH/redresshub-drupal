@@ -18,8 +18,8 @@ content:
     weight: 2
     region: content
     settings:
-      title: block
-      title_plural: blocks
+      title: paragraph
+      title_plural: paragraphs
       edit_mode: closed
       closed_mode: summary
       autocollapse: none

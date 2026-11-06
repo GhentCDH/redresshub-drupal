@@ -44,7 +44,7 @@ third_party_settings:
         id: ''
         label_as_html: false
         open: false
-        description: 'Optional. Below the content, a row of tabs, e.g. "The project", "The team", "Publications". Each tab has a tab title (the name on the tab) and its own blocks; visitors see one tab at a time and click to switch. Leave empty for a page without tabs.'
+        description: 'Optional. Below the content, a row of tabs, e.g. "The project", "The team", "Publications". Each tab has a tab title (the name on the tab) and its own paragraphs; visitors see one tab at a time and click to switch. Leave empty for a page without tabs.'
         required_fields: true
     group_title:
       children:
@@ -82,8 +82,8 @@ content:
     weight: 4
     region: content
     settings:
-      title: block
-      title_plural: blocks
+      title: paragraph
+      title_plural: paragraphs
       edit_mode: closed
       closed_mode: summary
       autocollapse: none

@@ -766,3 +766,30 @@
   background-color: var(--rh-block-sub);
   color: var(--rh-block-accent-dark);
 }
+
+/* The help text of a list of blocks at the top, above its buttons (as the
+   help text of a section), not between the blocks and "Add". */
+.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item--multiple {
+  display: flex;
+  flex-direction: column;
+}
+
+.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item--multiple > .form-item__description {
+  order: -1;
+  margin: 0 0 0.75rem;
+}
+
+/* An empty list of blocks: no empty table, only the help text and "Add". */
+.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table:not(:has(> tbody > tr)) {
+  display: none;
+}
+
+/* A nested list of blocks (Content of a tab) with its help text at the top:
+   no label under it, the help text says what the list is. */
+.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item--multiple:has(> .form-item__description) > .field-multiple-table > thead .form-item__label {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+}
