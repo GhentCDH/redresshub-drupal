@@ -209,9 +209,6 @@ msgstr "Choisir une langue"
 msgid "Justice Visions"
 msgstr "Justice Visions"
 
-msgid "Paragraph type: @type"
-msgstr "Type de bloc : @type"
-
 msgid "The ID of the publication in <a href=\":biblio\" target=\"_blank\">UGent Biblio</a>, or its URL. The title, authors and the rest come from Biblio when you save, and are updated every day."
 msgstr "L'identifiant de la publication dans <a href=\":biblio\" target=\"_blank\">UGent Biblio</a>, ou son URL. Le titre, les auteurs et le reste viennent de Biblio à l'enregistrement, et sont mis à jour chaque jour."
 

@@ -156,7 +156,7 @@
         },
         "patches": {
             "drupal/paragraph_group": {
-                "Paragraph details: the start of the summary without 'Summary:', or the paragraph type instead of 'Paragraph'; a translatable paragraph type line": "assets/patches/paragraph_group-details-title.patch",
+                "Paragraph details: the start of the summary without 'Summary:', or the paragraph type instead of 'Paragraph'; the paragraph type as a small label in the title": "assets/patches/paragraph_group-details-title.patch",
                 "Translatable buttons: Open/Close Below, Nested and All Paragraphs": "assets/patches/paragraph_group-translatable-buttons.patch"
             }
         }

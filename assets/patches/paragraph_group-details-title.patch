@@ -45,15 +45,29 @@
      }
  
      return $this->t('Paragraph');
-@@ -433,9 +442,9 @@
+@@ -433,20 +442,14 @@
      }
  
      $paragraph_label = $this->getParagraphLabel($paragraph_type);
 -    $type_text = "Paragraph Type: " . $paragraph_label;
-+    $type_text = (string) $this->t('Paragraph type: @type', ['@type' => (string) $paragraph_label]);
- 
+-
 -    $detail_summary = $this->getDetailSummary($element, $delta, $form_state);
 +    $detail_summary = $this->getDetailSummary($element, $delta, $form_state, (string) $paragraph_label);
  
-     // Change to details element.
+-    // Change to details element.
++    // Change to details element: the summary, with the paragraph type as a
++    // small label after it (unless the summary is the paragraph type).
      $element['#type'] = 'details';
+     $element['#title'] = $detail_summary;
+-
+-    // Add paragraph type info to prefix.
+-    if (is_string($element['#prefix'])) {
+-      $element['#prefix'] .= '<span>' . Html::escape($type_text) . '</span>';
+-    }
+-    else {
+-      $element['#prefix'] = '<span>' . Html::escape($type_text) . '</span>';
++    if ((string) $detail_summary !== (string) $paragraph_label) {
++      $element['#title'] = \Drupal\Core\Render\Markup::create((string) $detail_summary . ' <span class="paragraph-type-badge">' . Html::escape((string) $paragraph_label) . '</span>');
+     }
+ 
+     return $element;

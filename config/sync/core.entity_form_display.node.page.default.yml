@@ -43,7 +43,7 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: true
+        open: false
         description: 'Optional. Below the content, a row of tabs, e.g. "The project", "The team", "Publications". Each tab has a tab title (the name on the tab) and its own blocks; visitors see one tab at a time and click to switch. Leave empty for a page without tabs.'
         required_fields: true
     group_title:
