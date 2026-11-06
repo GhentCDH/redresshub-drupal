@@ -270,3 +270,6 @@ msgstr "Een audiofragment heeft een audiobestand nodig."
 
 msgid "A video fragment needs a video."
 msgstr "Een videofragment heeft een video nodig."
+
+msgid "A slideshow needs at least two images."
+msgstr "Een diavoorstelling heeft minstens twee afbeeldingen nodig."

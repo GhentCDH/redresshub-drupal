@@ -3,11 +3,14 @@
  * @file
  * A fragment in the Uncharted masonry, styled by its type.
  *
- * Image and video: the media with the caption below it; audio: the name, the
- * caption as a short text and the player; quote and text: the text.
+ * Image and video: the media with the caption below it; a slideshow: its
+ * images in a frame of one size (4:3), with previous/next and a counter
+ * (js/slideshow.js), the caption below; audio: the name, the caption as a
+ * short text and the player; quote and text: the text.
  *
- * fragment_type: text, quote, image, audio or video; page_url: the page of
- * the fragment, when it has page content. From redresshub_preprocess_node().
+ * fragment_type: text, quote, image, audio, video or slideshow; slides: the
+ * rendered images of a slideshow; page_url: the page of the fragment, when
+ * it has page content. From redresshub_preprocess_node().
  */
 #}
 {% set more %}
@@ -18,6 +21,25 @@
 {% if fragment_type in ['image', 'video'] %}
   <figure{{ attributes.addClass('tile-photo') }}>
     {{ content.field_media }}
+    {% if node.field_caption.value or page_url %}
+      <figcaption>{{ node.field_caption.value }}{{ more }}</figcaption>
+    {% endif %}
+  </figure>
+{% elseif fragment_type == 'slideshow' and slides %}
+  {{ attach_library('redresshub/slideshow') }}
+  <figure{{ attributes.addClass('tile-photo', 'tile-slideshow') }}>
+    <div class="slideshow" aria-roledescription="{{ 'slideshow'|t }}">
+      <div class="slideshow__track" tabindex="0">
+        {% for slide in slides %}
+          <div class="slideshow__slide" aria-roledescription="{{ 'slide'|t }}" aria-label="{{ loop.index }} / {{ slides|length }}">{{ slide }}</div>
+        {% endfor %}
+      </div>
+      <div class="slideshow__controls" hidden>
+        <button type="button" class="slideshow__button slideshow__button--prev" aria-label="{{ 'Previous image'|t }}"><span class="icon icon--chevron-down" aria-hidden="true"></span></button>
+        <span class="slideshow__count" aria-live="polite">1 / {{ slides|length }}</span>
+        <button type="button" class="slideshow__button slideshow__button--next" aria-label="{{ 'Next image'|t }}"><span class="icon icon--chevron-down" aria-hidden="true"></span></button>
+      </div>
+    </div>
     {% if node.field_caption.value or page_url %}
       <figcaption>{{ node.field_caption.value }}{{ more }}</figcaption>
     {% endif %}

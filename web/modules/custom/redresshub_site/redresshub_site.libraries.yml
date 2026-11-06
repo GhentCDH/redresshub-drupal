@@ -14,6 +14,14 @@ forms:
       /themes/custom/redresshub/css/fonts.css: {}
       css/forms.css: {}
 
+fragment_media:
+  js:
+    js/fragment-media.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once
+
 footer_logos:
   css:
     theme:

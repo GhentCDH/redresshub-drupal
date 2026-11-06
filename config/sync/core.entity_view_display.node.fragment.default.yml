@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.fragment.field_credit
     - field.field.node.fragment.field_fragment_type
     - field.field.node.fragment.field_media
+    - field.field.node.fragment.field_slides
     - field.field.node.fragment.field_text
     - node.type.fragment
   module:
@@ -32,6 +33,7 @@ hidden:
   field_credit: true
   field_fragment_type: true
   field_media: true
+  field_slides: true
   field_text: true
   langcode: true
   links: true

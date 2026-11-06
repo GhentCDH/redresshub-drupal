@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.fragment.field_credit
     - field.field.node.fragment.field_fragment_type
     - field.field.node.fragment.field_media
+    - field.field.node.fragment.field_slides
     - field.field.node.fragment.field_text
     - node.type.fragment
   module:
@@ -37,6 +38,7 @@ third_party_settings:
     group_media:
       children:
         - field_media
+        - field_slides
         - field_caption
         - field_credit
       label: Media
@@ -81,7 +83,7 @@ content:
     third_party_settings: {  }
   field_caption:
     type: string_textfield
-    weight: 5
+    weight: 6
     region: content
     settings:
       size: 60
@@ -89,7 +91,7 @@ content:
     third_party_settings: {  }
   field_credit:
     type: string_textfield
-    weight: 6
+    weight: 7
     region: content
     settings:
       size: 60
@@ -108,9 +110,16 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_slides:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   field_text:
     type: text_textarea
-    weight: 7
+    weight: 8
     region: content
     settings:
       rows: 5

@@ -272,6 +272,33 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* A slideshow tile: the images in a frame of one size (4:3), so the tile
+   does not change height; an image that does not fit stands whole on a
+   quiet background. */
+.tile-slideshow .slideshow__track {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.tile-slideshow .slideshow__slide {
+  aspect-ratio: 4 / 3;
+  background: var(--soft-beige);
+}
+
+/* The wrappers of the media take the height of the slide. */
+.tile-slideshow .slideshow__slide div {
+  height: 100%;
+}
+
+.tile-slideshow .slideshow .slideshow__slide img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .tile-photo figcaption {
   margin-top: 0.75rem;
   padding-inline: 0.25rem;

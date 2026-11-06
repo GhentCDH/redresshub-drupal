@@ -160,6 +160,13 @@ function redresshub_preprocess_node(array &$variables): void {
     $own_page = \Drupal::config('rabbit_hole.behavior_settings.node_type_fragment')->get('action') === 'display_page';
     $variables['page_url'] = $own_page && !$node->get('field_content')->isEmpty() ? $variables['url'] : NULL;
     $variables['#cache']['tags'][] = 'config:rabbit_hole.behavior_settings.node_type_fragment';
+    // A slideshow: its rendered images.
+    $variables['slides'] = [];
+    if (isset($variables['content']['field_slides'])) {
+      foreach (Element::children($variables['content']['field_slides']) as $delta) {
+        $variables['slides'][] = $variables['content']['field_slides'][$delta];
+      }
+    }
   }
 
   if ($node->bundle() === 'home' && $variables['view_mode'] === 'full') {

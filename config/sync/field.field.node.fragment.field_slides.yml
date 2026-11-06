@@ -1,0 +1,28 @@
+uuid: 9ae33d7f-0bad-461f-a0b9-7f9d8a83d843
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slides
+    - media.type.image
+    - node.type.fragment
+id: node.fragment.field_slides
+field_name: field_slides
+entity_type: node
+bundle: fragment
+label: Images
+description: 'The images of the slideshow, in this order. At least two.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

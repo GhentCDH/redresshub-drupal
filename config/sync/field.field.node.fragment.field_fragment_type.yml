@@ -11,7 +11,7 @@ field_name: field_fragment_type
 entity_type: node
 bundle: fragment
 label: 'Fragment type'
-description: 'What the fragment is: a text, a quote, an image, audio or a video. The fields below depend on it.'
+description: 'What the fragment is: a text, a quote, an image, audio, a video or a slideshow of images. The fields below depend on it.'
 required: true
 translatable: false
 default_value: {  }

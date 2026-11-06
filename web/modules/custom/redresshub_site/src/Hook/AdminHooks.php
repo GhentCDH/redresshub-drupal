@@ -47,11 +47,19 @@ final class AdminHooks {
     if (isset($form['field_fragment_type'])) {
       $form['#after_build'][] = [self::class, 'fragmentGroups'];
       $form['#validate'][] = [self::class, 'fragmentMediaValidate'];
+      // The media library: only the media types that fit the type.
+      $types = [];
+      foreach (\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'fragment_type']) as $term) {
+        $types[$term->id()] = strtolower($term->getUntranslated()->label());
+      }
+      $form['#attached']['library'][] = 'redresshub_site/fragment_media';
+      $form['#attached']['drupalSettings']['redresshubFragmentTypes'] = $types;
     }
   }
 
   /**
-   * Fragment form: the media fits the type (an image for an image, …).
+   * Fragment form: the media fits the type (an image for an image, …), and a
+   * slideshow has at least two images.
    */
   public static function fragmentMediaValidate(array &$form, FormStateInterface $form_state): void {
     $allowed = [
@@ -66,30 +74,39 @@ final class AdminHooks {
     ];
     $node = $form_state->getFormObject()->buildEntity($form, $form_state);
     $type = $node->get('field_fragment_type')->entity;
-    $media = $node->get('field_media')->entity;
-    if (!$type || !$media) {
+    if (!$type) {
       return;
     }
     $key = strtolower($type->getUntranslated()->label());
-    if (isset($allowed[$key]) && !in_array($media->bundle(), $allowed[$key], TRUE)) {
+    if ($key === 'slideshow') {
+      if ($node->hasField('field_slides') && $node->get('field_slides')->count() < 2) {
+        $form_state->setErrorByName('field_slides', t('A slideshow needs at least two images.'));
+      }
+      return;
+    }
+    $media = $node->get('field_media')->entity;
+    if ($media && isset($allowed[$key]) && !in_array($media->bundle(), $allowed[$key], TRUE)) {
       $form_state->setErrorByName('field_media', $messages[$key]);
     }
   }
 
   /**
-   * Fragment form: the groups Media and Text only for the types that use them.
+   * Fragment form: the parts of the form only for the types that use them.
    *
-   * Image, video and audio: media and caption; quote and text: the text
-   * (see node--fragment--teaser.html.twig).
+   * Image, video and audio: one media; a slideshow: its images; both with a
+   * caption and a credit. Quote and text: the text (see
+   * node--fragment--teaser.html.twig).
    */
   public static function fragmentGroups(array $form): array {
-    $groups = [
-      'group_media' => ['image', 'audio', 'video'],
+    $parts = [
+      'group_media' => ['image', 'audio', 'video', 'slideshow'],
+      'field_media' => ['image', 'audio', 'video'],
+      'field_slides' => ['slideshow'],
       'group_content' => ['text', 'quote'],
     ];
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
       ->loadByProperties(['vid' => 'fragment_type']);
-    foreach ($groups as $group => $types) {
+    foreach ($parts as $part => $types) {
       $conditions = [];
       foreach ($terms as $term) {
         if (in_array(strtolower($term->getUntranslated()->label()), $types, TRUE)) {
@@ -98,8 +115,8 @@ final class AdminHooks {
           $conditions[] = [':input[name="field_fragment_type"]' => ['value' => (string) $term->id()]];
         }
       }
-      if ($conditions && isset($form[$group])) {
-        $form[$group]['#states']['visible'] = array_slice($conditions, 1);
+      if ($conditions && isset($form[$part])) {
+        $form[$part]['#states']['visible'] = array_slice($conditions, 1);
       }
     }
     return $form;

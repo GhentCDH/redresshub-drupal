@@ -1082,3 +1082,9 @@
 .node-form .paragraphs-subform .claro-autocomplete {
   max-width: var(--rh-field-width);
 }
+
+/* Several media (the images of a slideshow): drag them, no "Show media
+   item weights". */
+.node-form .layout-region--main .media-library-widget .tabledrag-toggle-weight-wrapper {
+  display: none;
+}
