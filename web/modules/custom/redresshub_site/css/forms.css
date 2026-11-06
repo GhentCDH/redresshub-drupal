@@ -717,29 +717,15 @@
   display: none;
 }
 
-/* Blocks a little more compact than other fields: lower bars, less room
-   between the cards and between the fields, the menu (⋮) next to the first
-   field instead of on a row of its own. The same font sizes as elsewhere. */
-.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td {
-  height: auto;
-  padding-block: 0.1rem;
-}
-
-.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details {
-  margin-block: 0.2rem;
-}
-
+/* The title of a block a little smaller than that of a section; the menu
+   of a block (⋮) in its title bar, on the right. */
 .node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > summary {
-  padding-block: 0.6rem;
-}
-
-.node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper {
-  padding: 0.5rem 1.25rem 0.75rem;
+  font-size: 0.95rem;
 }
 
 .node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper > .paragraph-top {
   position: absolute;
-  top: 0.3rem;
+  top: 0.8rem;
   right: 0.5rem;
   min-height: 0;
   margin: 0;
@@ -757,15 +743,6 @@
 
 .node-form .field--widget-paragraph-group-details-widget > .paragraphs-tabs-wrapper > .form-item > .field-multiple-table > tbody > tr > td > div > details.claro-details > .claro-details__wrapper {
   border-radius: 0 0 0.375rem 0.375rem;
-}
-
-.node-form .field--widget-paragraph-group-details-widget .paragraphs-subform > .form-wrapper > .form-item,
-.node-form .field--widget-paragraph-group-details-widget .paragraphs-subform > .form-wrapper > .form-wrapper > .form-item {
-  margin-block: 0.6rem;
-}
-
-.node-form .field--widget-paragraph-group-details-widget .paragraphs-subform .form-item__description {
-  margin-top: 0.2rem;
 }
 
 /* Add a block: a crimson outlined button with a plus, like the "+" of the
