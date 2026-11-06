@@ -1,7 +1,5 @@
 third_party_settings:
   field_group:
-    group_when_and_where:
-      label: 'Quand et où'
     group_classification:
       label: Classification
     group_related:
@@ -10,3 +8,7 @@ third_party_settings:
       label: Initiative
     group_optional:
       label: Ressources
+    group_when:
+      label: Quand
+    group_where:
+      label: Où

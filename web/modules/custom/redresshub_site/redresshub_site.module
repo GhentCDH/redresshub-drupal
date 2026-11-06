@@ -168,12 +168,16 @@ function redresshub_site_field_widget_single_element_form_alter(array &$element,
     return;
   }
   // A link: a short help text instead of the long one of core.
-  // With one link and a help text of its own: one help text, the hint
-  // about the URL added to it.
+  // A link: a short help text instead of the long one of core. With one
+  // link and a help text of its own: one help text, the hint about the URL
+  // added to it (not for a field of web addresses only: its help text says
+  // what it is).
   if (isset($element['uri']) && in_array($context['widget']->getPluginId(), ['link_default', 'tagify_link_widget'], TRUE)) {
-    $element['uri']['#description'] = t('A page of this site (type its title) or a web address, e.g. https://example.com.');
-    if (!empty($element['#description']) && $context['items']->getFieldDefinition()->getFieldStorageDefinition()->getCardinality() === 1) {
-      $description = (string) $element['#description'] . ' ' . t('Type the title of a page of this site, or a web address, e.g. https://example.com.');
+    $definition = $context['items']->getFieldDefinition();
+    $internal = (bool) ($definition->getSetting('link_type') & \Drupal\link\LinkItemInterface::LINK_INTERNAL);
+    $element['uri']['#description'] = $internal ? t('A page of this site (type its title) or a web address, e.g. https://example.com.') : t('A web address, e.g. https://example.com.');
+    if (!empty($element['#description']) && $definition->getFieldStorageDefinition()->getCardinality() === 1) {
+      $description = (string) $element['#description'] . ($internal ? ' ' . t('Type the title of a page of this site, or a web address, e.g. https://example.com.') : '');
       // Without a link text the link is no box with a help text of its own:
       // the help text below the URL.
       if (isset($element['title']) && ($element['title']['#access'] ?? TRUE) && ($element['title']['#type'] ?? '') !== 'hidden') {

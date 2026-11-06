@@ -1,7 +1,5 @@
 third_party_settings:
   field_group:
-    group_when_and_where:
-      label: 'Wanneer en waar'
     group_classification:
       label: Classificatie
     group_related:
@@ -10,3 +8,7 @@ third_party_settings:
       label: Initiatief
     group_optional:
       label: Bronnen
+    group_when:
+      label: Wanneer
+    group_where:
+      label: Waar

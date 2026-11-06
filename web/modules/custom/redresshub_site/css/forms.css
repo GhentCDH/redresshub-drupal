@@ -959,3 +959,21 @@
 .node-form .layout-region--main .field--widget-link-default > fieldset > .fieldset__legend {
   display: none;
 }
+
+.node-form .layout-region--main .field--widget-tagify-link-widget > fieldset > .fieldset__wrapper,
+.node-form .layout-region--main .field--widget-link-default > fieldset > .fieldset__wrapper {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: none;
+}
+
+.node-form .layout-region--main .field--widget-tagify-link-widget > fieldset > .fieldset__wrapper input,
+.node-form .layout-region--main .field--widget-link-default > fieldset > .fieldset__wrapper input {
+  max-width: none;
+}
+
+@media (max-width: 48rem) {
+  .node-form .layout-region--main .field--widget-tagify-link-widget > fieldset > .fieldset__wrapper,
+  .node-form .layout-region--main .field--widget-link-default > fieldset > .fieldset__wrapper {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
