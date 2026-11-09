@@ -114,7 +114,7 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: 'New form submission at RedressHub.eu: [webform:title]'
+      subject: 'New form submission at RedressHub.eu'
       body: |-
         <p>The following message was sent via the <em>[webform:title]</em> form on redresshub.eu on [webform_submission:created:medium].</p>
         [webform_submission:values]
