@@ -1028,24 +1028,46 @@
   display: none;
 }
 
-/* Text + media: Text and Media next to each other (as on the page), each a
-   white card with a short crimson line before its name; below each other
-   on narrow screens. */
+/* Text + media: Text and Media next to each other (as on the page), on the
+   background of the block, with a pink line between them; below each other
+   (line above Media) on narrow screens. */
 .node-form .paragraphs-subform .text-media-columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  gap: 1rem;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
   margin-block: 1.25rem 0.5rem;
 }
 
 .node-form .paragraphs-subform .text-media-column {
+  min-width: 0;
   margin: 0;
-  padding: 0 1rem 0.25rem;
+  padding: 0 1.5rem 0 0;
   border: 0;
-  border-radius: 0.6rem;
-  background: #fff;
-  box-shadow: 0 1px 2px rgba(58, 54, 51, 0.06), 0 6px 16px -10px rgba(58, 54, 51, 0.2);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.node-form .paragraphs-subform .text-media-column + .text-media-column {
+  padding: 0 0 0 1.5rem;
+  border-inline-start: 2px solid #d9aaa3;
+}
+
+@media (max-width: 48rem) {
+  .node-form .paragraphs-subform .text-media-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .node-form .paragraphs-subform .text-media-column {
+    padding: 0;
+  }
+
+  .node-form .paragraphs-subform .text-media-column + .text-media-column {
+    margin-block-start: 1rem;
+    padding: 0.5rem 0 0;
+    border-inline-start: 0;
+    border-block-start: 2px solid #d9aaa3;
+  }
 }
 
 .node-form .paragraphs-subform .text-media-column > .fieldset__legend {
@@ -1054,26 +1076,15 @@
   float: left;
   width: 100%;
   margin: 0;
-  padding: 0.8rem 0 0.25rem;
+  padding: 0 0 0.25rem;
 }
 
 .node-form .paragraphs-subform .text-media-column > .fieldset__legend .fieldset__label {
-  position: relative;
-  padding: 0 0 0 0.75rem;
+  padding: 0;
   color: var(--rh-block-accent-dark);
   font-family: var(--rh-block-serif);
   font-size: 0.95rem;
   font-weight: 400;
-}
-
-.node-form .paragraphs-subform .text-media-column > .fieldset__legend .fieldset__label::before {
-  position: absolute;
-  inset-block: 0.15em;
-  inset-inline-start: 0;
-  width: 3px;
-  border-radius: 2px;
-  background: var(--rh-block-accent);
-  content: "";
 }
 
 .node-form .paragraphs-subform .text-media-column > .fieldset__wrapper {
