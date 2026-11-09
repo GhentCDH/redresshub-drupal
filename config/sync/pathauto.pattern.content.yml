@@ -1,0 +1,29 @@
+uuid: e5b8fa83-9b4a-4b1d-a65c-98a2c37dfff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.event
+    - node.type.example
+    - node.type.page
+    - node.type.publication
+  module:
+    - node
+id: content
+label: Content
+type: 'canonical_entities:node'
+pattern: '/[node:title]'
+selection_criteria:
+  534f64ab-cdb7-41d1-aca9-0042ad23ed4c:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      page: page
+      event: event
+      publication: publication
+      example: example
+selection_logic: and
+weight: 0
+relationships: {  }

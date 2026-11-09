@@ -1,6 +1,7 @@
 _core:
   default_config_hash: _XeIJp8HLFXacGTv7BbJQAA0otRUXl0XxnqovpotgYQ
-display_extenders: {  }
+display_extenders:
+  - matomo
 sql_signature: false
 ui:
   show:

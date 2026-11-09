@@ -4,6 +4,7 @@ module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
   amswap: 0
+  antibot: 0
   automated_cron: 0
   better_exposed_filters: 0
   big_pipe: 0
@@ -12,6 +13,7 @@ module:
   breakpoint: 0
   ckeditor5: 0
   config: 0
+  config_ignore: 0
   config_split: 0
   config_translation: 0
   contextual: 0
@@ -30,6 +32,7 @@ module:
   filter: 0
   geofield: 0
   help: 0
+  honeypot: 0
   image: 0
   language: 0
   layout_builder: 0
@@ -41,6 +44,7 @@ module:
   locale: 0
   masquerade: 0
   masquerade_toolbar: 0
+  matomo: 0
   media: 0
   media_library: 0
   memcache: 0
@@ -77,6 +81,7 @@ module:
   tagify_link: 0
   taxonomy: 0
   text: 0
+  token: 0
   toolbar: 0
   translation_availability: 0
   update: 0
@@ -88,6 +93,7 @@ module:
   webform: 0
   webform_ui: 0
   menu_admin_per_menu: 1
+  pathauto: 1
   content_translation: 10
   views: 10
   paragraphs: 11

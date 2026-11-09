@@ -8,6 +8,7 @@ dependencies:
   module:
     - file
     - filter
+    - matomo
     - media
     - system
 _core:
@@ -19,6 +20,7 @@ is_admin: false
 permissions:
   - 'access content'
   - 'delete own files'
+  - 'opt-in or out of matomo tracking'
   - 'use text format basic_html'
   - 'use text format webform_default'
   - 'view media'

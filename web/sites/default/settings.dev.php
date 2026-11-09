@@ -28,3 +28,7 @@ $settings['skip_permissions_hardening'] = TRUE;
 // The development modules (devel): config/dev, see the config
 // split "Development".
 $config['config_split.config_split.dev']['status'] = TRUE;
+
+// Config ignore off: export and import everything, also what each
+// environment sets itself (site mail).
+$settings['config_ignore_deactivate'] = TRUE;
