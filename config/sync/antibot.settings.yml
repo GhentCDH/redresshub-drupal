@@ -1,8 +1,0 @@
-_core:
-  default_config_hash: 7gBp0jAQ8dofI6685XzhrPuPEqSldmqVqkp9dSp5ed8
-form_ids:
-  - user_login_form
-  - user_pass
-  - user_register_form
-  - 'webform_submission_*'
-show_form_ids: false

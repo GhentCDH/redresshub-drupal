@@ -6,8 +6,8 @@ login_destination: ''
 requirements:
   request_path:
     id: request_path
-    negate: false
-    pages: ''
+    negate: true
+    pages: /altcha/v1/challenge
 extra:
   include_403: false
   include_404: false
