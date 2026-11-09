@@ -18,8 +18,7 @@ settings:
 handlers:
   email_confirmation:
     settings:
-      subject: 'Merci pour votre message – RedressHub'
+      subject: 'Votre message à RedressHub'
       body: |-
-        <p>Bonjour,</p>
-        <p>Merci pour votre message à RedressHub. Nous l’avons bien reçu.</p>
+        <p>Merci d’avoir contacté RedressHub. Nous avons bien reçu votre message.</p>
         <p>Cordialement,<br>L’équipe RedressHub</p>

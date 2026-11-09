@@ -158,10 +158,9 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: 'Thank you for your message – RedressHub'
+      subject: 'Your message to RedressHub'
       body: |-
-        <p>Hello,</p>
-        <p>Thank you for your message to RedressHub. We have received it.</p>
+        <p>Thank you for contacting RedressHub. We have received your message.</p>
         <p>Kind regards,<br>The RedressHub team</p>
       excluded_elements: {  }
       ignore_access: false
