@@ -39,6 +39,8 @@ module:
   leaflet_views: 0
   link: 0
   locale: 0
+  masquerade: 0
+  masquerade_toolbar: 0
   media: 0
   media_library: 0
   memcache: 0

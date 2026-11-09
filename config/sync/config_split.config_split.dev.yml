@@ -1,10 +1,10 @@
 uuid: 57890661-c1ba-417e-9aec-e0fbe505eefc
 langcode: en
-status: false
+status: true
 dependencies: {  }
 id: dev
 label: Development
-description: 'Modules only for development: on when DRUPAL_DEV_SETTINGS=true (settings.dev.php).'
+description: 'Modules only for development (devel): on when DRUPAL_DEV_SETTINGS=true (settings.dev.php).'
 weight: 0
 stackable: false
 no_patching: false
@@ -13,8 +13,6 @@ folder: ../config/dev
 module:
   devel: 0
   devel_generate: 0
-  masquerade: 0
-  masquerade_toolbar: 0
 theme: {  }
 complete_list: {  }
 partial_list: {  }

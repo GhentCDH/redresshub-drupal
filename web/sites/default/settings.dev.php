@@ -25,6 +25,6 @@ $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 // Keep sites/default writable so settings files can be edited on the host.
 $settings['skip_permissions_hardening'] = TRUE;
 
-// The development modules (devel, masquerade): config/dev, see the config
+// The development modules (devel): config/dev, see the config
 // split "Development".
 $config['config_split.config_split.dev']['status'] = TRUE;
