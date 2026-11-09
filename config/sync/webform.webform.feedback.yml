@@ -161,12 +161,9 @@ handlers:
       subject: 'Thank you for your message – RedressHub'
       body: |-
         <p>Hello,</p>
-        <p>Thank you for contacting RedressHub. We have received your message and will get back to you as soon as possible.</p>
-        <p>Please find a copy of your message below.</p>
-        [webform_submission:values]
+        <p>Thank you for your message to RedressHub. We have received it.</p>
         <p>Kind regards,<br>The RedressHub team</p>
-      excluded_elements:
-        email: email
+      excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false

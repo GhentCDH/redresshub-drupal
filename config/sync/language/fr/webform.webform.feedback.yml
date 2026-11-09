@@ -21,7 +21,5 @@ handlers:
       subject: 'Merci pour votre message – RedressHub'
       body: |-
         <p>Bonjour,</p>
-        <p>Merci d’avoir contacté RedressHub. Nous avons bien reçu votre message et vous répondrons dans les meilleurs délais.</p>
-        <p>Vous trouverez ci-dessous une copie de votre message.</p>
-        [webform_submission:values]
+        <p>Merci pour votre message à RedressHub. Nous l’avons bien reçu.</p>
         <p>Cordialement,<br>L’équipe RedressHub</p>
