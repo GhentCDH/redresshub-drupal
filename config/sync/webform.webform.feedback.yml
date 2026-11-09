@@ -16,19 +16,23 @@ elements: |-
   experience:
     '#type': textarea
     '#title': 'Share your experience with the map'
-    '#description': 'How have you used RedressHub? We''d love to know how you''re interacting with the platform!'
+    '#description': "How have you used RedressHub? We'd love to know how you're interacting with the platform!"
     '#description_display': before
     '#placeholder': 'Tell us about your experience...'
   issue:
     '#type': textarea
     '#title': 'Report an error, ask to modify or withdraw information'
-    '#description': 'If you''ve found incorrect information, have concerns about how something is represented, or wish to withdraw your initiative from the database:'
+    '#description': "If you've found incorrect information, have concerns about how something is represented, or wish to withdraw your initiative from the database:"
     '#description_display': before
     '#placeholder': 'Describe the issue...'
   email:
     '#type': email
     '#title': 'Your email address'
     '#description': 'Optional, if you would like an answer.'
+  captcha:
+    '#type': captcha
+    '#captcha_type': altcha/ALTCHA
+    '#captcha_admin_mode': false
   actions:
     '#type': webform_actions
     '#submit__label': 'Submit feedback'
