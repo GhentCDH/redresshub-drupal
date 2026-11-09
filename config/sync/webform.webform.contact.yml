@@ -275,7 +275,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: Elke.Evrard@UGent.be
+      to_mail: 'Elke.Evrard@UGent.be,Cira.PalliAspero@UGent.be'
       to_options: {  }
       bcc_mail: ''
       bcc_options: {  }
