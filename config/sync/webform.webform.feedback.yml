@@ -89,5 +89,93 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
+handlers:
+  email_notification:
+    id: email
+    handler_id: email_notification
+    label: 'Email notification'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: 'Elke.Evrard@UGent.be,Cira.PalliAspero@UGent.be'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: '[webform_submission:values:email:raw]'
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'redresshub.eu form submission: [webform:title]'
+      body: |-
+        <p>The following message was sent via the <em>[webform:title]</em> form on redresshub.eu on [webform_submission:created:medium].</p>
+        [webform_submission:values]
+        <p>To answer, simply reply to this email (only possible when the sender gave an email address).<br>View the submission on the website: [webform_submission:url]</p>
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
+  email_confirmation:
+    id: email
+    handler_id: email_confirmation
+    label: 'Email confirmation'
+    notes: ''
+    status: true
+    conditions:
+      enabled:
+        ':input[name="email"]':
+          filled: true
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Thank you for your message – RedressHub'
+      body: |-
+        <p>Hello,</p>
+        <p>Thank you for contacting RedressHub. We have received your message and will get back to you as soon as possible.</p>
+        <p>Please find a copy of your message below.</p>
+        [webform_submission:values]
+        <p>Kind regards,<br>The RedressHub team</p>
+      excluded_elements:
+        email: email
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      langcode: ''
+      parameters: {  }
+      debug: false
 variants: {  }

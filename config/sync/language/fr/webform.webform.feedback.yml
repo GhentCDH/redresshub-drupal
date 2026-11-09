@@ -15,3 +15,13 @@ elements: |
     '#submit__label': 'Soumettre des commentaires'
 settings:
   confirmation_message: 'Merci pour vos commentaires !'
+handlers:
+  email_confirmation:
+    settings:
+      subject: 'Merci pour votre message – RedressHub'
+      body: |-
+        <p>Bonjour,</p>
+        <p>Merci d’avoir contacté RedressHub. Nous avons bien reçu votre message et vous répondrons dans les meilleurs délais.</p>
+        <p>Vous trouverez ci-dessous une copie de votre message.</p>
+        [webform_submission:values]
+        <p>Cordialement,<br>L’équipe RedressHub</p>

@@ -15,3 +15,13 @@ elements: |
     '#submit__label': 'Feedback indienen'
 settings:
   confirmation_message: 'Bedankt voor je feedback!'
+handlers:
+  email_confirmation:
+    settings:
+      subject: 'Bedankt voor je bericht – RedressHub'
+      body: |-
+        <p>Hallo,</p>
+        <p>Bedankt voor je bericht aan RedressHub. We hebben het goed ontvangen en nemen zo snel mogelijk contact met je op.</p>
+        <p>Hieronder vind je een kopie van je bericht.</p>
+        [webform_submission:values]
+        <p>Met vriendelijke groeten,<br>Het RedressHub-team</p>
