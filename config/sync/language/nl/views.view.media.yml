@@ -1,4 +1,5 @@
 label: Media
+description: 'Find and manage media.'
 display:
   default:
     display_title: Standaard
@@ -8,8 +9,10 @@ display:
         media_bulk_form:
           action_title: Actie
         thumbnail__target_id:
+          label: Thumbnail
           separator: ', '
         name:
+          label: 'Media name'
           separator: ', '
         bundle:
           label: Type
@@ -30,6 +33,11 @@ display:
           label: Bewerkingen
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page_label: 'Items per pagina'
             items_per_page_options_all_label: '- Alle -'
@@ -41,7 +49,13 @@ display:
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
+      empty:
+        area_text_custom:
+          content: 'No media available.'
       filters:
+        name:
+          expose:
+            label: 'Media name'
         bundle:
           expose:
             label: Type
@@ -49,6 +63,7 @@ display:
           expose:
             label: Waar
           group_info:
+            label: 'Published status'
             group_items:
               1:
                 title: Gepubliceerd

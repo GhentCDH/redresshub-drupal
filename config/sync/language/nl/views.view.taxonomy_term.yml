@@ -1,3 +1,5 @@
+label: 'Taxonomy term'
+description: 'Content belonging to a certain taxonomy term.'
 display:
   default:
     display_title: Standaard
@@ -22,5 +24,8 @@ display:
         tid:
           exception:
             title: Alle
+          title: '{{ arguments.tid }}'
+  feed_1:
+    display_title: Feed
   page_1:
     display_title: Pagina

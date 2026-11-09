@@ -1,12 +1,15 @@
+label: 'Content blocks'
 display:
   default:
     display_title: Standaard
     display_options:
+      title: 'Content blocks'
       fields:
         info:
           label: Blokbeschrijving
           separator: ', '
         type:
+          label: 'Block type'
           separator: ', '
         changed:
           label: Bijgewerkt
@@ -14,6 +17,9 @@ display:
           label: Bewerkingen
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
           expose:
             items_per_page_label: 'Items per pagina'
             items_per_page_options_all_label: '- Alle -'
@@ -29,6 +35,9 @@ display:
         info:
           expose:
             label: Blokbeschrijving
+        type:
+          expose:
+            label: 'Block type'
   page_1:
     display_title: Pagina
     display_options:

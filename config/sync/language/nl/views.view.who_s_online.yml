@@ -9,3 +9,7 @@ display:
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
+      filters:
+        access:
+          expose:
+            label: 'Last access'

@@ -14,10 +14,20 @@ display:
           label: Grootte
         status:
           label: Status
+          settings:
+            format_custom_false: Temporary
+            format_custom_true: Permanent
+        changed:
+          label: 'Changed date'
+        count:
+          label: 'Used in'
         operations:
           label: Bewerkingen
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
           expose:
             items_per_page_label: 'Items per pagina'
             items_per_page_options_all_label: '- Alle -'
@@ -30,6 +40,9 @@ display:
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
       filters:
+        filename:
+          expose:
+            label: Filename
         filemime:
           expose:
             label: MIME-type
@@ -41,14 +54,21 @@ display:
       menu:
         title: Bestanden
   page_2:
+    display_title: 'File usage'
     display_options:
+      title: 'File usage'
       fields:
         entity_label:
           label: Entiteit
         type:
           label: Entiteitstype
+        count:
+          label: 'Use count'
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
           expose:
             items_per_page_label: 'Items per pagina'
             items_per_page_options_all_label: '- Alle -'

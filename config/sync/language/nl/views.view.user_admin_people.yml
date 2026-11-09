@@ -1,7 +1,9 @@
+label: People
 display:
   default:
     display_title: Standaard
     display_options:
+      title: People
       fields:
         user_bulk_form:
           label: Bulk-update
@@ -9,14 +11,26 @@ display:
           label: Gebruikersnaam
         status:
           label: Status
+          settings:
+            format_custom_false: Blocked
+            format_custom_true: Active
         roles_target_id:
           label: Rollen
+        created:
+          label: 'Member for'
+        access:
+          label: 'Last access'
         operations:
           label: Bewerkingen
         mail:
           separator: ', '
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page_label: 'Items per pagina'
             items_per_page_options_all_label: '- Alle -'
@@ -28,15 +42,30 @@ display:
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
+      empty:
+        area_text_custom:
+          content: 'No people available.'
       filters:
         status:
           group_info:
             label: Status
+            group_items:
+              1:
+                title: Active
+              2:
+                title: Blocked
         roles_target_id:
           expose:
             label: Rol
+        permission:
+          expose:
+            label: Permission
+      use_more_text: more
   page_1:
     display_title: Pagina
     display_options:
       menu:
         title: Lijst
+      tab_options:
+        title: People
+        description: 'Manage user accounts, roles, and permissions.'

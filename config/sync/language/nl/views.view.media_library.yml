@@ -1,4 +1,5 @@
 label: Media-bibliotheek
+description: 'Find and manage media.'
 display:
   default:
     display_title: Standaard
@@ -23,8 +24,23 @@ display:
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
+      empty:
+        area_text_custom:
+          content: 'No media available.'
+      sorts:
+        created:
+          expose:
+            label: 'Newest first'
+        name:
+          expose:
+            label: 'Name (A-Z)'
+        name_1:
+          expose:
+            label: 'Name (Z-A)'
       filters:
         status:
+          expose:
+            label: 'Publishing status'
           group_info:
             label: Gepubliceerd
             group_items:
@@ -52,10 +68,17 @@ display:
         name:
           separator: ', '
         edit_media:
+          alter:
+            text: 'Edit {{ name }}'
+            alt: 'Edit {{ name }}'
           text: Bewerken
         delete_media:
+          alter:
+            text: 'Delete {{ name }}'
+            alt: 'Delete {{ name }}'
           text: Verwijderen
   widget:
+    display_title: Widget
     display_options:
       arguments:
         bundle:
@@ -65,9 +88,17 @@ display:
         name:
           expose:
             label: Naam
+      header:
+        display_link_grid:
+          label: Grid
+        display_link_table:
+          label: Table
   widget_table:
+    display_title: 'Widget (table)'
     display_options:
       fields:
+        thumbnail__target_id:
+          label: Thumbnail
         name:
           label: Naam
         uid:
@@ -82,3 +113,8 @@ display:
         name:
           expose:
             label: Naam
+      header:
+        display_link_grid:
+          label: Grid
+        display_link_table:
+          label: Table

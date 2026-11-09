@@ -1,9 +1,16 @@
+label: Frontpage
+description: 'All content promoted to the front page.'
 display:
   default:
     display_title: Standaard
     display_options:
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page_label: 'Items per pagina'
             items_per_page_options_all_label: '- Alle -'
@@ -15,5 +22,7 @@ display:
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
+  feed_1:
+    display_title: Feed
   page_1:
     display_title: Pagina

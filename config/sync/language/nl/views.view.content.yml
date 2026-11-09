@@ -1,4 +1,5 @@
 label: Inhoud
+description: 'Find and manage content.'
 display:
   default:
     display_title: Standaard
@@ -24,6 +25,13 @@ display:
           separator: ', '
         operations:
           label: Bewerkingen
+      pager:
+        options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
       exposed_form:
         options:
           submit_button: Filter
@@ -42,6 +50,7 @@ display:
           expose:
             label: Status
           group_info:
+            label: 'Published status'
             group_items:
               1:
                 title: Gepubliceerd

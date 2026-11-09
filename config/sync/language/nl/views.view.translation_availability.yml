@@ -15,6 +15,11 @@ display:
           label: Status
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page_label: 'Items per pagina'
             items_per_page_options_all_label: '- Alle -'
@@ -39,6 +44,9 @@ display:
         bundle:
           expose:
             label: Inhoudstype
+      header:
+        result:
+          content: 'Displaying @start - @end of @total'
   page:
     display_options:
       menu:

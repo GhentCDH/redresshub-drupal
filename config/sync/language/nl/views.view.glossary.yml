@@ -23,5 +23,7 @@ display:
           exposed_sorts_label: 'Sorteren op'
           sort_asc_label: Oplopend
           sort_desc_label: Aflopend
+  attachment_1:
+    display_title: Attachment
   page_1:
     display_title: Pagina
