@@ -40,6 +40,7 @@
         "drupal/admin_toolbar": "^3.6",
         "drupal/amswap": "^3.3",
         "drupal/better_exposed_filters": "^7.1",
+        "drupal/config_split": "^2",
         "drupal/core-composer-scaffold": "^11.4",
         "drupal/core-project-message": "^11.4",
         "drupal/core-recipe-unpack": "^11.4",
