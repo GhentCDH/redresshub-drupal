@@ -68,6 +68,7 @@
         "drupal/role_delegation": "^1.6",
         "drupal/search_api": "^1.41",
         "drupal/search_api_range_filter": "^1.0",
+        "drupal/smtp": "^1.4",
         "drupal/tagify": "^2.0",
         "drupal/translation_availability": "dev-main",
         "drupal/varnish_purge": "^2.3",

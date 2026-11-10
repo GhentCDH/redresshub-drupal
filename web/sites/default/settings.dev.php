@@ -28,3 +28,8 @@ $settings['skip_permissions_hardening'] = TRUE;
 // The development modules (devel): config/dev, see the config
 // split "Development".
 $config['config_split.config_split.dev']['status'] = TRUE;
+
+// No real mail from a development machine: not through the UGent relay, but
+// through PHP's mail(), which goes nowhere in the container.
+$config['system.mail']['interface']['default'] = 'php_mail';
+$config['system.mail']['interface']['webform'] = 'webform_php_mail';

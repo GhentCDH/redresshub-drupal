@@ -76,6 +76,7 @@ module:
   search_api: 0
   search_api_db: 0
   search_api_range_filter: 0
+  smtp: 0
   system: 0
   tagify: 0
   tagify_link: 0
