@@ -173,12 +173,19 @@ if (getenv('VARNISH_HOST')) {
 /**
  * Reverse proxy configuration
  *
- * Since the application is behind a reverse proxy
+ * Set DRUPAL_REVERSE_PROXY=true when the site runs behind a load balancer
+ * (e.g. Caddy -> nomad-lb) without Varnish. Drupal then takes the public host
+ * and scheme from X-Forwarded-Host/-Proto, so session cookies and absolute
+ * URLs use the public domain instead of the internal vhost. The direct peer is
+ * trusted: the container is only reachable through the load balancer.
  */
-/* $settings['reverse_proxy'] = TRUE; */
-/* $settings['reverse_proxy_addresses'] = [ */
-/*   '172.18.56.0/24', */
-/* ]; */
+if (filter_var(getenv('DRUPAL_REVERSE_PROXY'), FILTER_VALIDATE_BOOLEAN)) {
+  $settings['reverse_proxy'] = TRUE;
+  $settings['reverse_proxy_addresses'] = array_values(array_filter(array_merge(
+    [$_SERVER['REMOTE_ADDR'] ?? NULL],
+    $settings['reverse_proxy_addresses'] ?? []
+  )));
+}
 
 $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED;
 
