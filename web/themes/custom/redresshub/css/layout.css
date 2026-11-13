@@ -26,6 +26,12 @@
   padding-block: 5rem;
 }
 
+/* Something below the content of the page (an overview: the examples, the
+   fragments, the events): space between them. */
+#block-redresshub-content:not(:last-child) {
+  margin-bottom: 5rem;
+}
+
 /* Basic pages (e.g. About, Examples) are wide, with extra space on the left;
    their running text keeps its narrow width (.prose). */
 .page--wide .site-main__inner {
