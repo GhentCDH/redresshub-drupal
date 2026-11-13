@@ -16,16 +16,19 @@ fail() {
 cd /app
 
 # The files directory is a volume: it may be new and empty, or owned by
-# someone else.
+# someone else. On an NFS share root may be squashed: then chown/chmod fail,
+# which is fine as long as the share itself is writable.
 mkdir -p "$FILES_DIR"
-chown application:application "$FILES_DIR"
-chmod 775 "$FILES_DIR"
+chown application:application "$FILES_DIR" 2>/dev/null \
+    || echo "  warning: could not chown $FILES_DIR (NFS root squash?)"
+chmod 775 "$FILES_DIR" 2>/dev/null \
+    || echo "  warning: could not chmod $FILES_DIR (NFS root squash?)"
 # Never run code from uploaded files (Drupal writes this file too, but only
 # once it gets to it).
 if [ ! -f "$FILES_DIR/.htaccess" ]; then
     cp /app/web/sites/default/.htaccess "$FILES_DIR/.htaccess"
-    chown application:application "$FILES_DIR/.htaccess"
-    chmod 644 "$FILES_DIR/.htaccess"
+    chown application:application "$FILES_DIR/.htaccess" 2>/dev/null || true
+    chmod 644 "$FILES_DIR/.htaccess" 2>/dev/null || true
 fi
 
 # Without a database drush only says "Bootstrap failed": say why, and wait
@@ -62,7 +65,8 @@ else
 fi
 
 # drush runs as root: make sure the web server can write generated files
-find "$FILES_DIR" ! -user application -exec chown -h application:application {} +
+find "$FILES_DIR" ! -user application -exec chown -h application:application {} + 2>/dev/null \
+    || echo "  warning: could not chown everything in $FILES_DIR"
 
 # keep search engines out of non-production sites (e.g. staging)
 NOINDEX_CONF=/opt/docker/etc/httpd/conf.d/90-noindex.conf
