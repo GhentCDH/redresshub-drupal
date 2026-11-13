@@ -192,6 +192,9 @@ $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\R
 // Load development settings (Twig debug, no caches) when enabled.
 if (filter_var(getenv('DRUPAL_DEV_SETTINGS'), FILTER_VALIDATE_BOOLEAN)) {
   include $app_root . '/' . $site_path . '/settings.dev.php';
+  $config['config_split.config_split.dev']['status'] = TRUE;
+} else {
+  $config['config_split.config_split.dev']['status'] = FALSE;
 }
 
 // Load local settings if available.
