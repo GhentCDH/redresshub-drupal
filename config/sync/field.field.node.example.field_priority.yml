@@ -1,0 +1,25 @@
+uuid: 6ed26f2f-ba1d-4433-90ee-8bb33997a8f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_priority
+    - node.type.example
+id: node.example.field_priority
+field_name: field_priority
+entity_type: node
+bundle: example
+label: Priority
+description: 'Examples with a higher priority come first in the overview; the others follow, oldest first. Leave 0 for a normal place.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

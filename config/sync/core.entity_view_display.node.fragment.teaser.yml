@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.fragment.field_credit
     - field.field.node.fragment.field_fragment_type
     - field.field.node.fragment.field_media
+    - field.field.node.fragment.field_priority
     - field.field.node.fragment.field_slides
     - field.field.node.fragment.field_text
     - node.type.fragment
@@ -66,6 +67,7 @@ content:
 hidden:
   field_content: true
   field_fragment_type: true
+  field_priority: true
   langcode: true
   links: true
   search_api_excerpt: true

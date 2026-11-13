@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.node.example.field_content
     - field.field.node.example.field_pretitle
+    - field.field.node.example.field_priority
+    - field.field.node.example.field_short_description
     - field.field.node.example.field_title_alignment
     - node.type.example
   module:
@@ -31,6 +33,8 @@ content:
     region: content
 hidden:
   field_pretitle: true
+  field_priority: true
+  field_short_description: true
   field_tabs: true
   field_title_alignment: true
   langcode: true

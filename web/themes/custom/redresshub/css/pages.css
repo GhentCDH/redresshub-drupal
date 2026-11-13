@@ -373,6 +373,63 @@
   line-height: 1.7;
 }
 
+/* Examples: the examples as cards, two or three next to each other. */
+.example-cards > .view-content,
+.example-cards:not(:has(> .view-content)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 1.75rem;
+}
+
+.example-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.example-card .pretitle {
+  margin-bottom: 0.75rem;
+  color: var(--crimson);
+}
+
+.example-card__title {
+  margin-bottom: 0.75rem;
+  font-size: 1.375rem;
+}
+
+.example-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* The whole card is the link. */
+.example-card__title a::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.example-card:hover .example-card__title a {
+  color: var(--crimson);
+}
+
+.example-card__text p {
+  margin: 0;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.example-card .tile-more {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+/* The pencil stays above the link of the card. */
+.example-card .contextual {
+  z-index: 2;
+}
+
 /* The link of a fragment to its page. */
 .tile-more {
   display: inline-block;

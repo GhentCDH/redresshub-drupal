@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.fragment.field_credit
     - field.field.node.fragment.field_fragment_type
     - field.field.node.fragment.field_media
+    - field.field.node.fragment.field_priority
     - field.field.node.fragment.field_slides
     - field.field.node.fragment.field_text
     - node.type.fragment
@@ -22,6 +23,7 @@ third_party_settings:
       children:
         - title
         - field_fragment_type
+        - field_priority
       label: Fragment
       region: content
       parent_name: ''
@@ -109,6 +111,13 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_priority:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_slides:
     type: media_library_widget

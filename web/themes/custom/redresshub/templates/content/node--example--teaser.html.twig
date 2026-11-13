@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * An example as a card in the Examples overview: the pretitle, the title (a
+ * link to the example), the short description and a link to read more.
+ * title_suffix: the pencil to edit the example (contextual links).
+ */
+#}
+<article{{ attributes.addClass('card', 'example-card') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% if node.field_pretitle.value %}
+    <p class="pretitle">{{ node.field_pretitle.value }}</p>
+  {% endif %}
+  <h3 class="example-card__title"><a href="{{ url }}">{{ label }}</a></h3>
+  {% if node.field_short_description.value %}
+    <div class="example-card__text">{{ content.field_short_description }}</div>
+  {% endif %}
+  <a class="tile-more" href="{{ url }}" aria-hidden="true" tabindex="-1">{{ 'Read more'|t }}</a>
+</article>

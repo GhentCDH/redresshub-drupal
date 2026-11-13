@@ -5,12 +5,15 @@ dependencies:
   config:
     - field.field.node.example.field_content
     - field.field.node.example.field_pretitle
+    - field.field.node.example.field_priority
+    - field.field.node.example.field_short_description
     - field.field.node.example.field_title_alignment
     - node.type.example
   module:
     - field_group
     - paragraph_group
     - path
+    - text
 third_party_settings:
   field_group:
     group_content:
@@ -19,7 +22,7 @@ third_party_settings:
       label: 'Main content'
       region: content
       parent_name: ''
-      weight: -99
+      weight: -98
       format_type: details
       format_settings:
         classes: ''
@@ -38,6 +41,23 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: -100
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+    group_overview:
+      children:
+        - field_short_description
+        - field_priority
+      label: 'In the overview'
+      region: content
+      parent_name: ''
+      weight: -99
       format_type: details
       format_settings:
         classes: ''
@@ -85,6 +105,21 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_priority:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_short_description:
+    type: text_textarea
+    weight: 10
+    region: content
+    settings:
+      rows: 3
       placeholder: ''
     third_party_settings: {  }
   field_title_alignment:

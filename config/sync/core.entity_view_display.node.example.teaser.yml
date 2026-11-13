@@ -6,9 +6,12 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.example.field_content
     - field.field.node.example.field_pretitle
+    - field.field.node.example.field_priority
+    - field.field.node.example.field_short_description
     - field.field.node.example.field_title_alignment
     - node.type.example
   module:
+    - text
     - user
 _core:
   default_config_hash: 8BgdRtLbtQ0F__o0FHSH0Mx5fvXOra9tfT1GmNKbRYw
@@ -17,12 +20,20 @@ targetEntityType: node
 bundle: example
 mode: teaser
 content:
+  field_short_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   links:
     weight: 101
     region: content
 hidden:
   field_content: true
   field_pretitle: true
+  field_priority: true
   field_tabs: true
   field_title_alignment: true
   langcode: true

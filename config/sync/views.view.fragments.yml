@@ -39,6 +39,19 @@ display:
         options: {  }
       empty: {  }
       sorts:
+        field_priority_value:
+          id: field_priority_value
+          table: node__field_priority
+          field: field_priority_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
         created:
           id: created
           table: node_field_data
