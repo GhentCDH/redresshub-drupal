@@ -1,10 +1,12 @@
 {#
 /**
  * @file
- * An event in the Moments ahead timeline.
+ * An event in the Moments ahead timeline. title_suffix: the pencil to edit the
+ * event (contextual links).
  */
 #}
 <article{{ attributes.addClass('event') }}>
+  {{ title_prefix }}{{ title_suffix }}
   <p class="event__date has-icon icon--calendar">{{ event_date }}</p>
   <h3 class="event__title">{{ label }}</h3>
   {% if node.field_short_description.value %}
