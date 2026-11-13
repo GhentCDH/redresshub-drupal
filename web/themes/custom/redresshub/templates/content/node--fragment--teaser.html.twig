@@ -10,7 +10,8 @@
  *
  * fragment_type: text, quote, image, audio, video or slideshow; slides: the
  * rendered images of a slideshow; page_url: the page of the fragment, when
- * it has page content. From redresshub_preprocess_node().
+ * it has page content. From redresshub_preprocess_node(). title_suffix: the
+ * pencil to edit the fragment (contextual links).
  */
 #}
 {% set more %}
@@ -20,6 +21,7 @@
 {% endset %}
 {% if fragment_type in ['image', 'video'] %}
   <figure{{ attributes.addClass('tile-photo') }}>
+    {{ title_prefix }}{{ title_suffix }}
     {{ content.field_media }}
     {% if node.field_caption.value or page_url %}
       <figcaption>{{ node.field_caption.value }}{{ more }}</figcaption>
@@ -28,6 +30,7 @@
 {% elseif fragment_type == 'slideshow' and slides %}
   {{ attach_library('redresshub/slideshow') }}
   <figure{{ attributes.addClass('tile-photo', 'tile-slideshow') }}>
+    {{ title_prefix }}{{ title_suffix }}
     <div class="slideshow" aria-roledescription="{{ 'slideshow'|t }}">
       <div class="slideshow__track" tabindex="0">
         {% for slide in slides %}
@@ -46,11 +49,13 @@
   </figure>
 {% elseif fragment_type == 'quote' %}
   <div{{ attributes.addClass('tile-reflection') }}>
+    {{ title_prefix }}{{ title_suffix }}
     <blockquote>{{ content.field_text }}</blockquote>
     {{ more }}
   </div>
 {% elseif fragment_type == 'audio' %}
   <div{{ attributes.addClass('tile-audio') }}>
+    {{ title_prefix }}{{ title_suffix }}
     <h3 style="--icon: url('{{ '/' ~ directory }}/images/icons/volume-2.svg');"><span class="icon" aria-hidden="true"></span>{{ label }}</h3>
     {% if node.field_caption.value %}
       <p>{{ node.field_caption.value }}</p>
@@ -64,6 +69,7 @@
   </div>
 {% else %}
   <div{{ attributes.addClass('tile-text') }}>
+    {{ title_prefix }}{{ title_suffix }}
     {{ content.field_text }}
     {{ more }}
   </div>

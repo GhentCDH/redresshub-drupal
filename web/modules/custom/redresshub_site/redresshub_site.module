@@ -374,6 +374,16 @@ function redresshub_site_node_build_defaults_alter(array &$build, \Drupal\Core\E
 }
 
 /**
+ * Implements hook_ENTITY_TYPE_view_alter() for media.
+ *
+ * A media item is always shown as part of something else (a fragment, a
+ * block of a page): no pencil of its own, so the pencil edits that.
+ */
+function redresshub_site_media_view_alter(array &$build): void {
+  unset($build['#contextual_links']);
+}
+
+/**
  * Implements hook_ENTITY_TYPE_insert() for node.
  */
 function redresshub_site_node_insert(\Drupal\node\NodeInterface $node): void {
