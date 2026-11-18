@@ -176,6 +176,8 @@ function redresshub_preprocess_node(array &$variables): void {
       : '/' . \Drupal::service('extension.list.theme')->getPath('redresshub') . '/images/hero.jpg';
     $variables['explorer'] = _redresshub_explorer();
     $variables['#attached']['library'][] = 'redresshub/explorer';
+    $variables['#attached']['drupalSettings']['redresshubExplorer']['networkKeywords'] = _redresshub_network_keywords();
+    $variables['#cache']['tags'][] = 'node_list';
   }
 
   if (in_array($variables['view_mode'], ['panel', 'tile'], TRUE) && in_array($node->bundle(), ['initiative', 'organisation'], TRUE)) {
@@ -275,6 +277,36 @@ function _redresshub_explorer(): array {
     'view' => views_embed_view($view_id, $display_id),
     'updated' => $last ? \Drupal::service('date.formatter')->format($last->getChangedTime(), 'custom', 'F j, Y') : NULL,
   ];
+}
+
+/**
+ * The keywords the network opens with, one at random (js/explorer-network.js):
+ * those of at least this many published initiatives, so the first network
+ * has links to show.
+ */
+const REDRESSHUB_NETWORK_KEYWORD_MIN = 5;
+
+/**
+ * Returns the IDs of the keywords the network can open with.
+ */
+function _redresshub_network_keywords(): array {
+  $rows = \Drupal::entityQueryAggregate('node')
+    ->accessCheck(TRUE)
+    ->condition('type', 'initiative')
+    ->condition('status', 1)
+    // Each initiative once, not once per translation.
+    ->condition('default_langcode', 1)
+    ->exists('field_keywords')
+    ->groupBy('field_keywords.target_id')
+    ->aggregate('nid', 'COUNT')
+    ->execute();
+  $tids = [];
+  foreach ($rows as $row) {
+    if ($row['nid_count'] >= REDRESSHUB_NETWORK_KEYWORD_MIN) {
+      $tids[] = (int) $row['field_keywords_target_id'];
+    }
+  }
+  return $tids;
 }
 
 /**

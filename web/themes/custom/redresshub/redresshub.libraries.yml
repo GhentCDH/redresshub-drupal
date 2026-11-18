@@ -48,6 +48,7 @@ explorer:
   js:
     js/explorer-ui.js: {}
     js/explorer-filter.js: {}
+    js/explorer-network.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
