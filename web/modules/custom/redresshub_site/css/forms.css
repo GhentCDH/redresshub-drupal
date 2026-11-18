@@ -1146,3 +1146,81 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* The Styles menu of the text editor (the accent colour): a short list, each
+   style a swatch of its colour and its name, instead of CKEditor's big
+   "AaBbCc" previews. CKEditor adds its own styles later (from JavaScript), so
+   these selectors are a little more specific. */
+.ck.ck-style-panel {
+  padding: 0.35rem;
+}
+
+.ck.ck-style-panel .ck-style-panel__style-group > .ck-label {
+  display: none;
+}
+
+.ck.ck-style-panel .ck-style-grid.ck-style-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 11rem;
+}
+
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button,
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:not(:focus) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0.45rem 0.75rem 0.45rem 0.6rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: none;
+  box-shadow: none;
+}
+
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button .ck-style-grid__button__preview {
+  display: none;
+}
+
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button .ck-button__label,
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:not(.ck-on) .ck-button__label,
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:not(.ck-on):hover .ck-button__label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: auto;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  color: #3a3633;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button .ck-button__label::before {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--rh-block-accent);
+  content: "";
+}
+
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:hover,
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:focus {
+  background: var(--rh-block-tint);
+}
+
+/* The style of the selected text: marked, click again to remove it. */
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button.ck-on {
+  background: #f5e6e0;
+}
+
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button.ck-on .ck-button__label {
+  box-shadow: none;
+  color: var(--rh-block-accent-dark);
+  font-weight: 600;
+}
