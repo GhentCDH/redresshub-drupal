@@ -1,0 +1,14 @@
+/**
+ * @file
+ * The styles of the text editor (CKEditor 5), so editors see them as on the
+ * site.
+ */
+
+.text-accent {
+  color: #914853;
+}
+
+strong,
+b {
+  font-weight: 700;
+}

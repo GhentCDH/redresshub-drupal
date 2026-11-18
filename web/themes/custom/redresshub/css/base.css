@@ -84,8 +84,16 @@ img {
   height: auto;
 }
 
-strong {
-  font-weight: 500;
+/* Words in the accent colour (the "Accent colour" style of the text
+   editor). */
+.text-accent {
+  color: var(--crimson);
+}
+
+/* Bold stands out against the regular text (Inter 700). */
+strong,
+b {
+  font-weight: 700;
 }
 
 blockquote {

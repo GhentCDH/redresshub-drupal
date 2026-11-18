@@ -6,6 +6,9 @@ base theme: stable9
 logo: false
 libraries:
   - redresshub/global
+# The styles of the text editor (the accent colour).
+ckeditor5-stylesheets:
+  - css/ckeditor.css
 # The summary of the active filters in the explorer has its own look
 # (css/explorer.css).
 libraries-override:

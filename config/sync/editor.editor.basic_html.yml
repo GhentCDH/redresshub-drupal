@@ -15,6 +15,7 @@ settings:
     items:
       - bold
       - italic
+      - style
       - '|'
       - link
       - '|'
@@ -57,6 +58,12 @@ settings:
         - '<h4 id>'
         - '<h5 id>'
         - '<h6 id>'
+        - '<span>'
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Accent colour'
+          element: '<span class="text-accent">'
 image_upload:
   status: true
   scheme: public
