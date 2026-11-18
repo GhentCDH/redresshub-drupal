@@ -23,6 +23,31 @@
   margin-top: 1.5rem;
 }
 
+/* Headings in a text (the heading menu of the text editor): below the title
+   of the block, so smaller; space above them, close to their text. */
+.prose h3,
+.prose h4 {
+  margin: 2.5rem 0 0.75rem;
+  color: var(--charcoal);
+  font-family: var(--font-serif);
+  line-height: 1.4;
+}
+
+.prose h3 {
+  font-size: 1.375rem;
+  font-weight: 400;
+}
+
+.prose h4 {
+  margin-top: 2rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
 .section {
   margin-top: 4rem;
   padding-top: 2.5rem;

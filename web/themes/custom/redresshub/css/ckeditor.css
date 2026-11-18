@@ -12,3 +12,21 @@ strong,
 b {
   font-weight: 700;
 }
+
+.ck-content h3,
+.ck-content h4 {
+  margin: 1.5rem 0 0.5rem;
+  color: #3a3633;
+  font-family: "Libre Baskerville", Georgia, serif;
+  line-height: 1.4;
+}
+
+.ck-content h3 {
+  font-size: 1.375rem;
+  font-weight: 400;
+}
+
+.ck-content h4 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
