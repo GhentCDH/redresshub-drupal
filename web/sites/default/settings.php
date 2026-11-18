@@ -96,7 +96,11 @@ $settings['trusted_host_patterns'] = array_map(
   explode(',', getenv('DOMAIN') ?: 'localhost')
 );
 
-$config['system.site']['name'] = getenv('DRUPAL_SITE_NAME');
+// The site name from the environment, when given; otherwise the one in the
+// configuration (RedressHub).
+if (getenv('DRUPAL_SITE_NAME')) {
+  $config['system.site']['name'] = getenv('DRUPAL_SITE_NAME');
+}
 
 // The key of the map tiles (CARTO Basemaps), per environment: a key lists
 // the host names it serves, and localhost needs a key of its own.
