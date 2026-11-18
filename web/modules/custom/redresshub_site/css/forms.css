@@ -1148,9 +1148,10 @@
 }
 
 /* The Styles menu of the text editor (the accent colour): a short list, each
-   style a swatch of its colour and its name, instead of CKEditor's big
-   "AaBbCc" previews. CKEditor adds its own styles later (from JavaScript), so
-   these selectors are a little more specific. */
+   style shown as it looks in the text (its name in its colour), instead of
+   CKEditor's big "AaBbCc" previews; the chosen one with a check. CKEditor
+   adds its own styles later (from JavaScript), so these selectors are a
+   little more specific. */
 .ck.ck-style-panel {
   padding: 0.35rem;
 }
@@ -1174,7 +1175,7 @@
   width: 100%;
   height: auto;
   margin: 0;
-  padding: 0.45rem 0.75rem 0.45rem 0.6rem;
+  padding: 0.45rem 0.75rem 0.45rem 1.75rem;
   border: 0;
   border-radius: 0.35rem;
   background: none;
@@ -1187,40 +1188,36 @@
 
 .ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button .ck-button__label,
 .ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:not(.ck-on) .ck-button__label,
-.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:not(.ck-on):hover .ck-button__label {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:not(.ck-on):hover .ck-button__label,
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button.ck-on .ck-button__label {
   height: auto;
   padding: 0;
   background: none;
   box-shadow: none;
-  color: #3a3633;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.4;
 }
 
-.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button .ck-button__label::before {
-  width: 0.85rem;
-  height: 0.85rem;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--rh-block-accent);
-  content: "";
+/* The name as the style looks. */
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:has(.text-accent) .ck-button__label {
+  color: #914853;
 }
 
 .ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:hover,
 .ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button:focus {
-  background: var(--rh-block-tint);
+  background: #f1efed;
 }
 
-/* The style of the selected text: marked, click again to remove it. */
-.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button.ck-on {
-  background: #f5e6e0;
+/* The style of the selected text: a check before it; click again to remove
+   it. */
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button.ck-on::before {
+  position: absolute;
+  left: 0.6rem;
+  color: #3a3633;
+  font-size: 0.875rem;
+  content: "\2713";
 }
 
-.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button.ck-on .ck-button__label {
-  box-shadow: none;
-  color: var(--rh-block-accent-dark);
-  font-weight: 600;
+.ck.ck-style-panel .ck-style-grid .ck-button.ck-style-grid__button {
+  position: relative;
 }
